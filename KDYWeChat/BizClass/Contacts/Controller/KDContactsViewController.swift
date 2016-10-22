@@ -57,34 +57,25 @@ final class KDContactsViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = rightBarItem
-        self.reloadDataArray()
+        self.reloadFriendsDataArray()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // 查询 _User表里的数据
-        let query = AVQuery(className: "_User")
-        query.getObjectInBackgroundWithId(AVUser.currentUser().objectId) { (object, error) in
-            let dic = object.dictionaryForObject()
-            print("dic = \(dic)")
-        }
     }
     
     // MARK: - Public Methods
     /**
      *  获取好友列表
      */
-    func reloadDataArray() {
+    func reloadFriendsDataArray() {
+        let friendsNames = EMClient.sharedClient().contactManager.getContacts()
+        print("friendsName = \(friendsNames)")
         
-        let friendsName = EMClient.sharedClient().contactManager.getContacts()
-        print("friendsName = \(friendsName)")
+        self.loadFrinedsFromLeanCloudWithBuddy(friendsNames)
         
-        EMClient.sharedClient().contactManager.getContactsFromServerWithCompletion { (friends, error) in
-            
-        }
-        
-        for friend in friendsName {
+        for friend in friendsNames {
             let model = ContactModel()
             model.username = friend as? String
             self.contactsDataSource.addObject(model)
@@ -98,7 +89,7 @@ final class KDContactsViewController: UIViewController {
         // 配置分组
         self.configureSections(contactsDataSource)
         
-        self.tableFooterLabel.text = String("\(friendsName.count+1)位联系人")
+        self.tableFooterLabel.text = String("\(friendsNames.count+1)位联系人")
         self.contactsTableView.tableFooterView = self.tableFooterLabel
         
         self.contactsTableView.reloadData()
@@ -201,6 +192,20 @@ final class KDContactsViewController: UIViewController {
     
     func addFrinedAction() {
         
+    }
+    
+    /**
+     *  加载存储在LeanClond中 的好友信息
+     */
+    func loadFrinedsFromLeanCloudWithBuddy(frinedNames: [AnyObject]) {
+        // 查询 _User表里的数据
+        let query = AVQuery(className: "_User")
+        query.getObjectInBackgroundWithId(AVUser.currentUser().objectId) { (object, error) in
+            let dic = object.dictionaryForObject()
+            print("dic = \(dic)")
+        }
+        
+        UserInfoManager.shareInstance.getUserInfoInBackground(frinedNames)
     }
 }
 

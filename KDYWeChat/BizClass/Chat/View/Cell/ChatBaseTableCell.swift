@@ -47,7 +47,7 @@ class ChatBaseTableCell: UITableViewCell {
     
     func setupCellContent(model: ChatModel) {
         self.model = model
-        if model.fromMe {
+        if model.fromMe! {
             let avatarURL = "http://ww3.sinaimg.cn/thumbnail/6a011e49jw1f1e87gcr14j20ks0ksdgr.jpg"
             self.avatarImageView.kf_setImageWithURL(NSURL.init(string: avatarURL))
             
@@ -65,11 +65,11 @@ class ChatBaseTableCell: UITableViewCell {
         
         guard let model = self.model else { return }
         
-        if model.fromMe {  // 自己发送的消息，在右边
+        if model.fromMe! {  // 发送方，在右边
             self.nicknameLabel.height = 0
             self.avatarImageView.left = UIScreen.width - kChatAvatarWidth - kChatAvatarMarginLeft
             
-        } else {  // 接收别人的消息，在左边
+        } else {  // 接收方，在左边
             self.nicknameLabel.height = 0
             self.avatarImageView.left = kChatAvatarMarginLeft
         }

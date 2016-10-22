@@ -8,6 +8,7 @@
 
 /// 会话数据模型
 class MessageModel: NSObject {
+    
     var conversation: EMConversation!
     
     var title: String = ""

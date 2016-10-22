@@ -37,12 +37,16 @@ final class KDChatViewController: UIViewController {
     let disposeBag = DisposeBag()
     var itemDataSouce = NSMutableArray()
     
+    var conversationId: String!
+    var conversation: EMConversation!
+    
+    var messageTimeIntervalTag: Int64?
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         
-        // 添加子视图
         setupChildViews()
         
         // 处理BarView的交互
@@ -51,14 +55,50 @@ final class KDChatViewController: UIViewController {
         // 键盘控制
         keyboardControl()
         
-        // 在第一条数据前，插入一条timeModel
-        let model0 = ChatModel(timestamp: "9-27")
-        let model1 = ChatModel(text: "我是测试，哈哈...我是测试我1234543，哈哈...我是测试我是测试，哈哈...我是测试我是测试，..我是测试我是测试，哈哈...我是测试，哈哈魂牵梦萦fdafdaa dafdas32323##____@#4q56r，哈哈...我是测试，哈哈...我是测试，哈哈...")
-        let model2 = ChatModel(text: "不知道要写什么。。。哈哈，，测试测试。。。")
-        let model3 = ChatModel(text: "今天风实在太大了，头疼！！！[头疼][大笑]000000####%%%%fdaf暮云春树革【|、·1234567")
-        let model4 = ChatModel(text: "000000####%%%%fdaf暮云春树革【|、·1234567")
-        let array = [model0, model1, model2, model3, model4]
-        itemDataSouce.addObjectsFromArray(array)
+        // 加载会话消息
+        loadMessageBefroe(nil, count: 10, append: true)
+    }
+    
+    // MARK: - Public Methods
+    func loadMessageBefroe(messageId: String?, count: Int32, append: Bool) {
+        
+        self.conversation = EMClient.sharedClient().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
+        
+        self.conversation.loadMessagesStartFromId(messageId, count: count, searchDirection: EMMessageSearchDirectionUp) { (aMessages, error) in
+            
+            guard error == nil && aMessages.count > 0 else { return }
+            
+            let lasetMessage = aMessages.last as! EMMessage
+            self.messageTimeIntervalTag = lasetMessage.timestamp
+            
+            for message in aMessages as! [EMMessage] {
+                let interval = (self.messageTimeIntervalTag! - message.timestamp) / 1000
+                
+                if (self.messageTimeIntervalTag < 0 ||
+                                      interval > 60 ||
+                                      interval < -60) {
+                    let seconds = Double(message.timestamp) / 1000
+                    let timeInterval = NSTimeInterval(seconds)
+                    let messageDate: NSDate = NSDate(timeIntervalSinceNow: timeInterval)
+                    
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "MM-dd HH:mm"
+                    let timeString = dateFormatter.stringFromDate(messageDate)
+                    
+                    // 时间间隔超过一分钟，插入数据源中
+                    let timeModel = ChatModel(timestamp: timeString)
+                    self.itemDataSouce.addObject(timeModel)
+                    
+                    self.messageTimeIntervalTag = message.timestamp
+                }
+                
+                // 除了时间，其它的消息数据源
+                let messageModel = ChatModel(message: message)
+                self.itemDataSouce.addObject(messageModel)
+            }
+            
+            self.chatTableView.reloadData()
+        }
     }
 }
 
@@ -69,10 +109,11 @@ extension KDChatViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemDataSouce.count
+        return self.itemDataSouce.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let chatModel = itemDataSouce.objectAtIndex(indexPath.row) as? ChatModel
         guard let type: MessageContentType = chatModel!.messageContentType where chatModel != nil else {
             return ChatBaseTableCell()

@@ -33,7 +33,7 @@ class ChatTimeTableCell: UITableViewCell {
     
     func setupCellContent(model: ChatModel) {
         self.model = model
-        self.timeLabel.text = String(format: "%@", model.messageContent!)
+        self.timeLabel.text = model.timestamp
     }
 }
 

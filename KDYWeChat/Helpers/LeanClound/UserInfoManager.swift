@@ -12,6 +12,9 @@ import AVOSCloud
 /// 用户信息管理类
 class UserInfoManager: NSObject {
     
+    let users: NSMutableDictionary = [:]
+    let kCurrentUsername = AVUser.currentUser().username
+    
     static let shareInstance = UserInfoManager()
     private override init() {
         super.init()
@@ -59,10 +62,21 @@ class UserInfoManager: NSObject {
      */
     
     /**
-     *  获取好友列表信息
+     *  获取用户信息 by frineds
      */
-    func getUserInBackgroundWithFriends(friends: NSMutableArray, success: successAction, failure: failureAction) {
+    func getUserInfoInBackgroundWithFriends(friends: [AnyObject], success: successAction, failure: failureAction) {
         
+    }
+    
+    /**
+     *  获取用户信息 by username
+     */
+    func getUserInfoInBackground(usenames: [AnyObject]) {
+        let query = AVQuery(className: "_User")
+        query.whereKey(kCurrentUsername, containedIn: usenames)
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            
+        }
     }
     
     // MARK: - Private Methods

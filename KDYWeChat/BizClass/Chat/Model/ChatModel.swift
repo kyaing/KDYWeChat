@@ -40,14 +40,28 @@ enum MessageFromType: String {
 /// 聊天数据模型
 class ChatModel: NSObject {
     
-    var chatSendId : String?        // 发送人 ID
-    var chatReceiveId : String?     // 接受人 ID
-    var messageContent : String?    // 消息内容
-    var messageId : String?         // 消息 ID
+    var message: EMMessage!
+    var messageType: EMChatType!
+    var bodyType: EMMessageBodyType!
+    var firstMessageBody: EMMessageBody!
+    var messageStatus: EMMessageStatus!
+
+    var chatSendId : String!        // 发送人 ID
+    var chatReceiveId : String!     // 接受人 ID
+    var messageContent : String!    // 消息内容
+    
+    var messageId : String {        // 消息 ID
+        return self.message.messageId
+    }
+    
+    var nickname: String?           // 昵称
+    var avatarImage: UIImage?       // 头像
+    
     var messageContentType : MessageContentType = .Text //消息内容的类型
     var timestamp : String?         // 同 publishTimestamp
     var messageFromType : MessageFromType = .Group
-    var fromMe : Bool = true        // 区分发送者接收者
+    
+    var fromMe : Bool!             // 区分发送者接收者
     
     // 富文本相关(YYLabel)
     var textLayout: YYTextLayout?
@@ -63,18 +77,30 @@ class ChatModel: NSObject {
     // 自定义时间 TimeModel
     init(timestamp: String) {
         super.init()
+        
         self.timestamp = timestamp
-        self.messageContent = "2016-9-27"
         self.messageContentType = .Time
     }
     
-    // 自定义发送文本的 ChatModel
-    init(text: String) {
+    init(message: EMMessage) {
         super.init()
-        self.timestamp = "2016-9-26"
-        self.messageContent = text
-        self.messageContentType = .Text
-        self.chatSendId = "chatSendId"
+        
+        self.message = message
+        self.firstMessageBody = message.body
+        
+        self.nickname = message.from
+        self.fromMe = (message.direction == EMMessageDirectionSend) ? true : false
+        
+        switch self.firstMessageBody.type {
+        case EMMessageBodyTypeText:
+            self.messageContentType = .Text
+            
+            let textBody = firstMessageBody as! EMTextMessageBody
+            self.messageContent = textBody.text
+            
+        default:
+            break
+        }
     }
 }
 

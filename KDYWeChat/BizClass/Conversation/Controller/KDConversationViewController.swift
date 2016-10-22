@@ -212,10 +212,16 @@ extension KDConversationViewController: UITableViewDataSource {
         
         cell.avatorImageView.image  = model.avatarImage
         let unreadMessageCount = model.conversation.unreadMessagesCount
-        cell.unReadMsgLabel.text = String(unreadMessageCount)
-        // 气泡大小的处理，要优化
-        if unreadMessageCount > 9 {
-            cell.unReadMsgLabel.font = UIFont.systemFontOfSize(11)
+        
+        if unreadMessageCount > 0 {
+            cell.unReadMsgLabel.text = String(unreadMessageCount)
+            
+            // 气泡大小的处理，要优化
+            if unreadMessageCount > 9 {
+                cell.unReadMsgLabel.font = UIFont.systemFontOfSize(11)
+            }
+        } else {
+            cell.unReadMsgLabel.hidden = true
         }
         
         cell.userNameLabel.text     = model.title
@@ -231,8 +237,11 @@ extension KDConversationViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let model = self.messageDataSource.objectAtIndex(indexPath.row) as! MessageModel
+    
         let chatController = KDChatViewController()
-        chatController.title = "消息"
+        chatController.conversationId = model.conversation.conversationId
+        chatController.title = model.title
         self.ky_pushAndHideTabbar(chatController)
     }
     

@@ -66,7 +66,7 @@ class ChatTextTableCell: ChatBaseTableCell {
         }
         
         // 拉伸气泡图片
-        let stretchImage = model.fromMe ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
+        let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
         let bubbleImage = stretchImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
         self.bubbleImageView.image = bubbleImage
         
@@ -78,9 +78,9 @@ class ChatTextTableCell: ChatBaseTableCell {
         super.layoutSubviews()
         
         guard let model = self.model else { return }
-
         self.contentLabel.size = model.textLayout!.textBoundingSize
-        if model.fromMe {
+        
+        if model.fromMe! {
             // value = 屏幕宽 - 头像的边距10 - 头像宽 - 气泡距离头像的 gap 值 - (文字宽 - 2倍的文字和气泡的左右距离 , 或者是最小的气泡图片距离)
             self.bubbleImageView.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft - max(self.contentLabel.width + kChatBubbleWidthBuffer, kChatBubbleImageViewWidth)
             
@@ -114,7 +114,8 @@ class ChatTextTableCell: ChatBaseTableCell {
         }
         
         // 解析富文本
-        let attributedString: NSMutableAttributedString = TSChatTextParser.parseText(model.messageContent!, font: kChatTextFont)!
+        let bodyText = (model.message?.body as! EMTextMessageBody).text
+        let attributedString: NSMutableAttributedString = TSChatTextParser.parseText(bodyText, font: kChatTextFont)!
         model.textAttributedString = attributedString
         
         // 初始化排版布局对象
