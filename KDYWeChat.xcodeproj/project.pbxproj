@@ -1,0 +1,1465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA31D92569200E5F6F7 /* ChatBarButton.swift */; };
+		04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */; };
+		04109BA81D9265C100E5F6F7 /* KDChatViewController+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */; };
+		04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */; };
+		04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */; };
+		04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */; };
+		04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */; };
+		042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */; };
+		042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6F1D9E35630096CDF2 /* MessageModel.swift */; };
+		042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE721D9E35630096CDF2 /* MessageTableCell.swift */; };
+		042FFE771D9E35630096CDF2 /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFE731D9E35630096CDF2 /* MessageTableCell.xib */; };
+		042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE791D9E394E0096CDF2 /* Macro.swift */; };
+		044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620361DB0CAF5001D13B1 /* CoreTelephony.framework */; };
+		044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620381DB0CAFF001D13B1 /* CoreLocation.framework */; };
+		047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047263271D8FC43D00D9380C /* ChatShareMoreView.swift */; };
+		0472632A1D8FC60100D9380C /* ChatShareMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047263291D8FC60100D9380C /* ChatShareMoreView.xib */; };
+		0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472632B1D8FC64200D9380C /* ChatEmotionView.swift */; };
+		0472632E1D8FC66A00D9380C /* ChatEmotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0472632D1D8FC66A00D9380C /* ChatEmotionView.xib */; };
+		047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472632F1D8FCAB600D9380C /* ChatShareCollectionCell.swift */; };
+		047263321D8FCAB600D9380C /* ChatShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */; };
+		0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0475467E1D9E7415008076F1 /* NSDate+Extension.swift */; };
+		047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047546831DA8E38A008076F1 /* EaseSDKHelper.swift */; };
+		047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF31D9E187000022544 /* AppDelegate.swift */; };
+		047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */; };
+		047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */; };
+		0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */; };
+		048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559181D99273B001A076A /* UIScreen+Frame.swift */; };
+		0485591B1D9A0B81001A076A /* TSChatTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485591A1D9A0B81001A076A /* TSChatTextParser.swift */; };
+		0485591D1D9A0BBB001A076A /* TSChatEmojiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485591C1D9A0BBB001A076A /* TSChatEmojiDictionary.swift */; };
+		0485591F1D9A0C14001A076A /* Expression.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0485591E1D9A0C14001A076A /* Expression.bundle */; };
+		048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559201D9A1E27001A076A /* ChatTimeTableCell.swift */; };
+		048559231D9A1E27001A076A /* ChatTimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048559211D9A1E27001A076A /* ChatTimeTableCell.xib */; };
+		048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D477E1DB76A8000BDE27D /* UIViewController+Proposer.swift */; };
+		048D47821DB8735C00BDE27D /* KDAddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D47801DB8735C00BDE27D /* KDAddFriendViewController.swift */; };
+		048D47831DB8735C00BDE27D /* KDAddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048D47811DB8735C00BDE27D /* KDAddFriendViewController.xib */; };
+		048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */; };
+		048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E1CE91DB4A3340049571C /* KDSettingViewController.swift */; };
+		048E1CEC1DB4A3340049571C /* KDSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */; };
+		049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */; };
+		049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */; };
+		049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */; };
+		049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */; };
+		049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */; };
+		04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */; };
+		04B45B0A1DB5C67E005C7A83 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B091DB5C67E005C7A83 /* ContactModel.swift */; };
+		04B45B101DB60E12005C7A83 /* ContactsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */; };
+		04B45B111DB60E12005C7A83 /* ContactsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B45B0F1DB60E12005C7A83 /* ContactsTableCell.xib */; };
+		04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B191DB620C0005C7A83 /* KDNewFriendsViewController.swift */; };
+		04B45B1C1DB620C0005C7A83 /* KDNewFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B45B1A1DB620C0005C7A83 /* KDNewFriendsViewController.xib */; };
+		04B45B231DB62438005C7A83 /* KDPersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B211DB62438005C7A83 /* KDPersonInfoViewController.swift */; };
+		04B6B1F91D98BD3B00BCBDE7 /* ChatTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B1F71D98BD3B00BCBDE7 /* ChatTextTableCell.swift */; };
+		04B6B1FA1D98BD3B00BCBDE7 /* ChatTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B1F81D98BD3B00BCBDE7 /* ChatTextTableCell.xib */; };
+		04B6B1FD1D98BDB300BCBDE7 /* ChatAudioTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B1FB1D98BDB300BCBDE7 /* ChatAudioTableCell.swift */; };
+		04B6B1FE1D98BDB300BCBDE7 /* ChatAudioTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B1FC1D98BDB300BCBDE7 /* ChatAudioTableCell.xib */; };
+		04B6B2011D98BDE400BCBDE7 /* ChatImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B1FF1D98BDE400BCBDE7 /* ChatImageTableCell.swift */; };
+		04B6B2021D98BDE400BCBDE7 /* ChatImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2001D98BDE400BCBDE7 /* ChatImageTableCell.xib */; };
+		04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B2031D98BE0A00BCBDE7 /* ChatLocationTableCell.swift */; };
+		04B6B2061D98BE0A00BCBDE7 /* ChatLocationTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2041D98BE0A00BCBDE7 /* ChatLocationTableCell.xib */; };
+		04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */; };
+		04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */; };
+		04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */; };
+		04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */; };
+		04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */; };
+		04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */; };
+		0F14BC22BF7D951731B7F2E7 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */; };
+		180F3BC71D8BDB7100D79668 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BC61D8BDB7100D79668 /* CoreMedia.framework */; };
+		180F3BC91D8BDB8E00D79668 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */; };
+		180F3BCB1D8BDBA200D79668 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BCA1D8BDBA200D79668 /* AVFoundation.framework */; };
+		180F3BCD1D8BDBAC00D79668 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BCC1D8BDBAC00D79668 /* MobileCoreServices.framework */; };
+		180F3BCF1D8BDBB500D79668 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BCE1D8BDBB500D79668 /* ImageIO.framework */; };
+		180F3BD11D8BDBBE00D79668 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD01D8BDBBE00D79668 /* libz.tbd */; };
+		180F3BD31D8BDBD400D79668 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD21D8BDBD400D79668 /* libc++.tbd */; };
+		180F3BD51D8BDBDB00D79668 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD41D8BDBDB00D79668 /* libstdc++.6.0.9.tbd */; };
+		180F3BD71D8BDBE400D79668 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD61D8BDBE400D79668 /* libsqlite3.tbd */; };
+		1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833DCCD1DB34F20008B036B /* MeHeaderTableCell.swift */; };
+		1833DCD01DB34F20008B036B /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1833DCCE1DB34F20008B036B /* MeHeaderTableCell.xib */; };
+		1833DCD51DB3788C008B036B /* KDMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833DCD31DB3788C008B036B /* KDMeViewController.swift */; };
+		1833DCDB1DB37AFF008B036B /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1833DCD91DB37AFF008B036B /* Me.storyboard */; };
+		1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833DCDC1DB665E8008B036B /* KDEditInfoViewController.swift */; };
+		1838A6691DAFC34D0019A8AD /* KDRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838A6671DAFC34D0019A8AD /* KDRegisterViewController.swift */; };
+		1838A66A1DAFC34D0019A8AD /* KDRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1838A6681DAFC34D0019A8AD /* KDRegisterViewController.xib */; };
+		18452CBC1D819E9100D4B2BE /* KDYWeChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18452CBB1D819E9100D4B2BE /* KDYWeChatTests.swift */; };
+		18452CC71D819E9100D4B2BE /* KDYWeChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18452CC61D819E9100D4B2BE /* KDYWeChatUITests.swift */; };
+		1845A94D1D83D1AB008BD883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1845A9481D83D1AB008BD883 /* Main.storyboard */; };
+		1845A94E1D83D1AB008BD883 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1845A94A1D83D1AB008BD883 /* Info.plist */; };
+		1845A94F1D83D1AB008BD883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845A94B1D83D1AB008BD883 /* Assets.xcassets */; };
+		1845A9571D83DD86008BD883 /* KDDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9561D83DD86008BD883 /* KDDiscoveryViewController.swift */; };
+		1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A95C1D83E05A008BD883 /* KDTabBarController.swift */; };
+		1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */; };
+		1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9611D83E9BA008BD883 /* UIView+Frame.swift */; };
+		1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */; };
+		184D71471D96B7C30000B923 /* KDChatViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D71461D96B7C30000B923 /* KDChatViewController+Delegate.swift */; };
+		188B05611D85306200393752 /* KDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B05601D85306200393752 /* KDNavigationController.swift */; };
+		18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */; };
+		18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D211D94268600F52F1E /* ChatBarButton+UI.swift */; };
+		189E885C1D8D65F30007C9A5 /* EMClient.h in Sources */ = {isa = PBXBuildFile; fileRef = 180F3BE21D8BDC6300D79668 /* EMClient.h */; };
+		189E885D1D8D65F30007C9A5 /* EMOptions.h in Sources */ = {isa = PBXBuildFile; fileRef = 180F3BF31D8BDC6300D79668 /* EMOptions.h */; };
+		189E885E1D8D665E0007C9A5 /* libHyphenateFullSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3C011D8BDC6300D79668 /* libHyphenateFullSDK.a */; };
+		189E88601D8D66C50007C9A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */; };
+		189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E88611D8D66DD0007C9A5 /* libiconv.tbd */; };
+		189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E88651D9028090007C9A5 /* UIView+Nib.swift */; };
+		18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */; };
+		18ABF81A1D995C6B00F305EB /* TSYYTextLinePositionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF8191D995C6B00F305EB /* TSYYTextLinePositionModifier.swift */; };
+		18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */; };
+		18F878DF1DB1EF3C00A32BF0 /* NSString+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		18452CB81D819E9100D4B2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18452C9B1D819E9100D4B2BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18452CA21D819E9100D4B2BE;
+			remoteInfo = KDYWeChat;
+		};
+		18452CC31D819E9100D4B2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18452C9B1D819E9100D4B2BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18452CA21D819E9100D4B2BE;
+			remoteInfo = KDYWeChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		04109BA31D92569200E5F6F7 /* ChatBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBarButton.swift; sourceTree = "<group>"; };
+		04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+SubViews.swift"; sourceTree = "<group>"; };
+		04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatCells.swift"; sourceTree = "<group>"; };
+		04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
+		04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
+		04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ChatAdditions.swift"; sourceTree = "<group>"; };
+		042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConversationViewController.swift; sourceTree = "<group>"; };
+		042FFE6F1D9E35630096CDF2 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		042FFE721D9E35630096CDF2 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
+		042FFE731D9E35630096CDF2 /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
+		042FFE791D9E394E0096CDF2 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		044620361DB0CAF5001D13B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		044620381DB0CAFF001D13B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		047263271D8FC43D00D9380C /* ChatShareMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatShareMoreView.swift; sourceTree = "<group>"; };
+		047263291D8FC60100D9380C /* ChatShareMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShareMoreView.xib; sourceTree = "<group>"; };
+		0472632B1D8FC64200D9380C /* ChatEmotionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatEmotionView.swift; sourceTree = "<group>"; };
+		0472632D1D8FC66A00D9380C /* ChatEmotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatEmotionView.xib; sourceTree = "<group>"; };
+		0472632F1D8FCAB600D9380C /* ChatShareCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatShareCollectionCell.swift; sourceTree = "<group>"; };
+		047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShareCollectionCell.xib; sourceTree = "<group>"; };
+		0475467E1D9E7415008076F1 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		047546831DA8E38A008076F1 /* EaseSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSDKHelper.swift; sourceTree = "<group>"; };
+		047F8EF31D9E187000022544 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeanCloud.swift"; sourceTree = "<group>"; };
+		047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+EaseSDK.swift"; sourceTree = "<group>"; };
+		0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorityManager.swift; sourceTree = "<group>"; };
+		048559181D99273B001A076A /* UIScreen+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Frame.swift"; sourceTree = "<group>"; };
+		0485591A1D9A0B81001A076A /* TSChatTextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatTextParser.swift; sourceTree = "<group>"; };
+		0485591C1D9A0BBB001A076A /* TSChatEmojiDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChatEmojiDictionary.swift; sourceTree = "<group>"; };
+		0485591E1D9A0C14001A076A /* Expression.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Expression.bundle; sourceTree = "<group>"; };
+		048559201D9A1E27001A076A /* ChatTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTimeTableCell.swift; sourceTree = "<group>"; };
+		048559211D9A1E27001A076A /* ChatTimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTimeTableCell.xib; sourceTree = "<group>"; };
+		048D477E1DB76A8000BDE27D /* UIViewController+Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Proposer.swift"; sourceTree = "<group>"; };
+		048D47801DB8735C00BDE27D /* KDAddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDAddFriendViewController.swift; sourceTree = "<group>"; };
+		048D47811DB8735C00BDE27D /* KDAddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDAddFriendViewController.xib; sourceTree = "<group>"; };
+		048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
+		048E1CE91DB4A3340049571C /* KDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
+		048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDSettingViewController.xib; sourceTree = "<group>"; };
+		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
+		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
+		049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBaseTableCell.swift; sourceTree = "<group>"; };
+		049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
+		049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatBottomBarView.xib; sourceTree = "<group>"; };
+		04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDContactsViewController.swift; sourceTree = "<group>"; };
+		04B45B091DB5C67E005C7A83 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableCell.swift; sourceTree = "<group>"; };
+		04B45B0F1DB60E12005C7A83 /* ContactsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsTableCell.xib; sourceTree = "<group>"; };
+		04B45B191DB620C0005C7A83 /* KDNewFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNewFriendsViewController.swift; sourceTree = "<group>"; };
+		04B45B1A1DB620C0005C7A83 /* KDNewFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDNewFriendsViewController.xib; sourceTree = "<group>"; };
+		04B45B211DB62438005C7A83 /* KDPersonInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonInfoViewController.swift; sourceTree = "<group>"; };
+		04B6B1F71D98BD3B00BCBDE7 /* ChatTextTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTextTableCell.swift; sourceTree = "<group>"; };
+		04B6B1F81D98BD3B00BCBDE7 /* ChatTextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTextTableCell.xib; sourceTree = "<group>"; };
+		04B6B1FB1D98BDB300BCBDE7 /* ChatAudioTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAudioTableCell.swift; sourceTree = "<group>"; };
+		04B6B1FC1D98BDB300BCBDE7 /* ChatAudioTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatAudioTableCell.xib; sourceTree = "<group>"; };
+		04B6B1FF1D98BDE400BCBDE7 /* ChatImageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatImageTableCell.swift; sourceTree = "<group>"; };
+		04B6B2001D98BDE400BCBDE7 /* ChatImageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatImageTableCell.xib; sourceTree = "<group>"; };
+		04B6B2031D98BE0A00BCBDE7 /* ChatLocationTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLocationTableCell.swift; sourceTree = "<group>"; };
+		04B6B2041D98BE0A00BCBDE7 /* ChatLocationTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatLocationTableCell.xib; sourceTree = "<group>"; };
+		04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRedEnvelopeCell.swift; sourceTree = "<group>"; };
+		04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRedEnvelopeCell.xib; sourceTree = "<group>"; };
+		04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		04FEF9CD1DAA37E6001812D1 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		04FEF9CF1DAA37E6001812D1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYWeChatHelper.swift; sourceTree = "<group>"; };
+		16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.release.xcconfig"; sourceTree = "<group>"; };
+		180F3BC61D8BDB7100D79668 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		180F3BCA1D8BDBA200D79668 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		180F3BCC1D8BDBAC00D79668 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		180F3BCE1D8BDBB500D79668 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		180F3BD01D8BDBBE00D79668 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		180F3BD21D8BDBD400D79668 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		180F3BD41D8BDBDB00D79668 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		180F3BD61D8BDBE400D79668 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		180F3BDA1D8BDC6300D79668 /* EMCallLocalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallLocalView.h; sourceTree = "<group>"; };
+		180F3BDB1D8BDC6300D79668 /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
+		180F3BDC1D8BDC6300D79668 /* EMCallRemoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallRemoteView.h; sourceTree = "<group>"; };
+		180F3BDD1D8BDC6300D79668 /* EMCallSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallSession.h; sourceTree = "<group>"; };
+		180F3BDE1D8BDC6300D79668 /* EMChatManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMChatManagerDelegate.h; sourceTree = "<group>"; };
+		180F3BDF1D8BDC6300D79668 /* EMChatroom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMChatroom.h; sourceTree = "<group>"; };
+		180F3BE01D8BDC6300D79668 /* EMChatroomManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMChatroomManagerDelegate.h; sourceTree = "<group>"; };
+		180F3BE11D8BDC6300D79668 /* EMClient+Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMClient+Call.h"; sourceTree = "<group>"; };
+		180F3BE21D8BDC6300D79668 /* EMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMClient.h; sourceTree = "<group>"; };
+		180F3BE31D8BDC6300D79668 /* EMClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMClientDelegate.h; sourceTree = "<group>"; };
+		180F3BE41D8BDC6300D79668 /* EMCmdMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCmdMessageBody.h; sourceTree = "<group>"; };
+		180F3BE51D8BDC6300D79668 /* EMContactManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMContactManagerDelegate.h; sourceTree = "<group>"; };
+		180F3BE61D8BDC6300D79668 /* EMConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMConversation.h; sourceTree = "<group>"; };
+		180F3BE71D8BDC6300D79668 /* EMCursorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCursorResult.h; sourceTree = "<group>"; };
+		180F3BE81D8BDC6300D79668 /* EMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMError.h; sourceTree = "<group>"; };
+		180F3BE91D8BDC6300D79668 /* EMErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorCode.h; sourceTree = "<group>"; };
+		180F3BEA1D8BDC6300D79668 /* EMFileMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFileMessageBody.h; sourceTree = "<group>"; };
+		180F3BEB1D8BDC6300D79668 /* EMGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMGroup.h; sourceTree = "<group>"; };
+		180F3BEC1D8BDC6300D79668 /* EMGroupManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMGroupManagerDelegate.h; sourceTree = "<group>"; };
+		180F3BED1D8BDC6300D79668 /* EMGroupOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMGroupOptions.h; sourceTree = "<group>"; };
+		180F3BEE1D8BDC6300D79668 /* EMImageMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMImageMessageBody.h; sourceTree = "<group>"; };
+		180F3BEF1D8BDC6300D79668 /* EMLocationMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMLocationMessageBody.h; sourceTree = "<group>"; };
+		180F3BF01D8BDC6300D79668 /* EMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMessage.h; sourceTree = "<group>"; };
+		180F3BF11D8BDC6300D79668 /* EMMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMessageBody.h; sourceTree = "<group>"; };
+		180F3BF21D8BDC6300D79668 /* EMOptions+PrivateDeploy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMOptions+PrivateDeploy.h"; sourceTree = "<group>"; };
+		180F3BF31D8BDC6300D79668 /* EMOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMOptions.h; sourceTree = "<group>"; };
+		180F3BF41D8BDC6300D79668 /* EMPushOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMPushOptions.h; sourceTree = "<group>"; };
+		180F3BF51D8BDC6300D79668 /* EMSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSDK.h; sourceTree = "<group>"; };
+		180F3BF61D8BDC6300D79668 /* EMSDKFull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSDKFull.h; sourceTree = "<group>"; };
+		180F3BF71D8BDC6300D79668 /* EMTextMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMTextMessageBody.h; sourceTree = "<group>"; };
+		180F3BF81D8BDC6300D79668 /* EMVideoMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVideoMessageBody.h; sourceTree = "<group>"; };
+		180F3BF91D8BDC6300D79668 /* EMVoiceMessageBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVoiceMessageBody.h; sourceTree = "<group>"; };
+		180F3BFA1D8BDC6300D79668 /* IEMCallManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEMCallManager.h; sourceTree = "<group>"; };
+		180F3BFB1D8BDC6300D79668 /* IEMChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEMChatManager.h; sourceTree = "<group>"; };
+		180F3BFC1D8BDC6300D79668 /* IEMChatroomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEMChatroomManager.h; sourceTree = "<group>"; };
+		180F3BFD1D8BDC6300D79668 /* IEMContactManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEMContactManager.h; sourceTree = "<group>"; };
+		180F3BFE1D8BDC6300D79668 /* IEMGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEMGroupManager.h; sourceTree = "<group>"; };
+		180F3BFF1D8BDC6300D79668 /* OpenGLView20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView20.h; sourceTree = "<group>"; };
+		180F3C011D8BDC6300D79668 /* libHyphenateFullSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHyphenateFullSDK.a; sourceTree = "<group>"; };
+		1833DCCD1DB34F20008B036B /* MeHeaderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHeaderTableCell.swift; sourceTree = "<group>"; };
+		1833DCCE1DB34F20008B036B /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
+		1833DCD31DB3788C008B036B /* KDMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMeViewController.swift; sourceTree = "<group>"; };
+		1833DCDA1DB37AFF008B036B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Me.storyboard; sourceTree = "<group>"; };
+		1833DCDC1DB665E8008B036B /* KDEditInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDEditInfoViewController.swift; sourceTree = "<group>"; };
+		1838A6671DAFC34D0019A8AD /* KDRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDRegisterViewController.swift; sourceTree = "<group>"; };
+		1838A6681DAFC34D0019A8AD /* KDRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDRegisterViewController.xib; sourceTree = "<group>"; };
+		18452CA31D819E9100D4B2BE /* KDYWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDYWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18452CB71D819E9100D4B2BE /* KDYWeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDYWeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18452CBB1D819E9100D4B2BE /* KDYWeChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatTests.swift; sourceTree = "<group>"; };
+		18452CBD1D819E9100D4B2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18452CC21D819E9100D4B2BE /* KDYWeChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDYWeChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18452CC61D819E9100D4B2BE /* KDYWeChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatUITests.swift; sourceTree = "<group>"; };
+		18452CC81D819E9100D4B2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1845A9491D83D1AB008BD883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		1845A94A1D83D1AB008BD883 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1845A94B1D83D1AB008BD883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1845A9561D83DD86008BD883 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
+		1845A95C1D83E05A008BD883 /* KDTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTabBarController.swift; sourceTree = "<group>"; };
+		1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		1845A9611D83E9BA008BD883 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		184D71461D96B7C30000B923 /* KDChatViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Delegate.swift"; sourceTree = "<group>"; };
+		1869968E1D8D3DC5008D57B1 /* KDYWeChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDYWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		188B05601D85306200393752 /* KDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNavigationController.swift; sourceTree = "<group>"; };
+		18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatBarView.swift"; sourceTree = "<group>"; };
+		18953D211D94268600F52F1E /* ChatBarButton+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatBarButton+UI.swift"; sourceTree = "<group>"; };
+		189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		189E88611D8D66DD0007C9A5 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		189E88651D9028090007C9A5 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		18ABF8191D995C6B00F305EB /* TSYYTextLinePositionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSYYTextLinePositionModifier.swift; sourceTree = "<group>"; };
+		18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatViewController.swift; sourceTree = "<group>"; };
+		18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Validate.swift"; sourceTree = "<group>"; };
+		E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KDYWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18452CA01D819E9100D4B2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */,
+				189E885E1D8D665E0007C9A5 /* libHyphenateFullSDK.a in Frameworks */,
+				180F3BD71D8BDBE400D79668 /* libsqlite3.tbd in Frameworks */,
+				180F3BD51D8BDBDB00D79668 /* libstdc++.6.0.9.tbd in Frameworks */,
+				180F3BD31D8BDBD400D79668 /* libc++.tbd in Frameworks */,
+				180F3BD11D8BDBBE00D79668 /* libz.tbd in Frameworks */,
+				044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */,
+				044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */,
+				189E88601D8D66C50007C9A5 /* SystemConfiguration.framework in Frameworks */,
+				180F3BCF1D8BDBB500D79668 /* ImageIO.framework in Frameworks */,
+				180F3BCD1D8BDBAC00D79668 /* MobileCoreServices.framework in Frameworks */,
+				180F3BCB1D8BDBA200D79668 /* AVFoundation.framework in Frameworks */,
+				180F3BC91D8BDB8E00D79668 /* AudioToolbox.framework in Frameworks */,
+				180F3BC71D8BDB7100D79668 /* CoreMedia.framework in Frameworks */,
+				0F14BC22BF7D951731B7F2E7 /* Pods_KDYWeChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18452CB41D819E9100D4B2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18452CBF1D819E9100D4B2BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		042FFE6B1D9E35630096CDF2 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				042FFE6E1D9E35630096CDF2 /* Model */,
+				042FFE701D9E35630096CDF2 /* View */,
+				042FFE6C1D9E35630096CDF2 /* Controller */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		042FFE6C1D9E35630096CDF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		042FFE6E1D9E35630096CDF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				042FFE6F1D9E35630096CDF2 /* MessageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		042FFE701D9E35630096CDF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049234CD1DAE422800FD0B29 /* titleView */,
+				042FFE711D9E35630096CDF2 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		042FFE711D9E35630096CDF2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				042FFE721D9E35630096CDF2 /* MessageTableCell.swift */,
+				042FFE731D9E35630096CDF2 /* MessageTableCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		042FFE781D9E393F0096CDF2 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				042FFE791D9E394E0096CDF2 /* Macro.swift */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		047546821DA8E38A008076F1 /* EaseSDK */ = {
+			isa = PBXGroup;
+			children = (
+				04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */,
+				047546831DA8E38A008076F1 /* EaseSDKHelper.swift */,
+			);
+			path = EaseSDK;
+			sourceTree = "<group>";
+		};
+		047F8EF21D9E187000022544 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				047F8EF31D9E187000022544 /* AppDelegate.swift */,
+				047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */,
+				047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0480DCEA1DB71FF900129EC4 /* Authority */ = {
+			isa = PBXGroup;
+			children = (
+				0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */,
+			);
+			path = Authority;
+			sourceTree = "<group>";
+		};
+		049234CD1DAE422800FD0B29 /* titleView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = titleView;
+			sourceTree = "<group>";
+		};
+		049234CE1DAF32EF00FD0B29 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				049234D01DAF330F00FD0B29 /* Model */,
+				049234D61DAF389100FD0B29 /* ViewModel */,
+				049234D11DAF330F00FD0B29 /* View */,
+				049234CF1DAF330F00FD0B29 /* Controller */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		049234CF1DAF330F00FD0B29 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */,
+				1838A6671DAFC34D0019A8AD /* KDRegisterViewController.swift */,
+				049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */,
+				1838A6681DAFC34D0019A8AD /* KDRegisterViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		049234D01DAF330F00FD0B29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		049234D11DAF330F00FD0B29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049234D61DAF389100FD0B29 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		049234D71DAF4C3700FD0B29 /* LeanClound */ = {
+			isa = PBXGroup;
+			children = (
+				048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */,
+			);
+			path = LeanClound;
+			sourceTree = "<group>";
+		};
+		049CCDC61D8F95E300CC6394 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				04109BA31D92569200E5F6F7 /* ChatBarButton.swift */,
+				18953D211D94268600F52F1E /* ChatBarButton+UI.swift */,
+				049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */,
+				0472632B1D8FC64200D9380C /* ChatEmotionView.swift */,
+				047263271D8FC43D00D9380C /* ChatShareMoreView.swift */,
+				049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */,
+				0472632D1D8FC66A00D9380C /* ChatEmotionView.xib */,
+				047263291D8FC60100D9380C /* ChatShareMoreView.xib */,
+			);
+			path = Bar;
+			sourceTree = "<group>";
+		};
+		04B45B001DB4D7FD005C7A83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */,
+				04B45B191DB620C0005C7A83 /* KDNewFriendsViewController.swift */,
+				048D47801DB8735C00BDE27D /* KDAddFriendViewController.swift */,
+				04B45B1A1DB620C0005C7A83 /* KDNewFriendsViewController.xib */,
+				048D47811DB8735C00BDE27D /* KDAddFriendViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04B45B021DB4D7FD005C7A83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04B45B091DB5C67E005C7A83 /* ContactModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04B45B031DB4D7FD005C7A83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B45B0D1DB60E12005C7A83 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04B45B0D1DB60E12005C7A83 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */,
+				04B45B0F1DB60E12005C7A83 /* ContactsTableCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		04FEF9CC1DAA37E6001812D1 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				04FEF9CD1DAA37E6001812D1 /* MBProgressHUD+Add.h */,
+				04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */,
+				04FEF9CF1DAA37E6001812D1 /* MBProgressHUD.h */,
+				04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		180F3BD81D8BDC6300D79668 /* HyphenateFullSDK */ = {
+			isa = PBXGroup;
+			children = (
+				180F3BD91D8BDC6300D79668 /* include */,
+				180F3C001D8BDC6300D79668 /* lib */,
+			);
+			path = HyphenateFullSDK;
+			sourceTree = "<group>";
+		};
+		180F3BD91D8BDC6300D79668 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				180F3BDA1D8BDC6300D79668 /* EMCallLocalView.h */,
+				180F3BDB1D8BDC6300D79668 /* EMCallManagerDelegate.h */,
+				180F3BDC1D8BDC6300D79668 /* EMCallRemoteView.h */,
+				180F3BDD1D8BDC6300D79668 /* EMCallSession.h */,
+				180F3BDE1D8BDC6300D79668 /* EMChatManagerDelegate.h */,
+				180F3BDF1D8BDC6300D79668 /* EMChatroom.h */,
+				180F3BE01D8BDC6300D79668 /* EMChatroomManagerDelegate.h */,
+				180F3BE11D8BDC6300D79668 /* EMClient+Call.h */,
+				180F3BE21D8BDC6300D79668 /* EMClient.h */,
+				180F3BE31D8BDC6300D79668 /* EMClientDelegate.h */,
+				180F3BE41D8BDC6300D79668 /* EMCmdMessageBody.h */,
+				180F3BE51D8BDC6300D79668 /* EMContactManagerDelegate.h */,
+				180F3BE61D8BDC6300D79668 /* EMConversation.h */,
+				180F3BE71D8BDC6300D79668 /* EMCursorResult.h */,
+				180F3BE81D8BDC6300D79668 /* EMError.h */,
+				180F3BE91D8BDC6300D79668 /* EMErrorCode.h */,
+				180F3BEA1D8BDC6300D79668 /* EMFileMessageBody.h */,
+				180F3BEB1D8BDC6300D79668 /* EMGroup.h */,
+				180F3BEC1D8BDC6300D79668 /* EMGroupManagerDelegate.h */,
+				180F3BED1D8BDC6300D79668 /* EMGroupOptions.h */,
+				180F3BEE1D8BDC6300D79668 /* EMImageMessageBody.h */,
+				180F3BEF1D8BDC6300D79668 /* EMLocationMessageBody.h */,
+				180F3BF01D8BDC6300D79668 /* EMMessage.h */,
+				180F3BF11D8BDC6300D79668 /* EMMessageBody.h */,
+				180F3BF21D8BDC6300D79668 /* EMOptions+PrivateDeploy.h */,
+				180F3BF31D8BDC6300D79668 /* EMOptions.h */,
+				180F3BF41D8BDC6300D79668 /* EMPushOptions.h */,
+				180F3BF51D8BDC6300D79668 /* EMSDK.h */,
+				180F3BF61D8BDC6300D79668 /* EMSDKFull.h */,
+				180F3BF71D8BDC6300D79668 /* EMTextMessageBody.h */,
+				180F3BF81D8BDC6300D79668 /* EMVideoMessageBody.h */,
+				180F3BF91D8BDC6300D79668 /* EMVoiceMessageBody.h */,
+				180F3BFA1D8BDC6300D79668 /* IEMCallManager.h */,
+				180F3BFB1D8BDC6300D79668 /* IEMChatManager.h */,
+				180F3BFC1D8BDC6300D79668 /* IEMChatroomManager.h */,
+				180F3BFD1D8BDC6300D79668 /* IEMContactManager.h */,
+				180F3BFE1D8BDC6300D79668 /* IEMGroupManager.h */,
+				180F3BFF1D8BDC6300D79668 /* OpenGLView20.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		180F3C001D8BDC6300D79668 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				180F3C011D8BDC6300D79668 /* libHyphenateFullSDK.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		1833DCC71DB34EB0008B036B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1833DCD31DB3788C008B036B /* KDMeViewController.swift */,
+				048E1CE91DB4A3340049571C /* KDSettingViewController.swift */,
+				04B45B211DB62438005C7A83 /* KDPersonInfoViewController.swift */,
+				1833DCDC1DB665E8008B036B /* KDEditInfoViewController.swift */,
+				048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1833DCC91DB34EB0008B036B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1833DCCA1DB34EB0008B036B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1833DCCC1DB34ECD008B036B /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1833DCCC1DB34ECD008B036B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1833DCCD1DB34F20008B036B /* MeHeaderTableCell.swift */,
+				1833DCCE1DB34F20008B036B /* MeHeaderTableCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		18452C9A1D819E9100D4B2BE = {
+			isa = PBXGroup;
+			children = (
+				18452CA51D819E9100D4B2BE /* KDYWeChat */,
+				18452CBA1D819E9100D4B2BE /* KDYWeChatTests */,
+				18452CC51D819E9100D4B2BE /* KDYWeChatUITests */,
+				18452CA41D819E9100D4B2BE /* Products */,
+				8DA673FE61945A2F0443F78F /* Pods */,
+				67602AFFD9847F1AC4068B5A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		18452CA41D819E9100D4B2BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18452CA31D819E9100D4B2BE /* KDYWeChat.app */,
+				18452CB71D819E9100D4B2BE /* KDYWeChatTests.xctest */,
+				18452CC21D819E9100D4B2BE /* KDYWeChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18452CA51D819E9100D4B2BE /* KDYWeChat */ = {
+			isa = PBXGroup;
+			children = (
+				047F8EF21D9E187000022544 /* Main */,
+				1845A9351D83D127008BD883 /* BizClass */,
+				1845A9501D83D223008BD883 /* Helpers */,
+				1845A9511D83D223008BD883 /* Vendor */,
+				1845A9451D83D1AB008BD883 /* Base.lproj */,
+				1845A94A1D83D1AB008BD883 /* Info.plist */,
+				1869968E1D8D3DC5008D57B1 /* KDYWeChat-Bridging-Header.h */,
+				1845A94B1D83D1AB008BD883 /* Assets.xcassets */,
+			);
+			path = KDYWeChat;
+			sourceTree = "<group>";
+		};
+		18452CBA1D819E9100D4B2BE /* KDYWeChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				18452CBB1D819E9100D4B2BE /* KDYWeChatTests.swift */,
+				18452CBD1D819E9100D4B2BE /* Info.plist */,
+			);
+			path = KDYWeChatTests;
+			sourceTree = "<group>";
+		};
+		18452CC51D819E9100D4B2BE /* KDYWeChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				18452CC61D819E9100D4B2BE /* KDYWeChatUITests.swift */,
+				18452CC81D819E9100D4B2BE /* Info.plist */,
+			);
+			path = KDYWeChatUITests;
+			sourceTree = "<group>";
+		};
+		1845A9351D83D127008BD883 /* BizClass */ = {
+			isa = PBXGroup;
+			children = (
+				1845A95B1D83E034008BD883 /* Base */,
+				049234CE1DAF32EF00FD0B29 /* Login */,
+				042FFE6B1D9E35630096CDF2 /* Conversation */,
+				1845A9361D83D127008BD883 /* Chat */,
+				1845A9371D83D127008BD883 /* Contacts */,
+				1845A9381D83D127008BD883 /* Discovery */,
+				1845A9391D83D127008BD883 /* Me */,
+			);
+			path = BizClass;
+			sourceTree = "<group>";
+		};
+		1845A9361D83D127008BD883 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				18EA8CAE1D8552BA00B4E274 /* Model */,
+				18EA8CAF1D8552BA00B4E274 /* ViewModel */,
+				18EA8CAB1D85528300B4E274 /* View */,
+				18EA8CAC1D8552BA00B4E274 /* Controller */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		1845A9371D83D127008BD883 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				04B45B021DB4D7FD005C7A83 /* Model */,
+				04B45B031DB4D7FD005C7A83 /* View */,
+				04B45B001DB4D7FD005C7A83 /* Controller */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		1845A9381D83D127008BD883 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				1845A9561D83DD86008BD883 /* KDDiscoveryViewController.swift */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		1845A9391D83D127008BD883 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				1833DCC91DB34EB0008B036B /* Model */,
+				1833DCCA1DB34EB0008B036B /* View */,
+				1833DCC71DB34EB0008B036B /* Controller */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		1845A9451D83D1AB008BD883 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1833DCD91DB37AFF008B036B /* Me.storyboard */,
+				1845A9481D83D1AB008BD883 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		1845A9501D83D223008BD883 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0480DCEA1DB71FF900129EC4 /* Authority */,
+				18ABF8181D995C4900F305EB /* Chat */,
+				047546821DA8E38A008076F1 /* EaseSDK */,
+				1845A95E1D83E956008BD883 /* Extension */,
+				049234D71DAF4C3700FD0B29 /* LeanClound */,
+				042FFE781D9E393F0096CDF2 /* Macro */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1845A9511D83D223008BD883 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				180F3BD81D8BDC6300D79668 /* HyphenateFullSDK */,
+				04FEF9CC1DAA37E6001812D1 /* MBProgressHUD */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		1845A95B1D83E034008BD883 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1845A95C1D83E05A008BD883 /* KDTabBarController.swift */,
+				188B05601D85306200393752 /* KDNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		1845A95E1D83E956008BD883 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				189E88651D9028090007C9A5 /* UIView+Nib.swift */,
+				1845A9611D83E9BA008BD883 /* UIView+Frame.swift */,
+				048559181D99273B001A076A /* UIScreen+Frame.swift */,
+				1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */,
+				18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */,
+				1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */,
+				04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */,
+				04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */,
+				048D477E1DB76A8000BDE27D /* UIViewController+Proposer.swift */,
+				18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */,
+				0475467E1D9E7415008076F1 /* NSDate+Extension.swift */,
+				04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		18ABF8181D995C4900F305EB /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				0485591E1D9A0C14001A076A /* Expression.bundle */,
+				0485591A1D9A0B81001A076A /* TSChatTextParser.swift */,
+				0485591C1D9A0BBB001A076A /* TSChatEmojiDictionary.swift */,
+				18ABF8191D995C6B00F305EB /* TSYYTextLinePositionModifier.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		18EA8CAB1D85528300B4E274 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049CCDC61D8F95E300CC6394 /* Bar */,
+				18EA8CB51D85533100B4E274 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18EA8CAC1D8552BA00B4E274 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */,
+				04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */,
+				04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */,
+				18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */,
+				04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */,
+				184D71461D96B7C30000B923 /* KDChatViewController+Delegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18EA8CAE1D8552BA00B4E274 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18EA8CAF1D8552BA00B4E274 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18EA8CB51D85533100B4E274 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */,
+				04B6B1F71D98BD3B00BCBDE7 /* ChatTextTableCell.swift */,
+				04B6B1FB1D98BDB300BCBDE7 /* ChatAudioTableCell.swift */,
+				04B6B1FF1D98BDE400BCBDE7 /* ChatImageTableCell.swift */,
+				04B6B2031D98BE0A00BCBDE7 /* ChatLocationTableCell.swift */,
+				04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */,
+				0472632F1D8FCAB600D9380C /* ChatShareCollectionCell.swift */,
+				048559201D9A1E27001A076A /* ChatTimeTableCell.swift */,
+				048559211D9A1E27001A076A /* ChatTimeTableCell.xib */,
+				04B6B1F81D98BD3B00BCBDE7 /* ChatTextTableCell.xib */,
+				04B6B1FC1D98BDB300BCBDE7 /* ChatAudioTableCell.xib */,
+				04B6B2001D98BDE400BCBDE7 /* ChatImageTableCell.xib */,
+				04B6B2041D98BE0A00BCBDE7 /* ChatLocationTableCell.xib */,
+				04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */,
+				047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		67602AFFD9847F1AC4068B5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				044620381DB0CAFF001D13B1 /* CoreLocation.framework */,
+				044620361DB0CAF5001D13B1 /* CoreTelephony.framework */,
+				189E88611D8D66DD0007C9A5 /* libiconv.tbd */,
+				189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */,
+				180F3BD61D8BDBE400D79668 /* libsqlite3.tbd */,
+				180F3BD41D8BDBDB00D79668 /* libstdc++.6.0.9.tbd */,
+				180F3BD21D8BDBD400D79668 /* libc++.tbd */,
+				180F3BD01D8BDBBE00D79668 /* libz.tbd */,
+				180F3BCE1D8BDBB500D79668 /* ImageIO.framework */,
+				180F3BCC1D8BDBAC00D79668 /* MobileCoreServices.framework */,
+				180F3BCA1D8BDBA200D79668 /* AVFoundation.framework */,
+				180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */,
+				180F3BC61D8BDB7100D79668 /* CoreMedia.framework */,
+				E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DA673FE61945A2F0443F78F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */,
+				16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18452CA21D819E9100D4B2BE /* KDYWeChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18452CCB1D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChat" */;
+			buildPhases = (
+				A4C26CB0EE869A1C5017A6CB /* Check Pods Manifest.lock */,
+				189E88CA1D941B930007C9A5 /* ShellScript */,
+				18452C9F1D819E9100D4B2BE /* Sources */,
+				18452CA01D819E9100D4B2BE /* Frameworks */,
+				18452CA11D819E9100D4B2BE /* Resources */,
+				BEBDF5A6CB34790A07E974F8 /* Embed Pods Frameworks */,
+				7EDBA34280B1E62794266B19 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KDYWeChat;
+			productName = KDYWeChat;
+			productReference = 18452CA31D819E9100D4B2BE /* KDYWeChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		18452CB61D819E9100D4B2BE /* KDYWeChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18452CCE1D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChatTests" */;
+			buildPhases = (
+				18452CB31D819E9100D4B2BE /* Sources */,
+				18452CB41D819E9100D4B2BE /* Frameworks */,
+				18452CB51D819E9100D4B2BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18452CB91D819E9100D4B2BE /* PBXTargetDependency */,
+			);
+			name = KDYWeChatTests;
+			productName = KDYWeChatTests;
+			productReference = 18452CB71D819E9100D4B2BE /* KDYWeChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18452CC11D819E9100D4B2BE /* KDYWeChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18452CD11D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */;
+			buildPhases = (
+				18452CBE1D819E9100D4B2BE /* Sources */,
+				18452CBF1D819E9100D4B2BE /* Frameworks */,
+				18452CC01D819E9100D4B2BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				18452CC41D819E9100D4B2BE /* PBXTargetDependency */,
+			);
+			name = KDYWeChatUITests;
+			productName = KDYWeChatUITests;
+			productReference = 18452CC21D819E9100D4B2BE /* KDYWeChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18452C9B1D819E9100D4B2BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = kaideyi.com;
+				TargetAttributes = {
+					18452CA21D819E9100D4B2BE = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 36D935N6NX;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					18452CB61D819E9100D4B2BE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 18452CA21D819E9100D4B2BE;
+					};
+					18452CC11D819E9100D4B2BE = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 18452CA21D819E9100D4B2BE;
+					};
+				};
+			};
+			buildConfigurationList = 18452C9E1D819E9100D4B2BE /* Build configuration list for PBXProject "KDYWeChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 18452C9A1D819E9100D4B2BE;
+			productRefGroup = 18452CA41D819E9100D4B2BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18452CA21D819E9100D4B2BE /* KDYWeChat */,
+				18452CB61D819E9100D4B2BE /* KDYWeChatTests */,
+				18452CC11D819E9100D4B2BE /* KDYWeChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		18452CA11D819E9100D4B2BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048E1CEC1DB4A3340049571C /* KDSettingViewController.xib in Resources */,
+				1838A66A1DAFC34D0019A8AD /* KDRegisterViewController.xib in Resources */,
+				049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */,
+				04B45B111DB60E12005C7A83 /* ContactsTableCell.xib in Resources */,
+				04B45B1C1DB620C0005C7A83 /* KDNewFriendsViewController.xib in Resources */,
+				1833DCDB1DB37AFF008B036B /* Me.storyboard in Resources */,
+				049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */,
+				1845A94D1D83D1AB008BD883 /* Main.storyboard in Resources */,
+				042FFE771D9E35630096CDF2 /* MessageTableCell.xib in Resources */,
+				1845A94F1D83D1AB008BD883 /* Assets.xcassets in Resources */,
+				0472632A1D8FC60100D9380C /* ChatShareMoreView.xib in Resources */,
+				04B6B1FA1D98BD3B00BCBDE7 /* ChatTextTableCell.xib in Resources */,
+				04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */,
+				04B6B1FE1D98BDB300BCBDE7 /* ChatAudioTableCell.xib in Resources */,
+				0472632E1D8FC66A00D9380C /* ChatEmotionView.xib in Resources */,
+				1833DCD01DB34F20008B036B /* MeHeaderTableCell.xib in Resources */,
+				047263321D8FCAB600D9380C /* ChatShareCollectionCell.xib in Resources */,
+				04B6B2061D98BE0A00BCBDE7 /* ChatLocationTableCell.xib in Resources */,
+				04B6B2021D98BDE400BCBDE7 /* ChatImageTableCell.xib in Resources */,
+				048559231D9A1E27001A076A /* ChatTimeTableCell.xib in Resources */,
+				0485591F1D9A0C14001A076A /* Expression.bundle in Resources */,
+				1845A94E1D83D1AB008BD883 /* Info.plist in Resources */,
+				048D47831DB8735C00BDE27D /* KDAddFriendViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18452CB51D819E9100D4B2BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18452CC01D819E9100D4B2BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		189E88CA1D941B930007C9A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		7EDBA34280B1E62794266B19 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4C26CB0EE869A1C5017A6CB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BEBDF5A6CB34790A07E974F8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18452C9F1D819E9100D4B2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */,
+				047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */,
+				042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */,
+				1833DCD51DB3788C008B036B /* KDMeViewController.swift in Sources */,
+				189E885C1D8D65F30007C9A5 /* EMClient.h in Sources */,
+				04B45B0A1DB5C67E005C7A83 /* ContactModel.swift in Sources */,
+				04109BA81D9265C100E5F6F7 /* KDChatViewController+SubViews.swift in Sources */,
+				048D47821DB8735C00BDE27D /* KDAddFriendViewController.swift in Sources */,
+				189E885D1D8D65F30007C9A5 /* EMOptions.h in Sources */,
+				18ABF81A1D995C6B00F305EB /* TSYYTextLinePositionModifier.swift in Sources */,
+				18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */,
+				04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */,
+				1845A9571D83DD86008BD883 /* KDDiscoveryViewController.swift in Sources */,
+				049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */,
+				04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */,
+				048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */,
+				049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */,
+				04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */,
+				047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */,
+				04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */,
+				18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */,
+				04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */,
+				1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */,
+				0485591D1D9A0BBB001A076A /* TSChatEmojiDictionary.swift in Sources */,
+				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
+				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
+				04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */,
+				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,
+				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
+				048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */,
+				04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */,
+				1838A6691DAFC34D0019A8AD /* KDRegisterViewController.swift in Sources */,
+				04B6B2011D98BDE400BCBDE7 /* ChatImageTableCell.swift in Sources */,
+				048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */,
+				04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */,
+				1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */,
+				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
+				047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */,
+				047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */,
+				04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */,
+				04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */,
+				04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */,
+				04B6B1F91D98BD3B00BCBDE7 /* ChatTextTableCell.swift in Sources */,
+				184D71471D96B7C30000B923 /* KDChatViewController+Delegate.swift in Sources */,
+				1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */,
+				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,
+				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,
+				189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */,
+				04B6B1FD1D98BDB300BCBDE7 /* ChatAudioTableCell.swift in Sources */,
+				0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */,
+				049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */,
+				1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */,
+				047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */,
+				042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */,
+				18F878DF1DB1EF3C00A32BF0 /* NSString+Validate.swift in Sources */,
+				0485591B1D9A0B81001A076A /* TSChatTextParser.swift in Sources */,
+				18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */,
+				04B45B101DB60E12005C7A83 /* ContactsTableCell.swift in Sources */,
+				04B45B231DB62438005C7A83 /* KDPersonInfoViewController.swift in Sources */,
+				18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */,
+				042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */,
+				0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */,
+				0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */,
+				04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */,
+				188B05611D85306200393752 /* KDNavigationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18452CB31D819E9100D4B2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18452CBC1D819E9100D4B2BE /* KDYWeChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18452CBE1D819E9100D4B2BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18452CC71D819E9100D4B2BE /* KDYWeChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		18452CB91D819E9100D4B2BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18452CA21D819E9100D4B2BE /* KDYWeChat */;
+			targetProxy = 18452CB81D819E9100D4B2BE /* PBXContainerItemProxy */;
+		};
+		18452CC41D819E9100D4B2BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18452CA21D819E9100D4B2BE /* KDYWeChat */;
+			targetProxy = 18452CC31D819E9100D4B2BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1833DCD91DB37AFF008B036B /* Me.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1833DCDA1DB37AFF008B036B /* Base */,
+			);
+			name = Me.storyboard;
+			sourceTree = "<group>";
+		};
+		1845A9481D83D1AB008BD883 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1845A9491D83D1AB008BD883 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		18452CC91D819E9100D4B2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		18452CCA1D819E9100D4B2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		18452CCC1D819E9100D4B2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = KDYWeChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KDYWeChat/Vendor/HyphenateFullSDK/lib",
+					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrwb",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		18452CCD1D819E9100D4B2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = KDYWeChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KDYWeChat/Vendor/HyphenateFullSDK/lib",
+					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrwb",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		18452CCF1D819E9100D4B2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KDYWeChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
+			};
+			name = Debug;
+		};
+		18452CD01D819E9100D4B2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KDYWeChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
+			};
+			name = Release;
+		};
+		18452CD21D819E9100D4B2BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KDYWeChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KDYWeChat;
+			};
+			name = Debug;
+		};
+		18452CD31D819E9100D4B2BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KDYWeChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KDYWeChat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18452C9E1D819E9100D4B2BE /* Build configuration list for PBXProject "KDYWeChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18452CC91D819E9100D4B2BE /* Debug */,
+				18452CCA1D819E9100D4B2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18452CCB1D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18452CCC1D819E9100D4B2BE /* Debug */,
+				18452CCD1D819E9100D4B2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18452CCE1D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18452CCF1D819E9100D4B2BE /* Debug */,
+				18452CD01D819E9100D4B2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18452CD11D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18452CD21D819E9100D4B2BE /* Debug */,
+				18452CD31D819E9100D4B2BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18452C9B1D819E9100D4B2BE /* Project object */;
+}

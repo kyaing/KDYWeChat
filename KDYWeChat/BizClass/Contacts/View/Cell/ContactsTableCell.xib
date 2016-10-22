@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactsCell" rowHeight="50" id="KGk-i7-Jjw" customClass="ContactsTableCell" customModule="KDYWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="yDv-iU-vpy" userLabel="avatorImage">
+                        <rect key="frame" x="15" y="7" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="DJy-tS-N5t"/>
+                            <constraint firstAttribute="height" constant="35" id="Utj-VV-hxz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名(可能有备注名)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb9-Ls-qpo" userLabel="usernameLabel">
+                        <rect key="frame" x="60" y="15" width="220" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="220" id="Bg7-wE-QiR"/>
+                            <constraint firstAttribute="height" constant="20" id="ZoX-cK-8nN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yDv-iU-vpy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2Ud-wu-NrK"/>
+                    <constraint firstItem="yDv-iU-vpy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="Oeb-Xm-net"/>
+                    <constraint firstItem="sb9-Ls-qpo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bd3-qg-8kQ"/>
+                    <constraint firstItem="sb9-Ls-qpo" firstAttribute="leading" secondItem="yDv-iU-vpy" secondAttribute="trailing" constant="10" id="gKW-Vl-zx9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatorImage" destination="yDv-iU-vpy" id="On2-pE-Oro"/>
+                <outlet property="usernameLabel" destination="sb9-Ls-qpo" id="znq-EH-cIl"/>
+            </connections>
+            <point key="canvasLocation" x="264" y="312"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="user_avatar" width="50" height="50"/>
+    </resources>
+</document>

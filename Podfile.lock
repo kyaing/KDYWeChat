@@ -1,0 +1,65 @@
+PODS:
+  - Alamofire (3.4.2)
+  - AVOSCloudDynamic (3.3.5)
+  - Kingfisher (2.5.0)
+  - KVOController (1.1.0)
+  - Moya (7.0.0):
+    - Moya/Core (= 7.0.0)
+  - Moya/Core (7.0.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (7.0.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - ObjectMapper (1.4.0)
+  - Proposer (0.9.0)
+  - Result (2.1.3)
+  - RxCocoa (2.5.0):
+    - RxSwift (~> 2.5)
+  - RxDataSources (0.8.1):
+    - RxCocoa (~> 2.2)
+    - RxSwift (~> 2.2)
+  - RxSwift (2.5.0)
+  - SnapKit (0.22.0)
+  - SVProgressHUD (2.0.3)
+  - SwiftyJSON (2.3.2)
+  - UIColor_Hex_Swift (2.1)
+  - YYText (1.0.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4.0)
+  - AVOSCloudDynamic (~> 3.3.5)
+  - Kingfisher
+  - KVOController
+  - Moya
+  - Moya/RxSwift
+  - ObjectMapper
+  - Proposer (~> 0.9.0)
+  - RxCocoa (~> 2.5.0)
+  - RxDataSources (~> 0.8.1)
+  - RxSwift (~> 2.5.0)
+  - SnapKit
+  - SVProgressHUD
+  - SwiftyJSON
+  - UIColor_Hex_Swift (~> 2.0)
+  - YYText
+
+SPEC CHECKSUMS:
+  Alamofire: 6aa33201d20d069e1598891cf928883ff1888c7a
+  AVOSCloudDynamic: 82df67e1c48c00dfbe7b7d8c61b4634c597b8aba
+  Kingfisher: d467bd710907ec9aa94aaddecaa5390aa3559819
+  KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
+  Moya: f004b82418fb8165ee1fc9f86190db4b3611fda9
+  ObjectMapper: a07ad0462c5adf014adc0f89ef04c29b626e855e
+  Proposer: 231565a8b6bbb1816f3670d6471e6a84e582c80c
+  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
+  RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
+  RxDataSources: 4a87345847d66ef84ecc10bdfa189190f3cd6b12
+  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
+  YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae
+
+COCOAPODS: 0.39.0
