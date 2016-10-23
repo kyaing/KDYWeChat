@@ -23,9 +23,9 @@ extension KDChatViewController {
      */
     func setupBottomBarView() {
         self.bottomBarView = NSBundle.mainBundle().loadNibNamed("ChatBottomBarView", owner: nil, options: nil).last as! ChatBottomBarView
-        self.bottomBarView.delegate = self
-        self.bottomBarView.inputTextView.delegate = self
-        view.addSubview(self.bottomBarView)
+        self.bottomBarView.delegate = self   // 工具栏代理
+        self.bottomBarView.inputTextView.delegate = self  // 输入框代理
+        self.view.addSubview(self.bottomBarView)
         
         self.bottomBarView.snp_makeConstraints { (make) in
             make.left.right.equalTo(self.view)
@@ -58,13 +58,13 @@ extension KDChatViewController {
         }
         .addDisposableTo(self.disposeBag)
         
-        // 注册Cell
-        self.chatTableView.registerNib(UINib.init(nibName: "ChatTextTableCell", bundle: nil), forCellReuseIdentifier: "ChatTextTableCell")
-        self.chatTableView.registerNib(UINib.init(nibName: "ChatImageTableCell", bundle: nil), forCellReuseIdentifier: "ChatImageTableCell")
-        self.chatTableView.registerNib(UINib.init(nibName: "ChatAudioTableCell", bundle: nil), forCellReuseIdentifier: "ChatAudioTableCell")
-        self.chatTableView.registerNib(UINib.init(nibName: "ChatLocationTableCell", bundle: nil), forCellReuseIdentifier: "ChatLocationTableCell")
-        self.chatTableView.registerNib(UINib.init(nibName: "ChatRedEnvelopeCell", bundle: nil), forCellReuseIdentifier: "ChatRedEnvelopeCell")
-        self.chatTableView.registerNib(UINib.init(nibName: "ChatTimeTableCell", bundle: nil), forCellReuseIdentifier: "ChatTimeTableCell")
+        // 注册各个自定义的 Cell
+        self.chatTableView.registerNib(UINib(nibName: "ChatTextTableCell", bundle: nil), forCellReuseIdentifier: "ChatTextTableCell")
+        self.chatTableView.registerNib(UINib(nibName: "ChatImageTableCell", bundle: nil), forCellReuseIdentifier: "ChatImageTableCell")
+        self.chatTableView.registerNib(UINib(nibName: "ChatAudioTableCell", bundle: nil), forCellReuseIdentifier: "ChatAudioTableCell")
+        self.chatTableView.registerNib(UINib(nibName: "ChatLocationTableCell", bundle: nil), forCellReuseIdentifier: "ChatLocationTableCell")
+        self.chatTableView.registerNib(UINib(nibName: "ChatRedEnvelopeCell", bundle: nil), forCellReuseIdentifier: "ChatRedEnvelopeCell")
+        self.chatTableView.registerNib(UINib(nibName: "ChatTimeTableCell", bundle: nil), forCellReuseIdentifier: "ChatTimeTableCell")
     }
     
     /**

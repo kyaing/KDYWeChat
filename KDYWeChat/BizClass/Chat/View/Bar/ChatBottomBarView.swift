@@ -109,7 +109,7 @@ class ChatBottomBarView: UIView {
     }
 }
 
-// MARK: - ChatBottomBarView Extension
+// MARK: - ChatBottomBarView
 extension ChatBottomBarView {
     /**
      *  改变按钮状态
@@ -125,7 +125,9 @@ extension ChatBottomBarView {
         shareButton.setImage(UIImage(named: "tool_share_2"), forState: .Highlighted)
     }
     
-    // 显示录音状态
+    /**
+     *  显示录音状态
+     */
     func showAudioRecording() {
         keyboardType = .Default
         
@@ -142,7 +144,9 @@ extension ChatBottomBarView {
         shareButton.showTypingKeyboard   = false
     }
     
-    // 显示文字输入键盘
+    /**
+     *  显示文字输入键盘
+     */
     func showTypingKeyboard() {
         keyboardType = .Text
         
@@ -156,7 +160,9 @@ extension ChatBottomBarView {
         shareButton.showTypingKeyboard   = false
     }
     
-    // 显示表情键盘
+    /**
+     *  显示表情键盘
+     */
     func showEmotionKeyboard() {
         keyboardType = .Emotion
         
@@ -173,7 +179,9 @@ extension ChatBottomBarView {
         shareButton.showTypingKeyboard   = false
     }
     
-    // 显示扩展键盘
+    /**
+     *  显示扩展键盘
+     */
     func showShardKeyboard() {
         keyboardType = .Share
         
@@ -190,7 +198,9 @@ extension ChatBottomBarView {
         shareButton.showTypingKeyboard   = true
     }
  
-    // 当显示表情或扩展自定义键盘时，点击输入框唤起系统键盘
+    /**
+     *  当显示表情或扩展自定义键盘时，点击输入框唤起系统键盘
+     */
     func inputTextViewCallKeyboard() {
         keyboardType = .Text
         inputTextView.hidden = false
@@ -204,7 +214,9 @@ extension ChatBottomBarView {
         shareButton.showTypingKeyboard   = false
     }
     
-    // 取消用户输入
+    /**
+     *  取消用户输入
+     */
     func resignKeyboardInput() {
         keyboardType = .Default
         inputTextView.resignFirstResponder()

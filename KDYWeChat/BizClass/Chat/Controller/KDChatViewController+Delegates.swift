@@ -84,6 +84,7 @@ extension KDChatViewController: ChatBarViewDelegate {
             self.bottomBarView.snp_updateConstraints { (make) -> Void in
                 make.height.equalTo(textHeight)
             }
+            
             self.view.layoutIfNeeded()
             self.chatTableView.scrollBottomToLastRow()
             textView.contentOffset = CGPoint.zero
@@ -93,8 +94,33 @@ extension KDChatViewController: ChatBarViewDelegate {
 
 // MARK: - UITextViewDelegate
 extension KDChatViewController: UITextViewDelegate {
+    /**
+     *  将要进入到编辑模式
+     */
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         self.bottomBarView.inputTextViewCallKeyboard()
+        
+        return true
+    }
+    
+    /**
+     *  内容发生改变时
+     */
+    func textViewDidChange(textView: UITextView) {
+        
+    }
+    
+    /**
+     *  键盘内容即将输入到 textView 中时
+     */
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            // 发送文本消息
+            sendChatTextMessage(textView)
+            
+            
+            return false
+        }
         
         return true
     }

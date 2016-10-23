@@ -14,14 +14,14 @@ import RxCocoa
 extension KDChatViewController {
     
     /**
-     * 处理各个按钮即语音，表情，扩展及录音按钮的点击交互
+     *  处理各个按钮即语音，表情，扩展及录音按钮的点击交互
      */
     func setupBarViewInteraction() {
-        let voiceButton: ChatBarButton   = bottomBarView.audioButton
-        let emotionButton: ChatBarButton = bottomBarView.emotionButton
-        let shareButton: ChatBarButton   = bottomBarView.shareButton
-        let recordButton: UIButton       = bottomBarView.recordButton
-        let inputTextView: UITextView    = bottomBarView.inputTextView
+        let voiceButton: ChatBarButton   = bottomBarView.audioButton    // 语音按钮
+        let emotionButton: ChatBarButton = bottomBarView.emotionButton  // 表情按钮
+        let shareButton: ChatBarButton   = bottomBarView.shareButton    // 扩展按钮
+        let recordButton: UIButton       = bottomBarView.recordButton   // 录音按钮
+        let inputTextView: UITextView    = bottomBarView.inputTextView  // 输入框
         
         // 点击语音按钮
         voiceButton.rx_tap.subscribeNext { [weak self] _ in
@@ -96,7 +96,7 @@ extension KDChatViewController {
             
         }.addDisposableTo(disposeBag)
         
-        // 点击文本框(添加点击手势)
+        // 点击文本框 (添加点击手势)
         let tapGesture = UITapGestureRecognizer()
         inputTextView.addGestureRecognizer(tapGesture)
         tapGesture.rx_event.subscribeNext { (event) in

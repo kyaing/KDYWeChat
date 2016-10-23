@@ -98,7 +98,7 @@
 		1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */; };
 		1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9611D83E9BA008BD883 /* UIView+Frame.swift */; };
 		1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */; };
-		184D71471D96B7C30000B923 /* KDChatViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D71461D96B7C30000B923 /* KDChatViewController+Delegate.swift */; };
+		184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */; };
 		188B05611D85306200393752 /* KDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B05601D85306200393752 /* KDNavigationController.swift */; };
 		18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */; };
 		18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D211D94268600F52F1E /* ChatBarButton+UI.swift */; };
@@ -108,6 +108,7 @@
 		189E88601D8D66C50007C9A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */; };
 		189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E88611D8D66DD0007C9A5 /* libiconv.tbd */; };
 		189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E88651D9028090007C9A5 /* UIView+Nib.swift */; };
+		189FCCFC1DBCFA490011268E /* KDChatViewController+SendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */; };
 		18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */; };
 		18ABF81A1D995C6B00F305EB /* TSYYTextLinePositionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF8191D995C6B00F305EB /* TSYYTextLinePositionModifier.swift */; };
 		18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */; };
@@ -270,7 +271,7 @@
 		1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		1845A9611D83E9BA008BD883 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		184D71461D96B7C30000B923 /* KDChatViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Delegate.swift"; sourceTree = "<group>"; };
+		184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		1869968E1D8D3DC5008D57B1 /* KDYWeChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDYWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		188B05601D85306200393752 /* KDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNavigationController.swift; sourceTree = "<group>"; };
 		18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatBarView.swift"; sourceTree = "<group>"; };
@@ -278,6 +279,7 @@
 		189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		189E88611D8D66DD0007C9A5 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		189E88651D9028090007C9A5 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+SendMessage.swift"; sourceTree = "<group>"; };
 		18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		18ABF8191D995C6B00F305EB /* TSYYTextLinePositionModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSYYTextLinePositionModifier.swift; sourceTree = "<group>"; };
 		18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatViewController.swift; sourceTree = "<group>"; };
@@ -380,8 +382,8 @@
 		047546821DA8E38A008076F1 /* EaseSDK */ = {
 			isa = PBXGroup;
 			children = (
-				04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */,
 				047546831DA8E38A008076F1 /* EaseSDKHelper.swift */,
+				04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */,
 			);
 			path = EaseSDK;
 			sourceTree = "<group>";
@@ -818,7 +820,8 @@
 				04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */,
 				18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */,
 				04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */,
-				184D71461D96B7C30000B923 /* KDChatViewController+Delegate.swift */,
+				184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */,
+				189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1152,11 +1155,12 @@
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
 				047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */,
 				047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */,
+				189FCCFC1DBCFA490011268E /* KDChatViewController+SendMessage.swift in Sources */,
 				04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */,
 				04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */,
 				04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */,
 				04B6B1F91D98BD3B00BCBDE7 /* ChatTextTableCell.swift in Sources */,
-				184D71471D96B7C30000B923 /* KDChatViewController+Delegate.swift in Sources */,
+				184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */,
 				1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */,
 				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,
 				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,

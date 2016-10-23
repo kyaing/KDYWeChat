@@ -9,10 +9,10 @@
 import UIKit
 import Kingfisher
 
-let kChatImageMinWidth: CGFloat  = 120  // 最小的图片宽度
-let kChatImageMaxWidth: CGFloat  = 150  // 最大的图片宽度
-let kChatImageMinHeight: CGFloat = 120  // 最小的图片高度
-let kChatImageMaxHeight: CGFloat = 170  // 最大的图片高度
+let kChatImageMinWidth: CGFloat  = 140  // 最小的图片宽度
+let kChatImageMaxWidth: CGFloat  = 220  // 最大的图片宽度
+let kChatImageMinHeight: CGFloat = 150  // 最小的图片高度
+let kChatImageMaxHeight: CGFloat = 200  // 最大的图片高度
 
 /// 聊天图片Cell
 class ChatImageTableCell: ChatBaseTableCell {
