@@ -18,6 +18,7 @@ let kChatAvatarWidth: CGFloat         = 40  // 头像的宽度
 /// 聊天基类Cell
 class ChatBaseTableCell: UITableViewCell {
 
+    // 聊天头像
     @IBOutlet weak var avatarImageView: UIImageView! {
         didSet {
             avatarImageView.backgroundColor = UIColor.blueColor()
@@ -47,13 +48,14 @@ class ChatBaseTableCell: UITableViewCell {
     
     func setupCellContent(model: ChatModel) {
         self.model = model
+        
         if model.fromMe! {
             let avatarURL = "http://ww3.sinaimg.cn/thumbnail/6a011e49jw1f1e87gcr14j20ks0ksdgr.jpg"
-            self.avatarImageView.kf_setImageWithURL(NSURL.init(string: avatarURL))
+            self.avatarImageView.kf_setImageWithURL(NSURL(string: avatarURL))
             
         } else {
             let avatarURL = "http://ww2.sinaimg.cn/large/6a011e49jw1f1j01nj8g6j204f04ft8r.jpg"
-            self.avatarImageView.kf_setImageWithURL(NSURL.init(string: avatarURL))
+            self.avatarImageView.kf_setImageWithURL(NSURL(string: avatarURL))
         }
         
         self.setNeedsLayout()

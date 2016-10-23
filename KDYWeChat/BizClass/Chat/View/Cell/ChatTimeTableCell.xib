@@ -12,28 +12,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kL-5B-krp">
-                        <rect key="frame" x="120" y="12" width="80" height="15"/>
+                        <rect key="frame" x="120" y="11" width="80" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="cvv-eu-iax"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="t9O-zZ-ghu"/>
+                            <constraint firstAttribute="height" constant="18" id="aks-zl-ZaF"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="bZS-ge-Oao"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="t9O-zZ-ghu"/>
-                            </mask>
-                        </variation>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4kL-5B-krp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TRl-rS-Xfh"/>
-                    <constraint firstItem="4kL-5B-krp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="XdD-vB-BPN"/>
                     <constraint firstItem="4kL-5B-krp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="YH0-Ww-6HM"/>
+                    <constraint firstItem="4kL-5B-krp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cZm-5q-0EZ"/>
+                    <constraint firstItem="4kL-5B-krp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ztR-jc-Mg3"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -44,7 +39,7 @@
             <connections>
                 <outlet property="timeLabel" destination="4kL-5B-krp" id="Hhp-0A-fTW"/>
             </connections>
-            <point key="canvasLocation" x="348" y="257"/>
+            <point key="canvasLocation" x="234" y="194"/>
         </tableViewCell>
     </objects>
 </document>

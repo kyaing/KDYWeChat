@@ -17,6 +17,9 @@ extension MessageContentType {
             
         case .Time:
             return 40
+        
+        case .Image:
+            return ChatImageTableCell.layoutHeight(model)
             
         default:
             return 0
@@ -37,6 +40,13 @@ extension MessageContentType {
         
         case .Time:
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatTimeTableCell", forIndexPath: indexPath) as! ChatTimeTableCell
+            cell.setupCellContent(model)
+            
+            return cell
+            
+        case .Image:
+            let cell = tableView.dequeueReusableCellWithIdentifier("ChatImageTableCell", forIndexPath: indexPath) as!
+                ChatImageTableCell
             cell.setupCellContent(model)
             
             return cell

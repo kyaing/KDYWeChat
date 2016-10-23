@@ -56,12 +56,20 @@ class ChatModel: NSObject {
     
     var nickname: String?           // 昵称
     var avatarImage: UIImage?       // 头像
+    var messageContentType: MessageContentType = .Text //消息内容的类型
     
-    var messageContentType : MessageContentType = .Text //消息内容的类型
+    var image: UIImage?             // 图片
+    var thumbnailImage: UIImage?    // 图片的缩略图
+    
+    var imageSize: CGSize!          // 图片尺寸
+    var thumbnailImageSize: CGSize! // 缩略图尺寸
+    
+    var fileURLPath: String?        // 文件地址
+    
     var timestamp : String?         // 同 publishTimestamp
     var messageFromType : MessageFromType = .Group
     
-    var fromMe : Bool!             // 区分发送者接收者
+    var fromMe : Bool!              // 区分发送者接收者
     
     // 富文本相关(YYLabel)
     var textLayout: YYTextLayout?
@@ -92,11 +100,34 @@ class ChatModel: NSObject {
         self.fromMe = (message.direction == EMMessageDirectionSend) ? true : false
         
         switch self.firstMessageBody.type {
-        case EMMessageBodyTypeText:
+        case EMMessageBodyTypeText:   // 文本
             self.messageContentType = .Text
             
             let textBody = firstMessageBody as! EMTextMessageBody
             self.messageContent = textBody.text
+            
+        case EMMessageBodyTypeImage:  // 图片
+            self.messageContentType = .Image
+            
+            let imageBody = firstMessageBody as! EMImageMessageBody
+            let imageData = NSData(contentsOfFile: imageBody.localPath)
+            
+            if imageData?.length > 0 {
+                self.image = UIImage(data: imageData!)
+            }
+            
+            if imageBody.thumbnailLocalPath.characters.count > 0 {
+                self.thumbnailImage = UIImage(contentsOfFile: imageBody.thumbnailLocalPath)
+            } else {
+                
+            }
+            
+            self.imageSize = imageBody.size
+            self.thumbnailImageSize = self.thumbnailImage?.size
+            
+            if !fromMe {
+                self.fileURLPath = imageBody.remotePath
+            }
             
         default:
             break

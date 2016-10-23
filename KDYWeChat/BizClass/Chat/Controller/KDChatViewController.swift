@@ -14,7 +14,7 @@ import UIColor_Hex_Swift
 let kBarViewHeight: CGFloat        = 50
 let kCustomKeyboardHeight: CGFloat = 216
 
-/// 聊天界面 (学习TSWeChat)
+/// 聊天界面 (重点学习了 -> TSWeChat开源项目)
 final class KDChatViewController: UIViewController {
     
     lazy var chatTableView: UITableView = {
@@ -92,12 +92,16 @@ final class KDChatViewController: UIViewController {
                     self.messageTimeIntervalTag = message.timestamp
                 }
                 
-                // 除了时间，其它的消息数据源
+                // 除了时间，插入其它的消息数据源
                 let messageModel = ChatModel(message: message)
                 self.itemDataSouce.addObject(messageModel)
             }
             
             self.chatTableView.reloadData()
+            
+            // 滚动动tableView的底部
+            let indexPath = NSIndexPath(forRow: self.itemDataSouce.count - 1, inSection: 0)
+            self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
         }
     }
 }
