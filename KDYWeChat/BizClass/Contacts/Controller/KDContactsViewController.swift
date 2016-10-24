@@ -18,6 +18,9 @@ final class KDContactsViewController: UIViewController {
     var sectionsArray: NSMutableArray = []
     var sectionTitlesArray: NSMutableArray = []
     
+    /// _User表中，登录用户的好友 (AVUser)
+    var frindsArray: NSMutableArray = []
+    
     var collation: UILocalizedIndexedCollation!
     
     lazy var contactsTableView: UITableView = {
@@ -73,7 +76,8 @@ final class KDContactsViewController: UIViewController {
         let friendsNames = EMClient.sharedClient().contactManager.getContacts()
         print("friendsName = \(friendsNames)")
         
-        self.loadFrinedsFromLeanCloudWithBuddy(friendsNames)
+        // 从leanClond 加载好友列表
+        self.frindsArray = loadFrinedsFromLeanCloudWithBuddy(friendsNames as! [String])
         
         for friend in friendsNames {
             let model = ContactModel()
@@ -197,15 +201,27 @@ final class KDContactsViewController: UIViewController {
     /**
      *  加载存储在LeanClond中 的好友信息
      */
-    func loadFrinedsFromLeanCloudWithBuddy(frinedNames: [AnyObject]) {
-        // 查询 _User表里的数据
-        let query = AVQuery(className: "_User")
-        query.getObjectInBackgroundWithId(AVUser.currentUser().objectId) { (object, error) in
-            let dic = object.dictionaryForObject()
-            print("dic = \(dic)")
+    func loadFrinedsFromLeanCloudWithBuddy(frinedNames: [String]) -> NSMutableArray {
+        // 查询 _User表里的用户 (这里的查询效率会低点)
+        let userQuery = AVQuery(className: "_User")
+        let frindsArray: NSMutableArray = []
+        
+        userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+            
+            for object in objects as! [AVUser] {
+                let dic = object.dictionaryForObject()
+                let username = dic.objectForKey("username") as! String
+                
+                let index = frinedNames.count
+                for i in 0..<index {
+                    if username == frinedNames[i] {
+                        frindsArray.addObject(object)
+                    }
+                }
+            }
         }
         
-        UserInfoManager.shareInstance.getUserInfoInBackground(frinedNames)
+        return frindsArray
     }
 }
 
