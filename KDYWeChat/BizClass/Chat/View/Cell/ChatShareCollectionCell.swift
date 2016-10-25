@@ -11,10 +11,12 @@ import UIKit
 /// 聊天扩展视图Cell
 class ChatShareCollectionCell: UICollectionViewCell {
     
-    // MARK: - Life Cycle
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        self.shareButton.imageView?.contentMode = .ScaleAspectFit
     }
 }
 

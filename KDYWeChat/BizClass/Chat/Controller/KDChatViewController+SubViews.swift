@@ -11,6 +11,9 @@ import Foundation
 // MARK: - SubViews
 extension KDChatViewController {
     
+    /**
+     *  初始化子视图
+     */
     func setupChildViews() {
         setupBottomBarView()
         setupChatTableView()

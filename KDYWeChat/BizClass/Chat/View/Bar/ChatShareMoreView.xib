@@ -10,11 +10,30 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChatShareMoreView" customModule="KDYWeChat" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="340" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-hN-sLS">
+                    <rect key="frame" x="0.0" y="0.0" width="340" height="216"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g7p-IU-KkF">
+                        <size key="itemSize" width="66" height="89"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hWE-hN-sLS" secondAttribute="trailing" id="0Kh-yl-4l9"/>
+                <constraint firstItem="hWE-hN-sLS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="C31-Ad-FE7"/>
+                <constraint firstItem="hWE-hN-sLS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="C8w-YB-hHR"/>
+                <constraint firstAttribute="bottom" secondItem="hWE-hN-sLS" secondAttribute="bottom" id="Yhu-A7-HAU"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="262" y="260"/>
+            <connections>
+                <outlet property="shareCollectionView" destination="hWE-hN-sLS" id="ud0-wf-c0U"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="-11"/>
         </view>
     </objects>
 </document>
