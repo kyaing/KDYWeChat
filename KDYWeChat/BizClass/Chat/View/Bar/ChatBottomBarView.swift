@@ -88,28 +88,11 @@ class ChatBottomBarView: UIView {
     }
 
     func addBarLayer() {
-        let topView = UIView()
-        let bottomeView = UIView()
-        
-        topView.backgroundColor = UIColor(rgba: "#C2C3C7")
-        bottomeView.backgroundColor = UIColor(rgba: "#C2C3C7")
-        
-        addSubview(topView)
-        addSubview(bottomeView)
-        
-        topView.snp_makeConstraints { (make) in
-            make.top.left.right.equalTo(self)
-            make.height.equalTo(0.5)
-        }
-        
-        bottomeView.snp_makeConstraints { (make) in
-            make.top.left.right.equalTo(self)
-            make.height.equalTo(0.5)
-        }
+        self.layer.borderColor = UIColor(rgba: "#C2C3C7").CGColor
+        self.layer.borderWidth = 0.5
     }
 }
 
-// MARK: - ChatBottomBarView
 extension ChatBottomBarView {
     /**
      *  改变按钮状态

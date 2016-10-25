@@ -8,46 +8,50 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatShareCollectionCell" id="gTV-IL-0wX" customClass="ChatShareCollectionCell" customModule="KDYWeChat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="66" height="90"/>
+            <rect key="frame" x="0.0" y="0.0" width="60" height="85"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="66" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="60" height="85"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-P8-t3C" userLabel="shareButton">
-                        <rect key="frame" x="5" y="5" width="56" height="56"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="56" id="QGE-3N-tiD"/>
-                            <constraint firstAttribute="width" constant="56" id="vOe-Ri-edE"/>
-                        </constraints>
-                        <state key="normal" title="Button" image="sharemore_location" backgroundImage="sharemore_other"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLV-u6-O1X" userLabel="shareLabel">
-                        <rect key="frame" x="10" y="70" width="46" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="frame" x="5" y="60" width="50" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-P8-t3C" userLabel="shareButton">
+                        <rect key="frame" x="5" y="5" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="QGE-3N-tiD"/>
+                            <constraint firstAttribute="width" constant="50" id="vOe-Ri-edE"/>
+                        </constraints>
+                        <state key="normal" image="sharemore_location"/>
+                        <connections>
+                            <action selector="shareButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Djs-3E-jj1"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VHc-P8-t3C" secondAttribute="trailing" constant="5" id="6HT-c5-7jE"/>
-                <constraint firstItem="VHc-P8-t3C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="8Tp-cn-9VW"/>
-                <constraint firstAttribute="trailing" secondItem="MLV-u6-O1X" secondAttribute="trailing" constant="10" id="PpK-sf-Bhp"/>
-                <constraint firstItem="MLV-u6-O1X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="p2c-8Z-cFv"/>
+                <constraint firstItem="VHc-P8-t3C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="LZ4-aL-5Wm"/>
+                <constraint firstAttribute="trailing" secondItem="MLV-u6-O1X" secondAttribute="trailing" constant="5" id="PpK-sf-Bhp"/>
+                <constraint firstItem="MLV-u6-O1X" firstAttribute="top" secondItem="VHc-P8-t3C" secondAttribute="bottom" constant="5" id="hjf-Sg-1wW"/>
+                <constraint firstItem="MLV-u6-O1X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="p2c-8Z-cFv"/>
                 <constraint firstItem="VHc-P8-t3C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="tT7-Fo-UNH"/>
                 <constraint firstAttribute="bottom" secondItem="MLV-u6-O1X" secondAttribute="bottom" constant="5" id="zrm-Pm-Ze2"/>
             </constraints>
-            <size key="customSize" width="50" height="80"/>
+            <size key="customSize" width="45" height="75"/>
             <connections>
                 <outlet property="shareButton" destination="VHc-P8-t3C" id="GTt-01-cX3"/>
                 <outlet property="shareLabel" destination="MLV-u6-O1X" id="yBO-CH-rcI"/>
             </connections>
-            <point key="canvasLocation" x="270" y="373"/>
+            <point key="canvasLocation" x="47.5" y="285.5"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="sharemore_location" width="59" height="59"/>
-        <image name="sharemore_other" width="59" height="59"/>
     </resources>
 </document>

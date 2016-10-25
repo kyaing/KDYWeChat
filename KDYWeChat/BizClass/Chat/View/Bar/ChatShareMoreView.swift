@@ -8,12 +8,33 @@
 
 import UIKit
 
+protocol ChatShareMoreViewDelegate: class {
+    /// 点击照片
+    func didClickPhotoItemAction()
+    
+    /// 点击拍照
+    func didClickCamaraItemAction()
+    
+    /// 点击语音聊天
+    func didClickAudioChatItemAction()
+    
+    /// 点击视频聊天
+    func didClickVideoChatItemAction()
+    
+    /// 点击红包
+    func didClickRedEnvelopeItemAction()
+    
+    /// 点击位置
+    func didClickLocationItemAction()
+}
+
 /// 聊天扩展视图
 class ChatShareMoreView: UIView {
     
     @IBOutlet weak var shareCollectionView: UICollectionView!
+    weak var delegate: ChatShareMoreViewDelegate?
     
-    // 数据源 (存储着元组单元)
+    // 数据源 (以元组为单元)
     var itemDataSource: [(name: String, image: String)] = [
         ("照片",   "sharemore_pic"),
         ("拍摄",   "sharemore_video"),
@@ -30,14 +51,17 @@ class ChatShareMoreView: UIView {
         
         self.shareCollectionView.delegate = self
         self.shareCollectionView.dataSource = self
+        self.shareCollectionView.scrollEnabled = false
         self.shareCollectionView.backgroundColor = UIColor.whiteColor()
         
         let flowLayout = UICollectionViewFlowLayout()
-        let itemWidth = (UIScreen.width - 5 * 15 ) / 4.0
-        flowLayout.itemSize = CGSizeMake(itemWidth, 90)
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsetsMake(10, 15, 10, 15)
+        let interSpacing: CGFloat = (UIScreen.width - 4 * 60 - 50) / 5.0
+        let lineSpaceing: CGFloat = (216 - 2 * 85 - 20) / 3.0
+        
+        flowLayout.itemSize = CGSizeMake(60, 85)
+        flowLayout.minimumInteritemSpacing = interSpacing
+        flowLayout.minimumLineSpacing = lineSpaceing
+        flowLayout.sectionInset = UIEdgeInsetsMake(20, 25, 20, 25)
         
         self.shareCollectionView.collectionViewLayout = flowLayout        
         self.shareCollectionView.registerNib(UINib(nibName: "ChatShareCollectionCell", bundle: nil), forCellWithReuseIdentifier: "ChatShareCollectionCell")
@@ -71,7 +95,18 @@ extension ChatShareMoreView: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
         
-        print("click index = \(indexPath.row)")
+        guard let delegate = self.delegate else { return }
+        
+        switch indexPath.row {
+        case 0: delegate.didClickPhotoItemAction()
+        case 1: delegate.didClickCamaraItemAction()
+        case 3: delegate.didClickAudioChatItemAction()
+        case 4: delegate.didClickVideoChatItemAction()
+        case 5: delegate.didClickRedEnvelopeItemAction()
+        case 6: delegate.didClickLocationItemAction()
+        default:
+            break
+        }
     }
 }
 

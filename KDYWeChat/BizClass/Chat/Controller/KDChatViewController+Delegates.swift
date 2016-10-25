@@ -126,3 +126,36 @@ extension KDChatViewController: UITextViewDelegate {
     }
 }
 
+// MARK: - ChatShareMoreViewDelegate
+extension KDChatViewController: ChatShareMoreViewDelegate {
+    /// 点击照片
+    func didClickPhotoItemAction() {
+        print("didClickPhotoItemAction")
+    }
+    
+    /// 点击拍照
+    func didClickCamaraItemAction() {
+        
+    }
+    
+    /// 点击语音聊天
+    func didClickAudioChatItemAction() {
+        
+    }
+
+    /// 点击视频聊天
+    func didClickVideoChatItemAction() {
+        
+    }
+    
+    /// 点击红包
+    func didClickRedEnvelopeItemAction() {
+        
+    }
+    
+    /// 点击位置
+    func didClickLocationItemAction() {
+        
+    }
+}
+

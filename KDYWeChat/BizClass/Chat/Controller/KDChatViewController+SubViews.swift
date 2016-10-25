@@ -91,6 +91,7 @@ extension KDChatViewController {
      */
     func setupShareKeyboard() {
         self.shareView = NSBundle.mainBundle().loadNibNamed("ChatShareMoreView", owner: nil, options: nil).last as! ChatShareMoreView
+        self.shareView.delegate = self
         view.addSubview(self.shareView)
         
         self.shareView.snp_makeConstraints { (make) in
