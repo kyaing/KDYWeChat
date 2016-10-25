@@ -11,6 +11,6 @@ import UIKit
 class ContactModel: NSObject {
     var nickname: String?
     var username: String?
-    var avatorImage: NSData?
+    var avatorURL: String?
 }
 

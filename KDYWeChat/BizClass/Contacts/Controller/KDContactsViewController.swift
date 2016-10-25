@@ -19,7 +19,7 @@ final class KDContactsViewController: UIViewController {
     var sectionTitlesArray: NSMutableArray = []
     
     /// _User表中，登录用户的好友 (AVUser)
-    var frindsArray: NSMutableArray = []
+    var frindsArray: [AnyObject] = []
     
     var collation: UILocalizedIndexedCollation!
     
@@ -78,10 +78,13 @@ final class KDContactsViewController: UIViewController {
         
         // 从leanClond 加载好友列表
         self.frindsArray = loadFrinedsFromLeanCloudWithBuddy(friendsNames as! [String])
+        self.contactsDataSource.removeAllObjects()
         
-        for friend in friendsNames {
+        for friend in frindsArray as! [AVUser] {
             let model = ContactModel()
-            model.username = friend as? String
+            model.username = friend.username
+            model.avatorURL = (friend.objectForKey("avatorImage") as? AVFile)?.url
+            
             self.contactsDataSource.addObject(model)
         }
         
@@ -91,9 +94,9 @@ final class KDContactsViewController: UIViewController {
         self.contactsDataSource.addObject(userModel)
         
         // 配置分组
-        self.configureSections(contactsDataSource)
+        configureSections(contactsDataSource)
         
-        self.tableFooterLabel.text = String("\(friendsNames.count+1)位联系人")
+        self.tableFooterLabel.text = String("\(frindsArray.count+1)位联系人")
         self.contactsTableView.tableFooterView = self.tableFooterLabel
         
         self.contactsTableView.reloadData()
@@ -171,6 +174,9 @@ final class KDContactsViewController: UIViewController {
             let model = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
             
             cell.usernameLabel.text = model.username
+            if model.avatorURL != nil {
+                cell.avatorImage.kf_setImageWithURL(NSURL(string: model.avatorURL!))
+            }
         }
     }
     
@@ -201,27 +207,42 @@ final class KDContactsViewController: UIViewController {
     /**
      *  加载存储在LeanClond中 的好友信息
      */
-    func loadFrinedsFromLeanCloudWithBuddy(frinedNames: [String]) -> NSMutableArray {
+    func loadFrinedsFromLeanCloudWithBuddy(frinedNames: [String]) -> [AnyObject] {
         // 查询 _User表里的用户 (这里的查询效率会低点)
         let userQuery = AVQuery(className: "_User")
-        let frindsArray: NSMutableArray = []
+        var frindsArray: [AnyObject] = []
+        var returnArray: [AnyObject] = []
         
-        userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+        // # 异步方法，返回数据为空
+        //    userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+        //        
+        //        for object in objects as! [AVUser] {
+        //            let dic = object.dictionaryForObject()
+        //            let username = dic.objectForKey("username") as! String
+        //            
+        //            let index = frinedNames.count
+        //            for i in 0..<index {
+        //                if username == frinedNames[i] {
+        //                    frindsArray.addObject(object)
+        //                }
+        //            }
+        //        }
+        //    }
+        
+        // 改成同步查询 _User表中的数据方法
+        frindsArray = userQuery.findObjects()
+        for object in frindsArray as! [AVUser] {
+            let dic = object.dictionaryForObject()
+            let username = dic.objectForKey("username") as! String
             
-            for object in objects as! [AVUser] {
-                let dic = object.dictionaryForObject()
-                let username = dic.objectForKey("username") as! String
-                
-                let index = frinedNames.count
-                for i in 0..<index {
-                    if username == frinedNames[i] {
-                        frindsArray.addObject(object)
-                    }
+            for i in 0..<frinedNames.count {
+                if username == frinedNames[i] {
+                    returnArray.append(object)
                 }
             }
         }
         
-        return frindsArray
+        return returnArray
     }
 }
 
