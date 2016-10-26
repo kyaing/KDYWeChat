@@ -10,7 +10,7 @@ target 'KDYWeChat' do
     pod 'SnapKit'
     pod 'SwiftyJSON'
     pod 'Alamofire', '~> 3.4.0'
-    pod 'Kingfisher' '~> 2.5.1'
+    pod 'Kingfisher'
     pod 'UIColor_Hex_Swift', '~> 2.0'
     pod 'Proposer', '~> 0.9.0'
     
@@ -20,6 +20,7 @@ target 'KDYWeChat' do
     pod 'RxCocoa', '~> 2.5.0'
     pod 'RxDataSources', '~> 0.8.1'
     pod 'ObjectMapper'
+    pod 'BSImagePicker', '~> 2.2'
     
     # Objective-C
     pod 'SVProgressHUD'

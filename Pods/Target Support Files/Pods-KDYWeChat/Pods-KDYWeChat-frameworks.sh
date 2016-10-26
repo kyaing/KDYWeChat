@@ -86,6 +86,8 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.3.5/Dynamic/AVOSCloud.framework"
   install_framework "Pods-KDYWeChat/Alamofire.framework"
+  install_framework "Pods-KDYWeChat/BSGridCollectionViewLayout.framework"
+  install_framework "Pods-KDYWeChat/BSImagePicker.framework"
   install_framework "Pods-KDYWeChat/KVOController.framework"
   install_framework "Pods-KDYWeChat/Kingfisher.framework"
   install_framework "Pods-KDYWeChat/Moya.framework"
@@ -99,11 +101,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-KDYWeChat/SnapKit.framework"
   install_framework "Pods-KDYWeChat/SwiftyJSON.framework"
   install_framework "Pods-KDYWeChat/UIColor_Hex_Swift.framework"
+  install_framework "Pods-KDYWeChat/UIImageViewModeScaleAspect.framework"
   install_framework "Pods-KDYWeChat/YYText.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.3.5/Dynamic/AVOSCloud.framework"
   install_framework "Pods-KDYWeChat/Alamofire.framework"
+  install_framework "Pods-KDYWeChat/BSGridCollectionViewLayout.framework"
+  install_framework "Pods-KDYWeChat/BSImagePicker.framework"
   install_framework "Pods-KDYWeChat/KVOController.framework"
   install_framework "Pods-KDYWeChat/Kingfisher.framework"
   install_framework "Pods-KDYWeChat/Moya.framework"
@@ -117,5 +122,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-KDYWeChat/SnapKit.framework"
   install_framework "Pods-KDYWeChat/SwiftyJSON.framework"
   install_framework "Pods-KDYWeChat/UIColor_Hex_Swift.framework"
+  install_framework "Pods-KDYWeChat/UIImageViewModeScaleAspect.framework"
   install_framework "Pods-KDYWeChat/YYText.framework"
 fi

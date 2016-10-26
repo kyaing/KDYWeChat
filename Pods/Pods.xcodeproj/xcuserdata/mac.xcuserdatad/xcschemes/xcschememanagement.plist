@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BSGridCollectionViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BSImagePicker-BSImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BSImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KVOController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -79,6 +94,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIImageViewModeScaleAspect.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYText.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,42 +107,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0FF38C485BD8E73F614C919F834D6EAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>153761C84E3A539D0E066DABD58B75DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>15D21EC590BD3223D10BF5DD7F154EDD</key>
+		<key>23D9CAA96C57ADFC0AC09334EAD754B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1ECEA3B53EFB1B4C9EE1D5E923195EF8</key>
+		<key>416F3EA060F70E36A2931DAEA8B1D8A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D9600AD4D18FAF8AAE07F55C9B7A202</key>
+		<key>485D25DECBF0CBB1E4415A29F4B63E62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39461AA043C45191FBB491D74BA090E4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>541CF9451CBE18A64D032B33FACD7F7C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>577CBFF77C8A4145D4BBC64530D11809</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>76C86268281CF0B10C05550BF91FBC50</key>
+		<key>79852CA5D5589499C697D0E30B1A0496</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +142,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8AA3DDB8797222294E1288CB197A8347</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EB0EFD6B5EED4850E5B335C949021A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>93DDB4D07205258016E6779F2667E665</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A00581DE97F57A35712D780AA1D8ECAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,6 +172,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C59EE95662AD4757E7FCE220DB1AFA41</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4A97A285BBCB076488CEFF389B97F8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E5678FC69B99077E1972D149186B2285</key>
 		<dict>
 			<key>primary</key>
@@ -157,12 +192,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB431AABDA26FA04F28F33B48E6B2B1C</key>
+		<key>F16BDEC9029F9131F940B35DFA224D64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FFBD756967B12667374B33354677C1F1</key>
+		<key>F424A54BEB53E355E1796E8FE443C9AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7DE5171AA3C53DA4E4A078B795C78EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

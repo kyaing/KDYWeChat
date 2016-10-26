@@ -14,7 +14,11 @@ import UIColor_Hex_Swift
 let kBarViewHeight: CGFloat        = 50
 let kCustomKeyboardHeight: CGFloat = 216
 
-/// 聊天界面 (重点学习并参考 -> TSWeChat_开源项目)
+/**
+ *  学习TSWeChat_开源项目: https://github.com/hilen/TSWeChat.git
+ */
+
+/// 聊天界面
 final class KDChatViewController: UIViewController {
     
     lazy var chatTableView: UITableView = {
