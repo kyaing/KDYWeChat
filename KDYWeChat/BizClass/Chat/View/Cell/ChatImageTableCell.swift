@@ -9,9 +9,9 @@
 import UIKit
 import Kingfisher
 
-let kChatImageMinWidth: CGFloat  = 130  // 最小的图片宽度
-let kChatImageMaxWidth: CGFloat  = 200  // 最大的图片宽度
-let kChatImageMinHeight: CGFloat = 160  // 最小的图片高度
+let kChatImageMinWidth: CGFloat  = 120  // 最小的图片宽度
+let kChatImageMaxWidth: CGFloat  = 150  // 最大的图片宽度
+let kChatImageMinHeight: CGFloat = 120  // 最小的图片高度
 let kChatImageMaxHeight: CGFloat = 180  // 最大的图片高度
 
 /// 聊天图片Cell

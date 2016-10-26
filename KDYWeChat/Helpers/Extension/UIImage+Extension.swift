@@ -110,7 +110,7 @@ public extension UIImage {
         return (alpha == .First || alpha == .Last || alpha == .PremultipliedFirst || alpha == .PremultipliedLast)
     }
     
-    func scaleImage(image: UIImage, scaleSize: CGFloat) -> UIImage {
+    class func scaleImage(image: UIImage, scaleSize: CGFloat) -> UIImage {
         UIGraphicsBeginImageContext(CGSize(width: image.size.width * scaleSize, height: image.size.height * scaleSize))
         image.drawInRect(CGRect(x: 0, y: 0, width: image.size.width * scaleSize, height: image.size.height * scaleSize))
         let scaleImage = UIGraphicsGetImageFromCurrentImageContext()

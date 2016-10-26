@@ -80,7 +80,11 @@ extension KDChatViewController {
         
         // 添加到数据源中，并发送到服务器上
         addMessageToDataSource(message)
-        EMClient.sharedClient().chatManager.sendMessage(message, progress: nil) { (message, error) in
+        
+        EMClient.sharedClient().chatManager.sendMessage(message, progress: { (progress) in
+            print("progress = \(progress)")
+            
+        }) { (message, error) in
             if error != nil {
                 self.chatTableView.reloadData()
                 

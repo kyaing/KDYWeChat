@@ -121,7 +121,7 @@ class ChatModel: NSObject {
                 
             } else {
                 let size = self.image!.size
-                self.thumbnailImage = size.width * size.height > 180 * 180 ? self.thumbnailImage?.scaleImage(self.image!, scaleSize: sqrt(180 * 180) / (size.width * size.height)) : self.image
+                self.thumbnailImage = size.width * size.height >= 200 * 200 ? UIImage.scaleImage(self.image!, scaleSize: 0.5) : self.image
             }
             
             self.imageSize = imageBody.size
