@@ -99,9 +99,9 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
         }
     }
     
-    // MARK: - Send Message
+    // MARK: - Init Send Message
     /**
-     * 发送文本消息
+     * 初始化文本消息
      
      - parameter text:        文本内容
      - parameter toUser:      接收者
@@ -110,10 +110,10 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
      
      - returns: 返回 EmMessage 的文本消息
      */
-    func sendTextMessage(text: String,
-                         toUser: String,
-                         messageType: EMChatType,
-                         messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+    func initSendTextMessage(text: String,
+                             toUser: String,
+                             messageType: EMChatType,
+                             messageExt: [NSObject: AnyObject]!) -> EMMessage? {
         
         let textBody         = EMTextMessageBody(text: text)
         let from             = EMClient.sharedClient().currentUsername
@@ -128,12 +128,12 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     }
     
     /**
-     *  发送图片消息
+     *  初始化图片消息
      */
-    func sendImageMessageWithImage(image: UIImage,
-                                   toUser: String,
-                                   messageType: EMChatType,
-                                   messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+    func initSendImageMessageWithImage(image: UIImage,
+                                       toUser: String,
+                                       messageType: EMChatType,
+                                       messageExt: [NSObject: AnyObject]!) -> EMMessage? {
         
         let data              = UIImageJPEGRepresentation(image, 1)
         let imageBody         = EMImageMessageBody(data: data, displayName: "image.png")
@@ -149,9 +149,9 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     }
     
     /**
-     *  发送语音消息
+     *  初始化语音消息
      */
-    func sendVoiceMessageWithLocalPath(path: String,
+    func initSendVoiceMessageWithLocalPath(path: String,
                                        duration: Int32,
                                        toUser: String,
                                        messageType: EMChatType,
@@ -171,14 +171,14 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     }
     
     /**
-     *  发送位置消息
+     *  初始化位置消息
      */
-    func sendLocationMessageWithLatitude(latitude: Double,
-                                         longitude: Double,
-                                         address: String,
-                                         toUser: String,
-                                         messageType: EMChatType,
-                                         messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+    func initSendLocationMessageWithLatitude(latitude: Double,
+                                             longitude: Double,
+                                             address: String,
+                                             toUser: String,
+                                             messageType: EMChatType,
+                                             messageExt: [NSObject: AnyObject]!) -> EMMessage? {
         
         let locationBody = EMLocationMessageBody(latitude: latitude, longitude: longitude, address: address)
         let from = EMClient.sharedClient().currentUsername

@@ -34,19 +34,19 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.4.0)
   - AVOSCloudDynamic (~> 3.3.5)
-  - BSImagePicker (~> 2.2)
-  - Kingfisher
+  - BSImagePicker (~> 2.3.0)
+  - Kingfisher (~> 2.5.0)
   - KVOController
-  - Moya
+  - Moya (~> 7.0.0)
   - Moya/RxSwift
-  - ObjectMapper
+  - ObjectMapper (~> 1.4.0)
   - Proposer (~> 0.9.0)
   - RxCocoa (~> 2.5.0)
   - RxDataSources (~> 0.8.1)
   - RxSwift (~> 2.5.0)
   - SnapKit
   - SVProgressHUD
-  - SwiftyJSON
+  - SwiftyJSON (~> 2.3.2)
   - UIColor_Hex_Swift (~> 2.0)
   - YYText
 

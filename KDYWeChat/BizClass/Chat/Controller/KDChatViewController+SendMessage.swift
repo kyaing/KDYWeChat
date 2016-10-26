@@ -15,10 +15,11 @@ extension KDChatViewController {
      *  发送文本消息
      */
     func sendChatTextMessage(textView: UITextView) {
-        let textMessage = EaseSDKHelper.shareInstance.sendTextMessage(textView.text,
-                                                                      toUser: self.conversationId,
-                                                                      messageType: messageTypeFromConversationType(),
-                                                                      messageExt: nil)
+        let textMessage =
+            EaseSDKHelper.shareInstance.initSendTextMessage(textView.text,
+                                                            toUser: self.conversationId,
+                                                            messageType: messageTypeFromConversationType(),
+                                                            messageExt: nil)
         // 清空输入框
         textView.text = ""
         
@@ -29,7 +30,12 @@ extension KDChatViewController {
      *  发送图片消息
      */
     func sendChatImageMessage(image: UIImage) {
-        
+        let imageMessage =
+            EaseSDKHelper.shareInstance.initSendImageMessageWithImage(image,
+                                                                      toUser: self.conversationId,
+                                                                      messageType: messageTypeFromConversationType(),
+                                                                      messageExt: nil)
+        self.sendMessage(imageMessage)
     }
     
     /**
@@ -71,9 +77,9 @@ extension KDChatViewController {
     
     // MARK: - Private Methods
     private func sendMessage(message: EMMessage!) {
+        
         // 添加到数据源中，并发送到服务器上
         addMessageToDataSource(message)
-        
         EMClient.sharedClient().chatManager.sendMessage(message, progress: nil) { (message, error) in
             if error != nil {
                 self.chatTableView.reloadData()

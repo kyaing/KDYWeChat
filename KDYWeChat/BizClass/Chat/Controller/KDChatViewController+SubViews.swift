@@ -75,6 +75,7 @@ extension KDChatViewController {
      */
     func setupEmotionKeyboard() {
         self.emotionView = NSBundle.mainBundle().loadNibNamed("ChatEmotionView", owner: nil, options: nil).last as! ChatEmotionView
+        self.emotionView.delegate = self
         self.view.addSubview(self.emotionView)
         
         self.emotionView.snp_makeConstraints { [weak self] (make) in

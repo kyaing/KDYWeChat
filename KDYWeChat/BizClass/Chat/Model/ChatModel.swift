@@ -116,10 +116,12 @@ class ChatModel: NSObject {
                 self.image = UIImage(data: imageData!)
             }
             
-            if imageBody.thumbnailLocalPath.characters.count > 0 {
+            if imageBody.thumbnailLocalPath.characters.count > 0 { 
                 self.thumbnailImage = UIImage(contentsOfFile: imageBody.thumbnailLocalPath)
-            } else {
                 
+            } else {
+                let size = self.image!.size
+                self.thumbnailImage = size.width * size.height > 180 * 180 ? self.thumbnailImage?.scaleImage(self.image!, scaleSize: sqrt(180 * 180) / (size.width * size.height)) : self.image
             }
             
             self.imageSize = imageBody.size
@@ -127,7 +129,7 @@ class ChatModel: NSObject {
             
             if !fromMe {
                 self.fileURLPath = imageBody.remotePath
-            }
+            } 
             
         default:
             break

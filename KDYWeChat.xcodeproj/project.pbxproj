@@ -21,6 +21,7 @@
 		042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE791D9E394E0096CDF2 /* Macro.swift */; };
 		044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620361DB0CAF5001D13B1 /* CoreTelephony.framework */; };
 		044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620381DB0CAFF001D13B1 /* CoreLocation.framework */; };
+		0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D4101DC055E700320798 /* BSImagePicker.swift */; };
 		047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047263271D8FC43D00D9380C /* ChatShareMoreView.swift */; };
 		0472632A1D8FC60100D9380C /* ChatShareMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047263291D8FC60100D9380C /* ChatShareMoreView.xib */; };
 		0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472632B1D8FC64200D9380C /* ChatEmotionView.swift */; };
@@ -68,6 +69,7 @@
 		04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */; };
 		04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */; };
 		04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */; };
+		04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */; };
 		04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */; };
 		04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */; };
 		04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */; };
@@ -148,6 +150,7 @@
 		042FFE791D9E394E0096CDF2 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		044620361DB0CAF5001D13B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		044620381DB0CAFF001D13B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0455D4101DC055E700320798 /* BSImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSImagePicker.swift; sourceTree = "<group>"; };
 		047263271D8FC43D00D9380C /* ChatShareMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatShareMoreView.swift; sourceTree = "<group>"; };
 		047263291D8FC60100D9380C /* ChatShareMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShareMoreView.xib; sourceTree = "<group>"; };
 		0472632B1D8FC64200D9380C /* ChatEmotionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatEmotionView.swift; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 		04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRedEnvelopeCell.swift; sourceTree = "<group>"; };
 		04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRedEnvelopeCell.xib; sourceTree = "<group>"; };
 		04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssets+UIImage.swift"; sourceTree = "<group>"; };
 		04FEF9CD1DAA37E6001812D1 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		04FEF9CF1DAA37E6001812D1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -377,6 +381,15 @@
 				042FFE791D9E394E0096CDF2 /* Macro.swift */,
 			);
 			path = Macro;
+			sourceTree = "<group>";
+		};
+		0455D40F1DC0559B00320798 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0455D4101DC055E700320798 /* BSImagePicker.swift */,
+				04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		047546821DA8E38A008076F1 /* EaseSDK */ = {
@@ -749,6 +762,7 @@
 				18ABF8181D995C4900F305EB /* Chat */,
 				047546821DA8E38A008076F1 /* EaseSDK */,
 				1845A95E1D83E956008BD883 /* Extension */,
+				0455D40F1DC0559B00320798 /* ImagePicker */,
 				049234D71DAF4C3700FD0B29 /* LeanClound */,
 				042FFE781D9E393F0096CDF2 /* Macro */,
 			);
@@ -1147,6 +1161,7 @@
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
 				048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */,
 				04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */,
+				0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */,
 				1838A6691DAFC34D0019A8AD /* KDRegisterViewController.swift in Sources */,
 				04B6B2011D98BDE400BCBDE7 /* ChatImageTableCell.swift in Sources */,
 				048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */,
@@ -1155,6 +1170,7 @@
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
 				047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */,
 				047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */,
+				04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */,
 				189FCCFC1DBCFA490011268E /* KDChatViewController+SendMessage.swift in Sources */,
 				04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */,
 				04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */,

@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SubViews.swift"
-            timestampString = "499082733.400879"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
+            timestampString = "499165453.985841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "setupShareKeyboard()"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "addMessageToDataSource(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

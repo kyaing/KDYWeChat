@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol ChatEmotionViewDelegate: class {
+    
+}
+
 /// 聊天表情视图
 class ChatEmotionView: UIView {
-
+    weak var delegate: ChatEmotionViewDelegate?
 }
 

@@ -30,8 +30,14 @@ class ChatImageTableCell: ChatBaseTableCell {
     override func setupCellContent(model: ChatModel) {
         super.setupCellContent(model)
         
-        if let thumbnailImage = model.thumbnailImage {
-            self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
+        if !model.fromMe {
+            if let thumbnailImage = model.thumbnailImage {
+                self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
+            }
+        } else {
+            if let thumbnailImage = model.thumbnailImage {
+                self.chatImageView.image = thumbnailImage
+            }
         }
         
         self.setNeedsLayout()
@@ -85,8 +91,17 @@ class ChatImageTableCell: ChatBaseTableCell {
         
         guard let model = self.model else { return }
         
-        let imageOriginalWidth  = model.thumbnailImageSize.width
-        let imageOriginalHeight = model.thumbnailImageSize.height
+        var imageOriginalWidth  = kChatImageMinWidth
+        var imageOriginalHeight = kChatImageMinHeight
+        
+        if model.thumbnailImage != nil {
+            imageOriginalWidth  = model.thumbnailImageSize.width
+            imageOriginalHeight = model.thumbnailImageSize.height
+            
+        } else {
+            imageOriginalWidth  = model.imageSize.width
+            imageOriginalHeight = model.imageSize.height
+        }
         
         // 根据原图尺寸等比获取缩略图的 size
         let originalSize = CGSizeMake(imageOriginalWidth, imageOriginalHeight)
@@ -125,8 +140,17 @@ class ChatImageTableCell: ChatBaseTableCell {
         
         var height = kChatAvatarMarginTop + kChatBubblePaddingBottom
         
-        let imageOriginalWidth  = model.thumbnailImageSize.width
-        let imageOriginalHeight = model.thumbnailImageSize.height
+        var imageOriginalWidth  = kChatImageMinWidth
+        var imageOriginalHeight = kChatImageMinHeight
+        
+        if model.thumbnailImage != nil {
+            imageOriginalWidth  = model.thumbnailImageSize.width
+            imageOriginalHeight = model.thumbnailImageSize.height
+            
+        } else {
+            imageOriginalWidth  = model.imageSize.width
+            imageOriginalHeight = model.imageSize.height
+        }
         
         /**
          *  1）如果图片的高度 >= 图片的宽度 , 高度就是最大的高度，宽度等比

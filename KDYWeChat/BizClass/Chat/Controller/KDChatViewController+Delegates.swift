@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Photos
 
 // MARK: - ChatBarViewDelegate
 extension KDChatViewController: ChatBarViewDelegate {
-    
+
     /**
      *  显示表情键盘
      */
@@ -118,7 +119,6 @@ extension KDChatViewController: UITextViewDelegate {
             // 发送文本消息
             sendChatTextMessage(textView)
             
-            
             return false
         }
         
@@ -126,35 +126,66 @@ extension KDChatViewController: UITextViewDelegate {
     }
 }
 
+// MARK: - ChatEmotionViewDelegate
+extension KDChatViewController: ChatEmotionViewDelegate {
+    
+}
+
 // MARK: - ChatShareMoreViewDelegate
 extension KDChatViewController: ChatShareMoreViewDelegate {
     /// 点击照片
     func didClickPhotoItemAction() {
-        print("didClickPhotoItemAction")
+        print("did Click PhotoItem")
+        
+        // 弹出 BSImagePicker 图片选择器 (可以最多一次性选择九张)
+        self.ky_presentImagePickerController(
+            maxNumberOfSelections: 1,  // 先发一张作为测试
+            select: { (asset) in
+                
+            }, deselect: { (asset) in
+                
+            }, cancel: { (assets: [PHAsset]) in
+                
+            }, finish: { [weak self] (assets: [PHAsset]) in
+                guard let strongSelf = self else { return }
+                
+                // 点击完成后，获取图片并上传图片
+                if let image = assets[0].getUIImage() {
+                    strongSelf.sendChatImageMessage(image)
+                }
+                
+            }) { 
+                print("completion")
+            }
     }
     
     /// 点击拍照
     func didClickCamaraItemAction() {
+        print("did Click CamaraItem")
         
     }
     
     /// 点击语音聊天
     func didClickAudioChatItemAction() {
+        print("did Click AudioChatItem")
         
     }
 
     /// 点击视频聊天
     func didClickVideoChatItemAction() {
+        print("did Click VideoChatItem")
         
     }
     
     /// 点击红包
     func didClickRedEnvelopeItemAction() {
+        print("did Click RedEnvelopeItem")
         
     }
     
     /// 点击位置
     func didClickLocationItemAction() {
+        print("did Click LocationItem")
         
     }
 }
