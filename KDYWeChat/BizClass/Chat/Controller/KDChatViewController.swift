@@ -31,6 +31,12 @@ final class KDChatViewController: UIViewController {
         
         return chatTableView
     }()
+    
+    lazy var rightBarItem: UIBarButtonItem = {
+        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_InfoSingle"), style: .Plain, target: self, action: #selector(self.handlePersonAction))
+        
+        return rightBarItem
+    }()
 
     var bottomBarView: ChatBottomBarView!
     var barPaddingBottomConstranit: Constraint?
@@ -49,7 +55,9 @@ final class KDChatViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
+        self.navigationItem.rightBarButtonItem = self.rightBarItem
         
         setupChildViews()
         
@@ -107,6 +115,10 @@ final class KDChatViewController: UIViewController {
             let indexPath = NSIndexPath(forRow: self.itemDataSouce.count - 1, inSection: 0)
             self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
         }
+    }
+    
+    func handlePersonAction() {
+        
     }
 }
 

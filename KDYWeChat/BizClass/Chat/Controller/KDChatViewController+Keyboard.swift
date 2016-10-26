@@ -96,6 +96,7 @@ extension KDChatViewController {
             options: options,
             animations: {
                 self.view.layoutIfNeeded()
+                
                 if isShowkeyboard {
                     self.chatTableView.scrollToBottom(animated: false)
                 }
@@ -130,8 +131,16 @@ extension KDChatViewController {
      *  隐藏所有的键盘
      */
     func hideAllKeyboard() {
-        hideCustomKeyboard()
-        bottomBarView.resignKeyboardInput()
+        if self.bottomBarView.emotionButton.showTypingKeyboard ||
+            self.bottomBarView.shareButton.showTypingKeyboard  {
+            // 表情键盘或扩展键盘出现时，再隐藏
+            hideCustomKeyboard()
+        }
+        
+        if self.bottomBarView.inputTextView.isFirstResponder() {
+            // 当 textView是第一响应时，再隐藏
+            self.bottomBarView.resignKeyboardInput()
+        }
     }
 }
 

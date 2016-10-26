@@ -83,7 +83,7 @@ extension UIScrollView {
     }
 
     /**
-      Stops scrolling, if it was scrolling.
+     Stops scrolling, if it was scrolling.
      */
     public func stopScrolling() {
         guard self.dragging else {

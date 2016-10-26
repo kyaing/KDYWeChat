@@ -218,7 +218,7 @@ extension KDConversationViewController: UITableViewDataSource {
             
             // 气泡大小的处理，要优化
             if unreadMessageCount > 9 {
-                cell.unReadMsgWidthContraint.constant = 23
+                cell.unReadMsgWidthContraint.constant = 22
                 cell.unReadMsgLabel.layer.cornerRadius = 8
             } else if unreadMessageCount > 99 {
                 cell.unReadMsgLabel.text = "99"

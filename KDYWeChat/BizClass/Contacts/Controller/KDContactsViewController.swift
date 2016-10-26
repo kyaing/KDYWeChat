@@ -215,15 +215,14 @@ final class KDContactsViewController: UIViewController {
         
         // # 异步方法，返回数据为空
         //    userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
-        //        
         //        for object in objects as! [AVUser] {
         //            let dic = object.dictionaryForObject()
         //            let username = dic.objectForKey("username") as! String
         //            
         //            let index = frinedNames.count
-        //            for i in 0..<index {
+        //            for i in 0...index {
         //                if username == frinedNames[i] {
-        //                    frindsArray.addObject(object)
+        //                    frindsArray.append(object)
         //                }
         //            }
         //        }
@@ -235,7 +234,8 @@ final class KDContactsViewController: UIViewController {
             let dic = object.dictionaryForObject()
             let username = dic.objectForKey("username") as! String
             
-            for i in 0..<frinedNames.count {
+            let index = frinedNames.count
+            for i in 0...index-1 {
                 if username == frinedNames[i] {
                     returnArray.append(object)
                 }

@@ -16,7 +16,7 @@ protocol ChatBarViewDelegate: class {
     // 显示扩展键盘
     func bottomBarViewShowShareKeyboard()
     
-    // 隐藏所有自定义键盘当语音时
+    // 当语音时隐藏所有自定义键盘
     func bottomBarViewHideAllKeyboardWhenVoice()
 }
 
@@ -205,7 +205,7 @@ extension ChatBottomBarView {
         inputTextView.resignFirstResponder()
         
         emotionButton.showTypingKeyboard = false
-        shareButton.showTypingKeyboard   = false        
+        shareButton.showTypingKeyboard   = false
     }
 }
 

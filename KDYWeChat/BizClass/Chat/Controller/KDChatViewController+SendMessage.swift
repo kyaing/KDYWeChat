@@ -71,7 +71,7 @@ extension KDChatViewController {
             
             // 滚动动tableView的底部
             let indexPath = NSIndexPath(forRow: self.itemDataSouce.count - 1, inSection: 0)
-            self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: false)
+            self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
         }
     }
     

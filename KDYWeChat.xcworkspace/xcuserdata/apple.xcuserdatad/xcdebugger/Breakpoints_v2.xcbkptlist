@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
-            timestampString = "498927018.011709"
+            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatBottomBarView.swift"
+            timestampString = "499182150.714134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "addMessageToDataSource(_:)"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "resignKeyboardInput()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,29 +57,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
-            timestampString = "498927018.011709"
+            filePath = "KDYWeChat/Helpers/Extension/UIScrollView+ChatAdditions.swift"
+            timestampString = "499182386.161436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "scrollToBottomAnimated(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KDYWeChat/Helpers/Extension/UIScrollView+ChatAdditions.swift"
+            timestampString = "499182389.256376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "addMessageToDataSource(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Contacts/Controller/KDContactsViewController.swift"
-            timestampString = "499011553.117718"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "reloadFriendsDataArray()"
+            landmarkName = "scrollToTopAnimated(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
