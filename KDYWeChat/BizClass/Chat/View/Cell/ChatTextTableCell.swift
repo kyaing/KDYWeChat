@@ -69,7 +69,7 @@ class ChatTextTableCell: ChatBaseTableCell {
         let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
         let bubbleImage = stretchImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
         self.bubbleImageView.image = bubbleImage
-        
+    
         self.setNeedsLayout()
     }
     
@@ -103,6 +103,17 @@ class ChatTextTableCell: ChatBaseTableCell {
         
         // value = 气泡左边 + 文字和气泡的差值
         self.contentLabel.left = self.bubbleImageView.left + kChatTextMarginLeft
+        
+        // 发送方
+        if model.fromMe! {
+            // 文本消息，发送消息的进度菊花布局
+            self.activityView.left = self.bubbleImageView.left - 20
+            self.activityView.top  = self.bubbleImageView.top + self.bubbleImageView.height / 2.0 - 15
+            
+            // 消息发送失败按钮
+            self.failSendMsgButton.left = self.activityView.left
+            self.failSendMsgButton.top  = self.activityView.top
+        }
     }
     
     /**

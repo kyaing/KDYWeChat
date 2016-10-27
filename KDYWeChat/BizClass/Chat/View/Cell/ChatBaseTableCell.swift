@@ -35,6 +35,26 @@ class ChatBaseTableCell: UITableViewCell {
         }
     }
     
+    // 菊花进度控件
+    lazy var activityView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        self.contentView.addSubview(activityView)
+        
+        return activityView
+    }()
+    
+    // 消息发送失败按钮
+    lazy var failSendMsgButton: UIButton = {
+        let failButton = UIButton()
+        failButton.size = CGSizeMake(20, 20)
+        failButton.setImage(UIImage(named: "messageSendFail"), forState: .Normal)
+        failButton.addTarget(self, action: #selector(self.reSendMessageAction), forControlEvents: .TouchUpInside)
+        
+        self.contentView.addSubview(failButton)
+        
+        return failButton
+    }()
+    
     var model: ChatModel?
     let disposeBag = DisposeBag()
     
@@ -49,16 +69,49 @@ class ChatBaseTableCell: UITableViewCell {
     func setupCellContent(model: ChatModel) {
         self.model = model
         
-        if model.fromMe! {
+        if model.fromMe! {  // 发送方
             let avatarURL = "http://ww3.sinaimg.cn/thumbnail/6a011e49jw1f1e87gcr14j20ks0ksdgr.jpg"
             self.avatarImageView.kf_setImageWithURL(NSURL(string: avatarURL))
             
-        } else {
+        } else {  // 接收方
             let avatarURL = "http://ww2.sinaimg.cn/large/6a011e49jw1f1j01nj8g6j204f04ft8r.jpg"
             self.avatarImageView.kf_setImageWithURL(NSURL(string: avatarURL))
         }
         
+        if model.fromMe! {
+            switch model.messageStatus {
+            case EMMessageStatusPending, EMMessageStatusDelivering:
+                print("消息正在发送中...")
+                self.failSendMsgButton.hidden = true
+                
+                self.activityView.hidden = false
+                self.activityView.startAnimating()
+                
+            case EMMessageStatusSuccessed:
+                print("消息发送成功")
+                self.failSendMsgButton.hidden = true
+                
+                self.activityView.stopAnimating()
+                self.activityView.hidden = true
+                
+            case EMMessageStatusFailed:
+                print("消失发送失败")
+                self.failSendMsgButton.hidden = false
+                self.activityView.hidden = true
+                
+            default:
+                break
+            }
+        }
+        
         self.setNeedsLayout()
+    }
+    
+    /**
+     *  重新发送消息
+     */
+    func reSendMessageAction() {
+        
     }
     
     // MARK: - Layout

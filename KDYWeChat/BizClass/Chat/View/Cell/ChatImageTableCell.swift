@@ -12,7 +12,7 @@ import Kingfisher
 let kChatImageMinWidth: CGFloat  = 120  // 最小的图片宽度
 let kChatImageMaxWidth: CGFloat  = 150  // 最大的图片宽度
 let kChatImageMinHeight: CGFloat = 120  // 最小的图片高度
-let kChatImageMaxHeight: CGFloat = 180  // 最大的图片高度
+let kChatImageMaxHeight: CGFloat = 150  // 最大的图片高度
 
 /// 聊天图片Cell
 class ChatImageTableCell: ChatBaseTableCell {
@@ -131,6 +131,17 @@ class ChatImageTableCell: ChatBaseTableCell {
         
         self.chatImageView.layer.mask = maskLayer
         self.chatImageView.layer.masksToBounds = true
+        
+        // 发送方
+        if model.fromMe! {
+            // 图片消息，发送消息的进度菊花布局
+            self.activityView.left = self.chatImageView.left - 20
+            self.activityView.top  = self.chatImageView.top + self.chatImageView.height / 2.0 - 15
+            
+            // 消息发送失败按钮
+            self.failSendMsgButton.left = self.activityView.left
+            self.failSendMsgButton.top  = self.activityView.top
+        }
     }
     
     class func layoutHeight(model: ChatModel) -> CGFloat {        

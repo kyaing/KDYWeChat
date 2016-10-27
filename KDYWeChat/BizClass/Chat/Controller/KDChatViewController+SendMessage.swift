@@ -63,10 +63,12 @@ extension KDChatViewController {
      *  将发送的消息添加到数据源中
      */
     func addMessageToDataSource(message: EMMessage!) {
-        let model = ChatModel(message: message)
-        self.itemDataSouce.addObject(model)
         
-        dispatch_async(dispatch_get_main_queue()) {
+        dispatch_async(self.messageQueue) {
+            // 初始化消息 model
+            let model = ChatModel(message: message)
+            self.itemDataSouce.addObject(model)
+            
             self.chatTableView.reloadData()
             
             // 滚动动tableView的底部
@@ -85,11 +87,11 @@ extension KDChatViewController {
             print("progress = \(progress)")
             
         }) { (message, error) in
-            if error != nil {
+            if error == nil {
                 self.chatTableView.reloadData()
-                
             } else {
-                
+                print("Send Message Error = \(error.description)")
+                self.chatTableView.reloadData()
             }
         }
     }

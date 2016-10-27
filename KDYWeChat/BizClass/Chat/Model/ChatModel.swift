@@ -44,7 +44,11 @@ class ChatModel: NSObject {
     var messageType: EMChatType!
     var bodyType: EMMessageBodyType!
     var firstMessageBody: EMMessageBody!
-    var messageStatus: EMMessageStatus!
+    
+    /// 消息发送的状态
+    var messageStatus: EMMessageStatus! {
+        return self.message.status
+    }
 
     var chatSendId : String!        // 发送人 ID
     var chatReceiveId : String!     // 接受人 ID
@@ -93,11 +97,12 @@ class ChatModel: NSObject {
     init(message: EMMessage) {
         super.init()
         
-        self.message = message
+        self.message          = message
+        self.messageType      = message.chatType
         self.firstMessageBody = message.body
-        
-        self.nickname = message.from
-        self.fromMe = (message.direction == EMMessageDirectionSend) ? true : false
+
+        self.nickname         = message.from
+        self.fromMe           = (message.direction == EMMessageDirectionSend) ? true : false
         
         switch self.firstMessageBody.type {
         case EMMessageBodyTypeText:   // 文本
@@ -121,7 +126,7 @@ class ChatModel: NSObject {
                 
             } else {
                 let size = self.image!.size
-                self.thumbnailImage = size.width * size.height >= 200 * 200 ? UIImage.scaleImage(self.image!, scaleSize: 0.5) : self.image
+                self.thumbnailImage = size.width * size.height >= 120 * 120 ? UIImage.scaleImage(self.image!, scaleSize: 0.5) : self.image
             }
             
             self.imageSize = imageBody.size

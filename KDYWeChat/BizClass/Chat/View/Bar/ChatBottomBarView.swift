@@ -55,7 +55,7 @@ class ChatBottomBarView: UIView {
             inputTextView.layer.masksToBounds = true
             inputTextView.textContainerInset  = UIEdgeInsetsMake(10, 5, 5, 5)
             inputTextView.returnKeyType       = .Send
-            inputTextView.font = UIFont.systemFontOfSize(16)
+            inputTextView.font = UIFont.systemFontOfSize(15)
             inputTextView.enablesReturnKeyAutomatically = true
             inputTextView.hidden = false
         }

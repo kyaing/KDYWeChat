@@ -37,6 +37,11 @@ final class KDChatViewController: UIViewController {
         
         return rightBarItem
     }()
+    
+    lazy var messageQueue: dispatch_queue_t = {
+        let queue = dispatch_queue_create("kdywechat", nil)
+        return queue
+    }()
 
     var bottomBarView: ChatBottomBarView!
     var barPaddingBottomConstranit: Constraint?
@@ -68,7 +73,7 @@ final class KDChatViewController: UIViewController {
         keyboardControl()
         
         // 加载会话消息
-        loadMessageBefroe(nil, count: 10, append: true)
+        loadMessageBefroe(nil, count: 100, append: true)
     }
     
     // MARK: - Public Methods
@@ -77,7 +82,6 @@ final class KDChatViewController: UIViewController {
         self.conversation = EMClient.sharedClient().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
         
         self.conversation.loadMessagesStartFromId(messageId, count: count, searchDirection: EMMessageSearchDirectionUp) { (aMessages, error) in
-            
             guard error == nil && aMessages.count > 0 else { return }
             
             let lasetMessage = aMessages.last as! EMMessage
@@ -117,6 +121,9 @@ final class KDChatViewController: UIViewController {
         }
     }
     
+    /**
+     *  进入聊天设置界面
+     */
     func handlePersonAction() {
         
     }
