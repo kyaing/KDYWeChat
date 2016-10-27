@@ -9,6 +9,30 @@
 import UIKit
 import AVOSCloud
 
+// _User 表中新添加的字段
+let kUserClass   = "_User"
+let kAvatorImage = "avatorImage"
+let kGender      = "gender"
+let kLocation    = "location"
+
+/// 用户信息实体类
+class UserInfoEntity: NSObject {
+    
+    var objectId: String?
+    var username: String?   // 用户名
+    var nickname: String?   // 昵称(备注名)
+    var imageUrl: String?   // 头像地址
+    var gender:   String?   // 性别
+    var location: String?   // 地区
+    
+    // 初始化
+    init(user: AVUser) {
+        super.init()
+        
+        
+    }
+}
+
 /// 用户信息管理类
 class UserInfoManager: NSObject {
     
@@ -41,7 +65,7 @@ class UserInfoManager: NSObject {
             let avatorFile = AVFile(data: imageData)
             avatorFile.saveInBackground()
             
-            currentUser.setObject(avatorFile, forKey: "avatorImage")
+            currentUser.setObject(avatorFile, forKey: kAvatorImage)
             currentUser.saveInBackgroundWithBlock({ (success, error) in
                 if success {
                     print("上传头像成功")
@@ -80,5 +104,8 @@ class UserInfoManager: NSObject {
     }
     
     // MARK: - Private Methods
+    func test() {
+        
+    }
 }
 
