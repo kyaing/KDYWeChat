@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="347" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatorImage" id="HIu-yW-sXy" userLabel="avatorImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" id="HIu-yW-sXy" userLabel="avatorImageView">
                         <rect key="frame" x="10" y="0.0" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -47,6 +47,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="avatorImage" width="200" height="200"/>
+        <image name="user_avatar" width="50" height="50"/>
     </resources>
 </document>

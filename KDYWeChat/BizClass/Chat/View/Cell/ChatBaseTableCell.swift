@@ -69,13 +69,20 @@ class ChatBaseTableCell: UITableViewCell {
     func setupCellContent(model: ChatModel) {
         self.model = model
         
+        let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
         if model.fromMe! {  // 发送方
-            let avatarURL = "http://ww3.sinaimg.cn/thumbnail/6a011e49jw1f1e87gcr14j20ks0ksdgr.jpg"
-            self.avatarImageView.kf_setImageWithURL(NSURL(string: avatarURL))
+            if let imageURL = currentUser?.imageUrl {
+                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+            } else {
+                self.avatarImageView.image = UIImage(named: "user_avatar")
+            }
             
         } else {  // 接收方
-            let avatarURL = "http://ww2.sinaimg.cn/large/6a011e49jw1f1j01nj8g6j204f04ft8r.jpg"
-            self.avatarImageView.kf_setImageWithURL(NSURL(string: avatarURL))
+            if let imageURL = model.avatarURL {
+                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+            } else {
+                self.avatarImageView.image = UIImage(named: "user_avatar")
+            }
         }
         
         if model.fromMe! {

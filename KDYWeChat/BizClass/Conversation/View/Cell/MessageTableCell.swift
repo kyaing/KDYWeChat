@@ -20,8 +20,6 @@ class MessageTableCell: UITableViewCell {
     @IBOutlet weak var unReadMsgWidthContraint: NSLayoutConstraint!
     @IBOutlet weak var unReadMsgHeightContriant: NSLayoutConstraint!
     
-    var newModel: MessageModel!
-    
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +27,7 @@ class MessageTableCell: UITableViewCell {
         avatorImageView.layer.cornerRadius  = 5
         avatorImageView.layer.masksToBounds = true
 
-        unReadMsgLabel.layer.cornerRadius   = 10
+        unReadMsgLabel.layer.cornerRadius   = 9.5
         unReadMsgLabel.layer.masksToBounds  = true
         
         lastMessageLabel.textColor = UIColor.grayColor()

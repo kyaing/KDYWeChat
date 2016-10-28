@@ -59,7 +59,7 @@ class ChatModel: NSObject {
     }
     
     var nickname: String?           // 昵称
-    var avatarImage: UIImage?       // 头像
+    var avatarURL: String?          // 头像地址
     var messageContentType: MessageContentType = .Text //消息内容的类型
     
     var image: UIImage?             // 图片

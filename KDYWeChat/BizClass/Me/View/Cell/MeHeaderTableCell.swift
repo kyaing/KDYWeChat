@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-/// 我界面自定义Cell
+/// 我界面 Cell
 class MeHeaderTableCell: UITableViewCell {
     
     @IBOutlet weak var avatorImageView: UIImageView!
@@ -18,11 +19,11 @@ class MeHeaderTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        avatorImageView.layer.cornerRadius = 5
-        avatorImageView.layer.masksToBounds = true
-        avatorImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        avatorImageView.layer.borderWidth = 0.5
-        avatorImageView.contentMode = .ScaleAspectFit
+        self.avatorImageView.layer.cornerRadius = 5
+        self.avatorImageView.layer.masksToBounds = true
+        self.avatorImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.avatorImageView.layer.borderWidth = 0.5
+        self.avatorImageView.contentMode = .ScaleAspectFit
     }
 }
 

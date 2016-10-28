@@ -57,6 +57,9 @@ extension AppDelegate {
                 self.mainTabbarVC = KDTabBarController()
             }
             
+            // 用户体系
+            initLeanCloud()
+            
             KDYWeChatHelper.shareInstance.mainTabbarVC = self.mainTabbarVC
             
             KDYWeChatHelper.shareInstance.asyncPushOptions()

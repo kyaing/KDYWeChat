@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
     
-        // 配置环信
-        setupEmSDK(application, launchOptions: launchOptions)
-        
-        // 配置后端服务
+        // 初始化 LeanCloud
         setupLeanCloud(application, launchOptions: launchOptions)
+        
+        // 初始化 EaseSDK
+        setupEmSDK(application, launchOptions: launchOptions)
     
         window?.makeKeyAndVisible()
         
@@ -67,15 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupEmSDK(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
         
         let apnsCerName: String = emApnsDevCerName
-        self.easemobApplication(application,
-                                launchOptions: launchOptions,
-                                appKey: emAppKey,
-                                apnsCerName: apnsCerName,
-                                otherConfig: nil)
+        easemobApplication(application,
+                           launchOptions: launchOptions,
+                           appKey: emAppKey,
+                           apnsCerName: apnsCerName,
+                           otherConfig: nil)
     }
     
     func setupLeanCloud(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
-        self.leanCloundApplication(application, launchOptions: launchOptions)
+        leanCloundApplication(application, launchOptions: launchOptions)
     }
 }
 

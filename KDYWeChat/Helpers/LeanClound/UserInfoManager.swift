@@ -9,45 +9,97 @@
 import UIKit
 import AVOSCloud
 
-// _User 表中新添加的字段
-let kUserClass   = "_User"
-let kAvatorImage = "avatorImage"
-let kGender      = "gender"
-let kLocation    = "location"
+/// _User 表
+let kUserClass     = "_User"
+
+// _User 表中某些的字段
+let kAvatorImage   = "avatorImage"
+let kNickname      = "nickName"
+let kGender        = "gender"
+let kLocation      = "location"
+
+/// 登录者的用户名
+let kLoginUsername = AVUser.currentUser().username
 
 /// 用户信息实体类
 class UserInfoEntity: NSObject {
     
-    var objectId: String?
-    var username: String?   // 用户名
+    var objectId: String!   // key
+    var username: String!   // 用户名
     var nickname: String?   // 昵称(备注名)
     var imageUrl: String?   // 头像地址
     var gender:   String?   // 性别
     var location: String?   // 地区
     
-    // 初始化
+    // 初始化实体类
     init(user: AVUser) {
         super.init()
         
+        self.objectId = user.objectId
+        self.username = user.username
         
+        if let avatorFile = user.objectForKey(kAvatorImage) as? AVFile {
+            self.imageUrl = avatorFile.url
+        }
+        
+        if let nickname = user.objectForKey(kNickname) as? String {
+            self.nickname = nickname
+        }
+        
+        if let gender = user.objectForKey(kGender) as? String {
+            self.gender = gender
+        }
+        
+        if let location = user.objectForKey(kLocation) as? String {
+            self.location = location
+        }
     }
 }
 
 /// 用户信息管理类
 class UserInfoManager: NSObject {
     
+    // _User 中的所有用户类
     let users: NSMutableDictionary = [:]
-    let kCurrentUsername = AVUser.currentUser().username
     
     static let shareInstance = UserInfoManager()
     private override init() {
         super.init()
+        initUsers()
     }
     
     typealias successAction = (success: Bool) -> Void
     typealias failureAction = (error: NSError) -> Void
-
+    
     // MARK: - Public Methods
+    /**
+     *  查询所有用户
+     */
+    func initUsers() {
+        self.users.removeAllObjects()
+        let userQuery = AVQuery(className: kUserClass)
+        
+        // 异步查询，存储所有用户 (#这里要优化！应该查当前用户的所有好友再存储)
+        userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+            
+            guard objects != nil && objects.count > 0 else { return }
+            
+            for object in objects as! [AVUser] {
+                let userInfo = UserInfoEntity(user: object)
+                if userInfo.username?.characters.count > 0 {
+                    self.users.setObject(userInfo, forKey: userInfo.username!)
+                }
+            }
+        }
+    }
+    
+    /**
+     *  清除所有用户
+     */
+    func clearUsers() {
+        
+    }
+    
     /**
      *  上传用户头像
      */
@@ -82,10 +134,6 @@ class UserInfoManager: NSObject {
      */
     
     /**
-     *  获取用户信息
-     */
-    
-    /**
      *  获取用户信息 by frineds
      */
     func getUserInfoInBackgroundWithFriends(friends: [AnyObject], success: successAction, failure: failureAction) {
@@ -93,14 +141,25 @@ class UserInfoManager: NSObject {
     }
     
     /**
-     *  获取用户信息 by username
+     *  获取当前用户信息
      */
-    func getUserInfoInBackground(usenames: [AnyObject]) {
-        let query = AVQuery(className: "_User")
-        query.whereKey(kCurrentUsername, containedIn: usenames)
-        query.findObjectsInBackgroundWithBlock { (objects, error) in
-            
+    func getCurrentUserInfo() -> UserInfoEntity? {
+        if let userInfo = self.users.objectForKey(kLoginUsername) {
+            return userInfo as? UserInfoEntity
         }
+        
+        return nil
+    }
+    
+    /**
+     *  获取用户信息，by 用户名
+     */
+    func getUserInfoByName(username: String) -> UserInfoEntity? {
+        if let userInfo = self.users.objectForKey(username) {
+            return userInfo as? UserInfoEntity
+        }
+        
+        return nil
     }
     
     // MARK: - Private Methods

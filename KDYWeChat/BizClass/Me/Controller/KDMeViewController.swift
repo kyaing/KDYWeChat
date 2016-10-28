@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVOSCloud
 
 /// 我界面
 class KDMeViewController: UITableViewController {
@@ -27,14 +26,11 @@ class KDMeViewController: UITableViewController {
         if indexPath.section == 0 {
             let meHeaderCell = tableView.dequeueReusableCellWithIdentifier("MeHeaderTableCell", forIndexPath: indexPath) as! MeHeaderTableCell
             
-            let user = AVUser.currentUser()
-            let avatorFile = user.objectForKey("avatorImage") as? AVFile
-            if avatorFile != nil {
-                let imageData = avatorFile?.getData()
-                let imageUrl = avatorFile?.url
-                print("\(imageUrl, imageData)")
-                
-                meHeaderCell.avatorImageView.image = UIImage(data: imageData!)
+            let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
+            meHeaderCell.useridLabel.text = "ID：" + (currentUser?.objectId)!
+            meHeaderCell.usernameLabel.text = currentUser?.username
+            if let imageURL = currentUser?.imageUrl {
+                meHeaderCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
             }
             
             return meHeaderCell

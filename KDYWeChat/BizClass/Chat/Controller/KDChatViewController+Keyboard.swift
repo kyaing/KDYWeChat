@@ -95,7 +95,7 @@ extension KDChatViewController {
             delay: 0,
             options: options,
             animations: {
-                self.view.layoutIfNeeded()
+                // self.view.layoutIfNeeded()
                 
                 if isShowkeyboard {
                     self.chatTableView.scrollToBottom(animated: false)
@@ -120,7 +120,7 @@ extension KDChatViewController {
             delay: 0,
             options: .CurveEaseInOut,
             animations: { 
-                self.view.layoutIfNeeded()
+                // self.view.layoutIfNeeded()
                 
             }) { (bool) in
                 

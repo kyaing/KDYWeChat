@@ -144,12 +144,12 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      *  由数据模型，得到对应会话的最后一条消息
      */
     func getLastMessageForConversation(model: MessageModel) -> String? {
-        var latestMsgTitle: String?
         
+        var latestMsgTitle: String?
         let messageBody = model.conversation.latestMessage.body
+        
         switch messageBody.type {
-            
-        // 只有文本消息，才有最后一条数据，其它都是自已拼的
+        // 只有文本消息，才有最后一条数据，其它都是自已判断
         case EMMessageBodyTypeText:
             let textBody = messageBody as! EMTextMessageBody
             latestMsgTitle = textBody.text
@@ -210,15 +210,13 @@ extension KDConversationViewController: UITableViewDataSource {
         let lastMessage     = self.getLastMessageForConversation(model)
         let lastMessageTime = self.getlastMessageTimeForConversation(model)
         
-        cell.avatorImageView.image  = model.avatarImage
         let unreadMessageCount = model.conversation.unreadMessagesCount
-        
         if unreadMessageCount > 0 {
             cell.unReadMsgLabel.text = String(unreadMessageCount)
             
-            // 气泡大小的处理，要优化
+            // 气泡大小的处理
             if unreadMessageCount > 9 {
-                cell.unReadMsgWidthContraint.constant = 23
+                cell.unReadMsgWidthContraint.constant  = 22
                 cell.unReadMsgHeightContriant.constant = 17
                 cell.unReadMsgLabel.layer.cornerRadius = 8
                 
@@ -233,6 +231,12 @@ extension KDConversationViewController: UITableViewDataSource {
         cell.userNameLabel.text     = model.title
         cell.lastMessageLabel?.text = lastMessage
         cell.lastMsgDateLabel.text  = lastMessageTime
+        
+        if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
+            if userInfo.imageUrl != nil {
+                cell.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+            }
+        }
         
         return cell
     }

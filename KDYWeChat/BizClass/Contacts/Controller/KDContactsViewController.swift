@@ -173,9 +173,10 @@ final class KDContactsViewController: UIViewController {
             let userNameInSection = sectionsArray.objectAtIndex(indexPath.section)
             let model = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
             
-            cell.usernameLabel.text = model.username
-            if model.avatorURL != nil {
-                cell.avatorImage.kf_setImageWithURL(NSURL(string: model.avatorURL!))
+            let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.username!)
+            cell.usernameLabel.text = userInfo?.username
+            if let imageURL = userInfo?.imageUrl {
+                cell.avatorImage.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
             }
         }
     }

@@ -47,17 +47,27 @@ class KDPersonInfoViewController: UIViewController {
         cell.textLabel?.text = titleArray[indexPath.section][indexPath.row]
         
         // 加载个人信息详情
+        let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
+        let idString = currentUser?.objectId
+        let username = currentUser?.username
+        
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 cell.accessoryType = .None
                 
                 let avatorImageView = UIImageView(frame: CGRectMake(0, 0, 55, 55))
-                avatorImageView.image = UIImage(named: "user_avatar")
+                if let imageURL = currentUser?.imageUrl {
+                    avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                } else {
+                    avatorImageView.image = UIImage(named: "user_avatar")
+                }
+                
                 cell.accessoryView = avatorImageView
+                
             } else if indexPath.row == 1 {
-                cell.detailTextLabel?.text = "kaideyi"
+                cell.detailTextLabel?.text = username
             } else {
-                cell.detailTextLabel?.text = "kaideyi"
+                cell.detailTextLabel?.text = idString
             }
         } else {
             if indexPath.row == 0 {
