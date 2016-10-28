@@ -22,9 +22,23 @@ class KDEditInfoViewController: UIViewController {
         return tableView
     }()
     
+    var titleStr: String?
+    
+    // MARK: - Life Cycle
+    init(title: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.titleStr = title
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor.whiteColor()
+        self.title = self.titleStr
     }
 }
 

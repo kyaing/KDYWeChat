@@ -81,7 +81,7 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
         picker.dismissViewControllerAnimated(true, completion: nil)
         
         // 上传用户头像
-        UserInfoManager.shareInstance.uploadUserAvatorInBackground(image, success: { (success) in
+        UserInfoManager.shareInstance.uploadUserAvatorInBackground(image, successs: { (success) in
             
         }) { (error) in
             

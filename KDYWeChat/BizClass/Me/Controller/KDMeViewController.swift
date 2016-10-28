@@ -21,6 +21,12 @@ class KDMeViewController: UITableViewController {
         self.meTableView.registerNib(UINib(nibName: "MeHeaderTableCell", bundle: nil), forCellReuseIdentifier: "MeHeaderTableCell")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.meTableView.reloadData()
+    }
+    
     // MARK: - UITableViewDataSoure
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -30,7 +36,7 @@ class KDMeViewController: UITableViewController {
             meHeaderCell.useridLabel.text = "ID：" + (currentUser?.objectId)!
             meHeaderCell.usernameLabel.text = currentUser?.username
             if let imageURL = currentUser?.imageUrl {
-                meHeaderCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                meHeaderCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             }
             
             return meHeaderCell

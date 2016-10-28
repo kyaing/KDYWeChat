@@ -23,15 +23,15 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVa-RG-MiW" userLabel="wechatIDLabel">
-                        <rect key="frame" x="80" y="38" width="220" height="20"/>
+                        <rect key="frame" x="80" y="38" width="240" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaideyi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6Z-fy-UNa" userLabel="usernameLabel">
-                        <rect key="frame" x="80" y="13" width="220" height="20"/>
+                        <rect key="frame" x="80" y="13" width="240" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="220" id="0f9-44-HbI"/>
+                            <constraint firstAttribute="width" constant="240" id="0f9-44-HbI"/>
                             <constraint firstAttribute="height" constant="20" id="Wzm-6w-98F"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>

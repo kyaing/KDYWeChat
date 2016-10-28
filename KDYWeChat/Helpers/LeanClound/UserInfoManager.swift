@@ -13,7 +13,7 @@ import AVOSCloud
 let kUserClass     = "_User"
 
 // _User 表中某些的字段
-let kAvatorImage   = "avatorImage"
+let kAvatarImage   = "avatorImage"
 let kNickname      = "nickName"
 let kGender        = "gender"
 let kLocation      = "location"
@@ -38,7 +38,7 @@ class UserInfoEntity: NSObject {
         self.objectId = user.objectId
         self.username = user.username
         
-        if let avatorFile = user.objectForKey(kAvatorImage) as? AVFile {
+        if let avatorFile = user.objectForKey(kAvatarImage) as? AVFile {
             self.imageUrl = avatorFile.url
         }
         
@@ -103,7 +103,7 @@ class UserInfoManager: NSObject {
     /**
      *  上传用户头像
      */
-    func uploadUserAvatorInBackground(image: UIImage, success: successAction, failure: failureAction) {
+    func uploadUserAvatorInBackground(image: UIImage, successs: successAction, failures: failureAction) {
         
         var imageData: NSData?
         if UIImagePNGRepresentation(image) == nil {
@@ -116,14 +116,17 @@ class UserInfoManager: NSObject {
             let currentUser = AVUser.currentUser()
             let avatorFile = AVFile(data: imageData)
             avatorFile.saveInBackground()
-            
-            currentUser.setObject(avatorFile, forKey: kAvatorImage)
+    
+            currentUser.setObject(avatorFile, forKey: kAvatarImage)
             currentUser.saveInBackgroundWithBlock({ (success, error) in
                 if success {
-                    print("上传头像成功")
+                    let userinfo = UserInfoEntity(user: currentUser)
+                    self.users.setObject(userinfo, forKey: userinfo.username!)
+                    
+                    successs(success: success)
                     
                 } else {
-                    print("上传头像失败：\(error.description)")
+                    failures(error: error)
                 }
             })
         }

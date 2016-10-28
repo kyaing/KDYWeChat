@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 /// 个人信息界面
 class KDPersonInfoViewController: UIViewController {
@@ -43,13 +44,14 @@ class KDPersonInfoViewController: UIViewController {
         cell.accessoryType   = .DisclosureIndicator
         cell.separatorInset  = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         
-        let titleArray = [["头像", "名字", "微信号"], ["性别", "地区"]]
+        let titleArray = [["头像", "昵称", "ID号"], ["性别", "地区"]]
         cell.textLabel?.text = titleArray[indexPath.section][indexPath.row]
         
         // 加载个人信息详情
         let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
         let idString = currentUser?.objectId
-        let username = currentUser?.username
+        let nickname = currentUser?.nickname
+        let gender   = currentUser?.gender
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
@@ -57,21 +59,23 @@ class KDPersonInfoViewController: UIViewController {
                 
                 let avatorImageView = UIImageView(frame: CGRectMake(0, 0, 55, 55))
                 if let imageURL = currentUser?.imageUrl {
-                    avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                    avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
                 } else {
-                    avatorImageView.image = UIImage(named: "user_avatar")
+                    avatorImageView.image = UIImage(named: kUserAvatarDefault)
                 }
                 
                 cell.accessoryView = avatorImageView
                 
             } else if indexPath.row == 1 {
-                cell.detailTextLabel?.text = username
+                cell.detailTextLabel?.text = nickname
             } else {
+                cell.accessoryType  = .None
+                cell.selectionStyle = .None
                 cell.detailTextLabel?.text = idString
             }
         } else {
             if indexPath.row == 0 {
-                cell.detailTextLabel?.text = "男"
+                cell.detailTextLabel?.text = gender
             } else {
                 cell.detailTextLabel?.text = "北京"
             }
@@ -85,12 +89,20 @@ class KDPersonInfoViewController: UIViewController {
         if section == 0 {
             if row == 0 {         // 头像
                 self.setupPickerAlertController()
-            } else if row == 1 {  // 名字
-                self.ky_pushViewController(KDEditInfoViewController(), animated: true)
+            } else if row == 1 {  // 昵称
+                self.ky_pushViewController(KDEditInfoViewController(title: "昵称"), animated: true)
+            } else {              // ID号
+                // 用户的唯一ID，用于查询用户，加好友等等
+                // 可以复制，UIMenuItemController
+                
             }
             
         } else {
-            self.ky_pushViewController(KDEditInfoViewController(), animated: true)
+            if row == 0 {         // 性别
+                self.ky_pushViewController(KDEditInfoViewController(title: "性别"), animated: true)
+            } else {              // 地区
+                self.ky_pushViewController(KDEditInfoViewController(title: "地区"), animated: true)
+            }
         }
     }
     
@@ -105,13 +117,43 @@ class KDPersonInfoViewController: UIViewController {
         }
         
         let photoAction = UIAlertAction(title: "从手机相册选择", style: .Default) { (alertAction) in
+            
             // 选择图片
-            AuthorityManager.shareInstance.choosePhotos({ (imagePicker) in
-                self.presentViewController(imagePicker, animated: true, completion: nil)
+            //    AuthorityManager.shareInstance.choosePhotos({ (imagePicker) in
+            //        self.presentViewController(imagePicker, animated: true, completion: nil)
+            //        
+            //    }, alertAction: { (resource) in
+            //        self.alertNoPermissionToAccess(resource)
+            //    })
+            
+            self.ky_presentImagePickerController(
+                maxNumberOfSelections: 1,
+                select: { (asset) in
+                    
+                }, deselect: { (asset) in
+                    
+                }, cancel: { (assets: [PHAsset]) in
+                    
+                }, finish: { [weak self] (assets: [PHAsset]) in
+                    guard let strongSelf = self else { return }
                 
-            }, alertAction: { (resource) in
-                self.alertNoPermissionToAccess(resource)
-            })
+                    // 点击完成后，获取图片并上传图片
+                    if let image = assets[0].getUIImage() {
+                        UserInfoManager.shareInstance.uploadUserAvatorInBackground(image, successs: { (success) in
+                            print("上传头像成功")
+                            
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                strongSelf.infoTableView.reloadData()
+                            })
+                            
+                        }, failures: { (error) in
+                            print("上传头像失败：\(error.description)")
+                        })
+                    }
+                    
+            }) {
+                print("completion")
+            }
         }
         
         let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
