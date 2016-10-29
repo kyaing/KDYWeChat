@@ -15,7 +15,7 @@ let kBarViewHeight: CGFloat        = 50
 let kCustomKeyboardHeight: CGFloat = 216
 
 /**
- *  学习TSWeChat_开源项目: https://github.com/hilen/TSWeChat.git
+ *  聊天部分学习-> TSWeChat_开源项目: https://github.com/hilen/TSWeChat.git
  */
 
 /// 聊天界面
@@ -42,12 +42,20 @@ final class KDChatViewController: UIViewController {
         let queue = dispatch_queue_create("kdywechat", nil)
         return queue
     }()
-
+    
+    /// 底部工具栏
     var bottomBarView: ChatBottomBarView!
+    
     var barPaddingBottomConstranit: Constraint?
     
+    /// 表情键盘
     var emotionView: ChatEmotionView!
+    
+    /// 扩展键盘
     var shareView: ChatShareMoreView!
+    
+    /// 录音视图
+    var recordView: ChatRecordView!
     
     let disposeBag = DisposeBag()
     var itemDataSouce = NSMutableArray()

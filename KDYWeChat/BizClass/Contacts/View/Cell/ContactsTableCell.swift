@@ -17,6 +17,8 @@ class ContactsTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.avatorImage.layer.masksToBounds = true
+        self.avatorImage.contentMode = .ScaleAspectFill
     }
 }
 

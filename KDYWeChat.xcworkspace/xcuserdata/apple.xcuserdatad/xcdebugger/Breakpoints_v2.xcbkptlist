@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/Helpers/LeanClound/UserInfoManager.swift"
-            timestampString = "499270277.893007"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+ChatBarView.swift"
+            timestampString = "499417572.598292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "uploadUserAvatorInBackground(_:success:failure:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "setupBarViewInteraction()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -23,7 +23,7 @@ class MeHeaderTableCell: UITableViewCell {
         self.avatorImageView.layer.masksToBounds = true
         self.avatorImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
         self.avatorImageView.layer.borderWidth = 0.5
-        self.avatorImageView.contentMode = .ScaleAspectFit
+        self.avatorImageView.contentMode = .ScaleAspectFill
     }
 }
 

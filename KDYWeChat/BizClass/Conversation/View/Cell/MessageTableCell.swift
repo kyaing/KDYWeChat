@@ -26,6 +26,7 @@ class MessageTableCell: UITableViewCell {
         
         avatorImageView.layer.cornerRadius  = 5
         avatorImageView.layer.masksToBounds = true
+        avatorImageView.contentMode = .ScaleAspectFill
 
         unReadMsgLabel.layer.cornerRadius   = 9.5
         unReadMsgLabel.layer.masksToBounds  = true

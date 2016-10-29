@@ -77,7 +77,7 @@ extension KDChatViewController {
             
         }.addDisposableTo(disposeBag)
         
-        // 按着录音按钮(添加长按手势)
+        // 按着录音按钮 (添加长按手势)
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
         longPressGesture.rx_event.subscribeNext { event in

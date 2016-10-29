@@ -58,6 +58,9 @@ class KDPersonInfoViewController: UIViewController {
                 cell.accessoryType = .None
                 
                 let avatorImageView = UIImageView(frame: CGRectMake(0, 0, 55, 55))
+                avatorImageView.contentMode = .ScaleAspectFill
+                avatorImageView.layer.masksToBounds = true
+                
                 if let imageURL = currentUser?.imageUrl {
                     avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
                 } else {

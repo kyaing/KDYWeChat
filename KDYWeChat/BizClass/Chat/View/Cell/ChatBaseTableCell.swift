@@ -24,6 +24,8 @@ class ChatBaseTableCell: UITableViewCell {
             avatarImageView.backgroundColor = UIColor.blueColor()
             avatarImageView.width = kChatAvatarWidth
             avatarImageView.height = kChatAvatarWidth
+            avatarImageView.contentMode = .ScaleAspectFill
+            avatarImageView.layer.masksToBounds = true
         }
     }
     
