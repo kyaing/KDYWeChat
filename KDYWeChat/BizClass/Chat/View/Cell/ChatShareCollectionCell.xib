@@ -48,7 +48,7 @@
                 <outlet property="shareButton" destination="VHc-P8-t3C" id="GTt-01-cX3"/>
                 <outlet property="shareLabel" destination="MLV-u6-O1X" id="yBO-CH-rcI"/>
             </connections>
-            <point key="canvasLocation" x="47.5" y="285.5"/>
+            <point key="canvasLocation" x="66" y="-99.5"/>
         </collectionViewCell>
     </objects>
     <resources>

@@ -23,7 +23,7 @@ extension KDChatViewController {
         // 清空输入框
         textView.text = ""
         
-        self.sendMessage(textMessage)
+        sendMessage(textMessage)
     }
     
     /**
@@ -35,14 +35,20 @@ extension KDChatViewController {
                                                                       toUser: self.conversationId,
                                                                       messageType: messageTypeFromConversationType(),
                                                                       messageExt: nil)
-        self.sendMessage(imageMessage)
+        sendMessage(imageMessage)
     }
     
     /**
      *  发送语音消息
      */
-    func sendChatVoiceMessage() {
-        
+    func sendChatVoiceMessage(path: String, duration: Int32) {
+        let voiceMessage =
+            EaseSDKHelper.shareInstance.initSendVoiceMessageWithLocalPath(path,
+                                                                          duration: duration,
+                                                                          toUser: self.conversationId,
+                                                                          messageType: messageTypeFromConversationType(),
+                                                                          messageExt: nil)
+        sendMessage(voiceMessage)
     }
     
     /**
@@ -55,7 +61,7 @@ extension KDChatViewController {
     /**
      *  发送视频消息
      */
-    func sendChatVoideoMessage() {
+    func sendChatVideoMessage() {
         
     }
     

@@ -21,7 +21,7 @@ extension KDChatViewController {
         let emotionButton: ChatBarButton = bottomBarView.emotionButton  // 表情按钮
         let shareButton: ChatBarButton   = bottomBarView.shareButton    // 扩展按钮
         let recordButton: UIButton       = bottomBarView.recordButton   // 录音按钮
-        let inputTextView: UITextView    = bottomBarView.inputTextView  // 输入框
+        let inputTextView: UITextView    = bottomBarView.inputTextView  // 文本输入框
         
         // 点击语音按钮
         voiceButton.rx_tap.subscribeNext { [weak self] _ in
@@ -77,14 +77,28 @@ extension KDChatViewController {
             
         }.addDisposableTo(disposeBag)
         
-        // 按着录音按钮 (添加长按手势)
+        // 录音按钮 (添加长按手势)
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
         longPressGesture.rx_event.subscribeNext { event in
 
             let state = event.state
-            if state == .Began {
+            switch state {
+            case .Began:     // 开始录音
                 recordButton.replaceRecordButtonUI(isRecording: true)
+                self.recordingView.recording()
+                
+            case .Changed:   // 录音移动中 (如上滑取消录音)
+                break
+            case .Ended:     // 录音结束
+                break
+            default:
+                break
+            }
+            
+            
+            if state == .Began {
+                
                 
             } else if state == .Changed {
                 

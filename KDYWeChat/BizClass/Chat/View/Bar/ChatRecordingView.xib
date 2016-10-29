@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChatRecordingView" customModule="KDYWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogi-gS-ZEH" userLabel="Center View">
+                    <rect key="frame" x="82" y="82" width="135" height="135"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手指上滑，取消发送" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wm-4g-aiq" userLabel="tipsLabel">
+                            <rect key="frame" x="0.0" y="106" width="135" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="YSp-zc-bIn"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MessageTooShort" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-55-Hwc" userLabel="tooShartImage">
+                            <rect key="frame" x="17" y="8" width="100" height="97"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="3Qu-eA-vN0"/>
+                                <constraint firstAttribute="width" constant="100" id="yYw-Lh-m2M"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="3Qu-eA-vN0"/>
+                                    <exclude reference="yYw-Lh-m2M"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecordCancel" translatesAutoresizingMaskIntoConstraints="NO" id="JTy-cB-cgK" userLabel="cancelRecordImage">
+                            <rect key="frame" x="17" y="8" width="100" height="97"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="ebF-l9-ni3"/>
+                                <constraint firstAttribute="width" constant="100" id="j2X-rS-NfC"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="ebF-l9-ni3"/>
+                                    <exclude reference="j2X-rS-NfC"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HN-kC-QUZ" userLabel="Recording View">
+                            <rect key="frame" x="17" y="8" width="100" height="97"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecordingBkg" translatesAutoresizingMaskIntoConstraints="NO" id="JBR-Hr-jC3" userLabel="recordingImage">
+                                    <rect key="frame" x="0.0" y="0.0" width="62" height="97"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecordingSignal001" translatesAutoresizingMaskIntoConstraints="NO" id="Fy7-fl-Kn9" userLabel="recordVolumeImage">
+                                    <rect key="frame" x="62" y="0.0" width="38" height="97"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Fy7-fl-Kn9" firstAttribute="leading" secondItem="JBR-Hr-jC3" secondAttribute="trailing" id="EAy-V0-pjd"/>
+                                <constraint firstItem="JBR-Hr-jC3" firstAttribute="top" secondItem="8HN-kC-QUZ" secondAttribute="top" id="JOm-0D-mHu"/>
+                                <constraint firstItem="JBR-Hr-jC3" firstAttribute="leading" secondItem="8HN-kC-QUZ" secondAttribute="leading" id="Tbb-i7-yOO"/>
+                                <constraint firstAttribute="trailing" secondItem="Fy7-fl-Kn9" secondAttribute="trailing" id="Zns-l7-7ai"/>
+                                <constraint firstAttribute="height" constant="100" id="baH-Qr-N3N"/>
+                                <constraint firstAttribute="width" constant="100" id="cML-oF-5Xe"/>
+                                <constraint firstItem="Fy7-fl-Kn9" firstAttribute="leading" secondItem="JBR-Hr-jC3" secondAttribute="trailing" id="cMr-VM-r94"/>
+                                <constraint firstAttribute="bottom" secondItem="Fy7-fl-Kn9" secondAttribute="bottom" id="eb2-DE-s85"/>
+                                <constraint firstItem="Fy7-fl-Kn9" firstAttribute="top" secondItem="8HN-kC-QUZ" secondAttribute="top" id="hgx-QY-Vhi"/>
+                                <constraint firstAttribute="bottom" secondItem="JBR-Hr-jC3" secondAttribute="bottom" id="wGP-6N-b9Q"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="baH-Qr-N3N"/>
+                                    <exclude reference="cML-oF-5Xe"/>
+                                </mask>
+                            </variation>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="8HN-kC-QUZ" firstAttribute="top" secondItem="Ogi-gS-ZEH" secondAttribute="top" constant="8" id="64U-5N-P4v"/>
+                        <constraint firstAttribute="height" constant="135" id="9Qj-yg-jVE"/>
+                        <constraint firstAttribute="width" constant="135" id="EQ8-J4-1or"/>
+                        <constraint firstItem="8HN-kC-QUZ" firstAttribute="leading" secondItem="Ogi-gS-ZEH" secondAttribute="leading" constant="17" id="L6N-HZ-Jr5"/>
+                        <constraint firstItem="4wm-4g-aiq" firstAttribute="top" secondItem="8HN-kC-QUZ" secondAttribute="bottom" constant="1" id="MIc-JZ-ILC"/>
+                        <constraint firstItem="JTy-cB-cgK" firstAttribute="top" secondItem="Ogi-gS-ZEH" secondAttribute="top" constant="8" id="QmM-gV-bcq"/>
+                        <constraint firstAttribute="trailing" secondItem="fKT-55-Hwc" secondAttribute="trailing" constant="18" id="QwS-3L-SXK"/>
+                        <constraint firstAttribute="trailing" secondItem="JTy-cB-cgK" secondAttribute="trailing" constant="18" id="RmK-h6-mEh"/>
+                        <constraint firstAttribute="trailing" secondItem="4wm-4g-aiq" secondAttribute="trailing" id="T79-R3-lbO"/>
+                        <constraint firstItem="4wm-4g-aiq" firstAttribute="leading" secondItem="Ogi-gS-ZEH" secondAttribute="leading" id="ajg-jF-mYO"/>
+                        <constraint firstItem="fKT-55-Hwc" firstAttribute="top" secondItem="Ogi-gS-ZEH" secondAttribute="top" constant="8" id="bzJ-fZ-1vk"/>
+                        <constraint firstItem="JTy-cB-cgK" firstAttribute="leading" secondItem="Ogi-gS-ZEH" secondAttribute="leading" constant="17" id="c7m-GX-9Kp"/>
+                        <constraint firstItem="4wm-4g-aiq" firstAttribute="top" secondItem="JTy-cB-cgK" secondAttribute="bottom" constant="1" id="cff-Ec-2ye"/>
+                        <constraint firstAttribute="bottom" secondItem="4wm-4g-aiq" secondAttribute="bottom" constant="8" id="cmP-O4-kWr"/>
+                        <constraint firstItem="4wm-4g-aiq" firstAttribute="top" secondItem="fKT-55-Hwc" secondAttribute="bottom" constant="1" id="eNY-v8-MDo"/>
+                        <constraint firstAttribute="trailing" secondItem="8HN-kC-QUZ" secondAttribute="trailing" constant="18" id="pY9-sm-0BF"/>
+                        <constraint firstItem="fKT-55-Hwc" firstAttribute="leading" secondItem="Ogi-gS-ZEH" secondAttribute="leading" constant="17" id="snp-h4-LWR"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ogi-gS-ZEH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lok-Id-4b8"/>
+                <constraint firstItem="Ogi-gS-ZEH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rKd-Oh-SKA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelRecrodImageView" destination="JTy-cB-cgK" id="DRv-hd-xia"/>
+                <outlet property="centerView" destination="Ogi-gS-ZEH" id="b0e-hF-PtN"/>
+                <outlet property="recordingBgView" destination="8HN-kC-QUZ" id="Tyo-XP-EIH"/>
+                <outlet property="recordingImageView" destination="JBR-Hr-jC3" id="4vw-qn-X25"/>
+                <outlet property="recordingVolumeImage" destination="Fy7-fl-Kn9" id="yu3-2K-l1d"/>
+                <outlet property="tipsLabel" destination="4wm-4g-aiq" id="5VE-Wp-sT7"/>
+                <outlet property="tooShortImageView" destination="fKT-55-Hwc" id="jXG-dp-vOc"/>
+            </connections>
+            <point key="canvasLocation" x="-276" y="130"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="MessageTooShort" width="100" height="100"/>
+        <image name="RecordCancel" width="100" height="100"/>
+        <image name="RecordingBkg" width="62" height="100"/>
+        <image name="RecordingSignal001" width="38" height="100"/>
+    </resources>
+</document>

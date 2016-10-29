@@ -55,7 +55,7 @@ final class KDChatViewController: UIViewController {
     var shareView: ChatShareMoreView!
     
     /// 录音视图
-    var recordView: ChatRecordView!
+    var recordingView: ChatRecordingView!
     
     let disposeBag = DisposeBag()
     var itemDataSouce = NSMutableArray()
@@ -74,11 +74,15 @@ final class KDChatViewController: UIViewController {
         
         setupChildViews()
         
-        // 处理BarView的交互
+        // 处理询问工具栏的交互
         setupBarViewInteraction()
         
         // 键盘控制
         keyboardControl()
+        
+        // 设置多媒体的代理
+        RecordManager.shareInstance.mediaDelegate = self
+        VideoManger.shareInstance.mediaDelegate   = self
         
         // 加载会话消息
         loadMessageBefroe(nil, count: 100, append: true)

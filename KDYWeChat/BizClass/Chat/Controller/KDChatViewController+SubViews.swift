@@ -19,6 +19,7 @@ extension KDChatViewController {
         setupChatTableView()
         setupEmotionKeyboard()
         setupShareKeyboard()
+        setupRecordingView()
     }
     
     /**
@@ -43,7 +44,7 @@ extension KDChatViewController {
      *  初始化表格视图
      */
     func setupChatTableView() {
-        view.addSubview(self.chatTableView)
+        self.view.addSubview(self.chatTableView)
         
         self.chatTableView.snp_makeConstraints { (make) in
             make.left.equalTo(self.view.snp_left)
@@ -93,12 +94,26 @@ extension KDChatViewController {
     func setupShareKeyboard() {
         self.shareView = NSBundle.mainBundle().loadNibNamed("ChatShareMoreView", owner: nil, options: nil).last as! ChatShareMoreView
         self.shareView.delegate = self
-        view.addSubview(self.shareView)
+        self.view.addSubview(self.shareView)
         
         self.shareView.snp_makeConstraints { (make) in
             make.left.right.equalTo(view)
             make.top.equalTo(self.bottomBarView.snp_bottom)
             make.height.equalTo(kCustomKeyboardHeight)
+        }
+    }
+    
+    /**
+     *  初始化录音视图
+     */
+    func setupRecordingView() {
+        self.recordingView = NSBundle.mainBundle().loadNibNamed("ChatRecordingView", owner: nil, options: nil).last as! ChatRecordingView
+        self.recordingView.hidden = true
+        self.view.addSubview(self.recordingView)
+        
+        self.recordingView.snp_makeConstraints { (make) in
+            make.center.equalTo(self.view)
+            make.size.equalTo(CGSize(width: 300, height: 300))
         }
     }
 }

@@ -9,6 +9,38 @@
 import Foundation
 import Photos
 
+// MARK: - UITextViewDelegate
+extension KDChatViewController: UITextViewDelegate {
+    /**
+     *  将要进入到编辑模式
+     */
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        self.bottomBarView.inputTextViewCallKeyboard()
+        return true
+    }
+    
+    /**
+     *  内容发生改变时
+     */
+    func textViewDidChange(textView: UITextView) {
+        
+    }
+    
+    /**
+     *  键盘内容即将输入到 textView 中时
+     */
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            // 发送文本消息
+            sendChatTextMessage(textView)
+            
+            return false
+        }
+        
+        return true
+    }
+}
+
 // MARK: - ChatBarViewDelegate
 extension KDChatViewController: ChatBarViewDelegate {
 
@@ -93,39 +125,6 @@ extension KDChatViewController: ChatBarViewDelegate {
     }
 }
 
-// MARK: - UITextViewDelegate
-extension KDChatViewController: UITextViewDelegate {
-    /**
-     *  将要进入到编辑模式
-     */
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        self.bottomBarView.inputTextViewCallKeyboard()
-        
-        return true
-    }
-    
-    /**
-     *  内容发生改变时
-     */
-    func textViewDidChange(textView: UITextView) {
-        
-    }
-    
-    /**
-     *  键盘内容即将输入到 textView 中时
-     */
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            // 发送文本消息
-            sendChatTextMessage(textView)
-            
-            return false
-        }
-        
-        return true
-    }
-}
-
 // MARK: - ChatEmotionViewDelegate
 extension KDChatViewController: ChatEmotionViewDelegate {
     
@@ -186,6 +185,31 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
     /// 点击位置
     func didClickLocationItemAction() {
         print("did Click LocationItem")
+        
+    }
+}
+
+// MARK: - MediaManagerDelegate
+extension KDChatViewController: MediaManagerDelegate {
+    /**
+     *  更新录音音量
+     */
+    func recordUpdateVolumn(value: Float) {
+        
+    }
+    
+    /**
+     *  录音时间过短
+     */
+    func recordTimeTooShort() {
+        self.recordingView.recordWithShortTime()
+    }
+    
+    /**
+     *  录音完成
+     */
+    func recordFinish(path: String, duration: Int) {
+        // 发送语音消息
         
     }
 }
