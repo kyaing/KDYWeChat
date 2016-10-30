@@ -8,6 +8,7 @@
 
 import UIKit
 import Proposer
+import AVFoundation
 
 /// 系统权限管理类
 class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -75,17 +76,38 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
         
     }
     
+    /**
+     *  检测录音权限
+     */
+    func checkRecordingPermission() -> Bool {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: .DuckOthers)
+            do {
+                try session.setActive(true)
+                session.requestRecordPermission{ allowed in
+                    if !allowed {
+                        print("无法访问您的麦克风")
+                    }
+                }
+                
+                return true
+                
+            } catch let error as NSError {
+                print("Could not activate the audio session:\(error)")
+                return false
+            }
+            
+        } catch let error as NSError {
+            print("An error occurred in setting the audio ,session category. Error = \(error)")
+            return false
+        }
+    }
+    
     // MARK: - UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         picker.dismissViewControllerAnimated(true, completion: nil)
-        
-        // 上传用户头像
-        UserInfoManager.shareInstance.uploadUserAvatorInBackground(image, successs: { (success) in
-            
-        }) { (error) in
-            
-        }
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

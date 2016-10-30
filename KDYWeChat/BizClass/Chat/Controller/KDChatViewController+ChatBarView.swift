@@ -78,36 +78,42 @@ extension KDChatViewController {
         }.addDisposableTo(disposeBag)
         
         // 录音按钮 (添加长按手势)
+        var finishRecording: Bool = true
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
         longPressGesture.rx_event.subscribeNext { event in
 
             let state = event.state
             switch state {
-            case .Began:     // 开始录音
+            case .Began:  // 开始录音
+                finishRecording = true
+                
+                self.recordingView.recordWithShortTime()
+                RecordManager.shareInstance.startRecord()
                 recordButton.replaceRecordButtonUI(isRecording: true)
-                self.recordingView.recording()
                 
-            case .Changed:   // 录音移动中 (如上滑取消录音)
-                break
-            case .Ended:     // 录音结束
-                break
-            default:
-                break
-            }
-            
-            
-            if state == .Began {
+            case .Changed:  // 录音移动中 (如上滑取消录音)
+                // 判断手势移动的Point，是否在视图中
+                let point = event.locationInView(self.recordingView)
+                if self.recordingView.pointInside(point, withEvent: nil) {
+                    self.recordingView.cancelRecordBySldeUp()
+                    finishRecording = false
+                } else {
+                    self.recordingView.recording()
+                    finishRecording = true
+                }
                 
-                
-            } else if state == .Changed {
-                
-            } else if state == .Cancelled {
-                
-            } else if state == .Ended {
+            case .Ended:  // 录音结束
+                if finishRecording {
+                    RecordManager.shareInstance.stopRecord()
+                } else {
+                    RecordManager.shareInstance.cancelRecording()
+                }
+                self.recordingView.stopRecording()
                 recordButton.replaceRecordButtonUI(isRecording: false)
+                
+            default: break
             }
-            
         }.addDisposableTo(disposeBag)
         
         // 点击文本框 (添加点击手势)

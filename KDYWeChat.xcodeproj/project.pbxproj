@@ -99,6 +99,7 @@
 		1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9611D83E9BA008BD883 /* UIView+Frame.swift */; };
 		1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */; };
 		184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */; };
+		1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1882065E1DC5CEB30013D831 /* MediaFileManager.swift */; };
 		188B05611D85306200393752 /* KDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B05601D85306200393752 /* KDNavigationController.swift */; };
 		18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */; };
 		18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D211D94268600F52F1E /* ChatBarButton+UI.swift */; };
@@ -282,6 +283,7 @@
 		1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		1869968E1D8D3DC5008D57B1 /* KDYWeChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDYWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		1882065E1DC5CEB30013D831 /* MediaFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFileManager.swift; sourceTree = "<group>"; };
 		188B05601D85306200393752 /* KDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNavigationController.swift; sourceTree = "<group>"; };
 		18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatBarView.swift"; sourceTree = "<group>"; };
 		18953D211D94268600F52F1E /* ChatBarButton+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatBarButton+UI.swift"; sourceTree = "<group>"; };
@@ -840,6 +842,7 @@
 				18A37F9B1DC4E11D00FCAAE0 /* VideoManger.swift */,
 				18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */,
 				18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */,
+				1882065E1DC5CEB30013D831 /* MediaFileManager.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -866,13 +869,13 @@
 			isa = PBXGroup;
 			children = (
 				18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */,
-				044897921DC1FEB400F7A3B6 /* KDChatSettingViewController.swift */,
 				04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */,
 				04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */,
 				18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */,
 				04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */,
 				184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */,
 				189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */,
+				044897921DC1FEB400F7A3B6 /* KDChatSettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1181,6 +1184,7 @@
 				18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */,
 				04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */,
 				1845A9571D83DD86008BD883 /* KDDiscoveryViewController.swift in Sources */,
+				1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */,
 				049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */,
 				044897931DC1FEB400F7A3B6 /* KDChatSettingViewController.swift in Sources */,
 				04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */,

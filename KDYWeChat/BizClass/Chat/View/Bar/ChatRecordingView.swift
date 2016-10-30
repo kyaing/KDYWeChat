@@ -53,6 +53,7 @@ extension ChatRecordingView {
         self.tooShortImageView.hidden = true
         
         self.recordingBgView.hidden = false
+        self.tipsLabel.backgroundColor = UIColor.clearColor()
         self.tipsLabel.text = "手指上滑，取消发送"
     }
     

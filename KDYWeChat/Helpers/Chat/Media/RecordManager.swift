@@ -9,25 +9,34 @@
 import UIKit
 import AVFoundation
 
-/// 录音管理类
+let recordingTempFilePath = MediaFileManager.getRecordingFilePath("tempRecording")
+
+// 录音管理类
 class RecordManager: NSObject {
     
     /// 录音参数设置
     lazy var recordSetting: [String: AnyObject] = {
         let setting = [
-            // 线性采样位数
+            // 线性采样位数  8、16、24、32
             AVLinearPCMBitDepthKey: NSNumber(int: 16),
-            // 设置录音格式
+            // 设置录音格式  AVFormatIDKey == kAudioFormatLinearPCM
             AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatLinearPCM),
             // 录音通道数  1 或 2
             AVNumberOfChannelsKey: NSNumber(int: 1),
-            // 设置录音采样率(Hz)
-            AVSampleRateKey: NSNumber(float: 8000.0)]
+            // 设置录音采样率(Hz) 如：AVSampleRateKey == 8000/44100/96000（影响音频的质量）
+            AVSampleRateKey: NSNumber(float: 8000.0)
+            ]
         
         return setting
     }()
     
     var recorder: AVAudioRecorder!
+    
+    var operationQueue: NSOperationQueue! {
+        get {
+            return NSOperationQueue()
+        }
+    }
     
     /// 录音开始时间
     var startTime: CFTimeInterval!
@@ -36,10 +45,13 @@ class RecordManager: NSObject {
     var endTime: CFTimeInterval!
     
     /// 录音时长
-    var recordTimeInterval: CFTimeInterval!
+    var recordingTimeInterval: NSNumber!
     
     /// 是否结束录音
     var isFinishRecord: Bool = true
+    
+    /// 是否取消录音
+    var isCancelRecord: Bool = false
     
     /// 多媒体的代理
     weak var mediaDelegate: MediaManagerDelegate?
@@ -50,18 +62,61 @@ class RecordManager: NSObject {
     }
     
     /**
+     *  获取录音权限并初始化录音
+     */
+    func checkPermissionAndSetupRecord() {
+        let session = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: .DuckOthers)
+            do {
+                try session.setActive(true)
+                session.requestRecordPermission{allowed in
+                    if !allowed {
+                        
+                    }
+                }
+            } catch _ as NSError {
+                
+            }
+            
+        } catch _ as NSError {
+            
+        }
+    }
+    
+    /**
      *  开始录音
      */
-    func startRecording() {
-        // 开始时间，当前图层的时间
+    func startRecord() {
+        
+        self.isCancelRecord = false
         self.startTime = CACurrentMediaTime()
         
         do {
-            self.recorder = try AVAudioRecorder(URL: NSURL(string: "")!, settings: self.recordSetting)
+            self.recorder = try AVAudioRecorder(URL: recordingTempFilePath, settings: self.recordSetting)
+            self.recorder.delegate = self
+            self.recorder.meteringEnabled = true
+            self.recorder.prepareToRecord()
             
-        } catch let error as NSError {
-            print("开始录音失败，error = \(error.description)")
+        } catch _ as NSError {
+            self.recorder = nil
         }
+        
+        self.performSelector(#selector(self.readyStartRecord), withObject: self, afterDelay: 0.0)
+    }
+    
+    /**
+     *  准备录音
+     */
+    func readyStartRecord() {
+        setupAudioSessionCategory()
+        
+        self.recorder.record()
+        
+        let operation = NSBlockOperation()
+        operation.addExecutionBlock(updateVolume)
+        self.operationQueue.addOperation(operation)
     }
     
     /**
@@ -75,14 +130,109 @@ class RecordManager: NSObject {
      *  更新录音音量
      */
     func updateVolume() {
-        
+        guard let recorder = self.recorder else { return }
+    
+        repeat {
+            recorder.updateMeters()
+            self.recordingTimeInterval = NSNumber(float: NSNumber(double: recorder.currentTime).floatValue)
+            let averagePower = recorder.averagePowerForChannel(0)
+            let lowPassResults = pow(10, (0.05 * averagePower)) * 10
+            
+            dispatch_async_safely_to_main_queue({ () -> () in
+                self.mediaDelegate?.recordUpdateVolumn(lowPassResults)
+            })
+            
+            // 大于60秒, 停止录音
+            if self.recordingTimeInterval.intValue > 60 {
+                stopRecord()
+            }
+            
+            NSThread.sleepForTimeInterval(0.05)
+            
+        } while(recorder.recording)
     }
     
     /**
      *  停止录音
      */
-    func stopRecording() {
+    func stopRecord() {
+        self.isFinishRecord = true
+        self.isCancelRecord = false
         
+        self.endTime = CACurrentMediaTime()
+        
+        if (self.endTime - self.startTime) < 0.5 {
+            NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(self.readyStartRecord), object: self)
+            dispatch_async_safely_to_main_queue({ () -> () in
+                self.mediaDelegate?.recordTimeTooShort()
+            })
+            
+        } else {
+            self.recordingTimeInterval = NSNumber(int: NSNumber(double: self.recorder.currentTime).intValue)
+            if self.recordingTimeInterval.intValue < 1 {
+                self.performSelector(#selector(self.readyStopRecord), withObject: self, afterDelay: 0.4)
+            } else {
+                self.readyStopRecord()
+            }
+        }
+        
+        self.operationQueue.cancelAllOperations()
+    }
+    
+    /**
+     *  准备停止录音
+     */
+    func readyStopRecord() {
+        self.recorder.stop()
+        self.recorder = nil
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+        } catch _ as NSError {
+            
+        }
+    }
+    
+    /**
+     *  设置音频模式
+     */
+    func setupAudioSessionCategory() {
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try audioSession.setActive(true)
+            
+        } catch let error as NSError {
+            print("error = \(error.description)")
+        }
+    }
+    
+    func dispatch_async_safely_to_main_queue(block: ()->()) {
+        dispatch_async_safely_to_queue(dispatch_get_main_queue(), block)
+    }
+    
+    func dispatch_async_safely_to_queue(queue: dispatch_queue_t, _ block: ()->()) {
+        if queue === dispatch_get_main_queue() && NSThread.isMainThread() {
+            block()
+        } else {
+            dispatch_async(queue) {
+                block()
+            }
+        }
     }
 }
+
+extension RecordManager: AVAudioRecorderDelegate {
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        if flag && self.isFinishRecord {
+            // 完成录音
+            
+        } else {
+            
+        }
+    }
+}
+    
 

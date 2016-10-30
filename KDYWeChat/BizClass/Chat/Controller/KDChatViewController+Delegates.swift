@@ -195,7 +195,7 @@ extension KDChatViewController: MediaManagerDelegate {
      *  更新录音音量
      */
     func recordUpdateVolumn(value: Float) {
-        
+        self.recordingView.updateVolumeValue(value)
     }
     
     /**
