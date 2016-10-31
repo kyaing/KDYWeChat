@@ -70,6 +70,8 @@ class ChatModel: NSObject {
     
     var fileURLPath: String?        // 文件地址
     
+    var duration: Int!              // 语音时长
+    
     var timestamp : String?         // 同 publishTimestamp
     var messageFromType : MessageFromType = .Group
     

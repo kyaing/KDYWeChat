@@ -18,11 +18,11 @@
                         <rect key="frame" x="10" y="0.0" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eO3-80-BQY" userLabel="userNameLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eO3-80-BQY" userLabel="userNameLabel">
                         <rect key="frame" x="60" y="0.0" width="200" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -43,10 +43,10 @@
                 <outlet property="contentLabel" destination="rc7-xp-MQ7" id="bnZ-zL-lna"/>
                 <outlet property="nicknameLabel" destination="eO3-80-BQY" id="Env-h6-neb"/>
             </connections>
-            <point key="canvasLocation" x="107.5" y="65"/>
+            <point key="canvasLocation" x="17.5" y="86"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="user_avatar" width="50" height="50"/>
+        <image name="user_avatar" width="47" height="47"/>
     </resources>
 </document>

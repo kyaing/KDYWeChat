@@ -88,7 +88,7 @@ extension KDChatViewController {
             case .Began:  // 开始录音
                 finishRecording = true
                 
-                self.recordingView.recordWithShortTime()
+                self.recordingView.recording()
                 RecordManager.shareInstance.startRecord()
                 recordButton.replaceRecordButtonUI(isRecording: true)
                 

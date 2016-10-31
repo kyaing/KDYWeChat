@@ -208,9 +208,9 @@ extension KDChatViewController: MediaManagerDelegate {
     /**
      *  录音完成
      */
-    func recordFinish(path: String, duration: Int) {
+    func recordFinish(path: String, duration: Int32) {
         // 发送语音消息
-        
+        sendChatVoiceMessage(path, duration: duration)
     }
 }
 

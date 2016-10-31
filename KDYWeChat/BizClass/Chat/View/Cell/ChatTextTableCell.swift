@@ -9,7 +9,6 @@
 import UIKit
 import YYText
 
-/// 下面这手算布局，能用SnapKit计算吗？
 let kChatTextLeft: CGFloat = 72                                         //消息在左边的时候， 文字距离屏幕左边的距离
 let kChatTextMaxWidth: CGFloat = UIScreen.width - kChatTextLeft - 82    //消息在右边， 70：文本离屏幕左的距离，  82：文本离屏幕右的距离
 let kChatTextMarginTop: CGFloat = 12                                    //文字的顶部和气泡顶部相差 12 像素

@@ -21,6 +21,9 @@ extension MessageContentType {
         case .Image:
             return ChatImageTableCell.layoutHeight(model)
             
+        case .Voice:
+            return ChatAudioTableCell.layoutCellHeight(model)
+            
         default:
             return 0
         }
@@ -45,6 +48,11 @@ extension MessageContentType {
         case .Image:
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatImageTableCell", forIndexPath: indexPath) as!
                 ChatImageTableCell
+            cell.setupCellContent(model)
+            return cell
+            
+        case .Voice:
+            let cell = tableView.dequeueReusableCellWithIdentifier("ChatAudioTableCell", forIndexPath: indexPath) as! ChatAudioTableCell
             cell.setupCellContent(model)
             return cell
             

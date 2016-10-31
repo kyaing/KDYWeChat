@@ -23,6 +23,6 @@ protocol MediaManagerDelegate: class {
     /**
      *  录音完成
      */
-    func recordFinish(path: String, duration: Int)
+    func recordFinish(path: String, duration: Int32)
 }
 

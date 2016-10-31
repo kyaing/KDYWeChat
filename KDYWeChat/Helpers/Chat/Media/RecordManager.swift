@@ -94,6 +94,7 @@ class RecordManager: NSObject {
         self.startTime = CACurrentMediaTime()
         
         do {
+            print("recordingPath = \(recordingTempFilePath)")
             self.recorder = try AVAudioRecorder(URL: recordingTempFilePath, settings: self.recordSetting)
             self.recorder.delegate = self
             self.recorder.meteringEnabled = true
@@ -168,7 +169,9 @@ class RecordManager: NSObject {
             })
             
         } else {
-            self.recordingTimeInterval = NSNumber(int: NSNumber(double: self.recorder.currentTime).intValue)
+            guard let currentTime: NSTimeInterval = self.recorder.currentTime else { return }
+            
+            self.recordingTimeInterval = NSNumber(int: NSNumber(double: currentTime).intValue)
             if self.recordingTimeInterval.intValue < 1 {
                 self.performSelector(#selector(self.readyStopRecord), withObject: self, afterDelay: 0.4)
             } else {
