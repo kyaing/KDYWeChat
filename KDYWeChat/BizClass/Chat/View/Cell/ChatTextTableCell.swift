@@ -94,7 +94,7 @@ class ChatTextTableCell: ChatBaseTableCell {
         // 设置气泡的高度
         self.bubbleImageView.height = max(self.contentLabel.height + kChatBubbleHeightBuffer + kChatBubbleBottomTransparentHeight, kChatBubbleImageViewHeight)
         
-        // value = 头像的底部 - 气泡透明间隔值
+        // value = 名字的底部 - 气泡透明间隔值
         self.bubbleImageView.top = self.nicknameLabel.bottom - kChatBubblePaddingTop
         
         // value = 气泡顶部 + 文字和气泡的差值

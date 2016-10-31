@@ -194,7 +194,7 @@ extension KDChatViewController: MediaManagerDelegate {
     /**
      *  更新录音音量
      */
-    func recordUpdateVolumn(value: Float) {
+    func updateRecordingVolumn(value: Float) {
         self.recordingView.updateVolumeValue(value)
     }
     
@@ -208,7 +208,7 @@ extension KDChatViewController: MediaManagerDelegate {
     /**
      *  录音完成
      */
-    func recordFinish(path: String, duration: Int32) {
+    func recordFinished(path: String, duration: Int32) {
         // 发送语音消息
         sendChatVoiceMessage(path, duration: duration)
     }

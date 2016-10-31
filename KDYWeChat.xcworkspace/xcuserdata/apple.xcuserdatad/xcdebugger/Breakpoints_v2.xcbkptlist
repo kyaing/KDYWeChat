@@ -73,14 +73,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/Helpers/Chat/Media/MediaFileManager.swift"
-            timestampString = "499505159.683159"
+            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatRecordingView.swift"
+            timestampString = "499529767.418736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "MediaFileManager"
-            landmarkType = "3">
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "recordWithShortTime()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,13 +89,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+Delegates.swift"
-            timestampString = "499529703.929381"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
+            timestampString = "499615725.718687"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "recordTimeTooShort()"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "sendChatVoiceMessage(_:duration:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+ChatBarView.swift"
+            timestampString = "499616182.838899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "setupBarViewInteraction()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KDYWeChat/Helpers/Chat/Media/RecordManager.swift"
-            timestampString = "499529713.697824"
+            timestampString = "499616205.58308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "stopRecord()"
             landmarkType = "5">
          </BreakpointContent>
@@ -121,13 +137,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatRecordingView.swift"
-            timestampString = "499529767.418736"
+            filePath = "KDYWeChat/Helpers/Chat/Media/RecordManager.swift"
+            timestampString = "499616251.190919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "recordWithShortTime()"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "audioRecorderDidFinishRecording(_:successfully:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+Delegates.swift"
+            timestampString = "499616265.595489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "recordFinished(_:duration:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
+            timestampString = "499616408.868721"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "addMessageToDataSource(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KDYWeChat/BizClass/Chat/Model/ChatModel.swift"
+            timestampString = "499616445.139435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "init(message:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,7 +13,7 @@ protocol MediaManagerDelegate: class {
     /**
      *  更新录音音量
      */
-    func recordUpdateVolumn(value: Float)
+    func updateRecordingVolumn(value: Float)
     
     /**
      *  录音时间过短
@@ -23,6 +23,6 @@ protocol MediaManagerDelegate: class {
     /**
      *  录音完成
      */
-    func recordFinish(path: String, duration: Int32)
+    func recordFinished(path: String, duration: Int32)
 }
 

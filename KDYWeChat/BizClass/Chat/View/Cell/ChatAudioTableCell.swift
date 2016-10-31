@@ -27,13 +27,15 @@ class ChatAudioTableCell: ChatBaseTableCell {
     
     override func setupCellContent(model: ChatModel) {
         super.setupCellContent(model)
-        
+    
         // 拉伸气泡图片，设置语音按钮背景图片
         let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
         let bubbleImage = stretchImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
         
         self.voiceButton.setBackgroundImage(bubbleImage, forState: .Normal)
         self.voiceButton.setBackgroundImage(bubbleImage, forState: .Highlighted)
+        
+        self.vocieTimeLabel.text = String(format:"%zd\"", Int(model.duration))
     }
     
     // MARK: - Layout
@@ -42,18 +44,40 @@ class ChatAudioTableCell: ChatBaseTableCell {
         
         guard let model = self.model else { return }
         
-        let voiceBtnWidth = 70 + 130 * CGFloat(model.duration / 60)
-        self.voiceButton.width = min(voiceBtnWidth, kAudioMaxWidth)
+        let voiceBtnWidth: CGFloat = 70 + 200 * CGFloat(model.duration / 60)
+    
+        self.voiceButton.width     = min(voiceBtnWidth, kAudioMaxWidth)
+        self.voiceButton.height    = kChatBubbleImageViewHeight
+        self.voiceButton.top       = self.nicknameLabel.bottom - kChatBubblePaddingTop
+
+        self.vocieTimeLabel.top    = self.voiceButton.top
+        self.vocieTimeLabel.height = self.voiceButton.height
         
         if model.fromMe! {
+            self.voiceButton.left = UIScreen.width - kChatAvatarMarginLeft - kChatAvatarWidth - kChatBubbleMaginLeft
+                - self.voiceButton.width
+            
+            self.vocieTimeLabel.left = self.voiceButton.left - self.vocieTimeLabel.width
+            self.vocieTimeLabel.textAlignment = .Right
 
         } else {
+            self.voiceButton.left = kChatBubbleLeft
             
+            self.vocieTimeLabel.left = self.voiceButton.right
+            self.vocieTimeLabel.textAlignment = .Left
         }
     }
     
     class func layoutCellHeight(model: ChatModel) -> CGFloat {
-        return 40
+        if model.cellHeight != 0 {
+            return model.cellHeight
+        }
+        
+        var height: CGFloat = kChatAvatarMarginTop + kChatBubblePaddingBottom
+        height += kChatBubbleImageViewHeight
+        model.cellHeight = height
+        
+        return height
     }
     
     // MARK: - Event Response 

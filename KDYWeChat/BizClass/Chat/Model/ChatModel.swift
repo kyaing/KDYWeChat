@@ -50,8 +50,6 @@ class ChatModel: NSObject {
         return self.message.status
     }
 
-    var chatSendId : String!        // 发送人 ID
-    var chatReceiveId : String!     // 接受人 ID
     var messageContent : String!    // 消息内容
     
     var messageId : String {        // 消息 ID
@@ -70,7 +68,7 @@ class ChatModel: NSObject {
     
     var fileURLPath: String?        // 文件地址
     
-    var duration: Int!              // 语音时长
+    var duration: Float!            // 语音时长
     
     var timestamp : String?         // 同 publishTimestamp
     var messageFromType : MessageFromType = .Group
@@ -136,7 +134,15 @@ class ChatModel: NSObject {
             
             if !fromMe {
                 self.fileURLPath = imageBody.remotePath
-            } 
+            }
+        
+        case EMMessageBodyTypeVoice:  // 语音
+            self.messageContentType = .Voice
+            
+            let voiceBody = firstMessageBody as! EMVoiceMessageBody
+            self.duration = Float32(voiceBody.duration)
+            
+            self.fileURLPath = voiceBody.remotePath
             
         default:
             break

@@ -140,7 +140,7 @@ class RecordManager: NSObject {
             let lowPassResults = pow(10, (0.05 * averagePower)) * 10
             
             dispatch_async_safely_to_main_queue({ () -> () in
-                self.mediaDelegate?.recordUpdateVolumn(lowPassResults)
+                self.mediaDelegate?.updateRecordingVolumn(lowPassResults)
             })
             
             // 大于60秒, 停止录音
@@ -231,6 +231,7 @@ extension RecordManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag && self.isFinishRecord {
             // 完成录音
+            self.mediaDelegate?.recordFinished(recordingTempFilePath.absoluteString, duration: self.recordingTimeInterval.intValue)
             
         } else {
             
