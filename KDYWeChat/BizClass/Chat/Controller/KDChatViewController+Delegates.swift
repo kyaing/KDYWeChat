@@ -179,7 +179,7 @@ extension KDChatViewController: ChatBarViewDelegate {
      *  We should make actionBarView's height to original value when the user wants to show recording keyboard.
      *  Otherwise we should make actionBarView's height to currentHeight
      
-     - parameter showExpandable: show or hide expandable inputTextView
+     -  parameter showExpandable: show or hide expandable inputTextView
      */
     func controlExpandableInputView(showExpandable showExpandable: Bool) {
         let textView = self.bottomBarView.inputTextView
@@ -208,9 +208,9 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
     func didClickPhotoItemAction() {
         print("did Click PhotoItem")
         
-        // 弹出 BSImagePicker 图片选择器 (可以最多一次性选择九张)
-        self.ky_presentImagePickerController(
-            maxNumberOfSelections: 1,  // 先发一张作为测试
+        // 弹出 BSImagePicker 图片选择器 (最多一次性选择九张)
+        ky_presentImagePickerController(
+            maxNumberOfSelections: 1,  // 先发一张
             select: { (asset) in
                 
             }, deselect: { (asset) in
@@ -256,7 +256,10 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
     /// 点击位置
     func didClickLocationItemAction() {
         print("did Click LocationItem")
-        
+
+        ky_presentViewController(KDChatLocationViewController(), animated: true) {
+            print("模态弹出位置页面")
+        }
     }
 }
 

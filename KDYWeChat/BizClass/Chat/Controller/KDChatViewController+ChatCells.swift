@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - 聊天Cell
+// MARK: - 聊天Cells
 extension MessageContentType {
     func chatCellHeight(model: ChatModel) -> CGFloat {
         switch self {
@@ -23,6 +23,9 @@ extension MessageContentType {
             
         case .Voice:
             return ChatAudioTableCell.layoutCellHeight(model)
+            
+        case .Location:
+            return ChatLocationTableCell.layoutCellHeight(model)
             
         default:
             return 0
@@ -63,8 +66,15 @@ extension MessageContentType {
             
             return cell
             
+        case .Location:
+            let cell = tableView.dequeueReusableCellWithIdentifier("ChatLocationTableCell", forIndexPath: indexPath) as! ChatLocationTableCell
+            cell.setupCellContent(model)
+            cell.cellDelegate = viewController
+            
+            return cell
+            
         default:
-            return nil
+            return UITableViewCell()
         }
     }
 }

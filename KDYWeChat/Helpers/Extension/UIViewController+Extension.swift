@@ -22,6 +22,12 @@ extension UIViewController {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
+    // Present
+    public func ky_presentViewController(viewController: UIViewController, animated: Bool, completion: (()->Void)?) {
+        let navigation = UINavigationController(rootViewController: viewController)
+        self.presentViewController(navigation, animated: animated, completion: completion)
+    }
+    
     // Pop 
     public func ky_popController() {
         self.navigationController?.popViewControllerAnimated(true)

@@ -103,7 +103,7 @@ class ChatTextTableCell: ChatBaseTableCell {
         // value = 气泡左边 + 文字和气泡的差值
         self.contentLabel.left = self.bubbleImageView.left + kChatTextMarginLeft
         
-        // 发送方
+        // 消息状态布局
         if model.fromMe! {
             // 文本消息，发送消息的进度菊花布局
             self.activityView.left = self.bubbleImageView.left - 20

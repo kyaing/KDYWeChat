@@ -16,6 +16,8 @@
 		04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */; };
 		042102781DC848DD004C3326 /* ChatCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042102771DC848DD004C3326 /* ChatCellDelegate.swift */; };
 		0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */; };
+		0421027E1DC890BF004C3326 /* KDChatLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */; };
+		042102801DC898AC004C3326 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0421027F1DC898AC004C3326 /* MapKit.framework */; };
 		042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */; };
 		042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6F1D9E35630096CDF2 /* MessageModel.swift */; };
 		042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE721D9E35630096CDF2 /* MessageTableCell.swift */; };
@@ -155,6 +157,8 @@
 		04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		042102771DC848DD004C3326 /* ChatCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCellDelegate.swift; sourceTree = "<group>"; };
 		0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonalDetailViewController.swift; sourceTree = "<group>"; };
+		0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatLocationViewController.swift; sourceTree = "<group>"; };
+		0421027F1DC898AC004C3326 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConversationViewController.swift; sourceTree = "<group>"; };
 		042FFE6F1D9E35630096CDF2 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		042FFE721D9E35630096CDF2 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
@@ -316,13 +320,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */,
+				042102801DC898AC004C3326 /* MapKit.framework in Frameworks */,
 				189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */,
 				189E885E1D8D665E0007C9A5 /* libHyphenateFullSDK.a in Frameworks */,
 				180F3BD71D8BDBE400D79668 /* libsqlite3.tbd in Frameworks */,
 				180F3BD51D8BDBDB00D79668 /* libstdc++.6.0.9.tbd in Frameworks */,
 				180F3BD31D8BDBD400D79668 /* libc++.tbd in Frameworks */,
 				180F3BD11D8BDBBE00D79668 /* libz.tbd in Frameworks */,
-				044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */,
 				044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */,
 				189E88601D8D66C50007C9A5 /* SystemConfiguration.framework in Frameworks */,
 				180F3BCF1D8BDBB500D79668 /* ImageIO.framework in Frameworks */,
@@ -881,6 +886,7 @@
 				184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */,
 				189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */,
 				044897921DC1FEB400F7A3B6 /* KDChatSettingViewController.swift */,
+				0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -926,20 +932,21 @@
 		67602AFFD9847F1AC4068B5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */,
+				180F3BCA1D8BDBA200D79668 /* AVFoundation.framework */,
 				044620381DB0CAFF001D13B1 /* CoreLocation.framework */,
+				180F3BC61D8BDB7100D79668 /* CoreMedia.framework */,
 				044620361DB0CAF5001D13B1 /* CoreTelephony.framework */,
-				189E88611D8D66DD0007C9A5 /* libiconv.tbd */,
+				180F3BCE1D8BDBB500D79668 /* ImageIO.framework */,
+				0421027F1DC898AC004C3326 /* MapKit.framework */,
+				180F3BCC1D8BDBAC00D79668 /* MobileCoreServices.framework */,
+				E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */,
 				189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */,
+				180F3BD21D8BDBD400D79668 /* libc++.tbd */,
+				189E88611D8D66DD0007C9A5 /* libiconv.tbd */,
 				180F3BD61D8BDBE400D79668 /* libsqlite3.tbd */,
 				180F3BD41D8BDBDB00D79668 /* libstdc++.6.0.9.tbd */,
-				180F3BD21D8BDBD400D79668 /* libc++.tbd */,
 				180F3BD01D8BDBBE00D79668 /* libz.tbd */,
-				180F3BCE1D8BDBB500D79668 /* ImageIO.framework */,
-				180F3BCC1D8BDBAC00D79668 /* MobileCoreServices.framework */,
-				180F3BCA1D8BDBA200D79668 /* AVFoundation.framework */,
-				180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */,
-				180F3BC61D8BDB7100D79668 /* CoreMedia.framework */,
-				E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1227,6 +1234,7 @@
 				04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */,
 				04B6B1F91D98BD3B00BCBDE7 /* ChatTextTableCell.swift in Sources */,
 				184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */,
+				0421027E1DC890BF004C3326 /* KDChatLocationViewController.swift in Sources */,
 				042102781DC848DD004C3326 /* ChatCellDelegate.swift in Sources */,
 				1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */,
 				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,

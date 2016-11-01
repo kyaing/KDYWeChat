@@ -54,8 +54,15 @@ extension KDChatViewController {
     /**
      *  发送地理位置消息
      */
-    func sendChatLocationMessage() {
-        
+    func sendChatLocationMessage(latitude: Double, longitude: Double, address: String) {
+        let locationMessage =
+            EaseSDKHelper.shareInstance.initSendLocationMessageWithLatitude(latitude,
+                                                                            longitude: longitude,
+                                                                            address: address,
+                                                                            toUser: self.conversationId,
+                                                                            messageType: messageTypeFromConversationType(),
+                                                                            messageExt: nil)
+        sendMessage(locationMessage)
     }
     
     /**

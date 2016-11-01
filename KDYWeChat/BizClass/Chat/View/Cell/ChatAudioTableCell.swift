@@ -88,7 +88,7 @@ class ChatAudioTableCell: ChatBaseTableCell {
             self.vocieTimeLabel.textAlignment = .Left
         }
         
-        // 菊花布局
+        // 消息状态布局
         if model.fromMe! {
             // 语音消息，发送消息的进度菊花布局
             self.activityView.left = self.vocieTimeLabel.left - 20
