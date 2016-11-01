@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import Kingfisher
 
 let kChatNicknameLabelHeight: CGFloat = 20  // 昵称 label 的高度
@@ -57,6 +58,8 @@ class ChatBaseTableCell: UITableViewCell {
         return failButton
     }()
     
+    weak var cellDelegate: ChatCellDelegate?
+    
     var model: ChatModel?
     let disposeBag = DisposeBag()
     
@@ -66,6 +69,10 @@ class ChatBaseTableCell: UITableViewCell {
         
         self.selectionStyle = .None
         self.backgroundColor = UIColor.clearColor()
+        
+        let tapAvatarGuesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAvatarAction))
+        self.avatarImageView.userInteractionEnabled = true
+        self.avatarImageView.addGestureRecognizer(tapAvatarGuesture)
     }
     
     func setupCellContent(model: ChatModel) {
@@ -87,6 +94,7 @@ class ChatBaseTableCell: UITableViewCell {
             }
         }
         
+        // 判断消息发送的状态 (发送中/成功/失败)
         if model.fromMe! {
             switch model.messageStatus {
             case EMMessageStatusPending, EMMessageStatusDelivering:
@@ -116,13 +124,6 @@ class ChatBaseTableCell: UITableViewCell {
         self.setNeedsLayout()
     }
     
-    /**
-     *  重新发送消息
-     */
-    func reSendMessageAction() {
-        
-    }
-    
     // MARK: - Layout
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -137,6 +138,22 @@ class ChatBaseTableCell: UITableViewCell {
             self.nicknameLabel.height = 0
             self.avatarImageView.left = kChatAvatarMarginLeft
         }
+    }
+    
+    // MARK: - Event Response
+    /**
+     *  点击头像
+     */
+    func tapAvatarAction() {
+        guard let delegate = self.cellDelegate else { return }
+        delegate.didClickCellAavator(self)
+    }
+    
+    /**
+     *  重新发送消息
+     */
+    func reSendMessageAction() {
+        
     }
 }
 

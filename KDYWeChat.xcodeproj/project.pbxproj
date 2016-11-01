@@ -14,6 +14,8 @@
 		04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */; };
 		04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */; };
 		04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */; };
+		042102781DC848DD004C3326 /* ChatCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042102771DC848DD004C3326 /* ChatCellDelegate.swift */; };
+		0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */; };
 		042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */; };
 		042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6F1D9E35630096CDF2 /* MessageModel.swift */; };
 		042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE721D9E35630096CDF2 /* MessageTableCell.swift */; };
@@ -151,6 +153,8 @@
 		04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
 		04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ChatAdditions.swift"; sourceTree = "<group>"; };
+		042102771DC848DD004C3326 /* ChatCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCellDelegate.swift; sourceTree = "<group>"; };
+		0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonalDetailViewController.swift; sourceTree = "<group>"; };
 		042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConversationViewController.swift; sourceTree = "<group>"; };
 		042FFE6F1D9E35630096CDF2 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		042FFE721D9E35630096CDF2 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
@@ -516,6 +520,7 @@
 				04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */,
 				04B45B191DB620C0005C7A83 /* KDNewFriendsViewController.swift */,
 				048D47801DB8735C00BDE27D /* KDAddFriendViewController.swift */,
+				0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */,
 				04B45B1A1DB620C0005C7A83 /* KDNewFriendsViewController.xib */,
 				048D47811DB8735C00BDE27D /* KDAddFriendViewController.xib */,
 			);
@@ -624,9 +629,9 @@
 			isa = PBXGroup;
 			children = (
 				1833DCD31DB3788C008B036B /* KDMeViewController.swift */,
-				048E1CE91DB4A3340049571C /* KDSettingViewController.swift */,
 				04B45B211DB62438005C7A83 /* KDPersonInfoViewController.swift */,
 				1833DCDC1DB665E8008B036B /* KDEditInfoViewController.swift */,
+				048E1CE91DB4A3340049571C /* KDSettingViewController.swift */,
 				048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */,
 			);
 			path = Controller;
@@ -898,6 +903,7 @@
 		18EA8CB51D85533100B4E274 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				042102771DC848DD004C3326 /* ChatCellDelegate.swift */,
 				049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */,
 				04B6B1F71D98BD3B00BCBDE7 /* ChatTextTableCell.swift */,
 				048559201D9A1E27001A076A /* ChatTimeTableCell.swift */,
@@ -1203,6 +1209,7 @@
 				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
 				048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */,
+				0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */,
 				04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */,
 				0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */,
 				1838A6691DAFC34D0019A8AD /* KDRegisterViewController.swift in Sources */,
@@ -1220,6 +1227,7 @@
 				04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */,
 				04B6B1F91D98BD3B00BCBDE7 /* ChatTextTableCell.swift in Sources */,
 				184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */,
+				042102781DC848DD004C3326 /* ChatCellDelegate.swift in Sources */,
 				1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */,
 				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,
 				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,

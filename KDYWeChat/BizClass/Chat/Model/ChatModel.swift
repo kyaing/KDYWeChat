@@ -12,19 +12,21 @@ import YYText
 
 /* 消息内容类型:
  0 - 文本
- 1 - 图片
- 2 - 语音
- 3 - 群组提示信息，例如:高必梵邀请白琳,彭莹加入群聊
- 4 - 文件
- 5 - 时间（客户端生成数据）
+ 1 - 时间
+ 2 - 图片
+ 3 - 语音
+ 4 - 视频
+ 5 - 位置
+ 6 - 系统提示
  */
 enum MessageContentType: String {
-    case Text   = "0"
-    case Image  = "1"
-    case Voice  = "2"
-    case System = "3"
-    case File   = "4"
-    case Time   = "5"
+    case Text     = "0"
+    case Time     = "1"
+    case Image    = "2"
+    case Voice    = "3"
+    case Video    = "4"
+    case Location = "5"
+    case System   = "6"
 }
 
 // 服务器返回的是字符串

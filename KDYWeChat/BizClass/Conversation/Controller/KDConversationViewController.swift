@@ -81,8 +81,8 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         if connectionState == EMConnectionDisconnected {   // 断网状态
             self.conversationTableView.tableHeaderView = self.networkFailHeaderView
             
-        } else {
-            self.conversationTableView.tableHeaderView = UIView()
+        } else {    // 联网状态
+            self.conversationTableView.tableHeaderView = nil
         }
     }
     
@@ -99,16 +99,18 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     // MARK: - Private Methods
     /**
-     *  网络是否连接
+     *  网络是否连接 (准确地说是否连上环信服务器)
      */
     func networkIsConnected() {
+        // 若没连上环信服务器，应该有重连操作！
         let isConnected = EMClient.sharedClient().isConnected
         if !isConnected {   // 断网状态
             self.conversationTableView.tableHeaderView = self.networkFailHeaderView
             view.addSubview(self.conversationTableView)
             
-        } else {
-            self.conversationTableView.tableHeaderView = UIView()
+        } else {   // 联网状态
+            self.conversationTableView.tableHeaderView = nil
+
         }
     }
     

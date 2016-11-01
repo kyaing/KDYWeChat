@@ -75,7 +75,7 @@ final class KDChatViewController: UIViewController {
         
         setupChildViews()
         
-        // 处理询问工具栏的交互
+        // 处理底部工具栏交互
         setupBarViewInteraction()
         
         // 键盘控制

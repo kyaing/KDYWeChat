@@ -41,6 +41,78 @@ extension KDChatViewController: UITextViewDelegate {
     }
 }
 
+// MARK: - MediaManagerDelegate
+extension KDChatViewController: MediaManagerDelegate {
+    /**
+     *  更新录音音量
+     */
+    func updateRecordingVolumn(value: Float) {
+        self.recordingView.updateVolumeValue(value)
+    }
+    
+    /**
+     *  录音时间过短
+     */
+    func recordTimeTooShort() {
+        self.recordingView.recordWithShortTime()
+    }
+    
+    /**
+     *  录音完成
+     */
+    func recordFinished(path: String, duration: Int32) {
+        // 发送语音消息
+        sendChatVoiceMessage(path, duration: duration)
+    }
+}
+
+// MARK: - ChatCellDelegate
+extension KDChatViewController: ChatCellDelegate {
+    
+    /**
+     *  点击头像
+     */
+    func didClickCellAavator(cell: ChatBaseTableCell) {
+        guard let model = cell.model else { return }
+        ky_pushViewController(KDPersonalDetailViewController(model: model), animated: true)
+    }
+    
+    /**
+     *  点击图片
+     */
+    func didClickCellWithImageView(cell: ChatBaseTableCell) {
+        print("didClickCellWithImageView")
+    }
+    
+    /**
+     *  点击地理位置
+     */
+    func didClickCellWithLocations(cell: ChatBaseTableCell) {
+        print("didClickCellWithLocations")
+    }
+    
+    /**
+     *  播放语音
+     */
+    func didClickCellVoiceAndPlaying(cell: ChatBaseTableCell, isPlaying: Bool) {
+        print("didClickCellVoiceAndPlaying")
+    }
+    
+    /**
+     *  播放视频
+     */
+    func didClickCellVideoAndPlaying(cell: ChatBaseTableCell, isPlaying: Bool) {
+        print("didClickCellVideoAndPlaying")
+    }
+    
+    /**
+     *  重发消息
+     */
+    func didClickCellAndReSendMessage(cell: ChatBaseTableCell) {
+        print("didClickCellAndReSendMessage")
+    }
+}
+
 // MARK: - ChatBarViewDelegate
 extension KDChatViewController: ChatBarViewDelegate {
 
@@ -103,9 +175,9 @@ extension KDChatViewController: ChatBarViewDelegate {
     }
     
     /**
-     Control the actionBarView height:
-     We should make actionBarView's height to original value when the user wants to show recording keyboard.
-     Otherwise we should make actionBarView's height to currentHeight
+     *  Control the actionBarView height:
+     *  We should make actionBarView's height to original value when the user wants to show recording keyboard.
+     *  Otherwise we should make actionBarView's height to currentHeight
      
      - parameter showExpandable: show or hide expandable inputTextView
      */
@@ -152,7 +224,6 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
                 if let image = assets[0].getUIImage() {
                     strongSelf.sendChatImageMessage(image)
                 }
-                
             }) { 
                 print("completion")
             }
@@ -186,31 +257,6 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
     func didClickLocationItemAction() {
         print("did Click LocationItem")
         
-    }
-}
-
-// MARK: - MediaManagerDelegate
-extension KDChatViewController: MediaManagerDelegate {
-    /**
-     *  更新录音音量
-     */
-    func updateRecordingVolumn(value: Float) {
-        self.recordingView.updateVolumeValue(value)
-    }
-    
-    /**
-     *  录音时间过短
-     */
-    func recordTimeTooShort() {
-        self.recordingView.recordWithShortTime()
-    }
-    
-    /**
-     *  录音完成
-     */
-    func recordFinished(path: String, duration: Int32) {
-        // 发送语音消息
-        sendChatVoiceMessage(path, duration: duration)
     }
 }
 

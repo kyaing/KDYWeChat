@@ -38,22 +38,29 @@ extension MessageContentType {
         case .Text:
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatTextTableCell", forIndexPath: indexPath) as! ChatTextTableCell
             cell.setupCellContent(model)
+            cell.cellDelegate = viewController
+            
             return cell
         
         case .Time:
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatTimeTableCell", forIndexPath: indexPath) as! ChatTimeTableCell
             cell.setupCellContent(model)
+            
             return cell
             
         case .Image:
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatImageTableCell", forIndexPath: indexPath) as!
                 ChatImageTableCell
             cell.setupCellContent(model)
+            cell.cellDelegate = viewController
+            
             return cell
             
         case .Voice:
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatAudioTableCell", forIndexPath: indexPath) as! ChatAudioTableCell
             cell.setupCellContent(model)
+            cell.cellDelegate = viewController
+            
             return cell
             
         default:

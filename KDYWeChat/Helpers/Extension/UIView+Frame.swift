@@ -97,7 +97,7 @@ extension UIView {
         }
     }
     
-    /// 上面
+    /// 顶部
     var top: CGFloat {
         get { return self.frame.origin.y }
         
@@ -108,7 +108,7 @@ extension UIView {
         }
     }
     
-    /// 下面
+    /// 底部
     var bottom: CGFloat {
         get { return self.frame.origin.y + self.frame.size.height }
         
