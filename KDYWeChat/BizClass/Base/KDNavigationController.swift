@@ -20,7 +20,7 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
     }
 
     override func pushViewController(viewController: UIViewController, animated: Bool) {
-        // 添加返回手势
+        // 添加手势
         self.interactivePopGestureRecognizer?.enabled = true
         
         if self.viewControllers.count > 0 {

@@ -15,8 +15,10 @@ let kBarViewHeight: CGFloat        = 50
 let kCustomKeyboardHeight: CGFloat = 216
 
 /**
- *  聊天部分，重点学习参考 -> TSWeChat_开源项目: https://github.com/hilen/TSWeChat.git
- *  主要有：1) 控制器的结构；2) Cell的组织； 3) 录音的处理，等等；
+ *  聊天部分，学习并参考：
+ *  1). TSWeChat: https://github.com/hilen/TSWeChat
+ *  2). JSQMessages: https://github.com/jessesquires/JSQMessagesViewController
+ *
  */
 
 /// 聊天界面
@@ -58,6 +60,9 @@ final class KDChatViewController: UIViewController {
     /// 录音视图
     var recordingView: ChatRecordingView!
     
+    /// 当前播放语音的Cell
+    var currentVoiceCell: ChatAudioTableCell!
+    
     let disposeBag = DisposeBag()
     var itemDataSouce = NSMutableArray()
     
@@ -82,8 +87,9 @@ final class KDChatViewController: UIViewController {
         keyboardControl()
         
         // 设置多媒体的代理
-        RecordManager.shareInstance.mediaDelegate = self
-        VideoManger.shareInstance.mediaDelegate   = self
+        RecordManager.shareInstance.mediaDelegate   = self
+        VideoManger.shareInstance.mediaDelegate     = self
+        PlayMediaManger.shareInstance.mediaDelegate = self
         
         // 加载会话消息
         loadMessageBefroe(nil, count: 100, append: true)

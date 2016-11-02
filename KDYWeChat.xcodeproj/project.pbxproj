@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040EF9281DC9C679008B1E6B /* Launch Screen.storyboard */; };
 		04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA31D92569200E5F6F7 /* ChatBarButton.swift */; };
 		04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */; };
 		04109BA81D9265C100E5F6F7 /* KDChatViewController+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */; };
@@ -148,6 +149,7 @@
 
 /* Begin PBXFileReference section */
 		00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		040EF9291DC9C679008B1E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04109BA31D92569200E5F6F7 /* ChatBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBarButton.swift; sourceTree = "<group>"; };
 		04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+SubViews.swift"; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 			children = (
 				1833DCD91DB37AFF008B036B /* Me.storyboard */,
 				1845A9481D83D1AB008BD883 /* Main.storyboard */,
+				040EF9281DC9C679008B1E6B /* Launch Screen.storyboard */,
 			);
 			path = Base.lproj;
 			sourceTree = "<group>";
@@ -1034,6 +1037,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 36D935N6NX;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -1087,6 +1093,7 @@
 				042FFE771D9E35630096CDF2 /* MessageTableCell.xib in Resources */,
 				1845A94F1D83D1AB008BD883 /* Assets.xcassets in Resources */,
 				0472632A1D8FC60100D9380C /* ChatShareMoreView.xib in Resources */,
+				040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */,
 				04B6B1FA1D98BD3B00BCBDE7 /* ChatTextTableCell.xib in Resources */,
 				04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */,
 				04B6B1FE1D98BDB300BCBDE7 /* ChatAudioTableCell.xib in Resources */,
@@ -1297,6 +1304,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		040EF9281DC9C679008B1E6B /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040EF9291DC9C679008B1E6B /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			sourceTree = "<group>";
+		};
 		1833DCD91DB37AFF008B036B /* Me.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1334,8 +1349,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 740253887@qq.com (KAG8XN8NQ6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 740253887@qq.com (KAG8XN8NQ6)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1357,7 +1372,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "60f12a82-9ea3-42ff-adb5-bc7a05262f6b";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1382,8 +1397,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 740253887@qq.com (KAG8XN8NQ6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 740253887@qq.com (KAG8XN8NQ6)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1398,7 +1413,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "60f12a82-9ea3-42ff-adb5-bc7a05262f6b";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1409,8 +1424,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1424,7 +1437,7 @@
 					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrwb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
@@ -1436,8 +1449,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1451,7 +1462,7 @@
 					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/KDYWeChat/Vendor/DeviceHelper/VoiceConvert/opencore-amrwb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
