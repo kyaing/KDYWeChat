@@ -29,7 +29,6 @@ class ChatAudioTableCell: ChatBaseTableCell {
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
     
     override func setupCellContent(model: ChatModel) {
@@ -144,6 +143,14 @@ class ChatAudioTableCell: ChatBaseTableCell {
         
         guard let delegate = self.cellDelegate else { return }
         delegate.didClickCellVoiceAndPlaying(self, isPlaying: sender.selected)
+    }
+    
+    /**
+     *  停止播放语音动画
+     */
+    func stopPlayVoiceAnimation() {
+        self.voiceButton.imageView?.stopAnimating()
+        self.voiceButton.selected = false
     }
 }
 

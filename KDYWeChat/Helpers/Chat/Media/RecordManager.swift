@@ -9,8 +9,6 @@
 import UIKit
 import AVFoundation
 
-let recordingTempFilePath = MediaFileManager.getRecordingFilePath("tempRecording")
-
 // 录音管理类
 class RecordManager: NSObject {
     
@@ -53,6 +51,9 @@ class RecordManager: NSObject {
     /// 是否取消录音
     var isCancelRecord: Bool = false
     
+    /// 语音本地路径
+    var recordingTempFilePath: NSURL!
+    
     /// 多媒体的代理
     weak var mediaDelegate: MediaManagerDelegate?
     
@@ -94,8 +95,14 @@ class RecordManager: NSObject {
         self.startTime = CACurrentMediaTime()
         
         do {
-            print("recordingPath = \(recordingTempFilePath)")
-            self.recorder = try AVAudioRecorder(URL: recordingTempFilePath, settings: self.recordSetting)
+            // 根据时间，生成每条语音的路径
+            let random = arc4random() % 100000
+            let time: Int32 = (Int32)(NSDate().timeIntervalSince1970)
+            let fileName = String(format: "%d%d", time, random)
+            
+            self.recordingTempFilePath = MediaFileManager.getRecordingFilePath(fileName)
+            
+            self.recorder = try AVAudioRecorder(URL: self.recordingTempFilePath, settings: self.recordSetting)
             self.recorder.delegate = self
             self.recorder.meteringEnabled = true
             self.recorder.prepareToRecord()
@@ -227,16 +234,16 @@ class RecordManager: NSObject {
     }
 }
 
+// MARK: - AVAudioRecorderDelegate
 extension RecordManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag && self.isFinishRecord {
             // 完成录音
-            self.mediaDelegate?.recordFinished(recordingTempFilePath.absoluteString, duration: self.recordingTimeInterval.intValue)
+            self.mediaDelegate?.recordFinished(self.recordingTempFilePath.absoluteString, duration: self.recordingTimeInterval.intValue)
             
         } else {
             
         }
     }
 }
-    
 

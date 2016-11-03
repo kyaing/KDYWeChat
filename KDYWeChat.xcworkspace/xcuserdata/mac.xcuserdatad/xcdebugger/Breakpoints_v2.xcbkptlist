@@ -73,13 +73,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+Delegates.swift"
-            timestampString = "499683934.496101"
+            filePath = "KDYWeChat/Helpers/Chat/Media/RecordManager.swift"
+            timestampString = "499833423.113575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "didClickCellWithLocations(_:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "startRecord()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
+            timestampString = "499833552.147268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "sendChatVoiceMessage(_:duration:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

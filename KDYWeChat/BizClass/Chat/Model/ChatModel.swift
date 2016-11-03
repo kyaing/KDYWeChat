@@ -70,6 +70,8 @@ class ChatModel: NSObject {
     
     var fileURLPath: String?        // 文件地址
     
+    var localFilePath: String?      // 本地文件路径
+    
     var duration: Float!            // 语音时长
     
     var timestamp : String?         // 同 publishTimestamp
@@ -107,13 +109,13 @@ class ChatModel: NSObject {
         self.fromMe           = (message.direction == EMMessageDirectionSend) ? true : false
         
         switch self.firstMessageBody.type {
-        case EMMessageBodyTypeText:   // 文本
+        case EMMessageBodyTypeText:
             self.messageContentType = .Text
             
             let textBody = firstMessageBody as! EMTextMessageBody
             self.messageContent = textBody.text
             
-        case EMMessageBodyTypeImage:  // 图片
+        case EMMessageBodyTypeImage:
             self.messageContentType = .Image
             
             let imageBody = firstMessageBody as! EMImageMessageBody
@@ -137,14 +139,16 @@ class ChatModel: NSObject {
             if !fromMe {
                 self.fileURLPath = imageBody.remotePath
             }
+            self.localFilePath = imageBody.localPath
         
-        case EMMessageBodyTypeVoice:  // 语音
+        case EMMessageBodyTypeVoice:
             self.messageContentType = .Voice
             
             let voiceBody = firstMessageBody as! EMVoiceMessageBody
             self.duration = Float32(voiceBody.duration)
             
             self.fileURLPath = voiceBody.remotePath
+            self.localFilePath = voiceBody.localPath
             
         default:
             break

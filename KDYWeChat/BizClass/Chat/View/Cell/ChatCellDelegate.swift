@@ -28,7 +28,7 @@ protocol ChatCellDelegate: class {
     /**
      *  点击语音并播放
      */
-    func didClickCellVoiceAndPlaying(cell: ChatBaseTableCell, isPlaying: Bool)
+    func didClickCellVoiceAndPlaying(cell: ChatAudioTableCell, isPlaying: Bool)
     
     /**
      *  点击视频并播放

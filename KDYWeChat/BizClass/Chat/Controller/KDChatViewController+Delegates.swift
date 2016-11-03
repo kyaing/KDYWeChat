@@ -64,6 +64,20 @@ extension KDChatViewController: MediaManagerDelegate {
         // 发送语音消息
         sendChatVoiceMessage(path, duration: duration)
     }
+    
+    /**
+     *  播放语音结束
+     */
+    func palyVoiceFinished() {
+        self.currentVoiceCell.stopPlayVoiceAnimation()
+    }
+    
+    /**
+     *  播放语音失败
+     */
+    func playVoiceFailed() {
+        self.currentVoiceCell.stopPlayVoiceAnimation()
+    }
 }
 
 // MARK: - ChatCellDelegate
@@ -94,8 +108,20 @@ extension KDChatViewController: ChatCellDelegate {
     /**
      *  播放语音
      */
-    func didClickCellVoiceAndPlaying(cell: ChatBaseTableCell, isPlaying: Bool) {
-        print("didClickCellVoiceAndPlaying")
+    func didClickCellVoiceAndPlaying(cell: ChatAudioTableCell, isPlaying: Bool) {
+        if self.currentVoiceCell != nil && self.currentVoiceCell != cell {
+            self.currentVoiceCell.stopPlayVoiceAnimation()
+        }
+        
+        guard let model = cell.model else { return }
+        
+        if isPlaying {
+            self.currentVoiceCell = cell
+            PlayMediaManger.shareInstance.startPlayingVoice(model)
+            
+        } else {
+            PlayMediaManger.shareInstance.stopPlayingVoice()
+        }
     }
     
     /**

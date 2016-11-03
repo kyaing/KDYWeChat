@@ -24,5 +24,23 @@ protocol MediaManagerDelegate: class {
      *  录音完成
      */
     func recordFinished(path: String, duration: Int32)
+    
+    /**
+     *  播放语音完成
+     */
+    func palyVoiceFinished()
+    
+    /**
+     *  暂停播放语音
+     */
+    
+    /**
+     *  停止播放语音
+     */
+    
+    /**
+     *  语音播放失败
+     */
+    func playVoiceFailed()
 }
 
