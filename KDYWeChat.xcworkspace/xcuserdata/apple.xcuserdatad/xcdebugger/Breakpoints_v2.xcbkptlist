@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
-            landmarkName = "stopRecord()"
+            landmarkName = "updateVolume()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -143,7 +143,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
             endingLineNumber = "234"
-            landmarkName = "audioRecorderDidFinishRecording(_:successfully:)"
+            landmarkName = "dispatch_async_safely_to_queue(_:_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,29 +154,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+Delegates.swift"
-            timestampString = "499616265.595489"
+            timestampString = "499878138.518782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "recordFinished(_:duration:)"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "controlExpandableInputView(showExpandable:)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
-            timestampString = "499616408.868721"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "addMessageToDataSource(_:)"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KDYWeChat.KDChatViewController.controlExpandableInputView (showExpandable : Swift.Bool) -&gt; ()"
+                  moduleName = "KDYWeChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Works/KDYGithub/KDYWechat/KDYWeChat/BizClass/Chat/Controller/KDChatViewController+Delegates.swift"
+                  timestampString = "499878290.109001"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "342">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KDYWeChat.KDChatViewController.(controlExpandableInputView (showExpandable : Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "KDYWeChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Works/KDYGithub/KDYWechat/KDYWeChat/BizClass/Chat/Controller/KDChatViewController+Delegates.swift"
+                  timestampString = "499878290.109134"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -81,9 +81,8 @@ extension KDChatViewController {
         self.messageSource.addObject(message)
         
         dispatch_async(self.messageQueue) {
-            // 初始化消息 model
-            let model = ChatModel(message: message)
-            self.itemDataSource.addObject(model)
+            let formatMessages = self.formatEMMessages([message])
+            self.itemDataSource.addObjectsFromArray(formatMessages)
             
             self.chatTableView.reloadData()
             

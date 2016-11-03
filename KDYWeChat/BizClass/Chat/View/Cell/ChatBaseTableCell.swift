@@ -58,7 +58,7 @@ class ChatBaseTableCell: UITableViewCell {
         return failButton
     }()
     
-    weak var cellDelegate: ChatCellDelegate?
+    weak var cellDelegate: ChatCellActionDelegate?
     
     var model: ChatModel?
     let disposeBag = DisposeBag()

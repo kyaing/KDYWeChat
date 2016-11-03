@@ -9,6 +9,23 @@
 import Foundation
 import Photos
 
+// MARK: - EMChatManagerDelegate
+extension KDChatViewController: EMChatManagerDelegate {
+    
+    /**
+     *  接收EMMessage 消息
+     */
+    func messagesDidReceive(aMessages: [AnyObject]!) {
+        for message in aMessages as! [EMMessage] {
+            if self.conversation.conversationId == message.conversationId {
+                addMessageToDataSource(message)
+                
+                self.conversation.markMessageAsReadWithId(message.conversationId, error: nil)
+            }
+        }
+    }
+}
+
 // MARK: - UITextViewDelegate
 extension KDChatViewController: UITextViewDelegate {
     /**
@@ -80,8 +97,8 @@ extension KDChatViewController: MediaManagerDelegate {
     }
 }
 
-// MARK: - ChatCellDelegate
-extension KDChatViewController: ChatCellDelegate {
+// MARK: - ChatCellActionDelegate
+extension KDChatViewController: ChatCellActionDelegate {
     
     /**
      *  点击头像

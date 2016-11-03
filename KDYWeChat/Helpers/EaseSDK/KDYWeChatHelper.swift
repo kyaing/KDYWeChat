@@ -125,11 +125,11 @@ extension KDYWeChatHelper: EMChatManagerDelegate {
     }
     
     /**
-     *  收到EMMessage消息
+     *  收到 EMMessage消息
      */
     func messagesDidReceive(aMessages: [AnyObject]!) {
-        for message in aMessages as! [EMMessage] {
-            
+        
+        for message in aMessages as! [EMMessage] {    
             let needPushnotification = (message.chatType == EMChatTypeChat)
             if needPushnotification {
 #if !TARGET_IPHONE_SIMULATOR

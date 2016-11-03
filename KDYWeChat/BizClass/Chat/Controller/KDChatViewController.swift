@@ -96,6 +96,9 @@ final class KDChatViewController: UIViewController {
         VideoManger.shareInstance.mediaDelegate     = self
         PlayMediaManger.shareInstance.mediaDelegate = self
         
+        // 聊天的回调
+        EMClient.sharedClient().chatManager.addDelegate(self, delegateQueue: nil)
+        
         // 刷新加载，会话消息列表
         tableViewHeaderRefreshDatas()
     }
@@ -175,7 +178,9 @@ final class KDChatViewController: UIViewController {
         
         for message in messages as! [EMMessage] {
             let interval = (self.messageTimeIntervalTag! - message.timestamp) / 1000
-            if (self.messageTimeIntervalTag < 0 || interval > 60 || interval < -60) {
+            if (self.messageTimeIntervalTag < 0
+                                || interval > 60
+                                || interval < -60) {
                 
                 let seconds = Double(message.timestamp) / 1000
                 let timeInterval = NSTimeInterval(seconds)
@@ -192,7 +197,7 @@ final class KDChatViewController: UIViewController {
                 self.messageTimeIntervalTag = message.timestamp
             }
 
-            // 除了时间外，直接插入其它的消息数据源
+            // 除了时间外，插入其它的消息数据源
             let messageModel = ChatModel(message: message)
             formatMessages.append(messageModel)
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 /// 聊天各种Cell点击的代理
-protocol ChatCellDelegate: class {
+protocol ChatCellActionDelegate: class {
     /**
      *  点击头像
      */
