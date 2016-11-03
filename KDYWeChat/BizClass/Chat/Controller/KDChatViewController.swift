@@ -64,7 +64,12 @@ final class KDChatViewController: UIViewController {
     var currentVoiceCell: ChatAudioTableCell!
     
     let disposeBag = DisposeBag()
-    var itemDataSouce = NSMutableArray()
+    
+    /// 存储 ChatModel数据源
+    var itemDataSource = NSMutableArray()
+    
+    /// 存储 EMEmessage消息源
+    var messageSource = NSMutableArray()
     
     var conversationId: String!
     var conversation: EMConversation!
@@ -91,72 +96,115 @@ final class KDChatViewController: UIViewController {
         VideoManger.shareInstance.mediaDelegate     = self
         PlayMediaManger.shareInstance.mediaDelegate = self
         
-        // 加载会话消息
-        loadMessageBefroe(nil, count: 100, append: true)
+        // 刷新加载，会话消息列表
+        tableViewHeaderRefreshDatas()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        PlayMediaManger.shareInstance.stopPlayingVoice()
         PlayMediaManger.shareInstance.stopPlayingVoice()
     }
     
     // MARK: - Public Methods
-    func loadMessageBefroe(messageId: String?, count: Int32, append: Bool) {
+    /**
+     *  下拉刷新 tableView数据
+     */
+    func tableViewHeaderRefreshDatas() {
+        self.messageTimeIntervalTag = -1;
         
-        self.conversation = EMClient.sharedClient().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
+        var messageId: String?
+        if self.messageSource.count > 0 {
+            messageId = (self.messageSource.firstObject as! EMMessage).messageId
+            
+        } else {
+            messageId = nil
+        }
         
-        self.conversation.loadMessagesStartFromId(messageId, count: count, searchDirection: EMMessageSearchDirectionUp) { (aMessages, error) in
+        // 根据messageId加载数据，每页10条
+        loadMessageBefore(messageId, countOfPage: 10, isAppendMessage: true)
+    }
+
+    func loadMessageBefore(messageId: String?, countOfPage: Int32, isAppendMessage: Bool) {
+        self.conversation =
+            EMClient.sharedClient().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
+        
+        self.conversation.loadMessagesStartFromId(messageId, count: countOfPage, searchDirection: EMMessageSearchDirectionUp) {
+            [weak self] (aMessages, error) in
+            
+            guard let strongSelf = self else { return }
             guard error == nil && aMessages.count > 0 else { return }
             
-            let lasetMessage = aMessages.last as! EMMessage
-            self.messageTimeIntervalTag = lasetMessage.timestamp
+            // 格式化EMMessage消息，成为装有 ChatModel的数组
+            let formattedMessages = strongSelf.formatEMMessages(aMessages)
             
-            for message in aMessages as! [EMMessage] {
-                let interval = (self.messageTimeIntervalTag! - message.timestamp) / 1000
-                
-                if (self.messageTimeIntervalTag < 0 ||
-                                      interval > 60 ||
-                                      interval < -60) {
-                    let seconds = Double(message.timestamp) / 1000
-                    let timeInterval = NSTimeInterval(seconds)
-                    let messageDate: NSDate = NSDate(timeIntervalSinceNow: timeInterval)
+            dispatch_async(dispatch_get_main_queue(), {
+                if isAppendMessage {
+                    strongSelf.messageSource.insertObjects(aMessages,
+                            atIndexes: NSIndexSet(indexesInRange: NSMakeRange(0, aMessages.count)))
                     
-                    let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "MM-dd HH:mm"
-                    let timeString = dateFormatter.stringFromDate(messageDate)
+                    // 注意 itemDataSouce，应该以 formattedMessages 来计算范围
+                    strongSelf.itemDataSource.insertObjects(formattedMessages,
+                            atIndexes: NSIndexSet(indexesInRange: NSMakeRange(0, formattedMessages.count)))
                     
-                    // 时间间隔超过一分钟，插入数据源中
-                    let timeModel = ChatModel(timestamp: timeString)
-                    self.itemDataSouce.addObject(timeModel)
-                    
-                    self.messageTimeIntervalTag = message.timestamp
+                } else {
+                    strongSelf.messageSource.removeAllObjects()
+                    strongSelf.messageSource.addObjectsFromArray(formattedMessages)
                 }
                 
-                // 除了时间，插入其它的消息数据源
-                let messageModel = ChatModel(message: message)
-                self.itemDataSouce.addObject(messageModel)
-            }
-            
-            self.chatTableView.reloadData()
-            
-            // 滚动动tableView的底部
-            let indexPath = NSIndexPath(forRow: self.itemDataSouce.count - 1, inSection: 0)
-            self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+                let latestMessage = strongSelf.messageSource.lastObject as! EMMessage
+                strongSelf.messageTimeIntervalTag = latestMessage.timestamp
+                
+                strongSelf.chatTableView.reloadData()
+                
+                // 滚动动tableView的底部
+                let indexPath = NSIndexPath(forRow: strongSelf.itemDataSource.count - 1, inSection: 0)
+                strongSelf.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+            })
         }
+    }
+    
+    /**
+     *  格式化EMessage 消息
+     */
+    func formatEMMessages(messages: [AnyObject]) -> [AnyObject] {
+        var formatMessages: [AnyObject] = []
+        
+        for message in messages as! [EMMessage] {
+            let interval = (self.messageTimeIntervalTag! - message.timestamp) / 1000
+            if (self.messageTimeIntervalTag < 0 || interval > 60 || interval < -60) {
+                
+                let seconds = Double(message.timestamp) / 1000
+                let timeInterval = NSTimeInterval(seconds)
+                let messageDate: NSDate = NSDate(timeIntervalSinceNow: timeInterval)
+
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "MM-dd HH:mm"
+                let timeString = dateFormatter.stringFromDate(messageDate)
+
+                // 时间间隔超过一分钟，插入数据源中
+                let timeModel = ChatModel(timestamp: timeString)
+                formatMessages.append(timeModel)
+
+                self.messageTimeIntervalTag = message.timestamp
+            }
+
+            // 除了时间外，直接插入其它的消息数据源
+            let messageModel = ChatModel(message: message)
+            formatMessages.append(messageModel)
+        }
+        
+        return formatMessages
     }
     
     /**
      *  进入聊天设置界面
      */
     func handlePersonAction() {
-        
+        ky_pushViewController(KDChatSettingViewController(), animated: true)
     }
 }
 
@@ -167,12 +215,12 @@ extension KDChatViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.itemDataSouce.count
+        return self.itemDataSource.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let chatModel = itemDataSouce.objectAtIndex(indexPath.row) as? ChatModel
+        let chatModel = itemDataSource.objectAtIndex(indexPath.row) as? ChatModel
         guard let type: MessageContentType = chatModel!.messageContentType where chatModel != nil else {
             return ChatBaseTableCell()
         }
@@ -188,7 +236,7 @@ extension KDChatViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let chatModel = itemDataSouce.objectAtIndex(indexPath.row) as? ChatModel
+        let chatModel = self.itemDataSource.objectAtIndex(indexPath.row) as? ChatModel
         guard let type: MessageContentType = chatModel!.messageContentType where chatModel != nil else { return 0 }
      
         return type.chatCellHeight(chatModel!)

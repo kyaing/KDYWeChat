@@ -77,15 +77,18 @@ extension KDChatViewController {
      */
     func addMessageToDataSource(message: EMMessage!) {
         
+        // 发送的消息加入到消息数组
+        self.messageSource.addObject(message)
+        
         dispatch_async(self.messageQueue) {
             // 初始化消息 model
             let model = ChatModel(message: message)
-            self.itemDataSouce.addObject(model)
+            self.itemDataSource.addObject(model)
             
             self.chatTableView.reloadData()
             
             // 滚动动tableView的底部
-            let indexPath = NSIndexPath(forRow: self.itemDataSouce.count - 1, inSection: 0)
+            let indexPath = NSIndexPath(forRow: self.itemDataSource.count - 1, inSection: 0)
             self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
         }
     }

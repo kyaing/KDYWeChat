@@ -14,7 +14,9 @@ class KDChatSettingViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title = "聊天详情"
+        self.view.backgroundColor = UIColor.clearColor()
     }
 }
 
