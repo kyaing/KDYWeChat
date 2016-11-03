@@ -95,6 +95,18 @@ final class KDChatViewController: UIViewController {
         loadMessageBefroe(nil, count: 100, append: true)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        PlayMediaManger.shareInstance.stopPlayingVoice()
+        PlayMediaManger.shareInstance.stopPlayingVoice()
+    }
+    
     // MARK: - Public Methods
     func loadMessageBefroe(messageId: String?, count: Int32, append: Bool) {
         

@@ -93,8 +93,22 @@ extension ChatRecordingView {
     /**
      *  更新录音音量
      */
-    func updateVolumeValue(valeu: Float) {
+    func updateVolumeValue(value: Float) {
+        var index = Int(round(value))
+        index = index > 7 ? 7 : index
+        index = index < 0 ? 0 : index
         
+        let imageArray = [
+            UIImage(named: "RecordingSignal001"),
+            UIImage(named: "RecordingSignal002"),
+            UIImage(named: "RecordingSignal003"),
+            UIImage(named: "RecordingSignal004"),
+            UIImage(named: "RecordingSignal005"),
+            UIImage(named: "RecordingSignal006"),
+            UIImage(named: "RecordingSignal007"),
+            UIImage(named: "RecordingSignal008")
+            ]
+        self.recordingVolumeImage.image = imageArray[index]
     }
     
     /**

@@ -21,6 +21,7 @@ class PlayMediaManger: NSObject {
         super.init()
     }
     
+    // MARK: - Voice Methods
     func startPlayingVoice(model: ChatModel) {
         // 播放 .wav格式的语音
         let voiceBody = model.message.body as! EMVoiceMessageBody

@@ -82,7 +82,7 @@ extension KDChatViewController {
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
         longPressGesture.rx_event.subscribeNext { event in
-
+            
             let state = event.state
             switch state {
             case .Began:  // 开始录音
@@ -107,7 +107,7 @@ extension KDChatViewController {
                 if finishRecording {
                     RecordManager.shareInstance.stopRecord()
                 } else {
-                    RecordManager.shareInstance.cancelRecording()
+                    RecordManager.shareInstance.cancelRecord()
                 }
                 self.recordingView.stopRecording()
                 recordButton.replaceRecordButtonUI(isRecording: false)

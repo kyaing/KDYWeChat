@@ -130,19 +130,26 @@ class RecordManager: NSObject {
     /**
      *  取消录音
      */
-    func cancelRecording() {
+    func cancelRecord() {
+        self.isCancelRecord = true
+        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(self.readyStartRecord), object: self)
+        self.isFinishRecord = false
         
+        self.recorder.stop()
+        self.recorder.deleteRecording()
+        self.recorder = nil
     }
     
     /**
      *  更新录音音量
      */
     func updateVolume() {
-        guard let recorder = self.recorder else { return }
-    
+        guard let recorder = self.recorder where self.recorder != nil else { return }
+        
         repeat {
             recorder.updateMeters()
             self.recordingTimeInterval = NSNumber(float: NSNumber(double: recorder.currentTime).floatValue)
+            
             let averagePower = recorder.averagePowerForChannel(0)
             let lowPassResults = pow(10, (0.05 * averagePower)) * 10
             
@@ -150,7 +157,7 @@ class RecordManager: NSObject {
                 self.mediaDelegate?.updateRecordingVolumn(lowPassResults)
             })
             
-            // 大于60秒, 停止录音
+            // 大于60秒，停止录音
             if self.recordingTimeInterval.intValue > 60 {
                 stopRecord()
             }
@@ -171,16 +178,17 @@ class RecordManager: NSObject {
         
         if (self.endTime - self.startTime) < 0.5 {
             NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(self.readyStartRecord), object: self)
+            
             dispatch_async_safely_to_main_queue({ () -> () in
                 self.mediaDelegate?.recordTimeTooShort()
             })
             
         } else {
             guard let currentTime: NSTimeInterval = self.recorder.currentTime else { return }
-            
             self.recordingTimeInterval = NSNumber(int: NSNumber(double: currentTime).intValue)
+            
             if self.recordingTimeInterval.intValue < 1 {
-                self.performSelector(#selector(self.readyStopRecord), withObject: self, afterDelay: 0.4)
+                self.performSelector(#selector(self.readyStopRecord), withObject: self, afterDelay: 0.5)
             } else {
                 self.readyStopRecord()
             }
