@@ -16,7 +16,7 @@ class KDChatSettingViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "聊天详情"
-        self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.whiteColor()
     }
 }
 

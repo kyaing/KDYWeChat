@@ -65,7 +65,7 @@ extension KDChatViewController {
      */
     func keyboardControl(notification: NSNotification, isShowkeyboard: Bool) {
         /*
-         如果是表情键盘或者 分享键盘 ，走自己 delegate 的处理键盘事件。
+         如果是表情键盘或者 分享键盘 ，响应自己 delegate 的处理键盘事件。
          
          因为：当点击唤起自定义键盘时，操作栏的输入框需要 resignFirstResponder，这时候会给键盘发送通知。
          通知中需要对 actionbar frame 进行重置位置计算, 在 delegate 回调中进行计算。所以在这里进行拦截。
@@ -95,7 +95,7 @@ extension KDChatViewController {
             delay: 0,
             options: options,
             animations: {
-                // self.view.layoutIfNeeded()
+                self.view.layoutIfNeeded()
                 
                 if isShowkeyboard {
                     self.chatTableView.scrollToBottom(animated: false)
@@ -120,7 +120,9 @@ extension KDChatViewController {
             delay: 0,
             options: .CurveEaseInOut,
             animations: { 
-                // self.view.layoutIfNeeded()
+                self.view.layoutIfNeeded()
+                
+                self.chatTableView.scrollToBottom(animated: false)
                 
             }) { (bool) in
                 
@@ -140,6 +142,7 @@ extension KDChatViewController {
         if self.bottomBarView.inputTextView.isFirstResponder() {
             // 当 textView是第一响应时，再隐藏
             self.bottomBarView.resignKeyboardInput()
+            self.chatTableView.scrollToBottom(animated: false)
         }
     }
 }

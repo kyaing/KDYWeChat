@@ -105,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController+SendMessage.swift"
-            timestampString = "499923270.294545"
+            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatBottomBarView.swift"
+            timestampString = "499929560.228203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "addMessageToDataSource(_:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "showAudioRecording()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
