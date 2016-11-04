@@ -20,6 +20,7 @@ extension KDChatViewController: EMChatManagerDelegate {
             if self.conversation.conversationId == message.conversationId {
                 addMessageToDataSource(message)
                 
+                // 将会话标记为已读，便于统计总的未读消息数
                 self.conversation.markMessageAsReadWithId(message.conversationId, error: nil)
             }
         }

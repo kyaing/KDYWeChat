@@ -9,21 +9,21 @@
 import Foundation
 
 // 环信参数
-let emAppKey         = "kdy#kdywechat"
-let emClinetId       = "YXA6Y7mEEHfkEeaj5e2MKO4LDw"
-let emClientSecret   = "YXA6s_ZXqJD7UKFkvubKfv1_9BXDIKI"
+let emAppKey               = "kdy#kdywechat"
+let emClinetId             = "YXA6Y7mEEHfkEeaj5e2MKO4LDw"
+let emClientSecret         = "YXA6s_ZXqJD7UKFkvubKfv1_9BXDIKI"
 
-let emApnsDevCerName = "kdychat_devleop"
-let emApnsProCerName = ""
+let emApnsDevCerName       = "kdychat_devleop"
+let emApnsProCerName       = ""
 
 // LeanCloud参数
-let leanCloudAppId   = "9xLAs694OFHJzICKslhWMW33-gzGzoHsz"
-let leanCloudAppKey  = "dRVEtbHyPLhNEwKT3oneVnHw"
+let leanCloudAppId         = "9xLAs694OFHJzICKslhWMW33-gzGzoHsz"
+let leanCloudAppKey        = "dRVEtbHyPLhNEwKT3oneVnHw"
 
-// Notificatoin
+// 内部的通知
 let unReadMessageCountNoti = "unReadMessageCountNoti"
 let unTreatApplyCountNoti  = "unTreatApplyCountNoti"
 let kLoginStateChangedNoti = "loginStateChangedNoti"
 
-let kUserAvatarDefault = "user_avatar"
+let kUserAvatarDefault     = "user_avatar"
 

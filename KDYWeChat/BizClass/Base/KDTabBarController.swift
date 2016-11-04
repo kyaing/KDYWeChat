@@ -82,9 +82,11 @@ final class KDTabBarController: UITabBarController {
     }
     
     private func setupNotification() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KDTabBarController.setupUnReadMessageCount), name: unReadMessageCountNoti, object: nil)
+        // 接收处理未读消息的通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.setupUnReadMessageCount), name: unReadMessageCountNoti, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(KDTabBarController.setupUntreatedApplyCount), name: unTreatApplyCountNoti, object: nil)
+        // 接收处理请求加好友的通知
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.setupUntreatedApplyCount), name: unTreatApplyCountNoti, object: nil)
     }
     
     // MARK: - Public Methods

@@ -255,6 +255,9 @@ extension KDConversationViewController: UITableViewDelegate {
         chatController.conversationId = model.conversation.conversationId
         chatController.title = model.title
         self.ky_pushAndHideTabbar(chatController)
+        
+        // 发送未读消息的通知
+        NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

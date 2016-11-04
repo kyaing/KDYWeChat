@@ -82,6 +82,7 @@ final class KDChatViewController: UIViewController {
         self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         self.navigationItem.rightBarButtonItem = self.rightBarItem
         
+        // 创建子视图
         setupChildViews()
         
         // 处理底部工具栏交互
@@ -97,6 +98,11 @@ final class KDChatViewController: UIViewController {
         
         // 聊天的回调
         EMClient.sharedClient().chatManager.addDelegate(self, delegateQueue: nil)
+        
+        self.conversation = EMClient.sharedClient().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
+        
+        // 未读消息标记为已读
+        self.conversation.markAllMessagesAsRead(nil)
         
         // 加载下拉刷新
         setupRefreshControl()
@@ -138,9 +144,7 @@ final class KDChatViewController: UIViewController {
     }
 
     func loadMessageBefore(messageId: String?, countOfPage: Int32, isAppendMessage: Bool) {
-        self.conversation =
-            EMClient.sharedClient().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
-        
+    
         self.conversation.loadMessagesStartFromId(messageId, count: countOfPage, searchDirection: EMMessageSearchDirectionUp) {
             [weak self] (aMessages, error) in
         
