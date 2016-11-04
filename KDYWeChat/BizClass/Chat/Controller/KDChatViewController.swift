@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import RxSwift
-import UIColor_Hex_Swift
 
 let kBarViewHeight: CGFloat        = 50
 let kCustomKeyboardHeight: CGFloat = 216
@@ -99,8 +98,8 @@ final class KDChatViewController: UIViewController {
         // 聊天的回调
         EMClient.sharedClient().chatManager.addDelegate(self, delegateQueue: nil)
         
-        // 刷新加载，会话消息列表
-        tableViewHeaderRefreshDatas()
+        // 加载下拉刷新
+        setupRefreshControl()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -113,9 +112,14 @@ final class KDChatViewController: UIViewController {
     }
     
     // MARK: - Public Methods
-    /**
-     *  下拉刷新 tableView数据
-     */
+    func setupRefreshControl() {
+        self.chatTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.tableViewHeaderRefreshDatas()
+        })
+        
+        self.chatTableView.mj_header.beginRefreshing()
+    }
+
     func tableViewHeaderRefreshDatas() {
         self.messageTimeIntervalTag = -1;
         
@@ -129,6 +133,8 @@ final class KDChatViewController: UIViewController {
         
         // 根据messageId加载数据，每页10条
         loadMessageBefore(messageId, countOfPage: 10, isAppendMessage: true)
+        
+        self.chatTableView.mj_header.endRefreshing()
     }
 
     func loadMessageBefore(messageId: String?, countOfPage: Int32, isAppendMessage: Bool) {
@@ -137,17 +143,22 @@ final class KDChatViewController: UIViewController {
         
         self.conversation.loadMessagesStartFromId(messageId, count: countOfPage, searchDirection: EMMessageSearchDirectionUp) {
             [weak self] (aMessages, error) in
-            
+        
             guard let strongSelf = self else { return }
             guard error == nil && aMessages.count > 0 else { return }
             
             // 格式化EMMessage消息，成为装有 ChatModel的数组
             let formattedMessages = strongSelf.formatEMMessages(aMessages)
             
+            // 下拉刷新时，标记tableView滚动到的位置 (位置滚动的还有问题！)
+            var scrollToIndex = 0
+            
             dispatch_async(dispatch_get_main_queue(), {
                 if isAppendMessage {
                     strongSelf.messageSource.insertObjects(aMessages,
                             atIndexes: NSIndexSet(indexesInRange: NSMakeRange(0, aMessages.count)))
+                    
+                    scrollToIndex = strongSelf.itemDataSource.count
                     
                     // 注意 itemDataSouce，应该以 formattedMessages 来计算范围
                     strongSelf.itemDataSource.insertObjects(formattedMessages,
@@ -164,7 +175,7 @@ final class KDChatViewController: UIViewController {
                 strongSelf.chatTableView.reloadData()
                 
                 // 滚动动tableView的底部
-                let indexPath = NSIndexPath(forRow: strongSelf.itemDataSource.count - 1, inSection: 0)
+                let indexPath = NSIndexPath(forRow: strongSelf.itemDataSource.count - scrollToIndex - 1, inSection: 0)
                 strongSelf.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
             })
         }
