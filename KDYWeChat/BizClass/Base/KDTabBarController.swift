@@ -32,14 +32,14 @@ final class KDTabBarController: UITabBarController {
         super.viewDidLoad()
         
         // 创建子控制器
-        self.setupViewControllers()
+        setupViewControllers()
         
         // 监听通知
-        self.setupNotification()
+        setupNotifications()
         
         // 统计未读消息数，和请求添加人数
-        self.setupUnReadMessageCount()
-        self.setupUntreatedApplyCount()
+        setupUnReadMessageCount()
+        setupUntreatedApplyCount()
         
         KDYWeChatHelper.shareInstance.conversationVC = self.conversationVC
         KDYWeChatHelper.shareInstance.contactVC = self.contactVC
@@ -81,7 +81,7 @@ final class KDTabBarController: UITabBarController {
         self.viewControllers = self.navigationControllers.mutableCopy() as? [KDNavigationController]
     }
     
-    private func setupNotification() {
+    func setupNotifications() {
         // 接收处理未读消息的通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.setupUnReadMessageCount), name: unReadMessageCountNoti, object: nil)
         

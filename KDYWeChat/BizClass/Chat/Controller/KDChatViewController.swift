@@ -157,7 +157,7 @@ final class KDChatViewController: UIViewController {
             // 下拉刷新时，标记tableView滚动到的位置 (位置滚动的还有问题！)
             var scrollToIndex = 0
             
-            dispatch_async(dispatch_get_main_queue(), {
+            dispatch_async(dispatch_get_main_queue()) {
                 if isAppendMessage {
                     strongSelf.messageSource.insertObjects(aMessages,
                             atIndexes: NSIndexSet(indexesInRange: NSMakeRange(0, aMessages.count)))
@@ -181,7 +181,12 @@ final class KDChatViewController: UIViewController {
                 // 滚动动tableView的底部
                 let indexPath = NSIndexPath(forRow: strongSelf.itemDataSource.count - scrollToIndex - 1, inSection: 0)
                 strongSelf.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
-            })
+            }
+            
+            // 重新下载，下载失败的消息附件
+            for message in aMessages as! [EMMessage] {
+                strongSelf.downloadMessageAttachments(message)
+            }
         }
     }
     
@@ -218,6 +223,30 @@ final class KDChatViewController: UIViewController {
         }
         
         return formatMessages
+    }
+    
+    /**
+     *  下载消息附件
+     */
+    func downloadMessageAttachments(message: EMMessage) {
+        let messageBody = message.body
+        
+        switch messageBody.type {
+        case EMMessageBodyTypeImage:
+            let imageBody = messageBody as! EMImageMessageBody
+            if imageBody.thumbnailDownloadStatus != EMDownloadStatusSuccessed {
+                EMClient.sharedClient().chatManager.downloadMessageThumbnail(message, progress: nil, completion: nil)
+            }
+        
+        case EMMessageBodyTypeVoice:
+            let voiceBody = messageBody as! EMVoiceMessageBody
+            if voiceBody.downloadStatus != EMDownloadStatusSuccessed {
+                EMClient.sharedClient().chatManager.downloadMessageThumbnail(message, progress: nil, completion: nil)
+            }
+            
+        default:
+            break
+        }
     }
     
     /**

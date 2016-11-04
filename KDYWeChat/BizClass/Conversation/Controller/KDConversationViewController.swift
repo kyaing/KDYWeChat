@@ -214,9 +214,10 @@ extension KDConversationViewController: UITableViewDataSource {
         
         let unreadMessageCount = model.conversation.unreadMessagesCount
         if unreadMessageCount > 0 {
+            cell.unReadMsgLabel.hidden = false
             cell.unReadMsgLabel.text = String(unreadMessageCount)
             
-            // 气泡大小的处理
+            // 处理气泡的大小
             if unreadMessageCount > 9 {
                 cell.unReadMsgWidthContraint.constant  = 23
                 cell.unReadMsgHeightContriant.constant = 18

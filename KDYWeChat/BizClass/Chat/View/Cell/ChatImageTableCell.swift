@@ -19,6 +19,14 @@ class ChatImageTableCell: ChatBaseTableCell {
     
     @IBOutlet weak var chatImageView: UIImageView!
     
+    /// 用于图片下载
+    lazy var imageIndicatiorView: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        self.contentView.addSubview(activityView)
+        
+        return activityView
+    }()
+    
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,11 +38,12 @@ class ChatImageTableCell: ChatBaseTableCell {
     override func setupCellContent(model: ChatModel) {
         super.setupCellContent(model)
         
-        if !model.fromMe {
+        if !model.fromMe {   // 接收方
             if let thumbnailImage = model.thumbnailImage {
                 self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
             }
-        } else {
+            
+        } else {   // 发送方
             if let thumbnailImage = model.thumbnailImage {
                 self.chatImageView.image = thumbnailImage
             }
