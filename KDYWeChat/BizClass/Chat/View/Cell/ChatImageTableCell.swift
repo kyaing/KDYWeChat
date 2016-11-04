@@ -41,6 +41,9 @@ class ChatImageTableCell: ChatBaseTableCell {
         if !model.fromMe {   // 接收方
             if let thumbnailImage = model.thumbnailImage {
                 self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
+                
+            } else {
+                self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: UIImage(named: kUserAvatarDefault))
             }
             
         } else {   // 发送方

@@ -73,11 +73,11 @@ extension KDChatViewController {
     }
     
     /**
-     *  将发送的消息添加到数据源中
+     *  将消息添加到数据源中
      */
     func addMessageToDataSource(message: EMMessage!) {
         
-        // 发送的消息加入到消息数组
+        // 消息加入到消息数组
         self.messageSource.addObject(message)
         
         dispatch_async(self.messageQueue) {
