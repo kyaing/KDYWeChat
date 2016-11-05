@@ -58,7 +58,8 @@ extension KDChatViewController {
         tapGesture.cancelsTouchesInView = false
         self.chatTableView.addGestureRecognizer(tapGesture)
         tapGesture.rx_event.subscribeNext { _ in
-            self.hideAllKeyboard()
+            // # 此处存在 bug
+            // self.hideAllKeyboard()
         }
         .addDisposableTo(self.disposeBag)
         

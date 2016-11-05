@@ -10,7 +10,7 @@ import UIKit
 
 protocol ChatShareMoreViewDelegate: class {
     /// 点击照片
-    func didClickPhotoItemAction()
+    func didClickPhotoItemAction(photoCounts: Int)
     
     /// 点击拍照
     func didClickCamaraItemAction()
@@ -98,7 +98,7 @@ extension ChatShareMoreView: UICollectionViewDelegate {
         guard let delegate = self.delegate else { return }
         
         switch indexPath.row {
-        case 0: delegate.didClickPhotoItemAction()
+        case 0: delegate.didClickPhotoItemAction(1)
         case 1: delegate.didClickCamaraItemAction()
         case 3: delegate.didClickAudioChatItemAction()
         case 4: delegate.didClickVideoChatItemAction()

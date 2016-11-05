@@ -14,10 +14,10 @@ class ChatTimeTableCell: UITableViewCell {
     // 时间标签
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
-            timeLabel.layer.cornerRadius = 5
+            timeLabel.layer.cornerRadius = 6
             timeLabel.layer.masksToBounds = true
             timeLabel.textColor = UIColor.whiteColor()
-            timeLabel.backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 0.6)
+            timeLabel.backgroundColor = UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 0.5)
         }
     }
     

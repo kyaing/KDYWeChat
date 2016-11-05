@@ -148,7 +148,8 @@ class RecordManager: NSObject {
         
         repeat {
             recorder.updateMeters()
-            self.recordingTimeInterval = NSNumber(float: NSNumber(double: recorder.currentTime).floatValue)
+            
+            self.recordingTimeInterval = NSNumber(int: NSNumber(double: recorder.currentTime).intValue)
             
             let averagePower = recorder.averagePowerForChannel(0)
             let lowPassResults = pow(10, (0.05 * averagePower)) * 10
@@ -184,7 +185,8 @@ class RecordManager: NSObject {
             })
             
         } else {
-            guard let currentTime: NSTimeInterval = self.recorder.currentTime else { return }
+            guard let currentTime: NSTimeInterval = self.recorder.currentTime where self.recorder != nil
+                else { return }
             self.recordingTimeInterval = NSNumber(int: NSNumber(double: currentTime).intValue)
             
             if self.recordingTimeInterval.intValue < 1 {
@@ -202,7 +204,6 @@ class RecordManager: NSObject {
      */
     func readyStopRecord() {
         self.recorder.stop()
-        self.recorder = nil
         
         let audioSession = AVAudioSession.sharedInstance()
         do {

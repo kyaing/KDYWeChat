@@ -249,12 +249,12 @@ extension KDChatViewController: ChatEmotionViewDelegate {
 // MARK: - ChatShareMoreViewDelegate
 extension KDChatViewController: ChatShareMoreViewDelegate {
     /// 点击照片
-    func didClickPhotoItemAction() {
+    func didClickPhotoItemAction(photoCounts: Int) {
         print("did Click PhotoItem")
         
         // 弹出 BSImagePicker 图片选择器 (最多一次性选择九张)
         ky_presentImagePickerController(
-            maxNumberOfSelections: 1,  // 先发一张
+            maxNumberOfSelections: photoCounts,
             select: { (asset) in
                 
             }, deselect: { (asset) in
@@ -265,9 +265,12 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
                 guard let strongSelf = self else { return }
                 
                 // 点击完成后，获取图片并上传图片
-                if let image = assets[0].getUIImage() {
-                    strongSelf.sendChatImageMessage(image)
+                for index in 1...photoCounts {
+                    if let image = assets[index-1].getUIImage() {
+                        strongSelf.sendChatImageMessage(image)
+                    }
                 }
+                
             }) { 
                 print("completion")
             }

@@ -139,8 +139,6 @@ final class KDChatViewController: UIViewController {
         
         // 根据messageId加载数据，每页10条
         loadMessageBefore(messageId, countOfPage: 10, isAppendMessage: true)
-        
-        self.chatTableView.mj_header.endRefreshing()
     }
 
     func loadMessageBefore(messageId: String?, countOfPage: Int32, isAppendMessage: Bool) {
@@ -150,6 +148,8 @@ final class KDChatViewController: UIViewController {
         
             guard let strongSelf = self else { return }
             guard error == nil && aMessages.count > 0 else { return }
+            
+            strongSelf.chatTableView.mj_header.endRefreshing()
             
             // 格式化EMMessage消息，成为装有 ChatModel的数组
             let formattedMessages = strongSelf.formatEMMessages(aMessages)
@@ -204,7 +204,7 @@ final class KDChatViewController: UIViewController {
                 
                 let seconds = Double(message.timestamp) / 1000
                 let timeInterval = NSTimeInterval(seconds)
-                let messageDate: NSDate = NSDate(timeIntervalSinceNow: timeInterval)
+                let messageDate: NSDate = NSDate(timeIntervalSince1970: timeInterval)
 
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "MM-dd HH:mm"

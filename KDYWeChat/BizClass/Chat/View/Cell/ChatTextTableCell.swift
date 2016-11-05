@@ -23,7 +23,7 @@ let kChatBubblePaddingTop: CGFloat = 3                                  //气泡
 let kChatBubbleMaginLeft: CGFloat = 5                                   //气泡和头像的 gap 值：5
 let kChatBubblePaddingBottom: CGFloat = 8                               //气泡距离底部分割线 gap 值：8
 let kChatBubbleLeft: CGFloat = kChatAvatarMarginLeft + kChatAvatarWidth + kChatBubbleMaginLeft  //气泡距离屏幕左的距
-private let kChatTextFont: UIFont = UIFont.systemFontOfSize(16)
+private let kChatTextFont: UIFont = UIFont.systemFontOfSize(15)
 
 /// 聊天文本Cell
 class ChatTextTableCell: ChatBaseTableCell {
