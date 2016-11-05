@@ -26,14 +26,8 @@ class KDPersonalDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "详情资料"
+        self.title = "详细资料"
         self.view.backgroundColor = UIColor.whiteColor()
-        
-        if self.model.fromMe! {
-            print("点击自己的头像")
-        } else {  // 其它用户
-            print("点击他人的头像")
-        }
     }
 }
 

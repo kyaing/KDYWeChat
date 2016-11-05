@@ -116,19 +116,10 @@ class KDPersonInfoViewController: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
         let cameraAction = UIAlertAction(title: "拍照", style: .Default) { (alertAction) in
-            
         }
         
         let photoAction = UIAlertAction(title: "从手机相册选择", style: .Default) { (alertAction) in
-            
-            // 选择图片
-            //    AuthorityManager.shareInstance.choosePhotos({ (imagePicker) in
-            //        self.presentViewController(imagePicker, animated: true, completion: nil)
-            //        
-            //    }, alertAction: { (resource) in
-            //        self.alertNoPermissionToAccess(resource)
-            //    })
-            
+            // 相册中选择图片
             self.ky_presentImagePickerController(
                 maxNumberOfSelections: 1,
                 select: { (asset) in
@@ -188,7 +179,7 @@ extension KDPersonInfoViewController: UITableViewDataSource {
         if infoCell == nil {
             infoCell = UITableViewCell(style: .Value1, reuseIdentifier: "infoCell")
         }
-        self.configureCells(infoCell!, indexPath: indexPath)
+        configureCells(infoCell!, indexPath: indexPath)
         
         return infoCell!
     }
@@ -198,8 +189,8 @@ extension KDPersonInfoViewController: UITableViewDataSource {
 extension KDPersonInfoViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-        self.configurePushController(indexPath)
+        
+        configurePushController(indexPath)
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

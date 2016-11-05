@@ -10,6 +10,7 @@ import Foundation
 import Photos
 
 extension PHAsset {
+    
     /**
      *  从Asset 中获取UIImage图片
      *  参考：https://objccn.io/issue-21-4/

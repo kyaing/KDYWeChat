@@ -9,24 +9,6 @@
 import Foundation
 import Photos
 
-// MARK: - EMChatManagerDelegate
-extension KDChatViewController: EMChatManagerDelegate {
-    
-    /**
-     *  接收EMMessage 消息
-     */
-    func messagesDidReceive(aMessages: [AnyObject]!) {
-        for message in aMessages as! [EMMessage] {
-            if self.conversation.conversationId == message.conversationId {
-                addMessageToDataSource(message)
-                
-                // 将会话标记为已读，便于统计总的未读消息数
-                self.conversation.markMessageAsReadWithId(message.conversationId, error: nil)
-            }
-        }
-    }
-}
-
 // MARK: - UITextViewDelegate
 extension KDChatViewController: UITextViewDelegate {
     /**

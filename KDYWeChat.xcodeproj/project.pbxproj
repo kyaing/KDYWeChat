@@ -26,7 +26,6 @@
 		042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE791D9E394E0096CDF2 /* Macro.swift */; };
 		044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620361DB0CAF5001D13B1 /* CoreTelephony.framework */; };
 		044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620381DB0CAFF001D13B1 /* CoreLocation.framework */; };
-		044897931DC1FEB400F7A3B6 /* KDChatSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044897921DC1FEB400F7A3B6 /* KDChatSettingViewController.swift */; };
 		0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D4101DC055E700320798 /* BSImagePicker.swift */; };
 		047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047263271D8FC43D00D9380C /* ChatShareMoreView.swift */; };
 		0472632A1D8FC60100D9380C /* ChatShareMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047263291D8FC60100D9380C /* ChatShareMoreView.xib */; };
@@ -145,6 +144,7 @@
 		18A37F9E1DC4E16800FCAAE0 /* PlayMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */; };
 		18A37FA01DC4E1A300FCAAE0 /* MediaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */; };
 		18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */; };
+		18DDDD3E1DCE0830002D0F9C /* KDChatSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */; };
 		18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */; };
 		18F878DF1DB1EF3C00A32BF0 /* NSString+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */; };
 /* End PBXBuildFile section */
@@ -187,7 +187,6 @@
 		042FFE791D9E394E0096CDF2 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		044620361DB0CAF5001D13B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		044620381DB0CAFF001D13B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		044897921DC1FEB400F7A3B6 /* KDChatSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatSettingViewController.swift; sourceTree = "<group>"; };
 		0455D4101DC055E700320798 /* BSImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSImagePicker.swift; sourceTree = "<group>"; };
 		047263271D8FC43D00D9380C /* ChatShareMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatShareMoreView.swift; sourceTree = "<group>"; };
 		047263291D8FC60100D9380C /* ChatShareMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShareMoreView.xib; sourceTree = "<group>"; };
@@ -369,6 +368,7 @@
 		18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMediaManger.swift; sourceTree = "<group>"; };
 		18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaManagerDelegate.swift; sourceTree = "<group>"; };
 		18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatSettingViewController.swift; sourceTree = "<group>"; };
 		18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatViewController.swift; sourceTree = "<group>"; };
 		18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Validate.swift"; sourceTree = "<group>"; };
 		E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KDYWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1039,7 +1039,7 @@
 				04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */,
 				184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */,
 				189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */,
-				044897921DC1FEB400F7A3B6 /* KDChatSettingViewController.swift */,
+				18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */,
 				0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */,
 			);
 			path = Controller;
@@ -1365,7 +1365,6 @@
 				048AF1131DCC2A7100B9108C /* MJRefreshStateHeader.m in Sources */,
 				1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */,
 				049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */,
-				044897931DC1FEB400F7A3B6 /* KDChatSettingViewController.swift in Sources */,
 				04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */,
 				048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */,
 				049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */,
@@ -1400,6 +1399,7 @@
 				047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */,
 				04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */,
 				189FCCFC1DBCFA490011268E /* KDChatViewController+SendMessage.swift in Sources */,
+				18DDDD3E1DCE0830002D0F9C /* KDChatSettingViewController.swift in Sources */,
 				04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */,
 				04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */,
 				04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */,
@@ -1611,7 +1611,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8ab70116-e0a6-4a25-868d-285372621d54";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1638,7 +1638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8ab70116-e0a6-4a25-868d-285372621d54";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 			};
 			name = Release;

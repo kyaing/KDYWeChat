@@ -110,6 +110,13 @@ final class KDChatViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+    
+        // 设置聊天背景图片，有个bug，当键盘响应后，图片会变形
+        let imageData = NSUserDefaults.standardUserDefaults().objectForKey(self.conversationId) as? NSData
+        if imageData != nil {
+            let backgroundImage = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
+            self.chatTableView.backgroundView = UIImageView(image: backgroundImage)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -147,9 +154,9 @@ final class KDChatViewController: UIViewController {
             [weak self] (aMessages, error) in
         
             guard let strongSelf = self else { return }
-            guard error == nil && aMessages.count > 0 else { return }
-            
             strongSelf.chatTableView.mj_header.endRefreshing()
+            
+            guard error == nil && aMessages.count > 0 else { return }
             
             // 格式化EMMessage消息，成为装有 ChatModel的数组
             let formattedMessages = strongSelf.formatEMMessages(aMessages)
@@ -250,10 +257,31 @@ final class KDChatViewController: UIViewController {
     }
     
     /**
-     *  进入聊天设置界面
+     *  进入个人详细资料
      */
     func handlePersonAction() {
-        ky_pushViewController(KDChatSettingViewController(), animated: true)
+        let settingController = KDChatSettingViewController()
+        settingController.conversationId = self.conversationId
+        
+        ky_pushViewController(settingController, animated: true)
+    }
+}
+
+// MARK: - EMChatManagerDelegate
+extension KDChatViewController: EMChatManagerDelegate {
+    
+    /**
+     *  接收EMMessage 消息
+     */
+    func messagesDidReceive(aMessages: [AnyObject]!) {
+        for message in aMessages as! [EMMessage] {
+            if self.conversation.conversationId == message.conversationId {
+                addMessageToDataSource(message)
+                
+                // 将会话标记为已读，便于统计总的未读消息数
+                self.conversation.markMessageAsReadWithId(message.conversationId, error: nil)
+            }
+        }
     }
 }
 
