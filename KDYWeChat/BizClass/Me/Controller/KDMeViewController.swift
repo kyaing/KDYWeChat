@@ -32,11 +32,12 @@ class KDMeViewController: UITableViewController {
         if indexPath.section == 0 {
             let meHeaderCell = tableView.dequeueReusableCellWithIdentifier("MeHeaderTableCell", forIndexPath: indexPath) as! MeHeaderTableCell
             
-            let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
-            meHeaderCell.useridLabel.text = "ID：" + (currentUser?.objectId)!
-            meHeaderCell.usernameLabel.text = currentUser?.username
-            if let imageURL = currentUser?.imageUrl {
-                meHeaderCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+            if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
+                meHeaderCell.useridLabel.text = "ID：" + (currentUser.objectId)!
+                meHeaderCell.usernameLabel.text = currentUser.username
+                if let imageURL = currentUser.imageUrl {
+                    meHeaderCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                }
             }
             
             return meHeaderCell

@@ -18,9 +18,6 @@ let kNickname      = "nickName"
 let kGender        = "gender"
 let kLocation      = "location"
 
-/// 登录者的用户名
-let kLoginUsername = AVUser.currentUser().username
-
 /// 用户信息实体类
 class UserInfoEntity: NSObject {
     
@@ -59,7 +56,7 @@ class UserInfoEntity: NSObject {
 /// 用户信息管理类
 class UserInfoManager: NSObject {
     
-    // _User 中的所有用户类
+    // _User 中的所有用户
     let users: NSMutableDictionary = [:]
     
     static let shareInstance = UserInfoManager()
@@ -73,13 +70,13 @@ class UserInfoManager: NSObject {
     
     // MARK: - Public Methods
     /**
-     *  查询所有用户
+     *  查询LeanCloud 所有用户
      */
     func initUsers() {
         self.users.removeAllObjects()
         let userQuery = AVQuery(className: kUserClass)
         
-        // 异步查询，存储所有用户 (#这里要优化！应该查当前用户的所有好友再存储)
+        // 异步查询，存储所有用户 (# 这里要优化！应该查当前用户的所有好友再存储)
         userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
             
             guard objects != nil && objects.count > 0 else { return }
@@ -147,7 +144,7 @@ class UserInfoManager: NSObject {
      *  获取当前用户信息
      */
     func getCurrentUserInfo() -> UserInfoEntity? {
-        if let userInfo = self.users.objectForKey(kLoginUsername) {
+        if let userInfo = self.users.objectForKey(AVUser.currentUser().username) {
             return userInfo as? UserInfoEntity
         }
         

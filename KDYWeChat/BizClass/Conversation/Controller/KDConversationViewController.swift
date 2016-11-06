@@ -22,7 +22,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         tableView.registerNib(UINib(nibName: "MessageTableCell", bundle: nil), forCellReuseIdentifier: messageIdentifier)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = 65
+        tableView.rowHeight = 60
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -259,7 +259,7 @@ extension KDConversationViewController: UITableViewDelegate {
         let chatController = KDChatViewController()
         chatController.conversationId = model.conversation.conversationId
         chatController.title = model.title
-        self.ky_pushAndHideTabbar(chatController)
+        ky_pushAndHideTabbar(chatController)
         
         // 发送未读消息的通知
         NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)

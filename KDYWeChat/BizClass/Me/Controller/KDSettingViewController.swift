@@ -73,7 +73,7 @@ class KDSettingViewController: UITableViewController {
         } else if indexPath.section == 1 {
             
         } else {  // 退出登录
-            self.setupAlertController()
+            setupAlertController()
         }
     }
     
@@ -106,7 +106,7 @@ class KDSettingViewController: UITableViewController {
                 print(">>> 环信退出失败，error = \(error.description) <<<")
                 
             } else {
-                AVUser.logOut()
+                AVUser.logOut()  // 退出LeanCloud
                 NSNotificationCenter.defaultCenter().postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: false))
             }
         }
