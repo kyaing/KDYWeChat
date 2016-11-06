@@ -90,6 +90,7 @@ class KDChatSettingViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension KDChatSettingViewController:  UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -133,6 +134,7 @@ extension KDChatSettingViewController:  UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension KDChatSettingViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -144,7 +146,8 @@ extension KDChatSettingViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             return 70
         }
-        return 50
+        
+        return 44
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

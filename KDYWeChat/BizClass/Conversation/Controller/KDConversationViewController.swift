@@ -120,15 +120,19 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     private func getAllConversation() {
         let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
         let sortedConversations: NSArray = conversations.sortedArrayUsingComparator { (Obj1, Obj2) -> NSComparisonResult in
-            let message1 = Obj1 as! MessageModel
-            let message2 = Obj2 as! MessageModel
+            let message1 = Obj1 as? MessageModel
+            let message2 = Obj2 as? MessageModel
             
-            if message1.conversation.latestMessage.timestamp >
-                message2.conversation.latestMessage.timestamp {
-                return .OrderedAscending
-            } else {
-                return .OrderedDescending
+            if message1 != nil && message2 != nil {
+                if message1!.conversation.latestMessage.timestamp >
+                    message2!.conversation.latestMessage.timestamp {
+                    return .OrderedAscending
+                } else {
+                    return .OrderedDescending
+                }
             }
+            
+            return .OrderedSame
         }
         
         messageDataSource.removeAllObjects()

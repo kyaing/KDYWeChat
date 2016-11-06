@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController.swift"
-            timestampString = "500048984.283501"
+            filePath = "KDYWeChat/BizClass/Contacts/Controller/KDPersonalDetailViewController.swift"
+            timestampString = "500108727.75922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "chatWithMessageAction()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatSettingViewController.swift"
-            timestampString = "500048559.361112"
+            filePath = "KDYWeChat/BizClass/Contacts/Controller/KDContactsViewController.swift"
+            timestampString = "500109424.7369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "setupPickerAlertController()"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "configurePushControlelr(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,7 +15,7 @@ class KDEditInfoViewController: UIViewController {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = 50
+        tableView.rowHeight = 44
         
         self.view.addSubview(tableView)
         

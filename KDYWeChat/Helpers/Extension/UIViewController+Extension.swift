@@ -29,7 +29,7 @@ extension UIViewController {
     }
     
     // Pop 
-    public func ky_popController() {
+    public func ky_popViewController() {
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

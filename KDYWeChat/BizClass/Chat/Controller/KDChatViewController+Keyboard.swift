@@ -99,6 +99,7 @@ extension KDChatViewController {
                 
                 if isShowkeyboard {
                     self.chatTableView.scrollToBottom(animated: false)
+                    self.chatTableView.backgroundView?.layoutIfNeeded()
                 }
             },
             completion: { bool in

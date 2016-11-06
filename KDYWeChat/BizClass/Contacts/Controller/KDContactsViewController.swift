@@ -94,7 +94,7 @@ final class KDContactsViewController: UIViewController {
         self.contactsDataSource.addObject(userModel)
         
         // 配置分组
-        configureSections(contactsDataSource)
+        configureSections(self.contactsDataSource)
         
         self.tableFooterLabel.text = String("\(frindsArray.count+1)位联系人")
         self.contactsTableView.tableFooterView = self.tableFooterLabel
@@ -170,7 +170,7 @@ final class KDContactsViewController: UIViewController {
             }
             
         } else {
-            let userNameInSection = sectionsArray.objectAtIndex(indexPath.section)
+            let userNameInSection = self.sectionsArray.objectAtIndex(indexPath.section)
             let model = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
             
             let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.username!)
@@ -188,7 +188,7 @@ final class KDContactsViewController: UIViewController {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let newfriendController = KDNewFriendsViewController(nibName: "KDNewFriendsViewController", bundle: nil)
-                self.ky_pushViewController(newfriendController, animated: true)
+                ky_pushViewController(newfriendController, animated: true)
                 
             } else if indexPath.row == 1 {
                 
@@ -197,7 +197,13 @@ final class KDContactsViewController: UIViewController {
             }
             
         } else {
+            let userNameInSection = self.sectionsArray.objectAtIndex(indexPath.section)
+            let contactModel = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
             
+            let detailController = KDPersonalDetailViewController(model: nil)
+            detailController.contactModel = contactModel
+            
+            ky_pushViewController(detailController, animated: true)
         }
     }
     
@@ -265,7 +271,7 @@ extension KDContactsViewController: UITableViewDataSource {
         let contactsCell = tableView.dequeueReusableCellWithIdentifier(contactsIdentifier, forIndexPath: indexPath) as! ContactsTableCell
         
         // 设置Cell的数据
-        self.configureCells(contactsCell, indexPath: indexPath)
+        configureCells(contactsCell, indexPath: indexPath)
         
         return contactsCell
     }
@@ -305,7 +311,7 @@ extension KDContactsViewController: UITableViewDataSource {
 extension KDContactsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.configurePushControlelr(indexPath)
+        configurePushControlelr(indexPath)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

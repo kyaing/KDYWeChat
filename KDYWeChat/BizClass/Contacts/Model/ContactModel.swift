@@ -8,9 +8,10 @@
 
 import UIKit
 
+/// 好友列表模型
 class ContactModel: NSObject {
-    var nickname: String?
     var username: String?
+    var nickname: String?
     var avatorURL: String?
 }
 
