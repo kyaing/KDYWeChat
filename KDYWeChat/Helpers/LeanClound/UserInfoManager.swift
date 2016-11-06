@@ -144,8 +144,10 @@ class UserInfoManager: NSObject {
      *  获取当前用户信息
      */
     func getCurrentUserInfo() -> UserInfoEntity? {
-        if let userInfo = self.users.objectForKey(AVUser.currentUser().username) {
-            return userInfo as? UserInfoEntity
+        if AVUser.currentUser().username != nil {
+            if let userInfo = self.users.objectForKey(AVUser.currentUser().username) {
+                return userInfo as? UserInfoEntity
+            }
         }
         
         return nil

@@ -14,10 +14,9 @@ class KDPersonalDetailViewController: UIViewController {
 
     lazy var detailTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
-        tableView.sectionIndexColor = UIColor.darkGrayColor()
         tableView.tableFooterView = self.footerView
         tableView.dataSource = self
         tableView.delegate = self
@@ -28,7 +27,7 @@ class KDPersonalDetailViewController: UIViewController {
     }()
     
     lazy var footerView: UIView = {
-        let footerView = UIView(frame: CGRectMake(0, 0, 0, 120))
+        let footerView = UIView(frame: CGRectMake(0, 1, 0, 120))
         let sendMsgButton = UIButton()
         let sendVideoButton = UIButton()
         
@@ -49,7 +48,7 @@ class KDPersonalDetailViewController: UIViewController {
         footerView.addSubview(sendVideoButton)
         
         sendMsgButton.snp_makeConstraints(closure: { (make) in
-            make.top.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(10, 15, 0, 15))
+            make.top.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(15, 15, 0, 15))
             make.height.equalTo(44)
         })
         

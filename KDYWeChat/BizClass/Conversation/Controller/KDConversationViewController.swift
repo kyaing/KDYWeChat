@@ -227,8 +227,14 @@ extension KDConversationViewController: UITableViewDataSource {
                 cell.unReadMsgHeightContriant.constant = 18
                 cell.unReadMsgLabel.layer.cornerRadius = 9
                 
-            } else if unreadMessageCount > 99 {
-                cell.unReadMsgLabel.text = "99"
+                if unreadMessageCount > 99 {
+                    cell.unReadMsgLabel.text = "99"
+                }
+                
+            } else {
+                cell.unReadMsgWidthContraint.constant  = 19
+                cell.unReadMsgHeightContriant.constant = 19
+                cell.unReadMsgLabel.layer.cornerRadius = 9.5
             }
             
         } else {
