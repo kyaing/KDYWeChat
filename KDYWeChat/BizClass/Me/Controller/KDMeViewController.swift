@@ -17,7 +17,8 @@ class KDMeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.meTableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        self.meTableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
+        self.meTableView.separatorColor  = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         self.meTableView.registerNib(UINib(nibName: "MeHeaderTableCell", bundle: nil), forCellReuseIdentifier: "MeHeaderTableCell")
     }
     

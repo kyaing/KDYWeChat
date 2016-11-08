@@ -14,6 +14,7 @@ class KDPersonInfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         tableView.sectionIndexBackgroundColor = UIColor.clearColor()

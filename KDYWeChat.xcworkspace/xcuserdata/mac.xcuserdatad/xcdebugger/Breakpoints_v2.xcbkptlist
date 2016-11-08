@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KDYWeChat/BizClass/Contacts/Controller/KDContactsViewController.swift"
-            timestampString = "499326318.551194"
+            timestampString = "500287875.935115"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "loadFrinedsFromLeanCloudWithBuddy(_:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -13,7 +13,10 @@ class KDSettingViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "设置"
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
+        tableView.separatorColor  = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
     }
     
     // MARK: - UITableViewDataSoure
@@ -43,7 +46,6 @@ class KDSettingViewController: UITableViewController {
     }
     
     func configCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        // 统一改变下字体大小
         cell.textLabel?.font = UIFont.systemFontOfSize(16)
         
         if indexPath.section == 0 {

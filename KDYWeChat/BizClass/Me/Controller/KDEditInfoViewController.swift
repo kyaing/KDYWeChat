@@ -13,6 +13,7 @@ class KDEditInfoViewController: UIViewController {
 
     lazy var eidtinfoTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 44
