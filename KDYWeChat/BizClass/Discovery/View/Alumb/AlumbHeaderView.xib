@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlumbHeaderView" customModule="KDYWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BEO-jD-YEd" userLabel="bgImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="zBg-O3-S9j" userLabel="avatorImageView">
+                    <rect key="frame" x="255" y="175" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="cWX-6d-e8B"/>
+                        <constraint firstAttribute="width" constant="65" id="trF-M0-8lT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaideyi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUn-J5-A2g" userLabel="usernameLabel">
+                    <rect key="frame" x="100" y="189" width="140" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="5EU-QW-hFh"/>
+                        <constraint firstAttribute="height" constant="21" id="rk2-6k-Pyi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="BEO-jD-YEd" secondAttribute="bottom" constant="20" id="AGT-3e-bYa"/>
+                <constraint firstAttribute="trailing" secondItem="zBg-O3-S9j" secondAttribute="trailing" id="I1g-yP-pyR"/>
+                <constraint firstItem="BEO-jD-YEd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Jaw-N9-Rrx"/>
+                <constraint firstAttribute="trailing" secondItem="BEO-jD-YEd" secondAttribute="trailing" id="MZR-uE-Gil"/>
+                <constraint firstAttribute="bottom" secondItem="fUn-J5-A2g" secondAttribute="bottom" constant="30" id="NQz-xs-g0f"/>
+                <constraint firstItem="BEO-jD-YEd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WXA-ZR-NxZ"/>
+                <constraint firstItem="zBg-O3-S9j" firstAttribute="leading" secondItem="fUn-J5-A2g" secondAttribute="trailing" constant="15" id="ZXp-wq-cy3"/>
+                <constraint firstAttribute="bottom" secondItem="zBg-O3-S9j" secondAttribute="bottom" id="vEQ-f0-TJy"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="267" y="217"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="user_avatar" width="47" height="47"/>
+    </resources>
+</document>

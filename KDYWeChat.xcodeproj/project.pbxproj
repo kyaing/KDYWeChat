@@ -70,6 +70,13 @@
 		049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */; };
 		049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */; };
 		0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */; };
+		0495CAB11DD1CD2D003F4862 /* KDFriendAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB01DD1CD2D003F4862 /* KDFriendAlbumViewController.swift */; };
+		0495CAB31DD1CE2A003F4862 /* KDQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB21DD1CE2A003F4862 /* KDQRCodeViewController.swift */; };
+		0495CAB51DD1CE7E003F4862 /* KDMyLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */; };
+		0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */; };
+		0495CABF1DD1DDE3003F4862 /* AlumbHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */; };
+		0495CAC21DD1DF4F003F4862 /* AlumbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAC01DD1DF4F003F4862 /* AlumbTableViewCell.swift */; };
+		0495CAC31DD1DF4F003F4862 /* AlumbTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAC11DD1DF4F003F4862 /* AlumbTableViewCell.xib */; };
 		049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */; };
 		049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */; };
 		049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */; };
@@ -250,6 +257,13 @@
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
+		0495CAB01DD1CD2D003F4862 /* KDFriendAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDFriendAlbumViewController.swift; sourceTree = "<group>"; };
+		0495CAB21DD1CE2A003F4862 /* KDQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDQRCodeViewController.swift; sourceTree = "<group>"; };
+		0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMyLiveViewController.swift; sourceTree = "<group>"; };
+		0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbHeaderView.swift; sourceTree = "<group>"; };
+		0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbHeaderView.xib; sourceTree = "<group>"; };
+		0495CAC01DD1DF4F003F4862 /* AlumbTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbTableViewCell.swift; sourceTree = "<group>"; };
+		0495CAC11DD1DF4F003F4862 /* AlumbTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbTableViewCell.xib; sourceTree = "<group>"; };
 		049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBaseTableCell.swift; sourceTree = "<group>"; };
 		049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
 		049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatBottomBarView.xib; sourceTree = "<group>"; };
@@ -658,6 +672,9 @@
 			isa = PBXGroup;
 			children = (
 				0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */,
+				0495CAB01DD1CD2D003F4862 /* KDFriendAlbumViewController.swift */,
+				0495CAB21DD1CE2A003F4862 /* KDQRCodeViewController.swift */,
+				0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -672,6 +689,8 @@
 		0495CAAD1DD1CB78003F4862 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0495CAB71DD1D4A9003F4862 /* Alumb */,
+				0495CABA1DD1D4C0003F4862 /* Live */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -681,6 +700,24 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0495CAB71DD1D4A9003F4862 /* Alumb */ = {
+			isa = PBXGroup;
+			children = (
+				0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */,
+				0495CAC01DD1DF4F003F4862 /* AlumbTableViewCell.swift */,
+				0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */,
+				0495CAC11DD1DF4F003F4862 /* AlumbTableViewCell.xib */,
+			);
+			path = Alumb;
+			sourceTree = "<group>";
+		};
+		0495CABA1DD1D4C0003F4862 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Live;
 			sourceTree = "<group>";
 		};
 		049CCDC61D8F95E300CC6394 /* Bar */ = {
@@ -1266,6 +1303,7 @@
 				048E1CEC1DB4A3340049571C /* KDSettingViewController.xib in Resources */,
 				18A37F911DC4860900FCAAE0 /* Expression.bundle in Resources */,
 				1838A66A1DAFC34D0019A8AD /* KDRegisterViewController.xib in Resources */,
+				0495CAC31DD1DF4F003F4862 /* AlumbTableViewCell.xib in Resources */,
 				049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */,
 				04B45B111DB60E12005C7A83 /* ContactsTableCell.xib in Resources */,
 				04B45B1C1DB620C0005C7A83 /* KDNewFriendsViewController.xib in Resources */,
@@ -1279,6 +1317,7 @@
 				040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */,
 				04B6B1FA1D98BD3B00BCBDE7 /* ChatTextTableCell.xib in Resources */,
 				04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */,
+				0495CABF1DD1DDE3003F4862 /* AlumbHeaderView.xib in Resources */,
 				04B6B1FE1D98BDB300BCBDE7 /* ChatAudioTableCell.xib in Resources */,
 				0472632E1D8FC66A00D9380C /* ChatEmotionView.xib in Resources */,
 				1833DCD01DB34F20008B036B /* MeHeaderTableCell.xib in Resources */,
@@ -1392,6 +1431,7 @@
 				189E885D1D8D65F30007C9A5 /* EMOptions.h in Sources */,
 				18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */,
 				048AF1101DCC2A7100B9108C /* MJRefreshBackStateFooter.m in Sources */,
+				0495CAB31DD1CE2A003F4862 /* KDQRCodeViewController.swift in Sources */,
 				04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */,
 				048AF1131DCC2A7100B9108C /* MJRefreshStateHeader.m in Sources */,
 				1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */,
@@ -1408,6 +1448,7 @@
 				18A37F941DC4860900FCAAE0 /* TSYYTextLinePositionModifier.swift in Sources */,
 				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
+				0495CAC21DD1DF4F003F4862 /* AlumbTableViewCell.swift in Sources */,
 				04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */,
 				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
@@ -1426,6 +1467,7 @@
 				048AF1171DCC2A7100B9108C /* UIScrollView+MJRefresh.m in Sources */,
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
 				048AF10B1DCC2A7100B9108C /* MJRefreshAutoGifFooter.m in Sources */,
+				0495CAB11DD1CD2D003F4862 /* KDFriendAlbumViewController.swift in Sources */,
 				047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */,
 				048AF1151DCC2A7100B9108C /* MJRefreshConst.m in Sources */,
 				047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */,
@@ -1446,12 +1488,14 @@
 				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,
 				189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */,
 				18A37F931DC4860900FCAAE0 /* TSChatTextParser.swift in Sources */,
+				0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */,
 				18A37F9C1DC4E11D00FCAAE0 /* VideoManger.swift in Sources */,
 				048AF1091DCC2A7100B9108C /* MJRefreshFooter.m in Sources */,
 				04B6B1FD1D98BDB300BCBDE7 /* ChatAudioTableCell.swift in Sources */,
 				0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */,
 				049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */,
 				048AF10F1DCC2A7100B9108C /* MJRefreshBackNormalFooter.m in Sources */,
+				0495CAB51DD1CE7E003F4862 /* KDMyLiveViewController.swift in Sources */,
 				189FCCFE1DC482D90011268E /* ChatRecordingView.swift in Sources */,
 				1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */,
 				047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */,

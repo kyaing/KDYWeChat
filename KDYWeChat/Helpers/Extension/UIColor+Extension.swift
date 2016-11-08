@@ -15,7 +15,7 @@ extension UIColor {
         case barTintColor             = "#1A1A1A"
         case tabbarSelectedTextColor  = "#68BB1E"
         case navigationItemTextColor  = ""
-        case tableViewBackgroundColor = "#f3f3f3"
+        case tableViewBackgroundColor = "#f5f5f5"
     }
     
     convenience init(colorHex name: AppColorName) {

@@ -65,13 +65,14 @@ final class KDDiscoveryViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 0 {
-            if indexPath.row == 0 {
+            if indexPath.row == 0 {   
+                ky_pushViewController(KDFriendAlbumViewController(), animated: true)
                 
             } else {
-                
+                ky_pushViewController(KDQRCodeViewController(), animated: true)
             }
         } else {
-            
+            ky_pushViewController(KDMyLiveViewController(), animated: true)
         }
     }
     
