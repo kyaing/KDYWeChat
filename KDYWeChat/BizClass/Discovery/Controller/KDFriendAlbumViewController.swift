@@ -54,7 +54,12 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        var cell = tableView.dequeueReusableCellWithIdentifier("albumCell")
+        if cell == nil {
+            cell = AlumbTableViewCell(style: .Default, reuseIdentifier: "albumCell")
+        }
+        
+        return cell!
     }
 }
 

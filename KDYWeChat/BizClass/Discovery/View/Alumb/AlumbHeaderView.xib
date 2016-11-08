@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,38 +15,54 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="zBg-O3-S9j" userLabel="avatorImageView">
-                    <rect key="frame" x="255" y="175" width="65" height="65"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="65" id="cWX-6d-e8B"/>
-                        <constraint firstAttribute="width" constant="65" id="trF-M0-8lT"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaideyi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUn-J5-A2g" userLabel="usernameLabel">
-                    <rect key="frame" x="100" y="189" width="140" height="21"/>
+                    <rect key="frame" x="78" y="189" width="140" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="140" id="5EU-QW-hFh"/>
-                        <constraint firstAttribute="height" constant="21" id="rk2-6k-Pyi"/>
+                        <constraint firstAttribute="width" constant="140" id="6BH-o8-Dy7"/>
+                        <constraint firstAttribute="height" constant="21" id="Mcg-j1-1Ln"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71U-up-Vzh" userLabel="avatorView">
+                    <rect key="frame" x="238" y="170" width="70" height="70"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="zBg-O3-S9j" userLabel="avatorImageView">
+                            <rect key="frame" x="3" y="3" width="64" height="64"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="zBg-O3-S9j" secondAttribute="trailing" constant="3" id="eNH-Q8-XX2"/>
+                        <constraint firstAttribute="height" constant="70" id="kfP-c5-SXJ"/>
+                        <constraint firstItem="zBg-O3-S9j" firstAttribute="top" secondItem="71U-up-Vzh" secondAttribute="top" constant="3" id="pAp-i8-Zaa"/>
+                        <constraint firstAttribute="bottom" secondItem="zBg-O3-S9j" secondAttribute="bottom" constant="3" id="sfX-ga-fIA"/>
+                        <constraint firstAttribute="width" constant="70" id="xnL-8Q-cHV"/>
+                        <constraint firstItem="zBg-O3-S9j" firstAttribute="leading" secondItem="71U-up-Vzh" secondAttribute="leading" constant="3" id="zKX-sa-qeZ"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="71U-up-Vzh" firstAttribute="leading" secondItem="fUn-J5-A2g" secondAttribute="trailing" constant="20" id="9TI-aj-Mt9"/>
                 <constraint firstAttribute="bottom" secondItem="BEO-jD-YEd" secondAttribute="bottom" constant="20" id="AGT-3e-bYa"/>
-                <constraint firstAttribute="trailing" secondItem="zBg-O3-S9j" secondAttribute="trailing" id="I1g-yP-pyR"/>
+                <constraint firstAttribute="trailing" secondItem="71U-up-Vzh" secondAttribute="trailing" constant="12" id="Biz-ht-1lO"/>
+                <constraint firstAttribute="bottom" secondItem="fUn-J5-A2g" secondAttribute="bottom" constant="30" id="Df5-j7-nkj"/>
                 <constraint firstItem="BEO-jD-YEd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Jaw-N9-Rrx"/>
                 <constraint firstAttribute="trailing" secondItem="BEO-jD-YEd" secondAttribute="trailing" id="MZR-uE-Gil"/>
-                <constraint firstAttribute="bottom" secondItem="fUn-J5-A2g" secondAttribute="bottom" constant="30" id="NQz-xs-g0f"/>
+                <constraint firstAttribute="bottom" secondItem="71U-up-Vzh" secondAttribute="bottom" id="O0I-tr-Sh3"/>
                 <constraint firstItem="BEO-jD-YEd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WXA-ZR-NxZ"/>
-                <constraint firstItem="zBg-O3-S9j" firstAttribute="leading" secondItem="fUn-J5-A2g" secondAttribute="trailing" constant="15" id="ZXp-wq-cy3"/>
-                <constraint firstAttribute="bottom" secondItem="zBg-O3-S9j" secondAttribute="bottom" id="vEQ-f0-TJy"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="267" y="217"/>
+            <connections>
+                <outlet property="avatorImageView" destination="zBg-O3-S9j" id="1rZ-Yr-5hm"/>
+                <outlet property="avatorView" destination="71U-up-Vzh" id="T8L-qw-tEg"/>
+                <outlet property="bgImageView" destination="BEO-jD-YEd" id="Fiu-DX-vD3"/>
+                <outlet property="usernameLabel" destination="fUn-J5-A2g" id="TjU-Bu-kck"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="-38"/>
         </view>
     </objects>
     <resources>

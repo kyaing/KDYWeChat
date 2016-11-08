@@ -154,11 +154,11 @@
                   moduleName = "KDYWeChat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Works/KDYGithub/KDYWechat/KDYWeChat/BizClass/Me/Controller/KDMeViewController.swift"
-                  timestampString = "500112553.02839"
+                  timestampString = "500305853.311544"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
                   offsetFromSymbolStart = "224">
                </Location>
                <Location
@@ -169,11 +169,11 @@
                   moduleName = "KDYWeChat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Documents/Works/KDYGithub/KDYWechat/KDYWeChat/BizClass/Me/Controller/KDMeViewController.swift"
-                  timestampString = "500112553.02857"
+                  timestampString = "500305853.311675"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
                   offsetFromSymbolStart = "328">
                </Location>
             </Locations>

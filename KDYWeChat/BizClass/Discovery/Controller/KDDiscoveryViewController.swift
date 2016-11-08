@@ -22,11 +22,11 @@ final class KDDiscoveryViewController: UITableViewController {
     
     // MARK: - UITableViewDataSoure
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 1
+        return 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -46,16 +46,13 @@ final class KDDiscoveryViewController: UITableViewController {
         cell.textLabel?.font = UIFont.systemFontOfSize(16)
         
         if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                cell.textLabel?.text = "朋友圈"
-                cell.imageView?.image = UIImage(named: "ff_IconShowAlbum")
-            } else if indexPath.row == 1 {
-                cell.textLabel?.text = "扫一扫"
-                cell.imageView?.image = UIImage(named: "ff_IconQRCode")
-            }
-            
+            cell.textLabel?.text = "朋友圈"
+            cell.imageView?.image = UIImage(named: "ff_IconShowAlbum")
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = "扫一扫"
+            cell.imageView?.image = UIImage(named: "ff_IconQRCode")
         } else {
-            cell.textLabel?.text = "直播"
+            cell.textLabel?.text = "我的直播"
             cell.imageView?.image = UIImage(named: "ff_IconLocationService")
         }
     }
@@ -65,12 +62,11 @@ final class KDDiscoveryViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 0 {
-            if indexPath.row == 0 {   
-                ky_pushViewController(KDFriendAlbumViewController(), animated: true)
-                
-            } else {
-                ky_pushViewController(KDQRCodeViewController(), animated: true)
-            }
+            ky_pushViewController(KDFriendAlbumViewController(), animated: true)
+            
+        } else if indexPath.section == 1 {
+            ky_pushViewController(KDQRCodeViewController(), animated: true)
+            
         } else {
             ky_pushViewController(KDMyLiveViewController(), animated: true)
         }

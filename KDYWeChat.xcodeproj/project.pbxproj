@@ -75,8 +75,6 @@
 		0495CAB51DD1CE7E003F4862 /* KDMyLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */; };
 		0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */; };
 		0495CABF1DD1DDE3003F4862 /* AlumbHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */; };
-		0495CAC21DD1DF4F003F4862 /* AlumbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAC01DD1DF4F003F4862 /* AlumbTableViewCell.swift */; };
-		0495CAC31DD1DF4F003F4862 /* AlumbTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0495CAC11DD1DF4F003F4862 /* AlumbTableViewCell.xib */; };
 		049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */; };
 		049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */; };
 		049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */; };
@@ -133,6 +131,8 @@
 		188B05611D85306200393752 /* KDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B05601D85306200393752 /* KDNavigationController.swift */; };
 		18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */; };
 		18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D211D94268600F52F1E /* ChatBarButton+UI.swift */; };
+		189557EA1DD210090016F885 /* AlumbTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189557E91DD210090016F885 /* AlumbTableViewCell.swift */; };
+		189557EC1DD214540016F885 /* AlumbTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189557EB1DD214540016F885 /* AlumbTableCellDelegate.swift */; };
 		189E885C1D8D65F30007C9A5 /* EMClient.h in Sources */ = {isa = PBXBuildFile; fileRef = 180F3BE21D8BDC6300D79668 /* EMClient.h */; };
 		189E885D1D8D65F30007C9A5 /* EMOptions.h in Sources */ = {isa = PBXBuildFile; fileRef = 180F3BF31D8BDC6300D79668 /* EMOptions.h */; };
 		189E885E1D8D665E0007C9A5 /* libHyphenateFullSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3C011D8BDC6300D79668 /* libHyphenateFullSDK.a */; };
@@ -262,8 +262,6 @@
 		0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMyLiveViewController.swift; sourceTree = "<group>"; };
 		0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbHeaderView.swift; sourceTree = "<group>"; };
 		0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbHeaderView.xib; sourceTree = "<group>"; };
-		0495CAC01DD1DF4F003F4862 /* AlumbTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbTableViewCell.swift; sourceTree = "<group>"; };
-		0495CAC11DD1DF4F003F4862 /* AlumbTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbTableViewCell.xib; sourceTree = "<group>"; };
 		049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBaseTableCell.swift; sourceTree = "<group>"; };
 		049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
 		049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatBottomBarView.xib; sourceTree = "<group>"; };
@@ -367,6 +365,8 @@
 		188B05601D85306200393752 /* KDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNavigationController.swift; sourceTree = "<group>"; };
 		18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatBarView.swift"; sourceTree = "<group>"; };
 		18953D211D94268600F52F1E /* ChatBarButton+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatBarButton+UI.swift"; sourceTree = "<group>"; };
+		189557E91DD210090016F885 /* AlumbTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbTableViewCell.swift; sourceTree = "<group>"; };
+		189557EB1DD214540016F885 /* AlumbTableCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbTableCellDelegate.swift; sourceTree = "<group>"; };
 		189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		189E88611D8D66DD0007C9A5 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		189E88651D9028090007C9A5 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -706,9 +706,9 @@
 			isa = PBXGroup;
 			children = (
 				0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */,
-				0495CAC01DD1DF4F003F4862 /* AlumbTableViewCell.swift */,
+				189557E91DD210090016F885 /* AlumbTableViewCell.swift */,
+				189557EB1DD214540016F885 /* AlumbTableCellDelegate.swift */,
 				0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */,
-				0495CAC11DD1DF4F003F4862 /* AlumbTableViewCell.xib */,
 			);
 			path = Alumb;
 			sourceTree = "<group>";
@@ -1303,7 +1303,6 @@
 				048E1CEC1DB4A3340049571C /* KDSettingViewController.xib in Resources */,
 				18A37F911DC4860900FCAAE0 /* Expression.bundle in Resources */,
 				1838A66A1DAFC34D0019A8AD /* KDRegisterViewController.xib in Resources */,
-				0495CAC31DD1DF4F003F4862 /* AlumbTableViewCell.xib in Resources */,
 				049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */,
 				04B45B111DB60E12005C7A83 /* ContactsTableCell.xib in Resources */,
 				04B45B1C1DB620C0005C7A83 /* KDNewFriendsViewController.xib in Resources */,
@@ -1448,7 +1447,7 @@
 				18A37F941DC4860900FCAAE0 /* TSYYTextLinePositionModifier.swift in Sources */,
 				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
-				0495CAC21DD1DF4F003F4862 /* AlumbTableViewCell.swift in Sources */,
+				189557EA1DD210090016F885 /* AlumbTableViewCell.swift in Sources */,
 				04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */,
 				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
@@ -1510,6 +1509,7 @@
 				18A37FA01DC4E1A300FCAAE0 /* MediaManagerDelegate.swift in Sources */,
 				18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */,
 				042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */,
+				189557EC1DD214540016F885 /* AlumbTableCellDelegate.swift in Sources */,
 				0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */,
 				0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */,
 				04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */,
