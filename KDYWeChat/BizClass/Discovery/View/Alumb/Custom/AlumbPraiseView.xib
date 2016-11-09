@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlumbPraiseView" customModule="KDYWeChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxI-45-Dzc" userLabel="praiseButton">
+                    <rect key="frame" x="5" y="7" width="60" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="8sN-bh-hgg"/>
+                        <constraint firstAttribute="width" constant="60" id="FE9-UP-V8A"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                    <state key="normal" title="赞" image="Contactatargroupicon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="praiseButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="VOV-0R-grZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-fv-K7K" userLabel="commentButton">
+                    <rect key="frame" x="75" y="7" width="60" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="B8k-OH-dCD"/>
+                        <constraint firstAttribute="height" constant="22" id="YtW-No-IZy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                    <state key="normal" title="评论" image="Contactatargroupicon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="commentButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="AV4-sr-GmV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Bv1-fv-K7K" secondAttribute="bottom" constant="9" id="4lF-2E-wIB"/>
+                <constraint firstItem="xxI-45-Dzc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="8pC-un-jkY"/>
+                <constraint firstItem="xxI-45-Dzc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="J6g-Mn-GG6"/>
+                <constraint firstItem="xxI-45-Dzc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Mow-qP-yyB"/>
+                <constraint firstItem="Bv1-fv-K7K" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="MtA-Qz-4tf"/>
+                <constraint firstItem="Bv1-fv-K7K" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Se0-GY-xmK"/>
+                <constraint firstAttribute="trailing" secondItem="Bv1-fv-K7K" secondAttribute="trailing" constant="5" id="hwC-Ej-PnI"/>
+                <constraint firstAttribute="bottom" secondItem="xxI-45-Dzc" secondAttribute="bottom" constant="9" id="wTk-Fc-v0t"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="8pC-un-jkY"/>
+                    <exclude reference="wTk-Fc-v0t"/>
+                    <exclude reference="4lF-2E-wIB"/>
+                    <exclude reference="MtA-Qz-4tf"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="commentButton" destination="Bv1-fv-K7K" id="WcH-ZR-JQ1"/>
+                <outlet property="praiseButton" destination="xxI-45-Dzc" id="5sa-4I-VOB"/>
+            </connections>
+            <point key="canvasLocation" x="277" y="169"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Contactatargroupicon" width="16" height="16"/>
+    </resources>
+</document>

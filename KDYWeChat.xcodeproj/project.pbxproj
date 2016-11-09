@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040AB8381DD2F3DA00BFE9A1 /* AlumbPraiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8361DD2F3DA00BFE9A1 /* AlumbPraiseView.swift */; };
+		040AB8391DD2F3DA00BFE9A1 /* AlumbPraiseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */; };
+		040AB83B1DD2F44B00BFE9A1 /* AlumbBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83A1DD2F44B00BFE9A1 /* AlumbBodyView.swift */; };
+		040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */; };
 		040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040EF9281DC9C679008B1E6B /* Launch Screen.storyboard */; };
 		04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA31D92569200E5F6F7 /* ChatBarButton.swift */; };
 		04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */; };
@@ -175,6 +179,10 @@
 
 /* Begin PBXFileReference section */
 		00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		040AB8361DD2F3DA00BFE9A1 /* AlumbPraiseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbPraiseView.swift; sourceTree = "<group>"; };
+		040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbPraiseView.xib; sourceTree = "<group>"; };
+		040AB83A1DD2F44B00BFE9A1 /* AlumbBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbBodyView.swift; sourceTree = "<group>"; };
+		040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbCommentView.swift; sourceTree = "<group>"; };
 		040EF9291DC9C679008B1E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04109BA31D92569200E5F6F7 /* ChatBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBarButton.swift; sourceTree = "<group>"; };
 		04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Keyboard.swift"; sourceTree = "<group>"; };
@@ -429,6 +437,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040AB8351DD2F3DA00BFE9A1 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				040AB83A1DD2F44B00BFE9A1 /* AlumbBodyView.swift */,
+				040AB8361DD2F3DA00BFE9A1 /* AlumbPraiseView.swift */,
+				040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */,
+				040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		042FFE6B1D9E35630096CDF2 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +728,7 @@
 				189557E91DD210090016F885 /* AlumbTableViewCell.swift */,
 				189557EB1DD214540016F885 /* AlumbTableCellDelegate.swift */,
 				0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */,
+				040AB8351DD2F3DA00BFE9A1 /* Custom */,
 			);
 			path = Alumb;
 			sourceTree = "<group>";
@@ -1316,6 +1336,7 @@
 				040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */,
 				04B6B1FA1D98BD3B00BCBDE7 /* ChatTextTableCell.xib in Resources */,
 				04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */,
+				040AB8391DD2F3DA00BFE9A1 /* AlumbPraiseView.xib in Resources */,
 				0495CABF1DD1DDE3003F4862 /* AlumbHeaderView.xib in Resources */,
 				04B6B1FE1D98BDB300BCBDE7 /* ChatAudioTableCell.xib in Resources */,
 				0472632E1D8FC66A00D9380C /* ChatEmotionView.xib in Resources */,
@@ -1431,6 +1452,7 @@
 				18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */,
 				048AF1101DCC2A7100B9108C /* MJRefreshBackStateFooter.m in Sources */,
 				0495CAB31DD1CE2A003F4862 /* KDQRCodeViewController.swift in Sources */,
+				040AB8381DD2F3DA00BFE9A1 /* AlumbPraiseView.swift in Sources */,
 				04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */,
 				048AF1131DCC2A7100B9108C /* MJRefreshStateHeader.m in Sources */,
 				1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */,
@@ -1444,9 +1466,11 @@
 				18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */,
 				04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */,
 				1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */,
+				040AB83B1DD2F44B00BFE9A1 /* AlumbBodyView.swift in Sources */,
 				18A37F941DC4860900FCAAE0 /* TSYYTextLinePositionModifier.swift in Sources */,
 				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
+				040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */,
 				189557EA1DD210090016F885 /* AlumbTableViewCell.swift in Sources */,
 				04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */,
 				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,

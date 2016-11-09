@@ -29,7 +29,6 @@ class KDFriendAlbumViewController: UIViewController {
     
     lazy var albumHeaderView: UIView = {
         let headerView = NSBundle.mainBundle().loadNibNamed("AlumbHeaderView", owner: self, options: nil).last as! AlumbHeaderView
-        headerView.height = 240
         
         return headerView
     }()
@@ -71,7 +70,7 @@ extension KDFriendAlbumViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 15+25+10+100+15+10+10
     }
 }
 

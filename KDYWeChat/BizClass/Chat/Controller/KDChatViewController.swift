@@ -111,7 +111,7 @@ final class KDChatViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     
-        // 设置聊天背景图片，有个bug，当键盘响应后，图片会变形
+        // 设置聊天背景图片，##bug，当键盘响应后，图片会变形
         let imageData = NSUserDefaults.standardUserDefaults().objectForKey(self.conversationId) as? NSData
         if imageData != nil {
             let backgroundImage = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
