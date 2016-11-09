@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// 朋友圈
+/// 朋友圈Cell代理方法
 protocol AlumbCellDelegate: class {
     
 }

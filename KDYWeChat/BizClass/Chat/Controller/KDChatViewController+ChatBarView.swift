@@ -82,7 +82,7 @@ extension KDChatViewController {
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
         longPressGesture.rx_event.subscribeNext { event in
-            
+
             let state = event.state
             switch state {
             case .Began:  // 开始录音

@@ -19,7 +19,7 @@ class AlumbHeaderView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.avatorView.layer.borderColor = UIColor(rgba: "#f3f3f3").CGColor
+        self.avatorView.layer.borderColor = UIColor.darkGrayColor().CGColor
         self.avatorView.layer.borderWidth = 0.5
         
         if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {

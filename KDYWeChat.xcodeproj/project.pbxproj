@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		040AB8381DD2F3DA00BFE9A1 /* AlumbPraiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB8361DD2F3DA00BFE9A1 /* AlumbPraiseView.swift */; };
 		040AB8391DD2F3DA00BFE9A1 /* AlumbPraiseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */; };
-		040AB83B1DD2F44B00BFE9A1 /* AlumbBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83A1DD2F44B00BFE9A1 /* AlumbBodyView.swift */; };
 		040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */; };
 		040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040EF9281DC9C679008B1E6B /* Launch Screen.storyboard */; };
 		04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA31D92569200E5F6F7 /* ChatBarButton.swift */; };
@@ -74,9 +73,7 @@
 		049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */; };
 		049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */; };
 		0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */; };
-		0495CAB11DD1CD2D003F4862 /* KDFriendAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB01DD1CD2D003F4862 /* KDFriendAlbumViewController.swift */; };
 		0495CAB31DD1CE2A003F4862 /* KDQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB21DD1CE2A003F4862 /* KDQRCodeViewController.swift */; };
-		0495CAB51DD1CE7E003F4862 /* KDMyLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */; };
 		0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */; };
 		0495CABF1DD1DDE3003F4862 /* AlumbHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */; };
 		049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */; };
@@ -155,6 +152,9 @@
 		18A37F9E1DC4E16800FCAAE0 /* PlayMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */; };
 		18A37FA01DC4E1A300FCAAE0 /* MediaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */; };
 		18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */; };
+		18B593741DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */; };
+		18B593751DD371D4003F2F6E /* KDFriendAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */; };
+		18B593761DD371D4003F2F6E /* KDMyLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B593731DD371D4003F2F6E /* KDMyLiveViewController.swift */; };
 		18DDDD3E1DCE0830002D0F9C /* KDChatSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */; };
 		18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */; };
 		18F878DF1DB1EF3C00A32BF0 /* NSString+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */; };
@@ -181,7 +181,6 @@
 		00FFCC3D78DD6BC9A83E2F8A /* Pods-KDYWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		040AB8361DD2F3DA00BFE9A1 /* AlumbPraiseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbPraiseView.swift; sourceTree = "<group>"; };
 		040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbPraiseView.xib; sourceTree = "<group>"; };
-		040AB83A1DD2F44B00BFE9A1 /* AlumbBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbBodyView.swift; sourceTree = "<group>"; };
 		040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbCommentView.swift; sourceTree = "<group>"; };
 		040EF9291DC9C679008B1E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		04109BA31D92569200E5F6F7 /* ChatBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBarButton.swift; sourceTree = "<group>"; };
@@ -265,9 +264,7 @@
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
-		0495CAB01DD1CD2D003F4862 /* KDFriendAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDFriendAlbumViewController.swift; sourceTree = "<group>"; };
 		0495CAB21DD1CE2A003F4862 /* KDQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDQRCodeViewController.swift; sourceTree = "<group>"; };
-		0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMyLiveViewController.swift; sourceTree = "<group>"; };
 		0495CABC1DD1DDCC003F4862 /* AlumbHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbHeaderView.swift; sourceTree = "<group>"; };
 		0495CABE1DD1DDE3003F4862 /* AlumbHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbHeaderView.xib; sourceTree = "<group>"; };
 		049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBaseTableCell.swift; sourceTree = "<group>"; };
@@ -390,6 +387,9 @@
 		18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMediaManger.swift; sourceTree = "<group>"; };
 		18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaManagerDelegate.swift; sourceTree = "<group>"; };
 		18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDFriendAlbumViewControlle+Delegate.swift"; sourceTree = "<group>"; };
+		18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDFriendAlbumViewController.swift; sourceTree = "<group>"; };
+		18B593731DD371D4003F2F6E /* KDMyLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMyLiveViewController.swift; sourceTree = "<group>"; };
 		18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatSettingViewController.swift; sourceTree = "<group>"; };
 		18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatViewController.swift; sourceTree = "<group>"; };
 		18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Validate.swift"; sourceTree = "<group>"; };
@@ -440,7 +440,6 @@
 		040AB8351DD2F3DA00BFE9A1 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				040AB83A1DD2F44B00BFE9A1 /* AlumbBodyView.swift */,
 				040AB8361DD2F3DA00BFE9A1 /* AlumbPraiseView.swift */,
 				040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */,
 				040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */,
@@ -691,9 +690,9 @@
 			isa = PBXGroup;
 			children = (
 				0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */,
-				0495CAB01DD1CD2D003F4862 /* KDFriendAlbumViewController.swift */,
 				0495CAB21DD1CE2A003F4862 /* KDQRCodeViewController.swift */,
-				0495CAB41DD1CE7E003F4862 /* KDMyLiveViewController.swift */,
+				18B5936F1DD371D4003F2F6E /* Alumb */,
+				18B593721DD371D4003F2F6E /* Live */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1109,6 +1108,23 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		18B5936F1DD371D4003F2F6E /* Alumb */ = {
+			isa = PBXGroup;
+			children = (
+				18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */,
+				18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */,
+			);
+			path = Alumb;
+			sourceTree = "<group>";
+		};
+		18B593721DD371D4003F2F6E /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				18B593731DD371D4003F2F6E /* KDMyLiveViewController.swift */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
 		18EA8CAB1D85528300B4E274 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1462,11 +1478,11 @@
 				049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */,
 				04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */,
 				047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */,
+				18B593741DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift in Sources */,
 				04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */,
 				18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */,
 				04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */,
 				1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */,
-				040AB83B1DD2F44B00BFE9A1 /* AlumbBodyView.swift in Sources */,
 				18A37F941DC4860900FCAAE0 /* TSYYTextLinePositionModifier.swift in Sources */,
 				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
@@ -1490,7 +1506,6 @@
 				048AF1171DCC2A7100B9108C /* UIScrollView+MJRefresh.m in Sources */,
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
 				048AF10B1DCC2A7100B9108C /* MJRefreshAutoGifFooter.m in Sources */,
-				0495CAB11DD1CD2D003F4862 /* KDFriendAlbumViewController.swift in Sources */,
 				047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */,
 				048AF1151DCC2A7100B9108C /* MJRefreshConst.m in Sources */,
 				047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */,
@@ -1511,6 +1526,7 @@
 				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,
 				189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */,
 				18A37F931DC4860900FCAAE0 /* TSChatTextParser.swift in Sources */,
+				18B593761DD371D4003F2F6E /* KDMyLiveViewController.swift in Sources */,
 				0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */,
 				18A37F9C1DC4E11D00FCAAE0 /* VideoManger.swift in Sources */,
 				048AF1091DCC2A7100B9108C /* MJRefreshFooter.m in Sources */,
@@ -1518,7 +1534,6 @@
 				0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */,
 				049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */,
 				048AF10F1DCC2A7100B9108C /* MJRefreshBackNormalFooter.m in Sources */,
-				0495CAB51DD1CE7E003F4862 /* KDMyLiveViewController.swift in Sources */,
 				189FCCFE1DC482D90011268E /* ChatRecordingView.swift in Sources */,
 				1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */,
 				047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */,
@@ -1533,6 +1548,7 @@
 				18A37FA01DC4E1A300FCAAE0 /* MediaManagerDelegate.swift in Sources */,
 				18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */,
 				042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */,
+				18B593751DD371D4003F2F6E /* KDFriendAlbumViewController.swift in Sources */,
 				189557EC1DD214540016F885 /* AlumbTableCellDelegate.swift in Sources */,
 				0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */,
 				0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */,

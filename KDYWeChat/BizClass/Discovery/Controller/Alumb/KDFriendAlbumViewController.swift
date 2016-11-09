@@ -53,9 +53,11 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("albumCell")
+        var cell = tableView.dequeueReusableCellWithIdentifier("albumCell") as? AlumbTableViewCell
         if cell == nil {
             cell = AlumbTableViewCell(style: .Default, reuseIdentifier: "albumCell")
+            cell!.selectionStyle = .None
+            cell!.alumbDelegate  = self
         }
         
         return cell!
@@ -64,11 +66,6 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension KDFriendAlbumViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-    }
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 15+25+10+100+15+10+10
     }

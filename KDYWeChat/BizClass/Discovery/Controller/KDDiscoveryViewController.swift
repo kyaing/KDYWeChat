@@ -52,7 +52,7 @@ final class KDDiscoveryViewController: UITableViewController {
             cell.textLabel?.text = "扫一扫"
             cell.imageView?.image = UIImage(named: "ff_IconQRCode")
         } else {
-            cell.textLabel?.text = "我的直播"
+            cell.textLabel?.text = "我直播"
             cell.imageView?.image = UIImage(named: "ff_IconLocationService")
         }
     }

@@ -16,14 +16,18 @@ class AlumbTableViewCell: UITableViewCell {
     var avatorImage: UIImageView!
     /// 昵称
     var username: UILabel!
-    /// 正文视图
-    var bodyView: UIView!
+    /// 文本
+    var content: UILabel!
+    /// 图片 (先展示一张)
+    var picture: UIImageView!
     /// 时间
     var timeLabel: UILabel!
     /// 评论按钮
     var commentBtn: UIButton!
     /// 评论视图
-    var commentView: UIView!
+    var commentView: AlumbCommentView!
+
+    weak var alumbDelegate: AlumbCellDelegate?
     
     // MARK: - Life Cycle
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -50,13 +54,21 @@ class AlumbTableViewCell: UITableViewCell {
         self.username.textColor = UIColor.darkGrayColor()
         self.username.textAlignment = .Left
         self.username.font = UIFont.systemFontOfSize(16)
-        self.username.text = "kaideyi"
+        self.username.text = "我是kaideyi&&&"
         self.contentView.addSubview(self.username)
         
-        // 正文视图
-        self.bodyView = UIView()
-        self.bodyView.backgroundColor = UIColor.redColor()
-        self.contentView.addSubview(self.bodyView)
+        // 正文内容
+        self.content = UILabel()
+        self.content.backgroundColor = UIColor.redColor()
+        self.content.numberOfLines = 0
+        self.content.text = "我是测试我是测试我是测试我是测试我是测试我是测试我是测试"
+        self.content.sizeToFit()
+        self.content.font = UIFont.systemFontOfSize(15)
+        self.contentView.addSubview(self.content)
+        
+        // 图片
+        self.picture = UIImageView()
+        self.contentView.addSubview(self.picture)
         
         // 时间 
         self.timeLabel = UILabel()
@@ -65,7 +77,7 @@ class AlumbTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.timeLabel)
         
         // 评论视图
-        self.commentView = UIView()
+        self.commentView = AlumbCommentView()
         self.contentView.addSubview(self.commentView)
     }
     
@@ -81,12 +93,12 @@ class AlumbTableViewCell: UITableViewCell {
             make.top.equalTo(self.avatorImage)
             make.left.equalTo(self.avatorImage.snp_right).offset(10)
             make.right.equalTo(self.contentView.snp_right).offset(-15)
-            make.height.equalTo(25)
+            make.height.equalTo(20)
         }
         
-        // 正文视图
-        self.bodyView.snp_makeConstraints { (make) in
-            make.top.equalTo(self.username.snp_bottom).offset(10)
+        // 正文
+        self.content.snp_makeConstraints { (make) in
+            make.top.equalTo(self.username.snp_bottom).offset(5)
             make.left.equalTo(self.username.snp_left)
             make.right.equalTo(self.contentView.snp_right).offset(-15)
             make.height.equalTo(100)
@@ -94,7 +106,7 @@ class AlumbTableViewCell: UITableViewCell {
         
         // 时间
         self.timeLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(self.bodyView.snp_bottom).offset(10)
+            make.top.equalTo(self.content.snp_bottom).offset(10)
             make.left.equalTo(self.username.snp_left)
             make.right.equalTo(self.contentView.snp_right).offset(-15)
             make.height.equalTo(15)
