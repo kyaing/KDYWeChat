@@ -38,6 +38,7 @@
 		047263321D8FCAB600D9380C /* ChatShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */; };
 		0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0475467E1D9E7415008076F1 /* NSDate+Extension.swift */; };
 		047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047546831DA8E38A008076F1 /* EaseSDKHelper.swift */; };
+		047E1BCC1DD5919A000DB77E /* AlumbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E1BCB1DD5919A000DB77E /* AlumbModel.swift */; };
 		047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF31D9E187000022544 /* AppDelegate.swift */; };
 		047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */; };
 		047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */; };
@@ -211,6 +212,7 @@
 		047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShareCollectionCell.xib; sourceTree = "<group>"; };
 		0475467E1D9E7415008076F1 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		047546831DA8E38A008076F1 /* EaseSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSDKHelper.swift; sourceTree = "<group>"; };
+		047E1BCB1DD5919A000DB77E /* AlumbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbModel.swift; sourceTree = "<group>"; };
 		047F8EF31D9E187000022544 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeanCloud.swift"; sourceTree = "<group>"; };
 		047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+EaseSDK.swift"; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 		0495CAAC1DD1CB78003F4862 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				047E1BCB1DD5919A000DB77E /* AlumbModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1459,6 +1462,7 @@
 				047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */,
 				047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */,
 				048AF1121DCC2A7100B9108C /* MJRefreshNormalHeader.m in Sources */,
+				047E1BCC1DD5919A000DB77E /* AlumbModel.swift in Sources */,
 				042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */,
 				1833DCD51DB3788C008B036B /* KDMeViewController.swift in Sources */,
 				048AF1181DCC2A7100B9108C /* UIView+MJExtension.m in Sources */,

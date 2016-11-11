@@ -34,12 +34,39 @@ class KDFriendAlbumViewController: UIViewController {
         return headerView
     }()
     
+    /// 数据源
+    var albumDataSoruce: NSMutableArray!
+    
+    /// 用以获得高度的Cell
+    var tempAlumbCell: AlumbTableViewCell?
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "朋友圈"
+
+        // 先用测试数据模拟
+        self.albumDataSoruce = NSMutableArray()
+        
+        let model1 = AlumbModel(url: "", nickname: "kaideyi", time: "2016-11-11", text: "测理就是UITextView内容改变的时候")
+        let model2 = AlumbModel(url: "", nickname: "张三", time: "2015-3", text: "计算自身高度，然后通知UITableView更新，这样就会触发UITableViewCell高度重新计算测试")
+        let model3 = AlumbModel(url: "", nickname: "李四", time: "12:09", text: "这样就会触发UITableViewCell高度重新计算，以达到wCe这样就U有阴，有ITableVie有阴，有wCe这样就会触有阴，有发UITableViewCe这样就会触发UITableViewCe阴，有阴，有点冷")
+        let model4 = AlumbModel(url: "", nickname: "王五", time: "2016-11-1", text: "1234567098765432")
+        let model5 = AlumbModel(url: "", nickname: "赵六", time: "2016-11", text: "测试测试")
+        let model6 = AlumbModel(url: "", nickname: "大黄", time: "9:30", text: "Snapkit+Autolayout动态计算高度")
+        
+        self.albumDataSoruce.addObject(model1)
+        self.albumDataSoruce.addObject(model2)
+        self.albumDataSoruce.addObject(model3)
+        self.albumDataSoruce.addObject(model4)
+        self.albumDataSoruce.addObject(model5)
+        self.albumDataSoruce.addObject(model6)
+        
         self.albumTableView.reloadData()
+        
+        // 注册计算高度的Cell
+        self.tempAlumbCell = self.albumTableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell") as? AlumbTableViewCell
     }
 }
 
@@ -50,12 +77,16 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.albumDataSoruce.count > 0 ? self.albumDataSoruce.count : 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell", forIndexPath: indexPath) as! AlumbTableViewCell
         cell.selectionStyle = .None
+        
+        // 设置Cell的内容
+        let model = self.albumDataSoruce.objectAtIndex(indexPath.row) as! AlumbModel
+        cell.setupCellContents(model)
         
         return cell
     }
@@ -64,7 +95,15 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension KDFriendAlbumViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 330
+        if let cell = self.tempAlumbCell {
+            let model = self.albumDataSoruce.objectAtIndex(indexPath.row) as! AlumbModel
+            cell.setupCellContents(model)
+            
+            let height = cell.getCellHeight()
+            return height
+        }
+        
+        return 0
     }
 }
 
