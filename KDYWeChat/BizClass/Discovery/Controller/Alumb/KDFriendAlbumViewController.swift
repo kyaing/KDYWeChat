@@ -45,8 +45,19 @@ class KDFriendAlbumViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "朋友圈"
-
-        // 先用测试数据模拟
+         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_Camera"), style: .Plain, target: self, action: #selector(self.publishAlumbAction))
+        
+        // 测试数据模拟
+        testDataModels()
+        
+        self.albumTableView.reloadData()
+        
+        // 注册计算高度的Cell
+        self.tempAlumbCell = self.albumTableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell") as? AlumbTableViewCell
+    }
+    
+    func testDataModels() {
         self.albumDataSoruce = NSMutableArray()
         
         let model1 = AlumbModel(url: "", nickname: "kaideyi", time: "2016-11-11", text: "测理就是UITextView内容改变的时候")
@@ -62,11 +73,11 @@ class KDFriendAlbumViewController: UIViewController {
         self.albumDataSoruce.addObject(model4)
         self.albumDataSoruce.addObject(model5)
         self.albumDataSoruce.addObject(model6)
+    }
+    
+    // MARK: - Event Response 
+    func publishAlumbAction() {
         
-        self.albumTableView.reloadData()
-        
-        // 注册计算高度的Cell
-        self.tempAlumbCell = self.albumTableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell") as? AlumbTableViewCell
     }
 }
 
@@ -96,6 +107,7 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
 extension KDFriendAlbumViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if let cell = self.tempAlumbCell {
+            // 以Model的内容来计算高度
             let model = self.albumDataSoruce.objectAtIndex(indexPath.row) as! AlumbModel
             cell.setupCellContents(model)
             
