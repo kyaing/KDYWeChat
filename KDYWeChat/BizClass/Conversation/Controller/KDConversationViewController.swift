@@ -151,25 +151,27 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      */
     func getLastMessageForConversation(model: MessageModel) -> String? {
         
-        var latestMsgTitle: String?
-        let messageBody = model.conversation.latestMessage.body
-        
-        switch messageBody.type {
-        // 只有文本消息，才有最后一条数据，其它都是自已判断
-        case EMMessageBodyTypeText:
-            let textBody = messageBody as! EMTextMessageBody
-            latestMsgTitle = textBody.text
+        var latestMsgTitle: String = ""
+        if let messageBody = model.conversation.latestMessage.body {
+            switch messageBody.type {
+            // 只有文本消息，才有最后一条数据，其它都是自已判断
+            case EMMessageBodyTypeText:
+                let textBody = messageBody as! EMTextMessageBody
+                latestMsgTitle = textBody.text
+
+            case EMMessageBodyTypeImage:    latestMsgTitle = "[图片]"
+            case EMMessageBodyTypeVoice:    latestMsgTitle = "[语音]"
+            case EMMessageBodyTypeVideo:    latestMsgTitle = "[视频]"
+            case EMMessageBodyTypeLocation: latestMsgTitle = "[位置]"
+            case EMMessageBodyTypeFile:     latestMsgTitle = "[文件]"
+                
+            default: latestMsgTitle = ""
+            }
             
-        case EMMessageBodyTypeImage:    latestMsgTitle = "[图片]"
-        case EMMessageBodyTypeVoice:    latestMsgTitle = "[语音]"
-        case EMMessageBodyTypeVideo:    latestMsgTitle = "[视频]"
-        case EMMessageBodyTypeLocation: latestMsgTitle = "[位置]"
-        case EMMessageBodyTypeFile:     latestMsgTitle = "[文件]"
-            
-        default: latestMsgTitle = ""
+            return latestMsgTitle
         }
         
-        return latestMsgTitle!
+        return ""
     }
     
     /**

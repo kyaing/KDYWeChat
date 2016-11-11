@@ -16,6 +16,7 @@ class KDFriendAlbumViewController: UIViewController {
         tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.registerNib(UINib(nibName: "AlumbTableViewCell", bundle: nil), forCellReuseIdentifier: "AlumbTableViewCell")
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = self.albumHeaderView
         tableView.tableFooterView = UIView()
@@ -53,21 +54,17 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("albumCell") as? AlumbTableViewCell
-        if cell == nil {
-            cell = AlumbTableViewCell(style: .Default, reuseIdentifier: "albumCell")
-            cell!.selectionStyle = .None
-            cell!.alumbDelegate  = self
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell", forIndexPath: indexPath) as! AlumbTableViewCell
+        cell.selectionStyle = .None
         
-        return cell!
+        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension KDFriendAlbumViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 15+25+10+100+15+10+10
+        return 330
     }
 }
 
