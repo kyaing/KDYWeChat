@@ -15,7 +15,7 @@ class KDMyLiveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "我的直播"
+        self.title = "我直播"
         self.view.backgroundColor = UIColor.whiteColor()
     }
 }

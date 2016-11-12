@@ -19,18 +19,21 @@ class AlumbModel: NSObject {
     var time: String!
     /// 文本内容
     var contentText: String?
+    /// 照片墙
+    var pictures: [String]?
     
     required override init() {
         
     }
     
-    init(url: String, nickname: String, time: String, text: String) {
+    init(url: String, nickname: String, time: String, text: String, pictures: [String]) {
         super.init()
         
         self.avatarURL   = url
         self.nickname    = nickname
         self.time        = time
         self.contentText = text
+        self.pictures    = pictures
     }
 }
 
