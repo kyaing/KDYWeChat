@@ -24,11 +24,21 @@ class AlumbTableViewCell: UITableViewCell {
     @IBOutlet weak var pictureBodyView: UIView!
     /// 图片视图高度约束
     @IBOutlet weak var pictureBodyHeight: NSLayoutConstraint!
+    
     /// 文本内容
     var contentLabel: YYLabel!
     
     /// 文本布局最大宽度：屏宽 - 距左约束 - 距右约束
     let maxLayoutWidth = UIScreen.width - 65 - 20
+    
+    /// 单张图片宽度
+    var pictureWidth: CGFloat  = 0
+    /// 单张图片高度
+    var pictureHeight: CGFloat = 0
+    /// 图片之间的间隙
+    let pictureGaps: CGFloat   = 5
+    /// 照片墙最大宽度
+    let pictureBodyViewWidth: CGFloat = UIScreen.width - 65 - 70
     
     // MARK: - Life Cycle
     override func awakeFromNib() {
@@ -72,64 +82,39 @@ class AlumbTableViewCell: UITableViewCell {
      *  创建照片墙 (根据照片个数布局)
      */
     func setupPicturesView(pictures: [String]?) {
+        self.pictureBodyView.removeAllSubviews()
+        
         guard let counts = pictures?.count where pictures != nil else {
             self.pictureBodyHeight.constant = 0
             return
         }
-    
-        /// 单张图片宽度
-        var pictureWidth: CGFloat  = 0
-        /// 单张图片高度
-        var pictureHeight: CGFloat = 0
-        /// 图片之间的间隙
-        let pictureGaps: CGFloat   = 5
-        /// 照片墙最大宽度
-        let pictureBodyViewWidth: CGFloat = 200
-        /// 照片墙行数
-        var pictureRows: Int = 0
-        var pictureColumn: CGFloat = 0
         
         /**
          *  总共有五种情况：
          *  只有一张；两张以内；四张以内；六张以内；九张以内.
          */
         if counts == 1 {
-            pictureRows = 1
-            pictureColumn = 1
-            
             pictureWidth  = 160
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight
             
         } else if counts <= 2 {
-            pictureRows = 1
-            pictureColumn = 1
-            
-            pictureWidth  = (pictureBodyViewWidth - pictureGaps) / 2.0
+            pictureWidth  = (pictureBodyViewWidth - pictureGaps - 35) / 2.0
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight
             
         } else if counts <= 4 {
-            pictureRows = 2
-            pictureColumn = 2
-            
-            pictureWidth  = (pictureBodyViewWidth - pictureGaps) / 2.0
+            pictureWidth  = (pictureBodyViewWidth - pictureGaps - 35) / 2.0
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight * 2 + pictureGaps
             
         } else if counts <= 6 {
-            pictureRows = 2
-            pictureColumn = 3
-            
-            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2) / 3.0
+            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2 + 35) / 3.0
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight * 2 + pictureGaps
             
         } else if counts <= 9 {
-            pictureRows = 3
-            pictureColumn = 3
-            
-            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2) / 3.0
+            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2 + 35) / 3.0
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight * 2 + pictureGaps * 2
         }
@@ -139,23 +124,31 @@ class AlumbTableViewCell: UITableViewCell {
         var yPos: CGFloat = 0
         
         for index in 0..<counts {
+            // 图片在所在的行数与列数
+            let row = index / getMaxColumn(counts)
+            let col = index % getMaxColumn(counts)
+            
+            xPos = CGFloat(col) * (pictureWidth + pictureGaps)
+            yPos = CGFloat(row) * (pictureHeight + pictureGaps)
+            
             // 创建相应的每张图片
             let imageView = UIImageView()
             imageView.frame = CGRect(x: xPos, y: yPos, width: pictureWidth, height: pictureHeight)
+            imageView.userInteractionEnabled = true
             imageView.contentMode = .ScaleAspectFill
             imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = 3
+            imageView.layer.cornerRadius = 2
             self.pictureBodyView.addSubview(imageView)
             
             imageView.kf_setImageWithURL(NSURL(string: pictures![index]), placeholderImage: UIImage(named: kUserAvatarDefault))
-            
-            if ((index + 1) % pictureRows == 0) {
-                xPos = 0
-                yPos = yPos + pictureHeight + pictureGaps
-            }
-            else {
-                xPos = xPos + pictureWidth + pictureGaps
-            }
+        }
+    }
+    
+    func getMaxColumn(counts: Int) -> Int {
+        if counts == 3 || counts == 4 {
+            return 2
+        } else {
+            return 3
         }
     }
     

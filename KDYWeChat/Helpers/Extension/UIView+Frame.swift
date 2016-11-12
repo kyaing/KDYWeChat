@@ -118,5 +118,14 @@ extension UIView {
             self.frame = frame
         }
     }
+    
+    /**
+     *  移除所有子视图
+     */
+    func removeAllSubviews() {
+        for subview in self.subviews {
+            subview.removeFromSuperview()
+        }
+    }
 }
 
