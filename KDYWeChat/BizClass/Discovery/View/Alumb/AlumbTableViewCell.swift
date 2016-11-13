@@ -94,7 +94,7 @@ class AlumbTableViewCell: UITableViewCell {
          *  只有一张；两张以内；四张以内；六张以内；九张以内.
          */
         if counts == 1 {
-            pictureWidth  = 160
+            pictureWidth  = 150
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight
             
@@ -109,14 +109,14 @@ class AlumbTableViewCell: UITableViewCell {
             self.pictureBodyHeight.constant = pictureHeight * 2 + pictureGaps
             
         } else if counts <= 6 {
-            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2 + 35) / 3.0
+            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2 + 25) / 3.0
             pictureHeight = pictureWidth
             self.pictureBodyHeight.constant = pictureHeight * 2 + pictureGaps
             
         } else if counts <= 9 {
-            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2 + 35) / 3.0
+            pictureWidth  = (pictureBodyViewWidth - pictureGaps * 2 + 25) / 3.0
             pictureHeight = pictureWidth
-            self.pictureBodyHeight.constant = pictureHeight * 2 + pictureGaps * 2
+            self.pictureBodyHeight.constant = pictureHeight * 3 + pictureGaps * 2
         }
         
         // 创建布局对应的照片

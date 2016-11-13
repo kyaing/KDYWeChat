@@ -64,21 +64,28 @@ class KDFriendAlbumViewController: UIViewController {
         let picUrl2 = "http://ac-9xlas694.clouddn.com/20oLRQRQ2To8jQw0sCf5GwC"
         let picUrl3 = "http://ac-9xlas694.clouddn.com/4pP4AeQmTf3XvOw64N0pGuC"
         
-        let model1 = AlumbModel(url: "", nickname: "kaideyi", time: "2016-11-11",
-                                text: "",
+        var avatarUrl = ""
+        if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
+            if let imageURL = currentUser.imageUrl {
+                avatarUrl = imageURL
+            }
+        }
+        
+        let model1 = AlumbModel(url: avatarUrl, nickname: "kaideyi", time: "11-11",
+                                text: "测理就是UITextView内容改变的时候",
                                 pictures: [picUrl1, picUrl2])
-        let model2 = AlumbModel(url: "", nickname: "张三", time: "2015-3",
+        let model2 = AlumbModel(url: avatarUrl, nickname: "kaideyi", time: "2015-3",
                                 text: "计算自身高度，然后通知UITableView更新，这样就会触发UITableViewCell高度重新计算测试",
-                                pictures: [picUrl1])
-        let model3 = AlumbModel(url: "", nickname: "李四", time: "12:09",
+                                pictures: [picUrl1, picUrl2, picUrl3, picUrl3, picUrl1, picUrl2, picUrl1, picUrl3, picUrl1])
+        let model3 = AlumbModel(url: avatarUrl, nickname: "kaideyi", time: "12:09",
                                 text: "这样就会触发UITableViewCell高度重新计算，以达到wCe这样就U有阴，有ITableVie有阴，有wCe这样就会触有阴，有发UITableViewCe这样就会触发UITableViewCe阴，有阴，有点冷",
-                                pictures: [])
-        let model4 = AlumbModel(url: "", nickname: "王五", time: "2016-11-1",
+                                pictures: [picUrl3])
+        let model4 = AlumbModel(url: avatarUrl, nickname: "kaideyi", time: "星期六",
                                 text: "1234567098765432",
                                 pictures: [picUrl3, picUrl2, picUrl1, picUrl3])
-        let model5 = AlumbModel(url: "", nickname: "赵六", time: "2016-11", text: "测试测试",
+        let model5 = AlumbModel(url: avatarUrl, nickname: "kaideyi", time: "2016-11", text: "测试测试",
                                 pictures: [picUrl1, picUrl2, picUrl3, picUrl2, picUrl3])
-        let model6 = AlumbModel(url: "", nickname: "大黄", time: "9:30",
+        let model6 = AlumbModel(url: avatarUrl, nickname: "kaideyi", time: "9:30",
                                 text: "Snapkit+Autolayout动态计算高度",
                                 pictures: [picUrl1, picUrl2, picUrl3])
         
@@ -92,7 +99,10 @@ class KDFriendAlbumViewController: UIViewController {
     
     // MARK: - Event Response 
     func publishAlumbAction() {
-        
+        ky_presentViewController(KDPublishViewController(), animated: true) { 
+            // 刷新tableView 
+            
+        }
     }
 }
 

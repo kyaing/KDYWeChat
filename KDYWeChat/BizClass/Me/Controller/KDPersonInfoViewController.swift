@@ -145,7 +145,7 @@ class KDPersonInfoViewController: UIViewController {
                             print("上传头像失败：\(error.description)")
                         })
                     }
-                    
+    
             }) {
                 print("completion")
             }

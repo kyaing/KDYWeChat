@@ -129,6 +129,7 @@
 		1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9611D83E9BA008BD883 /* UIView+Frame.swift */; };
 		1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */; };
 		184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */; };
+		1879C73A1DD7640700156857 /* KDPublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879C7391DD7640700156857 /* KDPublishViewController.swift */; };
 		1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1882065E1DC5CEB30013D831 /* MediaFileManager.swift */; };
 		188B05611D85306200393752 /* KDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188B05601D85306200393752 /* KDNavigationController.swift */; };
 		18953D201D941E9900F52F1E /* KDChatViewController+ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */; };
@@ -369,6 +370,7 @@
 		1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		1869968E1D8D3DC5008D57B1 /* KDYWeChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDYWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		1879C7391DD7640700156857 /* KDPublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPublishViewController.swift; sourceTree = "<group>"; };
 		1882065E1DC5CEB30013D831 /* MediaFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFileManager.swift; sourceTree = "<group>"; };
 		188B05601D85306200393752 /* KDNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNavigationController.swift; sourceTree = "<group>"; };
 		18953D1F1D941E9900F52F1E /* KDChatViewController+ChatBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatBarView.swift"; sourceTree = "<group>"; };
@@ -1117,6 +1119,7 @@
 		18B5936F1DD371D4003F2F6E /* Alumb */ = {
 			isa = PBXGroup;
 			children = (
+				1879C7391DD7640700156857 /* KDPublishViewController.swift */,
 				18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */,
 				18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */,
 			);
@@ -1501,6 +1504,7 @@
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
 				048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */,
 				0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */,
+				1879C73A1DD7640700156857 /* KDPublishViewController.swift in Sources */,
 				04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */,
 				0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */,
 				1838A6691DAFC34D0019A8AD /* KDRegisterViewController.swift in Sources */,

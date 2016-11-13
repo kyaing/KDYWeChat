@@ -63,10 +63,10 @@ class KDChatLocationViewController: UIViewController {
     }
     
     func seupBarButtonItems() {
-        let leftBarItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: #selector(self.leftBarButtonAction))
+        let leftBarItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: #selector(leftBarButtonAction))
         self.navigationItem.leftBarButtonItem = leftBarItem
         
-        let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(self.rightBarButtonAction))
+        let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(rightBarButtonAction))
         self.navigationItem.rightBarButtonItem = rightBarItem
         self.navigationItem.rightBarButtonItem?.enabled = false
     }

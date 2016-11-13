@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="4Hx-Vm-Q7b" userLabel="avatorImage">
-                        <rect key="frame" x="8" y="7" width="45" height="45"/>
+                        <rect key="frame" x="10" y="7" width="45" height="45"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="CsW-uN-owK"/>
@@ -61,7 +61,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="3M1-oB-fim" secondAttribute="trailing" constant="15" id="404-Bg-70o"/>
                     <constraint firstItem="4Hx-Vm-Q7b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7.5" id="7qa-kw-jBC"/>
                     <constraint firstItem="3M1-oB-fim" firstAttribute="top" secondItem="Too-CW-TBe" secondAttribute="bottom" constant="5" id="98u-Zm-hls"/>
-                    <constraint firstItem="4Hx-Vm-Q7b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GVJ-U9-bAJ"/>
+                    <constraint firstItem="4Hx-Vm-Q7b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GVJ-U9-bAJ"/>
                     <constraint firstItem="4qz-V4-8tf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="33" id="QQ2-GB-kNN"/>
                     <constraint firstItem="3M1-oB-fim" firstAttribute="leading" secondItem="Too-CW-TBe" secondAttribute="leading" id="bDc-n1-ar8"/>
                     <constraint firstItem="Lt8-w5-iaZ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="f1B-H2-zHI"/>
