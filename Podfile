@@ -21,6 +21,8 @@ target 'KDYWeChat' do
     pod 'RxDataSources', '~> 0.8.1'
     pod 'ObjectMapper', '~> 1.4.0'
     pod 'BSImagePicker', '~> 2.3.0'
+    pod 'Quick', '~> 0.9.3'
+    pod 'Nimble', '~> 4.1.0'
     
     # Objective-C
     pod 'SVProgressHUD'
