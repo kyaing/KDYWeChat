@@ -9,7 +9,7 @@
 import UIKit
 import UIColor_Hex_Swift
 
-/// 导航栏
+/// 自定义导航栏
 class KDNavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
             button.addTarget(self, action: #selector(self.backItemAction), forControlEvents: .TouchUpInside)
             button.frame.size = (button.currentBackgroundImage?.size)!
             
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: button)
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         }
         
         super.pushViewController(viewController, animated: animated)

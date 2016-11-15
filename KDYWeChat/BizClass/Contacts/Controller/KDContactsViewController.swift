@@ -200,6 +200,7 @@ final class KDContactsViewController: UIViewController {
         } else {
             let userNameInSection = self.sectionsArray.objectAtIndex(indexPath.section)
             let contactModel = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
+            if contactModel.username == AVUser.currentUser().username { return }
             
             let detailController = KDPersonalDetailViewController(model: nil)
             detailController.contactModel = contactModel

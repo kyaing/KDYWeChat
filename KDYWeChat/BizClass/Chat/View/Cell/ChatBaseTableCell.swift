@@ -79,18 +79,18 @@ class ChatBaseTableCell: UITableViewCell {
         self.model = model
         
         let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
-        if model.fromMe! {  // 发送方
+        if model.fromMe! {   // 发送方
             if let imageURL = currentUser?.imageUrl {
-                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             } else {
-                self.avatarImageView.image = UIImage(named: "user_avatar")
+                self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
             }
             
-        } else {  // 接收方
+        } else {   // 接收方
             if let imageURL = model.avatarURL {
-                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             } else {
-                self.avatarImageView.image = UIImage(named: "user_avatar")
+                self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
             }
         }
         

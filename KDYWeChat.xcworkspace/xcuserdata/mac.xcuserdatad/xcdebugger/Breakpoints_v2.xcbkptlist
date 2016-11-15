@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/Helpers/Chat/Media/RecordManager.swift"
-            timestampString = "499849770.269446"
+            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatRecordingView.swift"
+            timestampString = "500888382.71556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "audioRecorderDidFinishRecording(_:successfully:)"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "recordWithShortTime()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatRecordingView.swift"
-            timestampString = "500888382.71556"
+            filePath = "KDYWeChat/BizClass/Conversation/Controller/KDConversationViewController.swift"
+            timestampString = "500898689.03266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "recordWithShortTime()"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "getLastMessageForConversation(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -47,6 +47,7 @@ extension NSDate {
     }
     
     class func timeAgoSinceDate(date: NSDate, numericDates: Bool) -> String {
+        let dateFormatter = NSDateFormatter()
         let calendar = NSCalendar.currentCalendar()
         let now = NSDate()
         let earliest = now.earlierDate(date)
@@ -93,19 +94,26 @@ extension NSDate {
             } else {
                 return "昨天"
             }
-        } else if (components.hour >= 2) {
-            return "\(components.hour)小时前"
-        } else if (components.hour >= 1) {
-            return "1小时前"
-        } else if (components.minute >= 2) {
-            return "\(components.minute)分钟前"
-        } else if (components.minute >= 1){
-            return "1分钟前"
-        } else if (components.second >= 3) {
-            return "\(components.second)秒前"
-        } else {
-            return "刚刚"
+        } else {  // 当天则，采用具体时间 (如：09:22)
+            dateFormatter.dateFormat = "HH:mm"
+            let timeString = dateFormatter.stringFromDate(date)
+            
+            return timeString
         }
+        
+        //    } else if (components.hour >= 2) {
+        //        return "\(components.hour)小时前"
+        //    } else if (components.hour >= 1) {
+        //        return "1小时前"
+        //    } else if (components.minute >= 2) {
+        //        return "\(components.minute)分钟前"
+        //    } else if (components.minute >= 1){
+        //        return "1分钟前"
+        //    } else if (components.second >= 3) {
+        //        return "\(components.second)秒前"
+        //    } else {
+        //        return "刚刚"
+        //    }
     }
     
     class func formattedTimeFromTimeInterval(milliSeconds: Int64) -> String {
@@ -133,7 +141,7 @@ extension NSDate {
         components.year  = NSInteger(dateNow.substringWithRange(NSMakeRange(0, 4)))!
         
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let date = calendar?.dateFromComponents(components)
+        _ = calendar?.dateFromComponents(components)
      
         return ""
     }

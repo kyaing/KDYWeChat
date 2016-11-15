@@ -213,11 +213,12 @@ extension KDConversationViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+        
         let model = self.messageDataSource.objectAtIndex(indexPath.row) as! MessageModel
         
         // 设置Cell的数据
-        let lastMessage     = self.getLastMessageForConversation(model)
-        let lastMessageTime = self.getlastMessageTimeForConversation(model)
+        let lastMessage     = getLastMessageForConversation(model)
+        let lastMessageTime = getlastMessageTimeForConversation(model)
         
         let unreadMessageCount = model.conversation.unreadMessagesCount
         if unreadMessageCount > 0 {
