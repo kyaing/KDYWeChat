@@ -13,7 +13,7 @@ target 'KDYWeChat' do
     pod 'Kingfisher', '~> 2.5.0'
     pod 'UIColor_Hex_Swift', '~> 2.0'
     pod 'Proposer', '~> 0.9.0'
-    
+
     pod 'Moya', '~> 7.0.0'
     pod 'Moya/RxSwift'
     pod 'RxSwift', '~> 2.5.0'
@@ -21,15 +21,15 @@ target 'KDYWeChat' do
     pod 'RxDataSources', '~> 0.8.1'
     pod 'ObjectMapper', '~> 1.4.0'
     pod 'BSImagePicker', '~> 2.3.0'
-    pod 'Quick', '~> 0.9.3'
-    pod 'Nimble', '~> 4.1.0'
+    # pod 'Quick', '~> 0.9.3'
+    # pod 'Nimble', '~> 4.1.0'
     pod 'Reusable', '~> 2.5.0'
-    
+
     # Objective-C
     pod 'SVProgressHUD'
     pod 'YYText'
     pod 'KVOController'
-    
+
     # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
     pod 'AVOSCloudDynamic', '~> 3.3.5'
     
