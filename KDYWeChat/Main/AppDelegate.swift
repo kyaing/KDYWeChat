@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - AppDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.backgroundColor = UIColor.whiteColor()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.backgroundColor = UIColor.whiteColor()
     
         // 初始化 LeanCloud
         setupLeanCloud(application, launchOptions: launchOptions)
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 初始化 EaseSDK
         setupEmSDK(application, launchOptions: launchOptions)
     
-        window?.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
         
         return true
     }

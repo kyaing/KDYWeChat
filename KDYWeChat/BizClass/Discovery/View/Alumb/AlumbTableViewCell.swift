@@ -141,7 +141,7 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
             imageView.layer.cornerRadius = 2
             self.pictureBodyView.addSubview(imageView)
             
-            imageView.kf_setImageWithURL(NSURL(string: pictures![index]), placeholderImage: UIImage(named: kUserAvatarDefault))
+            imageView.kf_setImageWithURL(NSURL(string: pictures![index]), placeholderImage: UIImage(named: "place_holder_album"))
         }
     }
     

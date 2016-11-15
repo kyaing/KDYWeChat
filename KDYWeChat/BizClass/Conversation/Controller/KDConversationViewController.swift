@@ -62,18 +62,18 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.networkIsConnected()
-        self.registerChatDelegate()
-        self.refreshConversations()
+        networkIsConnected()
+        registerChatDelegate()
+        refreshConversations()
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        self.unRegisterChatDelegate()
+        unRegisterChatDelegate()
     }
     
     deinit {
-        self.unRegisterChatDelegate()
+        unRegisterChatDelegate()
     }
     
     // MARK: - Public Methods
@@ -90,7 +90,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      *  获取用户会话列表
      */
     func refreshConversations() {
-        getAllConversation()
+        getChatConversations()
     }
     
     func handleAddViewAction() {
@@ -110,22 +110,22 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             
         } else {   // 联网状态
             self.conversationTableView.tableHeaderView = nil
-
         }
     }
     
-    /**
-     *  获得该用户的所有会话
-     */
-    private func getAllConversation() {
+    private func getChatConversations() {
         let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
-        let sortedConversations: NSArray = conversations.sortedArrayUsingComparator { (Obj1, Obj2) -> NSComparisonResult in
-            let message1 = Obj1 as? MessageModel
-            let message2 = Obj2 as? MessageModel
+        if conversations.count == 0 { return }
+
+        let sortedConversations: NSArray = conversations.sortedArrayUsingComparator {
+            (Obj1, Obj2) -> NSComparisonResult in
+        
+            let message1 = Obj1 as? EMConversation
+            let message2 = Obj2 as? EMConversation
             
-            if message1 != nil && message2 != nil {
-                if message1!.conversation.latestMessage.timestamp >
-                    message2!.conversation.latestMessage.timestamp {
+            if message1?.latestMessage != nil && message2?.latestMessage != nil {
+                if message1!.latestMessage.timestamp >
+                    message2!.latestMessage.timestamp {
                     return .OrderedAscending
                 } else {
                     return .OrderedDescending
@@ -135,7 +135,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             return .OrderedSame
         }
         
-        messageDataSource.removeAllObjects()
+        self.messageDataSource.removeAllObjects()
         for conversation in sortedConversations as! [EMConversation] {
             let model = MessageModel(conversation: conversation)
             self.messageDataSource.addObject(model)
@@ -153,8 +153,9 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         
         var latestMsgTitle: String = ""
         if let messageBody = model.conversation.latestMessage.body {
+            
             switch messageBody.type {
-            // 只有文本消息，才有最后一条数据，其它都是自已判断
+            // 除了文本消息，其它都是自已判断
             case EMMessageBodyTypeText:
                 let textBody = messageBody as! EMTextMessageBody
                 latestMsgTitle = textBody.text
@@ -175,7 +176,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
     
     /**
-     *  由数据模型，得到对应会话的最后一条消息的时间
+     *  得到对应会话的最后一条消息的时间
      */
     func getlastMessageTimeForConversation(model: MessageModel) -> String {
         let lastMessage = model.conversation.latestMessage
@@ -249,7 +250,9 @@ extension KDConversationViewController: UITableViewDataSource {
         
         if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
             if userInfo.imageUrl != nil {
-                cell.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                cell.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+            } else {
+                cell.avatorImageView.image = UIImage(named: kUserAvatarDefault)
             }
         }
         
