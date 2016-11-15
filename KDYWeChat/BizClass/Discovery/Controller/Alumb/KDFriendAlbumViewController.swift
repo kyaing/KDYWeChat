@@ -29,7 +29,7 @@ class KDFriendAlbumViewController: UIViewController {
     }()
     
     lazy var albumHeaderView: UIView = {
-        let headerView = NSBundle.mainBundle().loadNibNamed("AlumbHeaderView", owner: self, options: nil).last as! AlumbHeaderView
+        let headerView: AlumbHeaderView = AlumbHeaderView.loadFromNib()
         
         return headerView
     }()
@@ -37,13 +37,12 @@ class KDFriendAlbumViewController: UIViewController {
     /// 数据源
     var albumDataSoruce: NSMutableArray!
     
-    /// 用以获得高度的Cell
+    /// 用以获得高度的 Cell
     var tempAlumbCell: AlumbTableViewCell?
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "朋友圈"
          
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_Camera"), style: .Plain, target: self, action: #selector(self.publishAlumbAction))

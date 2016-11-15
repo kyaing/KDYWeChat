@@ -16,10 +16,10 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     var messageDataSource = NSMutableArray()
     
     lazy var conversationTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.registerNib(UINib(nibName: "MessageTableCell", bundle: nil), forCellReuseIdentifier: messageIdentifier)
+        tableView.registerReusableCell(MessageTableCell)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 60
@@ -81,7 +81,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         if connectionState == EMConnectionDisconnected {   // 断网状态
             self.conversationTableView.tableHeaderView = self.networkFailHeaderView
             
-        } else {    // 联网状态
+        } else {   // 联网状态
             self.conversationTableView.tableHeaderView = nil
         }
     }
@@ -210,8 +210,8 @@ extension KDConversationViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(messageIdentifier, forIndexPath: indexPath) as! MessageTableCell
         
+        let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
         let model = self.messageDataSource.objectAtIndex(indexPath.row) as! MessageModel
         
         // 设置Cell的数据

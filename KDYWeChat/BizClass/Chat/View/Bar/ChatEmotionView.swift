@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Reusable
 
 protocol ChatEmotionViewDelegate: class {
     
 }
 
 /// 聊天表情视图
-class ChatEmotionView: UIView {
+class ChatEmotionView: UIView, NibReusable {
     weak var delegate: ChatEmotionViewDelegate?
 }
 

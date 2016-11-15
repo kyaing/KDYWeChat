@@ -23,6 +23,7 @@ target 'KDYWeChat' do
     pod 'BSImagePicker', '~> 2.3.0'
     pod 'Quick', '~> 0.9.3'
     pod 'Nimble', '~> 4.1.0'
+    pod 'Reusable', '~> 2.5.0'
     
     # Objective-C
     pod 'SVProgressHUD'

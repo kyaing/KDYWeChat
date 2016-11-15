@@ -8,9 +8,10 @@
 
 import UIKit
 import YYText
+import Reusable
 
 /// 朋友圈的Cell
-class AlumbTableViewCell: UITableViewCell {
+class AlumbTableViewCell: UITableViewCell, NibReusable {
 
     /// 头像
     @IBOutlet weak var avatarImage: UIImageView!

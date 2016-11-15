@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reusable
 
 // MARK: -  ChatBarViewDelegate
 protocol ChatBarViewDelegate: class {
@@ -21,7 +22,7 @@ protocol ChatBarViewDelegate: class {
 }
 
 // MARK: - ChatBottomBarView
-class ChatBottomBarView: UIView {
+class ChatBottomBarView: UIView, NibReusable {
     
     // 键盘类型
     enum ChatBarKeyboardType: Int {

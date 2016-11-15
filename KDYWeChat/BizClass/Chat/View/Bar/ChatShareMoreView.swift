@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reusable
 
 protocol ChatShareMoreViewDelegate: class {
     /// 点击照片
@@ -29,7 +30,7 @@ protocol ChatShareMoreViewDelegate: class {
 }
 
 /// 聊天扩展视图
-class ChatShareMoreView: UIView {
+class ChatShareMoreView: UIView, NibReusable {
     
     @IBOutlet weak var shareCollectionView: UICollectionView!
     weak var delegate: ChatShareMoreViewDelegate?

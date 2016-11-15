@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Reusable
 
 /// 聊天红包Cell
-class ChatRedEnvelopeCell: ChatBaseTableCell {
+class ChatRedEnvelopeCell: ChatBaseTableCell, NibReusable {
 
     override func awakeFromNib() {
         super.awakeFromNib()

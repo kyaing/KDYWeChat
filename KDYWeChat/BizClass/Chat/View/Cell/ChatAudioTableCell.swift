@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reusable
 
 private let kAudioMaxWidth: CGFloat = 200
 private let kAudioMinWidth: CGFloat = 70
@@ -14,7 +15,7 @@ private let kAudioMinWidth: CGFloat = 70
 private let kChatVoicePlayingMarginLeft: CGFloat = 16  // 播放小图标距离气泡箭头的值
 
 /// 聊天语音Cell
-class ChatAudioTableCell: ChatBaseTableCell {
+class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
 
     /// 播放语音按钮
     @IBOutlet weak var voiceButton: UIButton! {

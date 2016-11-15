@@ -54,7 +54,7 @@
                 <outlet property="avatarImageView" destination="uUE-5v-v93" id="Vqb-iT-7C8"/>
                 <outlet property="nicknameLabel" destination="gkO-XY-tUw" id="hNt-Ya-hG5"/>
             </connections>
-            <point key="canvasLocation" x="123" y="253.5"/>
+            <point key="canvasLocation" x="161" y="4.5"/>
         </tableViewCell>
     </objects>
     <resources>

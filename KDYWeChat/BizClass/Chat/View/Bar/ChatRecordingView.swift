@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Reusable
 
 /// 录音视图
-class ChatRecordingView: UIView {
+class ChatRecordingView: UIView, NibReusable {
     
     /// 录音承载视图
     @IBOutlet weak var centerView: UIView!

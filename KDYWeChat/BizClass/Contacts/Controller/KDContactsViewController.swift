@@ -24,9 +24,9 @@ final class KDContactsViewController: UIViewController {
     var collation: UILocalizedIndexedCollation!
     
     lazy var contactsTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
-        tableView.registerNib(UINib(nibName: "ContactsTableCell", bundle: nil), forCellReuseIdentifier: contactsIdentifier)
+        tableView.registerReusableCell(ContactsTableCell)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         tableView.sectionIndexBackgroundColor = UIColor.clearColor()
@@ -269,7 +269,7 @@ extension KDContactsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let contactsCell = tableView.dequeueReusableCellWithIdentifier(contactsIdentifier, forIndexPath: indexPath) as! ContactsTableCell
+        let contactsCell: ContactsTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
         
         // 设置Cell的数据
         configureCells(contactsCell, indexPath: indexPath)

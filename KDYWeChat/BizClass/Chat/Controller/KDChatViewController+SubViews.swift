@@ -26,7 +26,7 @@ extension KDChatViewController {
      *  初始化底部视图
      */
     func setupBottomBarView() {
-        self.bottomBarView = NSBundle.mainBundle().loadNibNamed("ChatBottomBarView", owner: nil, options: nil).last as! ChatBottomBarView
+        self.bottomBarView = ChatBottomBarView.loadFromNib()
         self.bottomBarView.delegate = self   // 工具栏代理
         self.bottomBarView.inputTextView.delegate = self  // 输入框代理
         self.view.addSubview(self.bottomBarView)
@@ -64,19 +64,19 @@ extension KDChatViewController {
         .addDisposableTo(self.disposeBag)
         
         // 注册各个自定义的 Cell
-        self.chatTableView.registerNib(UINib(nibName: "ChatTextTableCell", bundle: nil), forCellReuseIdentifier: "ChatTextTableCell")
-        self.chatTableView.registerNib(UINib(nibName: "ChatImageTableCell", bundle: nil), forCellReuseIdentifier: "ChatImageTableCell")
-        self.chatTableView.registerNib(UINib(nibName: "ChatAudioTableCell", bundle: nil), forCellReuseIdentifier: "ChatAudioTableCell")
-        self.chatTableView.registerNib(UINib(nibName: "ChatLocationTableCell", bundle: nil), forCellReuseIdentifier: "ChatLocationTableCell")
-        self.chatTableView.registerNib(UINib(nibName: "ChatRedEnvelopeCell", bundle: nil), forCellReuseIdentifier: "ChatRedEnvelopeCell")
-        self.chatTableView.registerNib(UINib(nibName: "ChatTimeTableCell", bundle: nil), forCellReuseIdentifier: "ChatTimeTableCell")
+        self.chatTableView.registerReusableCell(ChatTextTableCell)     // 文本 cell
+        self.chatTableView.registerReusableCell(ChatImageTableCell)    // 图片 cell
+        self.chatTableView.registerReusableCell(ChatAudioTableCell)    // 语音 cell
+        self.chatTableView.registerReusableCell(ChatLocationTableCell) // 位置 cell
+        self.chatTableView.registerReusableCell(ChatRedEnvelopeCell)   // 红包 cell
+        self.chatTableView.registerReusableCell(ChatTimeTableCell)     // 时间 cell
     }
     
     /**
      *  初始化表情键盘
      */
     func setupEmotionKeyboard() {
-        self.emotionView = NSBundle.mainBundle().loadNibNamed("ChatEmotionView", owner: nil, options: nil).last as! ChatEmotionView
+        self.emotionView = ChatEmotionView.loadFromNib()
         self.emotionView.delegate = self
         self.view.addSubview(self.emotionView)
         
@@ -93,7 +93,7 @@ extension KDChatViewController {
      *  初始化扩展键盘
      */
     func setupShareKeyboard() {
-        self.shareView = NSBundle.mainBundle().loadNibNamed("ChatShareMoreView", owner: nil, options: nil).last as! ChatShareMoreView
+        self.shareView = ChatShareMoreView.loadFromNib()
         self.shareView.delegate = self
         self.view.addSubview(self.shareView)
         
@@ -108,7 +108,7 @@ extension KDChatViewController {
      *  初始化录音视图
      */
     func setupRecordingView() {
-        self.recordingView = NSBundle.mainBundle().loadNibNamed("ChatRecordingView", owner: nil, options: nil).last as! ChatRecordingView
+        self.recordingView = ChatRecordingView.loadFromNib()
         self.recordingView.hidden = true
         self.view.addSubview(self.recordingView)
         

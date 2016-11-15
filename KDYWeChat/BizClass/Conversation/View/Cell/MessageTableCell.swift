@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-class MessageTableCell: UITableViewCell {
+class MessageTableCell: UITableViewCell, NibReusable {
     
     @IBOutlet weak var avatorImageView: UIImageView!
     @IBOutlet weak var unReadMsgLabel: UILabel!

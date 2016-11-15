@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Reusable
 
 /// 聊天时间Cell
-class ChatTimeTableCell: UITableViewCell {
+class ChatTimeTableCell: UITableViewCell, NibReusable {
     
     // 时间标签
     @IBOutlet weak var timeLabel: UILabel! {

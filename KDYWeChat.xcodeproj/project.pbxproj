@@ -140,7 +140,6 @@
 		189E885E1D8D665E0007C9A5 /* libHyphenateFullSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3C011D8BDC6300D79668 /* libHyphenateFullSDK.a */; };
 		189E88601D8D66C50007C9A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */; };
 		189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 189E88611D8D66DD0007C9A5 /* libiconv.tbd */; };
-		189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E88651D9028090007C9A5 /* UIView+Nib.swift */; };
 		189FCCFC1DBCFA490011268E /* KDChatViewController+SendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */; };
 		189FCCFE1DC482D90011268E /* ChatRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FCCFD1DC482D90011268E /* ChatRecordingView.swift */; };
 		189FCD001DC483010011268E /* ChatRecordingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189FCCFF1DC483010011268E /* ChatRecordingView.xib */; };
@@ -378,7 +377,6 @@
 		189557EB1DD214540016F885 /* AlumbCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbCellDelegate.swift; sourceTree = "<group>"; };
 		189E885F1D8D66C50007C9A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		189E88611D8D66DD0007C9A5 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
-		189E88651D9028090007C9A5 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		189FCCFB1DBCFA490011268E /* KDChatViewController+SendMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+SendMessage.swift"; sourceTree = "<group>"; };
 		189FCCFD1DC482D90011268E /* ChatRecordingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRecordingView.swift; sourceTree = "<group>"; };
 		189FCCFF1DC483010011268E /* ChatRecordingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRecordingView.xib; sourceTree = "<group>"; };
@@ -1068,7 +1066,6 @@
 		1845A95E1D83E956008BD883 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				189E88651D9028090007C9A5 /* UIView+Nib.swift */,
 				1845A9611D83E9BA008BD883 /* UIView+Frame.swift */,
 				048559181D99273B001A076A /* UIScreen+Frame.swift */,
 				1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */,
@@ -1119,9 +1116,9 @@
 		18B5936F1DD371D4003F2F6E /* Alumb */ = {
 			isa = PBXGroup;
 			children = (
-				1879C7391DD7640700156857 /* KDPublishViewController.swift */,
 				18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */,
 				18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */,
+				1879C7391DD7640700156857 /* KDPublishViewController.swift */,
 			);
 			path = Alumb;
 			sourceTree = "<group>";
@@ -1536,7 +1533,6 @@
 				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,
 				048AF10A1DCC2A7100B9108C /* MJRefreshHeader.m in Sources */,
 				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,
-				189E88661D9028090007C9A5 /* UIView+Nib.swift in Sources */,
 				18A37F931DC4860900FCAAE0 /* TSChatTextParser.swift in Sources */,
 				18B593761DD371D4003F2F6E /* KDMyLiveViewController.swift in Sources */,
 				0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */,

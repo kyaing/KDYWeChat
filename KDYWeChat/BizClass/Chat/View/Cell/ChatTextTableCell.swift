@@ -8,6 +8,7 @@
 
 import UIKit
 import YYText
+import Reusable
 
 let kChatTextLeft: CGFloat = 72                                         //消息在左边的时候， 文字距离屏幕左边的距离
 let kChatTextMaxWidth: CGFloat = UIScreen.width - kChatTextLeft - 82    //消息在右边， 70：文本离屏幕左的距离，  82：文本离屏幕右的距离
@@ -26,7 +27,7 @@ let kChatBubbleLeft: CGFloat = kChatAvatarMarginLeft + kChatAvatarWidth + kChatB
 private let kChatTextFont: UIFont = UIFont.systemFontOfSize(15)
 
 /// 聊天文本Cell
-class ChatTextTableCell: ChatBaseTableCell {
+class ChatTextTableCell: ChatBaseTableCell, NibReusable {
 
     // 聊天背景图片
     @IBOutlet weak var bubbleImageView: UIImageView!

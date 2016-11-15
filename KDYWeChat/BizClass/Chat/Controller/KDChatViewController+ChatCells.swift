@@ -39,35 +39,34 @@ extension MessageContentType {
         
         switch self {
         case .Text:
-            let cell = tableView.dequeueReusableCellWithIdentifier("ChatTextTableCell", forIndexPath: indexPath) as! ChatTextTableCell
+            let cell: ChatTextTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             
             return cell
         
         case .Time:
-            let cell = tableView.dequeueReusableCellWithIdentifier("ChatTimeTableCell", forIndexPath: indexPath) as! ChatTimeTableCell
+            let cell: ChatTimeTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.setupCellContent(model)
             
             return cell
             
         case .Image:
-            let cell = tableView.dequeueReusableCellWithIdentifier("ChatImageTableCell", forIndexPath: indexPath) as!
-                ChatImageTableCell
+            let cell: ChatImageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             
             return cell
             
         case .Voice:
-            let cell = tableView.dequeueReusableCellWithIdentifier("ChatAudioTableCell", forIndexPath: indexPath) as! ChatAudioTableCell
+            let cell: ChatAudioTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             
             return cell
             
         case .Location:
-            let cell = tableView.dequeueReusableCellWithIdentifier("ChatLocationTableCell", forIndexPath: indexPath) as! ChatLocationTableCell
+            let cell: ChatLocationTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             

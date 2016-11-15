@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Reusable
 
 /// 联系人Cell
-class ContactsTableCell: UITableViewCell {
+class ContactsTableCell: UITableViewCell, NibReusable {
     
     @IBOutlet weak var avatorImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!

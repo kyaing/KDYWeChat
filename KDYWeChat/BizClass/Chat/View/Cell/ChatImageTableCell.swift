@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Reusable
 
 let kChatImageMinWidth: CGFloat  = 120  // 最小的图片宽度
 let kChatImageMaxWidth: CGFloat  = 150  // 最大的图片宽度
@@ -15,7 +16,7 @@ let kChatImageMinHeight: CGFloat = 120  // 最小的图片高度
 let kChatImageMaxHeight: CGFloat = 150  // 最大的图片高度
 
 /// 聊天图片Cell
-class ChatImageTableCell: ChatBaseTableCell {
+class ChatImageTableCell: ChatBaseTableCell, NibReusable {
     
     @IBOutlet weak var chatImageView: UIImageView!
     

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Reusable
 
 /// 聊天位置Cell
-class ChatLocationTableCell: ChatBaseTableCell {
+class ChatLocationTableCell: ChatBaseTableCell, NibReusable {
 
     /// 地址背景视图
     @IBOutlet weak var addressView: UIView!
@@ -25,7 +26,6 @@ class ChatLocationTableCell: ChatBaseTableCell {
         super.awakeFromNib()
     }
     
-    
     override func setupCellContent(model: ChatModel) {
         super.setupCellContent(model)
         
@@ -34,7 +34,6 @@ class ChatLocationTableCell: ChatBaseTableCell {
     // MARK: - Layout
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         
     }
     

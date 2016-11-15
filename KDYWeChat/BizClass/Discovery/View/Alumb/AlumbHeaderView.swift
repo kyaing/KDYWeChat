@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Reusable
 
 /// 朋友圈头部视图
-class AlumbHeaderView: UIView {
+class AlumbHeaderView: UIView, NibReusable {
     
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var avatorView: UIView!
