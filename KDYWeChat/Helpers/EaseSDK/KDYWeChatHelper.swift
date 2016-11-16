@@ -10,6 +10,7 @@ import Foundation
 
 class KDYWeChatHelper: NSObject {
     
+    // MARK: - Parameters
     var mainTabbarVC: KDTabBarController?
     var conversationVC: KDConversationViewController?
     var contactVC: KDContactsViewController?

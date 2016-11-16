@@ -165,7 +165,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             case EMMessageBodyTypeVideo:    latestMsgTitle = "[视频]"
             case EMMessageBodyTypeLocation: latestMsgTitle = "[位置]"
             case EMMessageBodyTypeFile:     latestMsgTitle = "[文件]"
-                
+        
             default: latestMsgTitle = ""
             }
             
@@ -207,7 +207,7 @@ extension KDConversationViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messageDataSource.count > 0 ? self.messageDataSource.count : 0
+        return self.messageDataSource.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
