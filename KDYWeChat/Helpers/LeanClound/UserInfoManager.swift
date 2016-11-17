@@ -176,7 +176,7 @@ class UserInfoManager: NSObject {
         
         var imageData: NSData?
         if UIImagePNGRepresentation(image) == nil {
-            imageData = UIImageJPEGRepresentation(image, 1.0)!
+            imageData = UIImageJPEGRepresentation(image, 0.5)!
         } else {
             imageData = UIImagePNGRepresentation(image)!
         }

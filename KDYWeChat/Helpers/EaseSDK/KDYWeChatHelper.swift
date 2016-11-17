@@ -53,7 +53,7 @@ class KDYWeChatHelper: NSObject {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
             conversations.enumerateObjectsUsingBlock({ (conversation, idx, stop) in
-    
+                
                 let conversation = conversation as! EMConversation
                 if conversation.latestMessage == nil {
                     // 当会话最后一条信息为空，则删除此会话

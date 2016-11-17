@@ -39,11 +39,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Nimble.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -55,11 +50,6 @@
 			<false/>
 		</dict>
 		<key>Proposer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Quick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -122,16 +112,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>078284864A29186C726CCFC3EBBA87A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>08BEED6850E7D470D734DF13F3AA146E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0D9A2DA945B8C9FAE7DDC3A3B21624A4</key>
 		<dict>
 			<key>primary</key>
@@ -147,32 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>158E2C78F027AB38412EF469F8218D90</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FD402DD9497C8BDFD6F033E5EDDB6DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2F6C00E96F9BFDCDB9D926E7B1CFA1CF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>36ADD8DB7956E209FC8FA1D55F7AC939</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>40FF1C77152F384080A1A02E90A36DA9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>53124760559D825E956FABC8713537BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -188,11 +143,6 @@
 			<true/>
 		</dict>
 		<key>69F946F7D78C814530A03F1029BDF251</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6AF3051329D3A053323CD065A1224808</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,11 +172,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99589B7A9F2D991F7E41D528DBE81071</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A0933FC1307AD48F89C9FB7CEA3C29C5</key>
 		<dict>
 			<key>primary</key>
@@ -238,11 +183,6 @@
 			<true/>
 		</dict>
 		<key>C59EE95662AD4757E7FCE220DB1AFA41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D0274533FB6A63C2CDEC5ECB00C95E4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -262,17 +202,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBAEE0EDDF9C2F9A60079D2DA4332D63</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E5678FC69B99077E1972D149186B2285</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E64025A3CA03147D3533131BF14A201C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
