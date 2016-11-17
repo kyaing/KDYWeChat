@@ -15,8 +15,8 @@ final class KDDiscoveryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
-        tableView.separatorColor  = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        tableView.separatorColor  = UIColor(colorHex: .separatorColor)
         tableView.tableFooterView = UIView()
     }
     

@@ -98,6 +98,7 @@
 		04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */; };
 		04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */; };
 		04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */; };
+		04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */; };
 		04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */; };
 		04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */; };
 		04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */; };
@@ -304,6 +305,9 @@
 		04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRedEnvelopeCell.swift; sourceTree = "<group>"; };
 		04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRedEnvelopeCell.xib; sourceTree = "<group>"; };
 		04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		04CF41E01DDDB15100A6C125 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		04CF41E11DDDB15100A6C125 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssets+UIImage.swift"; sourceTree = "<group>"; };
 		04FEF9CD1DAA37E6001812D1 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
@@ -813,6 +817,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		04CF41F31DDDBD4B00A6C125 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		04FEF9CC1DAA37E6001812D1 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1053,6 +1065,7 @@
 				0455D40F1DC0559B00320798 /* ImagePicker */,
 				049234D71DAF4C3700FD0B29 /* LeanClound */,
 				042FFE781D9E393F0096CDF2 /* Macro */,
+				04CF41F31DDDBD4B00A6C125 /* Realm */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1210,6 +1223,8 @@
 		67602AFFD9847F1AC4068B5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04CF41E01DDDB15100A6C125 /* Realm.framework */,
+				04CF41E11DDDB15100A6C125 /* RealmSwift.framework */,
 				180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */,
 				180F3BCA1D8BDBA200D79668 /* AVFoundation.framework */,
 				044620381DB0CAFF001D13B1 /* CoreLocation.framework */,
@@ -1528,6 +1543,7 @@
 				048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */,
 				04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */,
 				1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */,
+				04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */,
 				0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */,
 				048AF1171DCC2A7100B9108C /* UIScrollView+MJRefresh.m in Sources */,
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,

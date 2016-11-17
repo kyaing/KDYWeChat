@@ -13,14 +13,28 @@ let messageIdentifier: String = "messageCell"
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
     
+    /// 数据源
     var messageDataSource = NSMutableArray()
+    
+    /// 搜索控制器
+    lazy var searchController: UISearchController = {
+        let searchController: UISearchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = UIColor(colorHex: .chatGreenColor)
+        searchController.searchBar.sizeToFit()
+        
+        return searchController
+    }()
     
     lazy var conversationTableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
-        tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        tableView.separatorColor = UIColor(colorHex: .separatorColor)
         tableView.registerReusableCell(MessageTableCell)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        tableView.tableHeaderView = self.searchController.searchBar
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 60
         tableView.dataSource = self
@@ -31,10 +45,10 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         return tableView
     }()
     
-    // 断网状态的头视图
+    // 断网状态的视图
     lazy var networkFailHeaderView: UIView = {
         let headerView: UIView = UIView(frame: CGRectMake(0, 0, self.conversationTableView.width, 40))
-        headerView.backgroundColor = UIColor(red: 255/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1.0)
+        headerView.backgroundColor = UIColor(colorHex: .networkFailedColor)
         
         let tipLabel = UILabel(frame: CGRectMake((headerView.width - 300)/2.0, 10, 300, 20))
         tipLabel.textColor = UIColor.grayColor()
@@ -48,7 +62,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }()
     
     lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain, target: self, action: #selector(self.handleAddViewAction))
+        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain, target: self, action: #selector(self.handleAddFriendViewAction))
         
         return rightBarItem
     }()
@@ -82,7 +96,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             self.conversationTableView.tableHeaderView = self.networkFailHeaderView
             
         } else {   // 联网状态
-            self.conversationTableView.tableHeaderView = nil
+            self.conversationTableView.tableHeaderView = self.searchController.searchBar
         }
     }
     
@@ -93,7 +107,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         getChatConversations()
     }
     
-    func handleAddViewAction() {
+    func handleAddFriendViewAction() {
         
     }
     
@@ -109,7 +123,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             view.addSubview(self.conversationTableView)
             
         } else {   // 联网状态
-            self.conversationTableView.tableHeaderView = nil
+            self.conversationTableView.tableHeaderView = self.searchController.searchBar
         }
     }
     
@@ -197,6 +211,32 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     func unRegisterChatDelegate() {
         EMClient.sharedClient().chatManager.removeDelegate(self)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension KDConversationViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+extension KDConversationViewController: UISearchControllerDelegate {
+    func willPresentSearchController(searchController: UISearchController) {
+        
+    }
+    
+    func didPresentSearchController(searchController: UISearchController) {
+        UIApplication.sharedApplication().statusBarStyle = .Default
+    }
+    
+    func willDismissSearchController(searchController: UISearchController) {
+        
+    }
+    
+    func didDismissSearchController(searchController: UISearchController) {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
 }
 

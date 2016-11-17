@@ -23,14 +23,27 @@ final class KDContactsViewController: UIViewController {
     
     var collation: UILocalizedIndexedCollation!
     
+    /// 搜索控制器
+    lazy var searchController: UISearchController = {
+        let searchController: UISearchController = UISearchController(searchResultsController: nil)
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = UIColor(colorHex: .chatGreenColor)
+        searchController.searchBar.sizeToFit()
+        
+        return searchController
+    }()
+    
     lazy var contactsTableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.registerReusableCell(ContactsTableCell)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.separatorColor = UIColor(colorHex: .separatorColor)
         tableView.sectionIndexBackgroundColor = UIColor.clearColor()
         tableView.sectionIndexColor = UIColor.darkGrayColor()
+        tableView.tableHeaderView = self.searchController.searchBar
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 50
         tableView.dataSource = self
@@ -255,6 +268,32 @@ final class KDContactsViewController: UIViewController {
     }
 }
 
+// MARK: - UISearchResultsUpdating
+extension KDContactsViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+    }
+}
+
+// MARK: - UISearchControllerDelegate
+extension KDContactsViewController: UISearchControllerDelegate {
+    func willPresentSearchController(searchController: UISearchController) {
+        
+    }
+    
+    func didPresentSearchController(searchController: UISearchController) {
+        UIApplication.sharedApplication().statusBarStyle = .Default
+    }
+    
+    func willDismissSearchController(searchController: UISearchController) {
+        
+    }
+    
+    func didDismissSearchController(searchController: UISearchController) {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension KDContactsViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -334,10 +373,6 @@ extension KDContactsViewController: UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 15
-        }
-        
         let objsInSection = sectionsArray[section]
         guard objsInSection.count > 0 else { return 0 }
         

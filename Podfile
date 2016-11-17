@@ -24,7 +24,7 @@ target 'KDYWeChat' do
     # pod 'Quick', '~> 0.9.3'
     # pod 'Nimble', '~> 4.1.0'
     pod 'Reusable', '~> 2.5.0'
-    # pod 'RealmSwift'
+    pod 'RealmSwift', '1.0.2'
 
     # Objective-C
     pod 'SVProgressHUD'

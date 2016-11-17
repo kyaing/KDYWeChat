@@ -32,11 +32,11 @@ class KDLoginViewController: UIViewController {
     func setupViewsUI() {
         self.loginButton.layer.cornerRadius = 5
         self.loginButton.layer.masksToBounds = true
-        self.loginButton.backgroundColor = UIColor(red: 168/255.0, green: 233/255.0, blue: 128/255.0, alpha: 0.8)
+        self.loginButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
         
         // 修改光标颜色
-        self.accountTextFiled.tintColor  = UIColor(colorHex: KDYColor.tabbarSelectedTextColor)
-        self.passwordTextField.tintColor = UIColor(colorHex: KDYColor.tabbarSelectedTextColor)
+        self.accountTextFiled.tintColor  = UIColor(colorHex: .tabbarSelectedTextColor)
+        self.passwordTextField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
     }
     
     // MARK: - Event Responses

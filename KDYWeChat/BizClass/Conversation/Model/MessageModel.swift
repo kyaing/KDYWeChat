@@ -6,6 +6,8 @@
 //  Copyright © 2016年 kaideyi.com. All rights reserved.
 //
 
+import RealmSwift
+
 /// 会话数据模型
 class MessageModel: NSObject {
     
