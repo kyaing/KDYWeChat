@@ -70,7 +70,11 @@ extension UITableView {
     }
     
     func scrollToBottom(animated animated: Bool) {
-        let bottomOffset = CGPoint(x: 0, y:self.contentSize.height - self.bounds.size.height)
+        let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
+        if self.contentSize.height - self.bounds.size.height < 0.0 {
+            return
+        }
+        
         self.setContentOffset(bottomOffset, animated: animated)
     }
     
