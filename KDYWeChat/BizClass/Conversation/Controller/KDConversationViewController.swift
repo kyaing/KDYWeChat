@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 let messageIdentifier: String = "messageCell"
 
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
     
+    // MARK: - Parameters
+    
     /// 数据源
     var messageDataSource = NSMutableArray()
+    
+    var realm: Realm!
     
     /// 搜索控制器
     lazy var searchController: UISearchController = {
@@ -104,6 +109,9 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      *  获取用户会话列表
      */
     func refreshConversations() {
+        // self.realm = RealmHelper.shareInstance.setupRealm()
+        // print("path = \(self.realm.configuration.fileURL)")
+        
         getChatConversations()
     }
     
@@ -148,11 +156,30 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             
             return .OrderedSame
         }
-        
+    
         self.messageDataSource.removeAllObjects()
         for conversation in sortedConversations as! [EMConversation] {
+            
             let model = MessageModel(conversation: conversation)
             self.messageDataSource.addObject(model)
+            
+            // 存储到Realm数据库
+            //    try! self.realm.write {
+            //        let realmModel = MessageRealmModel()
+            //        realmModel.nickname    = conversation.conversationId
+            //        realmModel.lastContent = self.getLastMessageForConversation(model)!
+            //        realmModel.time        = self.getlastMessageTimeForConversation(model)
+            //        
+            //        // 存储头像数据流
+            //        if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
+            //            if userInfo.imageUrl != nil {
+            //                let avatarData = NSData(contentsOfURL: NSURL(string: userInfo.imageUrl!)!)
+            //                realmModel.avatarData = avatarData
+            //            }
+            //        }
+            //        
+            //        self.realm.add(realmModel)
+            //    }
         }
         
         dispatch_async(dispatch_get_main_queue()) { 
@@ -166,12 +193,12 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     func getLastMessageForConversation(model: MessageModel) -> String? {
         
         var latestMsgTitle: String = ""
-        if let messageBody = model.conversation.latestMessage.body {
+        if let message = model.conversation.latestMessage {
             
-            switch messageBody.type {
+            switch message.body.type {
             // 除了文本消息，其它都是自已判断
             case EMMessageBodyTypeText:
-                let textBody = messageBody as! EMTextMessageBody
+                let textBody = message.body as! EMTextMessageBody
                 latestMsgTitle = textBody.text
 
             case EMMessageBodyTypeImage:    latestMsgTitle = "[图片]"
@@ -194,6 +221,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      */
     func getlastMessageTimeForConversation(model: MessageModel) -> String {
         let lastMessage = model.conversation.latestMessage
+        if lastMessage == nil { return "" }
         
         // 得到时间戳，把微秒转化成具体时间
         // let timeString = NSDate.formattedTimeFromTimeInterval(lastMessage.timestamp)
@@ -292,8 +320,6 @@ extension KDConversationViewController: UITableViewDataSource {
         if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
             if userInfo.imageUrl != nil {
                 cell.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
-            } else {
-                cell.avatorImageView.image = UIImage(named: kUserAvatarDefault)
             }
         }
         

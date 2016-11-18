@@ -98,6 +98,7 @@
 		04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */; };
 		04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */; };
 		04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */; };
+		04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */; };
 		04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */; };
 		04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */; };
 		04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */; };
@@ -305,6 +306,7 @@
 		04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRedEnvelopeCell.swift; sourceTree = "<group>"; };
 		04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRedEnvelopeCell.xib; sourceTree = "<group>"; };
 		04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRealmModel.swift; sourceTree = "<group>"; };
 		04CF41E01DDDB15100A6C125 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		04CF41E11DDDB15100A6C125 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				042FFE6F1D9E35630096CDF2 /* MessageModel.swift */,
+				04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1542,6 +1545,7 @@
 				048AF1071DCC2A7100B9108C /* MJRefreshBackFooter.m in Sources */,
 				048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */,
 				04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */,
+				04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */,
 				1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */,
 				04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */,
 				0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */,

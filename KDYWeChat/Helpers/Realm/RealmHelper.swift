@@ -8,9 +8,7 @@
 
 import Foundation
 import RealmSwift
-
-let messagesRealm = "messages.realm"
-let contactsRealm = "contacts.realm"
+import AVOSCloud
 
 class RealmHelper: NSObject {
     
@@ -20,9 +18,9 @@ class RealmHelper: NSObject {
     /**
      *  初始化Realm
      */
-    func setupRealm(realmName: String) -> Realm {
+    func setupRealm() -> Realm? {
         var config = Realm.Configuration()
-        config.fileURL = config.fileURL!.URLByDeletingLastPathComponent?.URLByAppendingPathComponent(realmName)
+        config.fileURL = config.fileURL!.URLByDeletingLastPathComponent?.URLByAppendingPathComponent("\(AVUser.currentUser().username).realm")
         
         let realm = try! Realm(configuration: config)
         

@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="用户名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Too-CW-TBe" userLabel="userNameLabel">
-                        <rect key="frame" x="63" y="10" width="160" height="18"/>
+                        <rect key="frame" x="65" y="10" width="160" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="7C1-6l-K3D"/>
                         </constraints>
@@ -44,20 +44,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最后一条用户的消息信息..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3M1-oB-fim" userLabel="lastMessageLabel">
-                        <rect key="frame" x="63" y="33" width="252" height="16"/>
+                        <rect key="frame" x="65" y="33" width="250" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="2016-9-10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt8-w5-iaZ" userLabel="lastMsgDateLabel">
-                        <rect key="frame" x="243" y="13" width="82" height="15"/>
+                        <rect key="frame" x="245" y="13" width="80" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Too-CW-TBe" firstAttribute="leading" secondItem="4qz-V4-8tf" secondAttribute="trailing" constant="3" id="2yt-ST-j6y"/>
+                    <constraint firstItem="Too-CW-TBe" firstAttribute="leading" secondItem="4qz-V4-8tf" secondAttribute="trailing" constant="5" id="2yt-ST-j6y"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3M1-oB-fim" secondAttribute="trailing" constant="15" id="404-Bg-70o"/>
                     <constraint firstItem="4Hx-Vm-Q7b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7.5" id="7qa-kw-jBC"/>
                     <constraint firstItem="3M1-oB-fim" firstAttribute="top" secondItem="Too-CW-TBe" secondAttribute="bottom" constant="5" id="98u-Zm-hls"/>
@@ -80,10 +80,10 @@
                 <outlet property="unReadMsgWidthContraint" destination="d1h-aS-hX3" id="qFZ-kn-jA1"/>
                 <outlet property="userNameLabel" destination="Too-CW-TBe" id="cZ2-1M-SjU"/>
             </connections>
-            <point key="canvasLocation" x="-34" y="53"/>
+            <point key="canvasLocation" x="-169" y="109"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="user_avatar" width="47" height="47"/>
+        <image name="user_avatar" width="66" height="66"/>
     </resources>
 </document>
