@@ -12,6 +12,7 @@ class ChatBarButton: UIButton {
     var showTypingKeyboard: Bool
     
     required init?(coder aDecoder: NSCoder) {
+        // 默认是显示文本键盘
         showTypingKeyboard = true
         super.init(coder: aDecoder)
     }

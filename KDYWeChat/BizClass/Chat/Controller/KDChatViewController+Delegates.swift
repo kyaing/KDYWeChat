@@ -150,25 +150,18 @@ extension KDChatViewController: ChatBarViewDelegate {
         let emotionHeight = self.emotionView.height
         barPaddingBottomConstranit?.updateOffset(-emotionHeight)
         
-        // 动画显示表情键盘
-        UIView.animateWithDuration(
-            0.25,
-            delay: 0,
-            options: .CurveEaseInOut,
-            animations: {
-                self.emotionView.snp_updateConstraints() { (make) in
-                    make.top.equalTo(self.bottomBarView.snp_bottom)
-                }
-                
-                // 同时隐藏扩展键盘
-                self.shareView.snp_updateConstraints() { (make) in
-                    make.top.equalTo(self.bottomBarView.snp_bottom).offset(self.view.height)
-                }
-                
-                self.view.layoutIfNeeded()
-                
-        }) { (bool) in
+        // 动画显示表情键盘，同时隐藏扩展键盘
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(0.25)
+        self.emotionView.snp_updateConstraints() { (make) in
+            make.top.equalTo(self.bottomBarView.snp_bottom)
         }
+        // 同时隐藏扩展键盘
+        self.shareView.snp_updateConstraints() { (make) in
+            make.top.equalTo(self.bottomBarView.snp_bottom).offset(self.view.height)
+        }
+        UIView.commitAnimations()
     }
     
     /**
@@ -178,26 +171,21 @@ extension KDChatViewController: ChatBarViewDelegate {
         let shareHeight = self.shareView.height
         barPaddingBottomConstranit?.updateOffset(-shareHeight)
         
-        UIView.animateWithDuration(
-            0.25,
-            delay: 0,
-            options: .CurveEaseInOut,
-            animations: {
-                // 直接显示扩展键盘，覆盖在表情键盘之上
-                self.shareView.snp_updateConstraints() { (make) in
-                    make.top.equalTo(self.bottomBarView.snp_bottom)
-                }
-                self.view.layoutIfNeeded()
-                
-        }) { (bool) in
+        // 直接显示扩展键盘，覆盖在表情键盘之上
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(0.25)
+        self.shareView.snp_updateConstraints() { (make) in
+            make.top.equalTo(self.bottomBarView.snp_bottom)
         }
+        UIView.commitAnimations()
     }
     
     /**
      *  点语音时隐藏自定义键盘
      */
     func bottomBarViewHideAllKeyboardWhenVoice() {
-        self.hideCustomKeyboard()
+        hideCustomKeyboard()
     }
     
     /**

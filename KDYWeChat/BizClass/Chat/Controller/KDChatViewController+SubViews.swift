@@ -49,7 +49,7 @@ extension KDChatViewController {
         self.chatTableView.snp_makeConstraints { (make) in
             make.left.equalTo(self.view.snp_left)
             make.right.equalTo(self.view.snp_right)
-            make.top.equalTo(self.view.snp_top).offset(64)  // 为什么top 要下偏移64?
+            make.top.equalTo(self.view.snp_top).offset(64)  
             make.bottom.equalTo(self.bottomBarView.snp_top)
         }
         
@@ -58,8 +58,7 @@ extension KDChatViewController {
         tapGesture.cancelsTouchesInView = false
         self.chatTableView.addGestureRecognizer(tapGesture)
         tapGesture.rx_event.subscribeNext { _ in
-            // # 此处存在 bug
-            // self.hideAllKeyboard()
+            self.hideAllKeyboard()
         }
         .addDisposableTo(self.disposeBag)
         

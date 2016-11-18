@@ -1,5 +1,5 @@
 //
-//  KDChatViewController+ChatBarView.swift
+//  KDChatViewController+BottomBar.swift
 //  KDYWeChat
 //
 //  Created by kaideyi on 16/9/22.
@@ -49,9 +49,9 @@ extension KDChatViewController {
             strongSelf.bottomBarView.setupBtnUIStatus()
             
             // 改变表情按钮UI
-            emotionButton.emotionButtonChangeToKeyboardUI(showKeyboard: !emotionButton.showTypingKeyboard)
+            emotionButton.emotionButtonChangeToKeyboardUI(showKeyboard: emotionButton.showTypingKeyboard)
             
-            if emotionButton.showTypingKeyboard {  // 当显示表情键盘
+            if !emotionButton.showTypingKeyboard {
                 strongSelf.bottomBarView.showTypingKeyboard()
                 
             } else {
@@ -67,8 +67,9 @@ extension KDChatViewController {
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
             
-            if shareButton.showTypingKeyboard {
+            if !shareButton.showTypingKeyboard {
                 strongSelf.bottomBarView.showTypingKeyboard()
+                
             } else {
                 strongSelf.bottomBarView.showShardKeyboard()
             }
@@ -98,6 +99,7 @@ extension KDChatViewController {
                 if self.recordingView.pointInside(point, withEvent: nil) {
                     self.recordingView.cancelRecordBySldeUp()
                     finishRecording = false
+                    
                 } else {
                     self.recordingView.recording()
                     finishRecording = true

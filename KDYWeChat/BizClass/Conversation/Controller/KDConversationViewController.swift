@@ -83,6 +83,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         
         networkIsConnected()
         registerChatDelegate()
+        
         refreshConversations()
     }
     

@@ -140,8 +140,8 @@ extension ChatBottomBarView {
         // 操作其它按钮
         recordButton.hidden = true
         audioButton.showTypingKeyboard   = false
-        emotionButton.showTypingKeyboard = false
-        shareButton.showTypingKeyboard   = false
+        emotionButton.showTypingKeyboard = true
+        shareButton.showTypingKeyboard   = true
     }
     
     /**
@@ -159,8 +159,8 @@ extension ChatBottomBarView {
         
         recordButton.hidden = true
         audioButton.showTypingKeyboard   = false
-        emotionButton.showTypingKeyboard = true
-        shareButton.showTypingKeyboard   = false
+        emotionButton.showTypingKeyboard = false
+        shareButton.showTypingKeyboard   = true
     }
     
     /**
@@ -178,8 +178,8 @@ extension ChatBottomBarView {
         
         recordButton.hidden = true
         audioButton.showTypingKeyboard   = false
-        emotionButton.showTypingKeyboard = false
-        shareButton.showTypingKeyboard   = true
+        emotionButton.showTypingKeyboard = true
+        shareButton.showTypingKeyboard   = false
     }
  
     /**
@@ -205,8 +205,8 @@ extension ChatBottomBarView {
         keyboardType = .Default
         inputTextView.resignFirstResponder()
         
-        emotionButton.showTypingKeyboard = false
-        shareButton.showTypingKeyboard   = false
+        emotionButton.showTypingKeyboard = true
+        shareButton.showTypingKeyboard   = true
     }
 }
 

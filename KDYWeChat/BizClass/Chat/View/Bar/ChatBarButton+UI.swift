@@ -39,6 +39,7 @@ extension UIButton {
         if isRecording {
             self.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#C6C7CB")), forState: .Normal)
             self.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#F3F4F8")), forState: .Highlighted)
+            
         } else {
             self.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#F3F4F8")), forState: .Normal)
             self.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#C6C7CB")), forState: .Highlighted)

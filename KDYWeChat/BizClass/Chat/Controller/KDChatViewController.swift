@@ -17,7 +17,6 @@ let kCustomKeyboardHeight: CGFloat = 216
  *  聊天部分，学习并参考：
  *  1). TSWeChat: https://github.com/hilen/TSWeChat
  *  2). JSQMessages: https://github.com/jessesquires/JSQMessagesViewController
- *
  */
 
 /// 聊天界面
@@ -44,6 +43,8 @@ final class KDChatViewController: UIViewController {
         let queue = dispatch_queue_create("kdywechat", nil)
         return queue
     }()
+    
+    var keyboardNoti: NSNotification!
     
     /// 底部工具栏
     var bottomBarView: ChatBottomBarView!
@@ -79,7 +80,7 @@ final class KDChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
+        self.view.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         self.navigationItem.rightBarButtonItem = self.rightBarItem
         
         // 创建子视图
