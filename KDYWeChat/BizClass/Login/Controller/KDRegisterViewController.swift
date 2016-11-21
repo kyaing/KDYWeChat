@@ -9,8 +9,10 @@
 import UIKit
 import AVOSCloud
 
-class KDRegisterViewController: UIViewController {
+/// 注册页面
+final class KDRegisterViewController: UIViewController {
 
+    // MARK: - Parameters
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var accountTextField: UITextField!

@@ -321,6 +321,8 @@ extension KDConversationViewController: UITableViewDataSource {
         if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
             if userInfo.imageUrl != nil {
                 cell.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+            } else {
+                cell.avatorImageView.image = UIImage(named: kUserAvatarDefault)
             }
         }
         

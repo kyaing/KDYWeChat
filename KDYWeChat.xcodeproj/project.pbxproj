@@ -71,6 +71,7 @@
 		048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */; };
 		048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E1CE91DB4A3340049571C /* KDSettingViewController.swift */; };
 		048E1CEC1DB4A3340049571C /* KDSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */; };
+		0490AE661DE2F6A300C90950 /* LoadingHUDShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */; };
 		049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */; };
 		049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */; };
 		0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */; };
@@ -101,8 +102,6 @@
 		04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */; };
 		04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */; };
 		04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */; };
-		04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */; };
-		04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */; };
 		04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */; };
 		0F14BC22BF7D951731B7F2E7 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */; };
 		180F3BC71D8BDB7100D79668 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BC61D8BDB7100D79668 /* CoreMedia.framework */; };
@@ -279,6 +278,7 @@
 		048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		048E1CE91DB4A3340049571C /* KDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
 		048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDSettingViewController.xib; sourceTree = "<group>"; };
+		0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUDShow.swift; sourceTree = "<group>"; };
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
@@ -311,10 +311,6 @@
 		04CF41E11DDDB15100A6C125 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssets+UIImage.swift"; sourceTree = "<group>"; };
-		04FEF9CD1DAA37E6001812D1 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
-		04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
-		04FEF9CF1DAA37E6001812D1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYWeChatHelper.swift; sourceTree = "<group>"; };
 		16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.release.xcconfig"; sourceTree = "<group>"; };
 		180F3BC61D8BDB7100D79668 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -652,6 +648,14 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		0490AE641DE2F5A400C90950 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		049234CD1DAE422800FD0B29 /* titleView */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,17 +830,6 @@
 				04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */,
 			);
 			path = Realm;
-			sourceTree = "<group>";
-		};
-		04FEF9CC1DAA37E6001812D1 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				04FEF9CD1DAA37E6001812D1 /* MBProgressHUD+Add.h */,
-				04FEF9CE1DAA37E6001812D1 /* MBProgressHUD+Add.m */,
-				04FEF9CF1DAA37E6001812D1 /* MBProgressHUD.h */,
-				04FEF9D01DAA37E6001812D1 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		180F3BD81D8BDC6300D79668 /* HyphenateFullSDK */ = {
@@ -1067,6 +1060,7 @@
 				1845A95E1D83E956008BD883 /* Extension */,
 				0455D40F1DC0559B00320798 /* ImagePicker */,
 				049234D71DAF4C3700FD0B29 /* LeanClound */,
+				0490AE641DE2F5A400C90950 /* Loading */,
 				042FFE781D9E393F0096CDF2 /* Macro */,
 				04CF41F31DDDBD4B00A6C125 /* Realm */,
 			);
@@ -1078,7 +1072,6 @@
 			children = (
 				048AF0D91DCC2A7000B9108C /* MJRefresh */,
 				180F3BD81D8BDC6300D79668 /* HyphenateFullSDK */,
-				04FEF9CC1DAA37E6001812D1 /* MBProgressHUD */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1494,6 +1487,7 @@
 			files = (
 				048AF1161DCC2A7100B9108C /* UIScrollView+MJExtension.m in Sources */,
 				18A37F9A1DC4E0F900FCAAE0 /* RecordManager.swift in Sources */,
+				0490AE661DE2F6A300C90950 /* LoadingHUDShow.swift in Sources */,
 				047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */,
 				047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */,
 				048AF1121DCC2A7100B9108C /* MJRefreshNormalHeader.m in Sources */,
@@ -1531,7 +1525,6 @@
 				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
 				040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */,
-				04FEF9D11DAA37E6001812D1 /* MBProgressHUD+Add.m in Sources */,
 				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
 				048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */,
@@ -1597,7 +1590,6 @@
 				189557EC1DD214540016F885 /* AlumbCellDelegate.swift in Sources */,
 				0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */,
 				0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */,
-				04FEF9D21DAA37E6001812D1 /* MBProgressHUD.m in Sources */,
 				048AF10D1DCC2A7100B9108C /* MJRefreshAutoStateFooter.m in Sources */,
 				188B05611D85306200393752 /* KDNavigationController.swift in Sources */,
 			);

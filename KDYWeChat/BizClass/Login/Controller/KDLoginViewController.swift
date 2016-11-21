@@ -9,7 +9,8 @@
 import UIKit
 import AVOSCloud
 
-class KDLoginViewController: UIViewController {
+/// 登录页面
+final class KDLoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
@@ -45,11 +46,12 @@ class KDLoginViewController: UIViewController {
         var userName = self.accountTextFiled.text
         let password = self.passwordTextField.text
         
+        LoadingHUDShow.shareInstance.setupProgressHUD(self.view)
         AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
             if error != nil {
-                print(">>> LeanCloud登录失败 error: \(error.description) <<<")
+                
             } else {
-                print(">>> LeanCloud登录成功 <<< ")
+                LoadingHUDShow.shareInstance.hideHUD()
                 
                 // 从LeanCloud中取出对应的环信用户名
                 userName = AVUser.currentUser().username
