@@ -8,14 +8,21 @@
 
 import UIKit
 import AVOSCloud
+import RxSwift
+import RxCocoa
 
 /// 登录页面
 final class KDLoginViewController: UIViewController {
     
+    // MARK: - Parameters
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var accountTextFiled: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+
+    let disposeBag = DisposeBag()
+    
+    var viewModel: LoginViewModel!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -23,11 +30,25 @@ final class KDLoginViewController: UIViewController {
         
         // 隐藏导航栏
         self.navigationController?.navigationBar.hidden = true
+        UIApplication.sharedApplication().statusBarStyle = .Default
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
-        self.setupViewsUI()
+        // 初始化UI
+        setupViewsUI()
+        
+        self.viewModel
+            = LoginViewModel(input: (username: self.accountTextFiled.rx_text.asDriver(),
+                password: self.passwordTextField.rx_text.asDriver()))
+        
+        self.viewModel.loginEnabled
+            .driveNext { [weak self] (valid) in
+                self?.loginButton.backgroundColor
+                    = valid ? UIColor(colorHex: .chatGreenColor) : UIColor(colorHex: .chatLightGreenColor)
+                self?.loginButton.enabled = valid ? true : false
+            }
+            .addDisposableTo(self.disposeBag)
     }
     
     func setupViewsUI() {
@@ -46,12 +67,13 @@ final class KDLoginViewController: UIViewController {
         var userName = self.accountTextFiled.text
         let password = self.passwordTextField.text
         
-        LoadingHUDShow.shareInstance.setupProgressHUD(self.view)
+        //LoadingHUDShow.shareInstance.setupProgressHUD(self.view)
         AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
             if error != nil {
+                print("error = \(error.localizedDescription)")
                 
             } else {
-                LoadingHUDShow.shareInstance.hideHUD()
+                print(">>> 登录成功 <<<")
                 
                 // 从LeanCloud中取出对应的环信用户名
                 userName = AVUser.currentUser().username
@@ -121,10 +143,5 @@ final class KDLoginViewController: UIViewController {
             }
         }
     }
-}
-
-// MARK: - UITextFieldDelegate
-extension KDLoginViewController: UITextFieldDelegate {
-    
 }
 

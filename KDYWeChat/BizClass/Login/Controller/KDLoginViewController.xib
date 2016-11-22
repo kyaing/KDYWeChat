@@ -83,20 +83,6 @@
                         <action selector="moreButtonAction:" destination="-1" eventType="touchUpInside" id="nII-dd-2FZ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2G-Fr-2Lh" userLabel="logingButton">
-                    <rect key="frame" x="15" y="230" width="290" height="40"/>
-                    <color key="backgroundColor" red="0.43547608180000003" green="0.58529615209999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="qwy-RK-BNC"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="登录">
-                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="loginButtonAction:" destination="-1" eventType="touchUpInside" id="dQq-zY-fMN"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekz-Nv-p6d" userLabel="accountLabel">
                     <rect key="frame" x="15" y="122" width="40" height="20"/>
                     <constraints>
@@ -106,6 +92,20 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2G-Fr-2Lh" userLabel="logingButton">
+                    <rect key="frame" x="15" y="230" width="290" height="42"/>
+                    <color key="backgroundColor" red="0.43547608180000003" green="0.58529615209999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="qwy-RK-BNC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="登  录">
+                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonAction:" destination="-1" eventType="touchUpInside" id="dQq-zY-fMN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -137,7 +137,7 @@
                 <constraint firstItem="IWa-aJ-srq" firstAttribute="leading" secondItem="4FA-UE-Lxm" secondAttribute="trailing" constant="20" id="z3N-Es-kkK"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="-201" y="-84"/>
+            <point key="canvasLocation" x="-213" y="-191"/>
         </view>
     </objects>
 </document>

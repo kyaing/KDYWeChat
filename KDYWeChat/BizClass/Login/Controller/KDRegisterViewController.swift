@@ -23,10 +23,12 @@ final class KDRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.sharedApplication().statusBarStyle = .Default
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
-        self.setupViewsUI()
+        setupViewsUI()
     }
     
     func setupViewsUI() {

@@ -22,6 +22,7 @@ let kCustomKeyboardHeight: CGFloat = 216
 /// 聊天界面
 final class KDChatViewController: UIViewController {
     
+    // MARK: - Parameters
     lazy var chatTableView: UITableView = {
         let chatTableView = UITableView(frame: CGRect.zero, style: .Plain)
         chatTableView.backgroundColor = UIColor.clearColor()

@@ -103,13 +103,13 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPH-oD-ICm" userLabel="registerButton">
-                    <rect key="frame" x="15" y="274" width="290" height="40"/>
+                    <rect key="frame" x="15" y="274" width="290" height="42"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="RU7-Sb-lh9"/>
+                        <constraint firstAttribute="height" constant="42" id="RU7-Sb-lh9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <state key="normal" title="注册">
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="注  册">
                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -155,16 +155,13 @@
                 <constraint firstAttribute="trailing" secondItem="vFE-tg-n2n" secondAttribute="trailing" constant="15" id="atj-xx-qPb"/>
                 <constraint firstAttribute="trailing" secondItem="VTp-hk-Kan" secondAttribute="trailing" constant="15" id="b5O-n6-FOi"/>
                 <constraint firstAttribute="trailing" secondItem="u1d-wJ-PHu" secondAttribute="trailing" constant="15" id="cnT-hh-Bak"/>
-                <constraint firstItem="vFE-tg-n2n" firstAttribute="top" secondItem="VTp-hk-Kan" secondAttribute="bottom" constant="3" id="dqE-qH-0CN"/>
                 <constraint firstItem="C8h-jZ-Kig" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="gQn-Ov-uo6"/>
                 <constraint firstItem="dTg-7I-D6H" firstAttribute="top" secondItem="kVK-g9-sZ8" secondAttribute="bottom" constant="15" id="kPo-II-rTl"/>
                 <constraint firstItem="dZG-EI-eps" firstAttribute="top" secondItem="C8h-jZ-Kig" secondAttribute="bottom" constant="15" id="lFF-PO-C5k"/>
                 <constraint firstItem="C8h-jZ-Kig" firstAttribute="top" secondItem="dTg-7I-D6H" secondAttribute="bottom" constant="8" id="mjS-ki-xTH"/>
                 <constraint firstAttribute="trailing" secondItem="pPH-oD-ICm" secondAttribute="trailing" constant="15" id="qJY-Dh-gLm"/>
-                <constraint firstItem="C8h-jZ-Kig" firstAttribute="top" secondItem="Mcy-b9-a0y" secondAttribute="bottom" constant="3" id="qmU-uK-gEG"/>
                 <constraint firstItem="u1d-wJ-PHu" firstAttribute="centerY" secondItem="YcC-zE-8oz" secondAttribute="centerY" id="r2X-VH-b5Q"/>
                 <constraint firstItem="VTp-hk-Kan" firstAttribute="top" secondItem="C8h-jZ-Kig" secondAttribute="bottom" constant="10" id="tAr-Q5-yWt"/>
-                <constraint firstItem="kVK-g9-sZ8" firstAttribute="top" secondItem="u1d-wJ-PHu" secondAttribute="bottom" constant="3" id="tPM-tF-pdx"/>
                 <constraint firstItem="pPH-oD-ICm" firstAttribute="top" secondItem="vFE-tg-n2n" secondAttribute="bottom" constant="30" id="tmb-1y-axc"/>
                 <constraint firstItem="dmN-hF-GMH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wDa-Y8-N30"/>
                 <constraint firstItem="u1d-wJ-PHu" firstAttribute="leading" secondItem="YcC-zE-8oz" secondAttribute="trailing" constant="20" id="xNr-C2-tQf"/>
@@ -172,13 +169,6 @@
                 <constraint firstItem="pPH-oD-ICm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ysL-zx-DT5"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="tPM-tF-pdx"/>
-                    <exclude reference="qmU-uK-gEG"/>
-                    <exclude reference="dqE-qH-0CN"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="45" y="-410"/>
         </view>
     </objects>
