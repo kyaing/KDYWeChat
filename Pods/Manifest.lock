@@ -39,6 +39,7 @@ PODS:
   - SwiftyJSON (2.3.2)
   - UIColor_Hex_Swift (2.1)
   - UIImageViewModeScaleAspect (1.5)
+  - Validator (1.2.0)
   - YYText (1.0.5)
 
 DEPENDENCIES:
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON (~> 2.3.2)
   - UIColor_Hex_Swift (~> 2.0)
+  - Validator (~> 1.2.0)
   - YYText
 
 SPEC CHECKSUMS:
@@ -84,6 +86,7 @@ SPEC CHECKSUMS:
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
+  Validator: 4015c0fcaacd165100b337dc4198ba308fb567fb
   YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae
 
 COCOAPODS: 0.39.0

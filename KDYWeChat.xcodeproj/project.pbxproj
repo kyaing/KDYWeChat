@@ -72,6 +72,8 @@
 		048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E1CE91DB4A3340049571C /* KDSettingViewController.swift */; };
 		048E1CEC1DB4A3340049571C /* KDSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */; };
 		0490AE661DE2F6A300C90950 /* LoadingHUDShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */; };
+		0490AE681DE420AA00C90950 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE671DE420AA00C90950 /* LoginViewModel.swift */; };
+		0490AE6A1DE420DC00C90950 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE691DE420DC00C90950 /* RegisterViewModel.swift */; };
 		049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */; };
 		049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */; };
 		0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */; };
@@ -279,6 +281,8 @@
 		048E1CE91DB4A3340049571C /* KDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
 		048E1CEA1DB4A3340049571C /* KDSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDSettingViewController.xib; sourceTree = "<group>"; };
 		0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUDShow.swift; sourceTree = "<group>"; };
+		0490AE671DE420AA00C90950 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0490AE691DE420DC00C90950 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
@@ -668,7 +672,6 @@
 			children = (
 				049234D01DAF330F00FD0B29 /* Model */,
 				049234D61DAF389100FD0B29 /* ViewModel */,
-				049234D11DAF330F00FD0B29 /* View */,
 				049234CF1DAF330F00FD0B29 /* Controller */,
 			);
 			path = Login;
@@ -692,16 +695,11 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		049234D11DAF330F00FD0B29 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		049234D61DAF389100FD0B29 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0490AE671DE420AA00C90950 /* LoginViewModel.swift */,
+				0490AE691DE420DC00C90950 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1493,6 +1491,7 @@
 				048AF1121DCC2A7100B9108C /* MJRefreshNormalHeader.m in Sources */,
 				047E1BCC1DD5919A000DB77E /* AlumbModel.swift in Sources */,
 				042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */,
+				0490AE681DE420AA00C90950 /* LoginViewModel.swift in Sources */,
 				1833DCD51DB3788C008B036B /* KDMeViewController.swift in Sources */,
 				048AF1181DCC2A7100B9108C /* UIView+MJExtension.m in Sources */,
 				189E885C1D8D65F30007C9A5 /* EMClient.h in Sources */,
@@ -1516,6 +1515,7 @@
 				04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */,
 				047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */,
 				18B593741DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift in Sources */,
+				0490AE6A1DE420DC00C90950 /* RegisterViewModel.swift in Sources */,
 				04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */,
 				18B5937B1DD4A7C6003F2F6E /* AlumbTableViewCell.swift in Sources */,
 				18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */,

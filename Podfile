@@ -25,12 +25,12 @@ target 'KDYWeChat' do
     # pod 'Nimble', '~> 4.1.0'
     pod 'Reusable', '~> 2.5.0'
     pod 'RealmSwift', '1.0.2'
+    pod 'Validator', '~> 1.2.0'
 
     # Objective-C
     pod 'MBProgressHUD'
     pod 'YYText'
     pod 'KVOController'
-    
 
     # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
     pod 'AVOSCloudDynamic', '~> 3.3.5'

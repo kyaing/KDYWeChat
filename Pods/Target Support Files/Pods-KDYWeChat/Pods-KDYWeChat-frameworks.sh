@@ -105,6 +105,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-KDYWeChat/SwiftyJSON.framework"
   install_framework "Pods-KDYWeChat/UIColor_Hex_Swift.framework"
   install_framework "Pods-KDYWeChat/UIImageViewModeScaleAspect.framework"
+  install_framework "Pods-KDYWeChat/Validator.framework"
   install_framework "Pods-KDYWeChat/YYText.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -129,5 +130,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-KDYWeChat/SwiftyJSON.framework"
   install_framework "Pods-KDYWeChat/UIColor_Hex_Swift.framework"
   install_framework "Pods-KDYWeChat/UIImageViewModeScaleAspect.framework"
+  install_framework "Pods-KDYWeChat/Validator.framework"
   install_framework "Pods-KDYWeChat/YYText.framework"
 fi
