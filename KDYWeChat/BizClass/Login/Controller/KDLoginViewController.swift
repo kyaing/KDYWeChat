@@ -42,7 +42,7 @@ final class KDLoginViewController: UIViewController {
             = LoginViewModel(input: (username: self.accountTextFiled.rx_text.asDriver(),
                 password: self.passwordTextField.rx_text.asDriver()))
         
-        self.viewModel.loginEnabled
+        self.viewModel.loginBtnEnabled
             .driveNext { [weak self] (valid) in
                 self?.loginButton.backgroundColor
                     = valid ? UIColor(colorHex: .chatGreenColor) : UIColor(colorHex: .chatLightGreenColor)
@@ -67,7 +67,7 @@ final class KDLoginViewController: UIViewController {
         var userName = self.accountTextFiled.text
         let password = self.passwordTextField.text
         
-        //LoadingHUDShow.shareInstance.setupProgressHUD(self.view)
+        LoadingHUDShow.shareInstance.showHUDWithText("登录中...", toView: self.view)
         AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
             if error != nil {
                 print("error = \(error.localizedDescription)")

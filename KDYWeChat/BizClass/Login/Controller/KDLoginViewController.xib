@@ -99,7 +99,7 @@
                         <constraint firstAttribute="height" constant="42" id="qwy-RK-BNC"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <state key="normal" title="登  录">
+                    <state key="normal" title="登录">
                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>

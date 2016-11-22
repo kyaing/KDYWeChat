@@ -74,6 +74,7 @@
 		0490AE661DE2F6A300C90950 /* LoadingHUDShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */; };
 		0490AE681DE420AA00C90950 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE671DE420AA00C90950 /* LoginViewModel.swift */; };
 		0490AE6A1DE420DC00C90950 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE691DE420DC00C90950 /* RegisterViewModel.swift */; };
+		0490AE6C1DE4520500C90950 /* MBProgressHUD+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490AE6B1DE4520500C90950 /* MBProgressHUD+Loading.swift */; };
 		049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */; };
 		049234D51DAF33B100FD0B29 /* KDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */; };
 		0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */; };
@@ -283,6 +284,7 @@
 		0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUDShow.swift; sourceTree = "<group>"; };
 		0490AE671DE420AA00C90950 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0490AE691DE420DC00C90950 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0490AE6B1DE4520500C90950 /* MBProgressHUD+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Loading.swift"; sourceTree = "<group>"; };
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				0490AE651DE2F6A300C90950 /* LoadingHUDShow.swift */,
+				0490AE6B1DE4520500C90950 /* MBProgressHUD+Loading.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -1563,6 +1566,7 @@
 				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,
 				048AF10A1DCC2A7100B9108C /* MJRefreshHeader.m in Sources */,
 				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,
+				0490AE6C1DE4520500C90950 /* MBProgressHUD+Loading.swift in Sources */,
 				18A37F931DC4860900FCAAE0 /* TSChatTextParser.swift in Sources */,
 				18B593761DD371D4003F2F6E /* KDMyLiveViewController.swift in Sources */,
 				0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */,

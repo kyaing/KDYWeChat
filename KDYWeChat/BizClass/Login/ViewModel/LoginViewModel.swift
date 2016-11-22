@@ -16,7 +16,7 @@ class LoginViewModel {
     
     // MARK: - Parameters
     /// 是否登录的序列
-    let loginEnabled: Driver<Bool>
+    let loginBtnEnabled: Driver<Bool>
     
     /// 验证用户名的序列
     let validatedUsername: Driver<ValidationResult>
@@ -24,30 +24,34 @@ class LoginViewModel {
     /// 验证密码的序列
     let validatedPassword: Driver<ValidationResult>
     
+    /// 登录中的序列
+    //let loginLoading: Driver<Bool>
+    
+    /// 登录成功的序列
+    //let loginSucessed: Driver<Bool>
+    
     // MARK: - Life Cycle
     init(input: (username: Driver<String>, password: Driver<String>)) {
         
-        self.validatedUsername
-            = input.username
+        self.validatedUsername = input.username
             .map { usernameString in
                 let usernameRule = ValidationRuleLength(min: 1, max: 50,
                     failureError: ValidationError(message: "Invalid Username"))
                 return usernameString.validate(rule: usernameRule)
             }
         
-        self.validatedPassword
-            = input.password
+        self.validatedPassword = input.password
             .map { passwordString in
                 let passwordRule = ValidationRuleLength(min: 6, max: 50,
                     failureError: ValidationError(message: "Invalid Password"))
                 return passwordString.validate(rule: passwordRule)
             }
         
-        self.loginEnabled = Driver
+        self.loginBtnEnabled = Driver
             .combineLatest(self.validatedUsername, self.validatedPassword) { username, password in
                 return username.isValid && password.isValid
             }
             .distinctUntilChanged()
-    }
+        }
 }
 

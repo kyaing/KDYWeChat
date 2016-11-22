@@ -109,7 +109,7 @@
                         <constraint firstAttribute="height" constant="42" id="RU7-Sb-lh9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <state key="normal" title="注  册">
+                    <state key="normal" title="注册">
                         <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
