@@ -15,12 +15,14 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupNavigationBar()
         self.interactivePopGestureRecognizer?.delegate = self
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.setupNavigationBar()
     }
 
     override func pushViewController(viewController: UIViewController, animated: Bool) {
-        // 添加手势
+        // 添加返回手势
         self.interactivePopGestureRecognizer?.enabled = true
         
         if self.viewControllers.count > 0 {

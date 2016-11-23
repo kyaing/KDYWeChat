@@ -24,9 +24,14 @@ extension MBProgressHUD {
     class func showHUD(text: String, mode: MBProgressHUDMode, toView view: UIView) {
         let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
         hud.label.text = text
+        hud.label.font = UIFont.systemFontOfSize(13)
         hud.mode = mode
         hud.removeFromSuperViewOnHide = true
         hud.hideAnimated(true, afterDelay: 0.5)
+    }
+    
+    class func hideHUD(view: UIView) {
+        MBProgressHUD.hideHUDForView(view, animated: true)
     }
 }
 

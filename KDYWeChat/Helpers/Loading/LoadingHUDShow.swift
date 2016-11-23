@@ -30,5 +30,9 @@ class LoadingHUDShow: NSObject {
     func showHUDWithText(text: String, toView: UIView) {
         MBProgressHUD.showHUD(text, mode: .Indeterminate, toView: toView)
     }
+    
+    func hideHUD(toView: UIView) {
+        MBProgressHUD.hideHUD(toView)
+    }
 }
 

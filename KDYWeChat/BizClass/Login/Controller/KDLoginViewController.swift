@@ -69,6 +69,8 @@ final class KDLoginViewController: UIViewController {
         
         LoadingHUDShow.shareInstance.showHUDWithText("登录中...", toView: self.view)
         AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
+            
+            LoadingHUDShow.shareInstance.hideHUD(self.view)
             if error != nil {
                 print("error = \(error.localizedDescription)")
                 
