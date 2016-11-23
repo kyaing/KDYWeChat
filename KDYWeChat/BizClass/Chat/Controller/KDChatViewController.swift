@@ -131,7 +131,10 @@ final class KDChatViewController: UIViewController {
             // 设置聊天背景图片，#bug，当键盘响应后，图片会变形
             // self.chatTableView.backgroundView = UIImageView(image: backgroundImage)
             
-            // 修改为在
+            /**
+             *  上面的方式不问题，现在修改为在view与tableView间添加张图片，
+             *  来做为聊天的背景图片.
+             */
             self.bgImageView.image = image
         }
     }

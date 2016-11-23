@@ -51,6 +51,11 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
             NSForegroundColorAttributeName: UIColor.whiteColor()
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes(
+                [NSFontAttributeName: UIFont.systemFontOfSize(16),
+                NSForegroundColorAttributeName: UIColor.whiteColor()],
+                forState: UIControlState.Normal)
     }
     
     func backItemAction() {

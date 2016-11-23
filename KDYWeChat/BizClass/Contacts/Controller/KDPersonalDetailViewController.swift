@@ -117,7 +117,7 @@ class KDPersonalDetailViewController: UIViewController {
     func configurePushController(indexPath: NSIndexPath) {
         if indexPath.section == 1 {
             if indexPath.row == 0 {
-                
+                ky_pushViewController(KDEditInfoViewController(title: "备注信息"), animated: true)
             }
         }
     }

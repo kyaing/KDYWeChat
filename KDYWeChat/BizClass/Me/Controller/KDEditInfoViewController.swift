@@ -7,23 +7,31 @@
 //
 
 import UIKit
+import SnapKit
 
-/// 编辑个人信息界面
+/// 编辑信息界面
 class KDEditInfoViewController: UIViewController {
-
-    lazy var eidtinfoTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
-        tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = 44
-        
-        self.view.addSubview(tableView)
-        
-        return tableView
-    }()
     
     var titleStr: String?
+    
+    lazy var rightBarItem: UIBarButtonItem = {
+        let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(self.editInfoDoneAction))
+        
+        return rightBarItem
+    }()
+    
+    lazy var infoTextField: UITextField = {
+        let textField = UITextField()
+        textField.font = UIFont.systemFontOfSize(15)
+        textField.adjustsFontSizeToFitWidth = true
+        textField.clearButtonMode = .WhileEditing
+        textField.borderStyle = .None
+        textField.autocorrectionType = .No
+        textField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
+        textField.becomeFirstResponder()
+        
+        return textField
+    }()
     
     // MARK: - Life Cycle
     init(title: String) {
@@ -38,8 +46,37 @@ class KDEditInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.edgesForExtendedLayout = .None
+        self.navigationItem.rightBarButtonItem = self.rightBarItem
+        self.view.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        
         self.title = self.titleStr
+        
+        let containerView = UIView()
+        containerView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(containerView)
+        
+        containerView.snp_makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.view.snp_top).offset(20)
+            make.height.equalTo(btnHeight)
+        }
+        
+        self.view.addSubview(self.infoTextField)
+        self.infoTextField.placeholder = self.titleStr
+        
+        self.infoTextField.snp_makeConstraints(closure: { (make) in
+            make.edges.equalTo(containerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
+        })
+    }
+    
+    // MARK: - Event Response
+    
+    /**
+     *
+     */
+    func editInfoDoneAction() {
+        
     }
 }
 
