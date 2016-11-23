@@ -47,7 +47,7 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
         
         UINavigationBar.appearance().translucent = true
         let attributes = [
-            NSFontAttributeName: UIFont.systemFontOfSize(19),
+            NSFontAttributeName: UIFont.systemFontOfSize(18),
             NSForegroundColorAttributeName: UIColor.whiteColor()
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes

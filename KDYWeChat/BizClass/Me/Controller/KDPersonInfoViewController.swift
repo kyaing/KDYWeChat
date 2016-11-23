@@ -91,27 +91,33 @@ class KDPersonInfoViewController: UIViewController {
         let row = indexPath.row
         
         if section == 0 {
-            if row == 0 {         // 头像
-                self.setupPickerAlertController()
+            if row == 0 {   // 头像
+                setupPickerAlertController()
             } else if row == 1 {  // 昵称
-                self.ky_pushViewController(KDEditInfoViewController(title: "昵称"), animated: true)
-            } else {              // ID号
+                let editController = KDEditInfoViewController(title: "昵称")
+                editController.editDoneClosure = { textString in
+                    
+                    let cell = self.infoTableView.cellForRowAtIndexPath(indexPath)
+                    cell?.detailTextLabel?.text = textString
+                }
+                
+                ky_pushViewController(editController, animated: true)
+            } else {   // ID号
                 // 用户的唯一ID，用于查询用户，加好友等等
                 // 可以复制，UIMenuItemController
-                
             }
             
         } else {
-            if row == 0 {         // 性别
-                self.ky_pushViewController(KDEditInfoViewController(title: "性别"), animated: true)
-            } else {              // 地区
-                self.ky_pushViewController(KDEditInfoViewController(title: "地区"), animated: true)
+            if row == 0 {   // 性别
+                ky_pushViewController(KDEditInfoViewController(title: "性别"), animated: true)
+            } else {    // 地区
+                ky_pushViewController(KDEditInfoViewController(title: "地区"), animated: true)
             }
         }
     }
     
     /**
-     *  图片、拍照选择器
+     *  图片和拍照选择器
      */
     func setupPickerAlertController() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -190,7 +196,6 @@ extension KDPersonInfoViewController: UITableViewDataSource {
 extension KDPersonInfoViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
         configurePushController(indexPath)
     }
     

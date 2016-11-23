@@ -9,6 +9,8 @@
 import UIKit
 import SnapKit
 
+typealias editDoneAction = (String) -> Void
+
 /// 编辑信息界面
 class KDEditInfoViewController: UIViewController {
     
@@ -32,6 +34,8 @@ class KDEditInfoViewController: UIViewController {
         
         return textField
     }()
+    
+    var editDoneClosure: editDoneAction?
     
     // MARK: - Life Cycle
     init(title: String) {
@@ -73,10 +77,13 @@ class KDEditInfoViewController: UIViewController {
     // MARK: - Event Response
     
     /**
-     *
+     *  编辑确定事件
      */
     func editInfoDoneAction() {
-        
+        if let editClosure = self.editDoneClosure {
+            editClosure(self.infoTextField.text!)
+            ky_popViewController()
+        }
     }
 }
 
