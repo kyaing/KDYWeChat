@@ -15,11 +15,27 @@ extension KDChatViewController {
      *  初始化子视图
      */
     func setupChildViews() {
+        
+        setupBgImageView()
         setupBottomBarView()
         setupChatTableView()
         setupEmotionKeyboard()
         setupShareKeyboard()
         setupRecordingView()
+    }
+    
+    /**
+     *  初始化聊天图片
+     */
+    func setupBgImageView() {
+        self.bgImageView = UIImageView()
+        self.bgImageView.contentMode = .ScaleAspectFill
+        self.bgImageView.clipsToBounds = true
+        self.view.addSubview(self.bgImageView)
+        
+        self.bgImageView.snp_makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
     }
     
     /**

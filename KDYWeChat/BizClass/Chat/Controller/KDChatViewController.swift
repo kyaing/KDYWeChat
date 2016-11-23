@@ -53,6 +53,9 @@ final class KDChatViewController: UIViewController {
     
     var keyboardNoti: NSNotification!
     
+    /// 聊天背景图片
+    var bgImageView: UIImageView!
+    
     /// 底部工具栏
     var bottomBarView: ChatBottomBarView!
     
@@ -81,7 +84,7 @@ final class KDChatViewController: UIViewController {
     var conversationId: String!
     var conversation: EMConversation!
     
-    var messageTimeIntervalTag: Int64?
+    var messageTimeIntervalTag: Int64? = -1
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -121,11 +124,15 @@ final class KDChatViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     
-        // 设置聊天背景图片，##bug，当键盘响应后，图片会变形
         let imageData = NSUserDefaults.standardUserDefaults().objectForKey(self.conversationId) as? NSData
         if imageData != nil {
-            let backgroundImage = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
-            self.chatTableView.backgroundView = UIImageView(image: backgroundImage)
+            let image = NSKeyedUnarchiver.unarchiveObjectWithData(imageData!) as! UIImage
+            
+            // 设置聊天背景图片，#bug，当键盘响应后，图片会变形
+            // self.chatTableView.backgroundView = UIImageView(image: backgroundImage)
+            
+            // 修改为在
+            self.bgImageView.image = image
         }
     }
     
@@ -144,7 +151,7 @@ final class KDChatViewController: UIViewController {
     }
 
     func tableViewHeaderRefreshDatas() {
-        self.messageTimeIntervalTag = -1;
+        self.messageTimeIntervalTag = -1
         
         var messageId: String?
         if self.messageSource.count > 0 {
