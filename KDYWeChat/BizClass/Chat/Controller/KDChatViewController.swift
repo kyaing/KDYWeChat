@@ -34,6 +34,12 @@ final class KDChatViewController: UIViewController {
         return chatTableView
     }()
     
+    lazy var leftBarItem: UIBarButtonItem = {
+        let leftBarItem = UIBarButtonItem(image: UIImage(named: "main_back"), style: .Plain, target: self, action: #selector(self.backBarItemAction))
+        
+        return leftBarItem
+    }()
+    
     lazy var rightBarItem: UIBarButtonItem = {
         let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_InfoSingle"), style: .Plain, target: self, action: #selector(self.handlePersonAction))
         
@@ -82,6 +88,8 @@ final class KDChatViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        
+        self.navigationItem.leftBarButtonItem  = self.leftBarItem
         self.navigationItem.rightBarButtonItem = self.rightBarItem
         
         // 创建子视图
@@ -258,6 +266,8 @@ final class KDChatViewController: UIViewController {
         }
     }
     
+    // MARK: - Events Reponse
+    
     /**
      *  进入个人详细资料
      */
@@ -266,6 +276,17 @@ final class KDChatViewController: UIViewController {
         settingController.conversationId = self.conversationId
         
         ky_pushViewController(settingController, animated: true)
+    }
+    
+    func backBarItemAction() {
+        // 直接返回到根控制器即可
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
+        //    let tabbar     = UIApplication.sharedApplication().keyWindow?.rootViewController as! KDTabBarController
+        //    let navigation = tabbar.selectedViewController as! KDNavigationController
+        //
+        //    navigation.tabBarController?.selectedViewController = tabbar.viewControllers![0]
+        //    navigation.popToRootViewControllerAnimated(true)
     }
 }
 

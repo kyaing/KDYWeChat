@@ -199,7 +199,6 @@ final class KDContactsViewController: UIViewController {
         LoadingHUDShow.shareInstance.showHUDWithText("加载中...", toView: self.view)
         userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
             
-            LoadingHUDShow.shareInstance.hideHUD(self.view)
             for object in objects as! [AVUser] {
                 let dic = object.dictionaryForObject()
                 let username = dic.objectForKey("username") as! String
@@ -233,7 +232,8 @@ final class KDContactsViewController: UIViewController {
                 
                 self.tableFooterLabel.text = String("\(frindsArray.count+1)位联系人")
                 self.contactsTableView.tableFooterView = self.tableFooterLabel
-                
+
+                LoadingHUDShow.shareInstance.hideHUD(self.view)
                 self.contactsTableView.reloadData()
             })
         }

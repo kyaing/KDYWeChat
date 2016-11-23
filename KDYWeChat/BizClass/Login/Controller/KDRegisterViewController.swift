@@ -33,7 +33,8 @@ final class KDRegisterViewController: UIViewController {
     
     func setupViewsUI() {
         self.registerButton.layer.cornerRadius = 5
-        self.registerButton.layer.masksToBounds = true
+        self.registerButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        self.registerButton.layer.borderWidth = 0.5
         self.registerButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
         
         self.cancelButton.setTitleColor(UIColor(colorHex: .tabbarSelectedTextColor), forState: .Normal)
@@ -50,10 +51,10 @@ final class KDRegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonAction(sender: AnyObject) {
+        
         /**
          *  注册环信，并同时注册LeanClound，建立 _User表
          */
-        
         let mail     = self.mailTextField.text
         let username = self.accountTextField.text
         let password = self.passwordTextFiled.text

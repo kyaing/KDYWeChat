@@ -9,8 +9,6 @@
 import UIKit
 import RealmSwift
 
-let messageIdentifier: String = "messageCell"
-
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
     
@@ -121,6 +119,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
     
     // MARK: - Private Methods
+    
     /**
      *  网络是否连接 (准确地说是否连上环信服务器)
      */
@@ -140,6 +139,16 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
         if conversations.count == 0 { return }
 
+        // 删除最后一条为空的会话
+        conversations.enumerateObjectsUsingBlock({ (conversation, idx, stop) in
+            let conversation = conversation as! EMConversation
+            if conversation.latestMessage == nil {
+                EMClient.sharedClient().chatManager.deleteConversation(conversation.conversationId,
+                    isDeleteMessages: false, completion: nil)
+            }
+        })
+        
+        // 按时间的降序，排列会话列表
         let sortedConversations: NSArray = conversations.sortedArrayUsingComparator {
             (Obj1, Obj2) -> NSComparisonResult in
         

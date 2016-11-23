@@ -9,14 +9,19 @@
 import UIKit
 import SnapKit
 
+let gaps: CGFloat      = 15
+let btnHeight: CGFloat = 42
+let fontSize: CGFloat  = 16
+
 /// 个人(他人)详情页面
 class KDPersonalDetailViewController: UIViewController {
 
+    // MARK: - Parameters
     lazy var detailTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: gaps, bottom: 0, right: 0)
+        tableView.separatorColor = UIColor(colorHex: .separatorColor)
         tableView.tableFooterView = self.footerView
         tableView.dataSource = self
         tableView.delegate = self
@@ -32,30 +37,34 @@ class KDPersonalDetailViewController: UIViewController {
         let sendVideoButton = UIButton()
         
         sendMsgButton.layer.cornerRadius = 5.0
+        sendMsgButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        sendMsgButton.layer.borderWidth = 0.5
         sendMsgButton.setTitle("发消息", forState: .Normal)
-        sendMsgButton.titleLabel?.font = UIFont.systemFontOfSize(16)
-        sendMsgButton.backgroundColor = UIColor(red: 170/255.0, green: 240/255.0, blue: 128/255.0, alpha: 1.0)
+        sendMsgButton.titleLabel?.font = UIFont.systemFontOfSize(fontSize)
+        sendMsgButton.backgroundColor = UIColor(colorHex: .chatGreenColor)
         sendMsgButton.addTarget(self, action: #selector(self.chatWithMessageAction), forControlEvents: .TouchUpInside)
         
         sendVideoButton.layer.cornerRadius = 5.0
+        sendVideoButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        sendVideoButton.layer.borderWidth = 0.5
         sendVideoButton.setTitle("视频聊天", forState: .Normal)
-        sendVideoButton.titleLabel?.font = UIFont.systemFontOfSize(16)
+        sendVideoButton.titleLabel?.font = UIFont.systemFontOfSize(fontSize)
         sendVideoButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        sendVideoButton.backgroundColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        sendVideoButton.backgroundColor = UIColor.whiteColor()
         sendVideoButton.addTarget(self, action: #selector(self.chatWithAudioAndVideoAction), forControlEvents: .TouchUpInside)
         
         footerView.addSubview(sendMsgButton)
         footerView.addSubview(sendVideoButton)
         
         sendMsgButton.snp_makeConstraints(closure: { (make) in
-            make.top.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(15, 15, 0, 15))
-            make.height.equalTo(44)
+            make.top.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(20, gaps, 0, gaps))
+            make.height.equalTo(btnHeight)
         })
         
         sendVideoButton.snp_makeConstraints(closure: { (make) in
-            make.top.equalTo(sendMsgButton.snp_bottom).offset(15)
-            make.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(0, 15, 0, 15))
-            make.height.equalTo(44)
+            make.top.equalTo(sendMsgButton.snp_bottom).offset(gaps)
+            make.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
+            make.height.equalTo(btnHeight)
         })
         
         return footerView
@@ -84,7 +93,7 @@ class KDPersonalDetailViewController: UIViewController {
     
     // MARK: - Public Methods
     func configureCells(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.font = UIFont.systemFontOfSize(16)
+        cell.textLabel?.font = UIFont.systemFontOfSize(fontSize)
         
         if indexPath.section == 0 {
             cell.accessoryType = .None
@@ -112,9 +121,11 @@ class KDPersonalDetailViewController: UIViewController {
             }
         }
     }
+   
+    // MARK: - Events Response
     
     /**
-     *  发消息
+     *  发消息事件
      */
     func chatWithMessageAction() {
         guard let model = self.contactModel else { return }
@@ -127,7 +138,7 @@ class KDPersonalDetailViewController: UIViewController {
     }
     
     /**
-     *  视频聊天
+     *  视频聊天事件
      */
     func chatWithAudioAndVideoAction() {
         

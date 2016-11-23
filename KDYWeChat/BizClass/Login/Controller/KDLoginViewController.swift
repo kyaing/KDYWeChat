@@ -53,7 +53,8 @@ final class KDLoginViewController: UIViewController {
     
     func setupViewsUI() {
         self.loginButton.layer.cornerRadius = 5
-        self.loginButton.layer.masksToBounds = true
+        self.loginButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        self.loginButton.layer.borderWidth = 0.5
         self.loginButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
         
         // 修改光标颜色
