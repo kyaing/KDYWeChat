@@ -167,6 +167,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0490AE761DE690F600C90950 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18452C9B1D819E9100D4B2BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18452CA21D819E9100D4B2BE;
+			remoteInfo = KDYWeChat;
+		};
 		18452CB81D819E9100D4B2BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 18452C9B1D819E9100D4B2BE /* Project object */;
@@ -285,6 +292,7 @@
 		0490AE671DE420AA00C90950 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0490AE691DE420DC00C90950 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		0490AE6B1DE4520500C90950 /* MBProgressHUD+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Loading.swift"; sourceTree = "<group>"; };
+		0490AE711DE690F500C90950 /* WeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
@@ -422,6 +430,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0490AE6E1DE690F500C90950 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18452CA01D819E9100D4B2BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -949,6 +964,7 @@
 				18452CA31D819E9100D4B2BE /* KDYWeChat.app */,
 				18452CB71D819E9100D4B2BE /* KDYWeChatTests.xctest */,
 				18452CC21D819E9100D4B2BE /* KDYWeChatUITests.xctest */,
+				0490AE711DE690F500C90950 /* WeChatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1253,6 +1269,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0490AE701DE690F500C90950 /* WeChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0490AE7A1DE690F600C90950 /* Build configuration list for PBXNativeTarget "WeChatTests" */;
+			buildPhases = (
+				0490AE6D1DE690F500C90950 /* Sources */,
+				0490AE6E1DE690F500C90950 /* Frameworks */,
+				0490AE6F1DE690F500C90950 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0490AE771DE690F600C90950 /* PBXTargetDependency */,
+			);
+			name = WeChatTests;
+			productName = WeChatTests;
+			productReference = 0490AE711DE690F500C90950 /* WeChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		18452CA21D819E9100D4B2BE /* KDYWeChat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18452CCB1D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChat" */;
@@ -1324,6 +1358,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = kaideyi.com;
 				TargetAttributes = {
+					0490AE701DE690F500C90950 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 18452CA21D819E9100D4B2BE;
+					};
 					18452CA21D819E9100D4B2BE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 36D935N6NX;
@@ -1362,11 +1400,19 @@
 				18452CA21D819E9100D4B2BE /* KDYWeChat */,
 				18452CB61D819E9100D4B2BE /* KDYWeChatTests */,
 				18452CC11D819E9100D4B2BE /* KDYWeChatUITests */,
+				0490AE701DE690F500C90950 /* WeChatTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0490AE6F1DE690F500C90950 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18452CA11D819E9100D4B2BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1482,6 +1528,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0490AE6D1DE690F500C90950 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18452C9F1D819E9100D4B2BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1618,6 +1671,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0490AE771DE690F600C90950 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18452CA21D819E9100D4B2BE /* KDYWeChat */;
+			targetProxy = 0490AE761DE690F600C90950 /* PBXContainerItemProxy */;
+		};
 		18452CB91D819E9100D4B2BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 18452CA21D819E9100D4B2BE /* KDYWeChat */;
@@ -1658,6 +1716,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0490AE781DE690F600C90950 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WeChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.WeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
+			};
+			name = Debug;
+		};
+		0490AE791DE690F600C90950 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = WeChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.WeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
+			};
+			name = Release;
+		};
 		18452CC91D819E9100D4B2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1857,6 +1941,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0490AE7A1DE690F600C90950 /* Build configuration list for PBXNativeTarget "WeChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0490AE781DE690F600C90950 /* Debug */,
+				0490AE791DE690F600C90950 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		18452C9E1D819E9100D4B2BE /* Build configuration list for PBXProject "KDYWeChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

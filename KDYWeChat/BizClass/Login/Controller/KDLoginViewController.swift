@@ -62,6 +62,11 @@ final class KDLoginViewController: UIViewController {
         self.passwordTextField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
     }
     
+    // for test
+    func getNumber() -> Int {
+        return 100
+    }
+    
     // MARK: - Event Responses
     @IBAction func loginButtonAction(sender: AnyObject) {
         

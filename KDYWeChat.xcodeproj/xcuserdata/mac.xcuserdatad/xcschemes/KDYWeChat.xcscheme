@@ -48,6 +48,16 @@
                ReferencedContainer = "container:KDYWeChat.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0490AE701DE690F500C90950"
+               BuildableName = "WeChatTests.xctest"
+               BlueprintName = "WeChatTests"
+               ReferencedContainer = "container:KDYWeChat.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

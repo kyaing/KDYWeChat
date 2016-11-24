@@ -15,7 +15,7 @@ private let descentScale: CGFloat = 0.16
 class TSYYTextLinePositionModifier: NSObject, YYTextLinePositionModifier {
     
     internal var font: UIFont // 基准字体 (例如 Heiti SC/PingFang SC)
-    private var paddingTop: CGFloat = 2 //文本顶部留白
+    private var paddingTop: CGFloat = 2  //文本顶部留白
     private var paddingBottom: CGFloat = 2 //文本底部留白
     private var lineHeightMultiple: CGFloat //行距倍数
     
