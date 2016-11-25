@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Reusable
 import Kingfisher
 
 /// 我界面 Cell
-class MeHeaderTableCell: UITableViewCell {
+class MeHeaderTableCell: UITableViewCell, NibReusable {
     
     @IBOutlet weak var avatorImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!

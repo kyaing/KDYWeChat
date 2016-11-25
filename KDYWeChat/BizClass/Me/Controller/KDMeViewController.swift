@@ -17,31 +17,36 @@ class KDMeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.meTableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
-        self.meTableView.separatorColor  = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        self.meTableView.registerNib(UINib(nibName: "MeHeaderTableCell", bundle: nil), forCellReuseIdentifier: "MeHeaderTableCell")
+        self.meTableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        self.meTableView.separatorColor  = UIColor(colorHex: .separatorColor)
+        self.meTableView.registerReusableCell(MeHeaderTableCell)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.meTableView.reloadData()
     }
     
     // MARK: - UITableViewDataSoure
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let meHeaderCell = tableView.dequeueReusableCellWithIdentifier("MeHeaderTableCell", forIndexPath: indexPath) as! MeHeaderTableCell
+            let headerCell: MeHeaderTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             
             if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
-                meHeaderCell.useridLabel.text = "ID：" + (currentUser.objectId)!
-                meHeaderCell.usernameLabel.text = currentUser.username
+                headerCell.usernameLabel.text = currentUser.username
+                
+                if let nickname = currentUser.nickname {
+                    headerCell.useridLabel.text = "昵称：" + nickname
+                } else {
+                    headerCell.useridLabel.text = "ID：" + (currentUser.objectId)!
+                }
+                
                 if let imageURL = currentUser.imageUrl {
-                    meHeaderCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                    headerCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault))
                 }
             }
             
-            return meHeaderCell
+            return headerCell
             
         } else {
             var baseCell = tableView.dequeueReusableCellWithIdentifier("baseCell")

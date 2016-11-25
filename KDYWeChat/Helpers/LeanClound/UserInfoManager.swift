@@ -187,7 +187,7 @@ class UserInfoManager: NSObject {
             avatorFile.saveInBackground()
     
             currentUser.setObject(avatorFile, forKey: kAvatarImage)
-            currentUser.saveInBackgroundWithBlock({ (success, error) in
+            currentUser.saveInBackgroundWithBlock { (success, error) in
                 if success {
                     let userinfo = UserInfoEntity(user: currentUser)
                     self.users.setObject(userinfo, forKey: userinfo.username!)
@@ -197,13 +197,31 @@ class UserInfoManager: NSObject {
                 } else {
                     failures(error: error)
                 }
-            })
+            }
         }
     }
     
     /**
-     *  上传用户信息
+     *  上传用户昵称
      */
+    func uploadUserNicknameInBackground(nickname: String,
+                                        successs: successAction,
+                                        failures: failureAction) {
+        
+        let currentUser = AVUser.currentUser()
+        currentUser.setObject(nickname, forKey: kNickname)
+        currentUser.saveInBackgroundWithBlock { (success, error) in
+            if success {
+                let userinfo = UserInfoEntity(user: currentUser)
+                self.users.setObject(userinfo, forKey: userinfo.username!)
+                
+                successs(success: success)
+                
+            } else {
+                failures(error: error)
+            }
+        }
+    }
     
     /**
      *  获取用户信息 by frineds

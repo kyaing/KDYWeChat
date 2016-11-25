@@ -94,11 +94,24 @@ class KDPersonInfoViewController: UIViewController {
             if row == 0 {   // 头像
                 setupPickerAlertController()
             } else if row == 1 {  // 昵称
+                // 取得对应的 Cell
+                let cell = self.infoTableView.cellForRowAtIndexPath(indexPath)
+                
                 let editController = KDEditInfoViewController(title: "昵称")
+                editController.editInfoStr = cell?.detailTextLabel?.text
+                
                 editController.editDoneClosure = { textString in
-                    
-                    let cell = self.infoTableView.cellForRowAtIndexPath(indexPath)
                     cell?.detailTextLabel?.text = textString
+                    
+                    // 上传用户昵称
+                    UserInfoManager.shareInstance.uploadUserNicknameInBackground(
+                        textString,
+                        successs: { (success) in
+                            print("上传昵称成功")
+                            
+                        }, failures: { (error) in
+                            print("上传昵称失败，error = \(error.localizedDescription)")
+                        })
                 }
                 
                 ky_pushViewController(editController, animated: true)
@@ -148,7 +161,7 @@ class KDPersonInfoViewController: UIViewController {
                             })
                             
                         }, failures: { (error) in
-                            print("上传头像失败：\(error.description)")
+                            print("上传头像失败：\(error.localizedDescription)")
                         })
                     }
     

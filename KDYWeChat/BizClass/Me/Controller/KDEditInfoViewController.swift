@@ -15,6 +15,7 @@ typealias editDoneAction = (String) -> Void
 class KDEditInfoViewController: UIViewController {
     
     var titleStr: String?
+    var editInfoStr: String?
     
     lazy var rightBarItem: UIBarButtonItem = {
         let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(self.editInfoDoneAction))
@@ -58,7 +59,9 @@ class KDEditInfoViewController: UIViewController {
         
         let containerView = UIView()
         containerView.backgroundColor = UIColor.whiteColor()
+        
         self.view.addSubview(containerView)
+        self.view.addSubview(self.infoTextField)
         
         containerView.snp_makeConstraints { (make) in
             make.left.right.equalTo(self.view)
@@ -66,8 +69,11 @@ class KDEditInfoViewController: UIViewController {
             make.height.equalTo(btnHeight)
         }
         
-        self.view.addSubview(self.infoTextField)
-        self.infoTextField.placeholder = self.titleStr
+        if let infoStr = self.editInfoStr {
+            self.infoTextField.text = infoStr
+        } else {
+            self.infoTextField.placeholder = self.titleStr
+        }
         
         self.infoTextField.snp_makeConstraints(closure: { (make) in
             make.edges.equalTo(containerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
