@@ -13,7 +13,7 @@ class KDAddFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-            
+        
     }
 }
 

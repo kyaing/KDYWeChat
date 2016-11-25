@@ -20,9 +20,9 @@ class RealmHelper: NSObject {
      */
     func setupRealm() -> Realm? {
         var config = Realm.Configuration()
-        config.fileURL = config.fileURL!.URLByDeletingLastPathComponent?.URLByAppendingPathComponent("\(AVUser.currentUser().username).realm")
+        config.fileURL = config.fileURL!.URLByAppendingPathComponent("\(AVUser.currentUser().username).realm")
         
-        let realm = try! Realm(configuration: config)
+        let realm = try? Realm(configuration: config)
         
         return realm
     }

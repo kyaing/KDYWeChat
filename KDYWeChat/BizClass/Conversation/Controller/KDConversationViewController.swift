@@ -173,22 +173,27 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             let model = MessageModel(conversation: conversation)
             self.messageDataSource.addObject(model)
             
-            // 存储到Realm数据库
-            //    try! self.realm.write {
-            //        let realmModel = MessageRealmModel()
-            //        realmModel.nickname    = conversation.conversationId
-            //        realmModel.lastContent = self.getLastMessageForConversation(model)!
-            //        realmModel.time        = self.getlastMessageTimeForConversation(model)
-            //        
-            //        // 存储头像数据流
-            //        if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
-            //            if userInfo.imageUrl != nil {
-            //                let avatarData = NSData(contentsOfURL: NSURL(string: userInfo.imageUrl!)!)
-            //                realmModel.avatarData = avatarData
+            // 存储到 Realm数据库
+            //    do {
+            //        try self.realm.write {
+            //            let realmModel = MessageRealmModel()
+            //            realmModel.nickname    = conversation.conversationId
+            //            realmModel.lastContent = self.getLastMessageForConversation(model)!
+            //            realmModel.time        = self.getlastMessageTimeForConversation(model)
+            //            
+            //            // 存储头像数据流
+            //            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
+            //                if userInfo.imageUrl != nil {
+            //                    let avatarData = NSData(contentsOfURL: NSURL(string: userInfo.imageUrl!)!)
+            //                    realmModel.avatarData = avatarData
+            //                }
             //            }
+            //            
+            //            self.realm.add(realmModel)
             //        }
             //        
-            //        self.realm.add(realmModel)
+            //    } catch let error as NSError {
+            //        print("Error = \(error.debugDescription)")
             //    }
         }
         

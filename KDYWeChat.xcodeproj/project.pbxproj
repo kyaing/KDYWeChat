@@ -1859,6 +1859,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1889,6 +1890,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -1948,6 +1950,7 @@
 				0490AE791DE690F600C90950 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18452C9E1D819E9100D4B2BE /* Build configuration list for PBXProject "KDYWeChat" */ = {
 			isa = XCConfigurationList;
