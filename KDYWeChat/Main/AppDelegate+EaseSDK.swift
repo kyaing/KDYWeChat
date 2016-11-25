@@ -75,7 +75,7 @@ extension AppDelegate {
             self.mainTabbarVC = nil
             KDYWeChatHelper.shareInstance.mainTabbarVC = nil
             
-            let loginController = KDLoginViewController(nibName: "KDLoginViewController", bundle: nil)
+            let loginController = KDLoginViewController.initFromNib()
             navigationController = KDNavigationController(rootViewController: loginController)
             
             self.window?.rootViewController = navigationController

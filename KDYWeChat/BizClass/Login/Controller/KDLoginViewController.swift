@@ -98,7 +98,7 @@ final class KDLoginViewController: UIViewController {
         }
         
         let registerAction = UIAlertAction(title: "注册", style: .Default) { alertAction in
-            let registerController = KDRegisterViewController(nibName: "KDRegisterViewController", bundle: nil)
+            let registerController = KDRegisterViewController.initFromNib()
             self.navigationController?.presentViewController(registerController, animated: true, completion: nil)
         }
         

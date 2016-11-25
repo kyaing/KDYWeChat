@@ -166,7 +166,7 @@ final class KDContactsViewController: UIViewController {
     func configurePushController(indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let newfriendController = KDNewFriendsViewController(nibName: "KDNewFriendsViewController", bundle: nil)
+                let newfriendController = KDNewFriendsViewController.initFromNib()
                 ky_pushViewController(newfriendController, animated: true)
                 
             } else if indexPath.row == 1 {

@@ -8,7 +8,24 @@
 
 import Foundation
 
+extension NSObject {
+    class var nameOfClass: String {
+        return NSStringFromClass(self).componentsSeparatedByString(".").last! as String
+    }
+}
+
 extension UIViewController {
+    // Nib
+    class func initFromNib() -> UIViewController {
+        let hasNib: Bool = NSBundle.mainBundle().pathForResource(self.nameOfClass, ofType: "nib") != nil
+        guard hasNib else {
+            assert(!hasNib, "Invalid parameter")
+            return UIViewController()
+        }
+        
+        return self.init(nibName: self.nameOfClass, bundle: nil)
+    }
+
     // Push
     public func ky_pushAndHideTabbar(viewController: UIViewController) {
         self.ky_pushViewController(viewController, animated: true, hideTabbar: true)

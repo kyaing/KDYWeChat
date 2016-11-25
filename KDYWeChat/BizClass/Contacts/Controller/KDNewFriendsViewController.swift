@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 新好友页面
 class KDNewFriendsViewController: UIViewController {
 
     override func viewDidLoad() {

@@ -8,11 +8,14 @@
 
 import UIKit
 
+/// 添加好友页面
 class KDAddFriendViewController: UIViewController {
 
+    // MARK: - Parameters
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
 }
