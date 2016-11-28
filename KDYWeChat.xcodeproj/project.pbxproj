@@ -42,7 +42,6 @@
 		047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF31D9E187000022544 /* AppDelegate.swift */; };
 		047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */; };
 		047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */; };
-		0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */; };
 		048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559181D99273B001A076A /* UIScreen+Frame.swift */; };
 		048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559201D9A1E27001A076A /* ChatTimeTableCell.swift */; };
 		048559231D9A1E27001A076A /* ChatTimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048559211D9A1E27001A076A /* ChatTimeTableCell.xib */; };
@@ -84,6 +83,9 @@
 		049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */; };
 		049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */; };
 		049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */; };
+		04A7B7FA1DEBD8EE0016FE53 /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A7B7F91DEBD8EE0016FE53 /* EZSwiftExtensions.framework */; };
+		04A7B8001DEBE0CC0016FE53 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7B7FF1DEBE0CC0016FE53 /* RealmHelper.swift */; };
+		04A7B8031DEBE10C0016FE53 /* AuthorityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7B8021DEBE10C0016FE53 /* AuthorityManager.swift */; };
 		04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */; };
 		04B45B0A1DB5C67E005C7A83 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B091DB5C67E005C7A83 /* ContactModel.swift */; };
 		04B45B101DB60E12005C7A83 /* ContactsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */; };
@@ -103,7 +105,6 @@
 		04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */; };
 		04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */; };
 		04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */; };
-		04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */; };
 		04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */; };
 		04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */; };
 		0F14BC22BF7D951731B7F2E7 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */; };
@@ -240,7 +241,6 @@
 		047F8EF31D9E187000022544 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeanCloud.swift"; sourceTree = "<group>"; };
 		047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+EaseSDK.swift"; sourceTree = "<group>"; };
-		0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorityManager.swift; sourceTree = "<group>"; };
 		048559181D99273B001A076A /* UIScreen+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Frame.swift"; sourceTree = "<group>"; };
 		048559201D9A1E27001A076A /* ChatTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTimeTableCell.swift; sourceTree = "<group>"; };
 		048559211D9A1E27001A076A /* ChatTimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTimeTableCell.xib; sourceTree = "<group>"; };
@@ -302,6 +302,10 @@
 		049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBaseTableCell.swift; sourceTree = "<group>"; };
 		049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
 		049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatBottomBarView.xib; sourceTree = "<group>"; };
+		04A7B7F71DEBD8620016FE53 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/KDYWeChat-bemixjdjfxnjvvdbbdjierkackvr/Build/Products/Debug-iphonesimulator/SnapKit.framework"; sourceTree = "<group>"; };
+		04A7B7F91DEBD8EE0016FE53 /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../../Library/Developer/Xcode/DerivedData/KDYWeChat-bemixjdjfxnjvvdbbdjierkackvr/Build/Products/Debug-iphonesimulator/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
+		04A7B7FF1DEBE0CC0016FE53 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		04A7B8021DEBE10C0016FE53 /* AuthorityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorityManager.swift; sourceTree = "<group>"; };
 		04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDContactsViewController.swift; sourceTree = "<group>"; };
 		04B45B091DB5C67E005C7A83 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableCell.swift; sourceTree = "<group>"; };
@@ -323,7 +327,6 @@
 		04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRealmModel.swift; sourceTree = "<group>"; };
 		04CF41E01DDDB15100A6C125 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		04CF41E11DDDB15100A6C125 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssets+UIImage.swift"; sourceTree = "<group>"; };
 		04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYWeChatHelper.swift; sourceTree = "<group>"; };
 		16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -441,6 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A7B7FA1DEBD8EE0016FE53 /* EZSwiftExtensions.framework in Frameworks */,
 				044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */,
 				042102801DC898AC004C3326 /* MapKit.framework in Frameworks */,
 				189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */,
@@ -566,14 +570,6 @@
 				047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		0480DCEA1DB71FF900129EC4 /* Authority */ = {
-			isa = PBXGroup;
-			children = (
-				0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */,
-			);
-			path = Authority;
 			sourceTree = "<group>";
 		};
 		048AF0D91DCC2A7000B9108C /* MJRefresh */ = {
@@ -802,6 +798,23 @@
 			path = Bar;
 			sourceTree = "<group>";
 		};
+		04A7B7FE1DEBE0CC0016FE53 /* LocalDB */ = {
+			isa = PBXGroup;
+			children = (
+				04A7B7FF1DEBE0CC0016FE53 /* RealmHelper.swift */,
+			);
+			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		04A7B8011DEBE10C0016FE53 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				04A7B8021DEBE10C0016FE53 /* AuthorityManager.swift */,
+			);
+			name = Permission;
+			path = permission;
+			sourceTree = "<group>";
+		};
 		04B45B001DB4D7FD005C7A83 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -838,14 +851,6 @@
 				04B45B0F1DB60E12005C7A83 /* ContactsTableCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		04CF41F31DDDBD4B00A6C125 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		180F3BD81D8BDC6300D79668 /* HyphenateFullSDK */ = {
@@ -1071,15 +1076,15 @@
 		1845A9501D83D223008BD883 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0480DCEA1DB71FF900129EC4 /* Authority */,
 				18ABF8181D995C4900F305EB /* Chat */,
 				047546821DA8E38A008076F1 /* EaseSDK */,
 				1845A95E1D83E956008BD883 /* Extension */,
 				0455D40F1DC0559B00320798 /* ImagePicker */,
 				049234D71DAF4C3700FD0B29 /* LeanClound */,
 				0490AE641DE2F5A400C90950 /* Loading */,
+				04A7B7FE1DEBE0CC0016FE53 /* LocalDB */,
 				042FFE781D9E393F0096CDF2 /* Macro */,
-				04CF41F31DDDBD4B00A6C125 /* Realm */,
+				04A7B8011DEBE10C0016FE53 /* Permission */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1236,6 +1241,8 @@
 		67602AFFD9847F1AC4068B5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04A7B7F91DEBD8EE0016FE53 /* EZSwiftExtensions.framework */,
+				04A7B7F71DEBD8620016FE53 /* SnapKit.framework */,
 				04CF41E01DDDB15100A6C125 /* Realm.framework */,
 				04CF41E11DDDB15100A6C125 /* RealmSwift.framework */,
 				180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */,
@@ -1596,7 +1603,6 @@
 				04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */,
 				04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */,
 				1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */,
-				04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */,
 				0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */,
 				048AF1171DCC2A7100B9108C /* UIScrollView+MJRefresh.m in Sources */,
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
@@ -1629,6 +1635,7 @@
 				0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */,
 				049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */,
 				048AF10F1DCC2A7100B9108C /* MJRefreshBackNormalFooter.m in Sources */,
+				04A7B8031DEBE10C0016FE53 /* AuthorityManager.swift in Sources */,
 				189FCCFE1DC482D90011268E /* ChatRecordingView.swift in Sources */,
 				1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */,
 				047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */,
@@ -1645,9 +1652,9 @@
 				042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */,
 				18B593751DD371D4003F2F6E /* KDFriendAlbumViewController.swift in Sources */,
 				189557EC1DD214540016F885 /* AlumbCellDelegate.swift in Sources */,
-				0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */,
 				0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */,
 				048AF10D1DCC2A7100B9108C /* MJRefreshAutoStateFooter.m in Sources */,
+				04A7B8001DEBE0CC0016FE53 /* RealmHelper.swift in Sources */,
 				188B05611D85306200393752 /* KDNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

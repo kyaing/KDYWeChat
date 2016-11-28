@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EZSwiftExtensions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KVOController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,6 +50,11 @@
 			<false/>
 		</dict>
 		<key>ObjectMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PermissionScope.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -94,17 +104,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SQLite.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -132,32 +142,52 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>14ABAFC2FB3A48B916BB248D4F54CF32</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>153761C84E3A539D0E066DABD58B75DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2EACBDF20DE22CFA2D13FD9290D0CEE4</key>
+		<key>190A01D926FE047C8A48342AA2B31580</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40124ED0302A672C9125BC228624D8E4</key>
+		<key>19C36FF99DD07ACC61EC17A3F0A21F8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>432917F42D69A5B49A45EA9EF621184A</key>
+		<key>2FAACBBEFF2721C53A4A370F6221FC33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C7D0B3DAB366007FE931336D367DC31</key>
+		<key>3B610D10AF1DA1404D3A6EA18FB36B49</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44AC68A13CBDB178E2C6F4980DEFE689</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>56A5D94F96E4FC9FCE08171C0F61442D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CA1F93D982F5253395EB2110E5AF493</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6D46ACCA4C3F2BE3B8F9A9E35B37F4A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>761A04FC2023839DCE7E7195A6DEE4A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,7 +197,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89E93BBADA3D312140A21D0129F17592</key>
+		<key>88D36D0E788D5310250CC65777771779</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,12 +207,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F5CA6314C280C713C8562AA41FFDAF8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>92A1B1610D6D55DAD859A2530B91E512</key>
+		<key>8CD64A23DDDA980E091019BBEF59A0B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -192,7 +217,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9899BDF18D213EF13D6E500BB2B28F97</key>
+		<key>9D4F1C7EFA9CFE0037157A2BD42CF56F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,12 +227,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7773913634E9B2816A3D80A443D6B70</key>
+		<key>C31A540DD6DB56404A28511F9FCEB0D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C31A540DD6DB56404A28511F9FCEB0D2</key>
+		<key>C55E46AC6A1E70A6AA25E306AE545375</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -222,11 +247,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFAAC90BCE2F378F8A5515C541D516FA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E5678FC69B99077E1972D149186B2285</key>
 		<dict>
 			<key>primary</key>
@@ -237,7 +257,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F1AA877F83DDA235FC4CCE58AF2F22E8</key>
+		<key>EC332CF5BF31530635DD7B1D0997BB62</key>
 		<dict>
 			<key>primary</key>
 			<true/>
