@@ -27,12 +27,12 @@ target 'KDYWeChat' do
     pod 'RealmSwift', '1.0.2'
     pod 'Validator', '~> 1.2.0'
     pod 'EZSwiftExtensions', '~> 1.6'
-    pod 'SQLite.swift', '~> 0.10.1'
 
     # Objective-C
     pod 'MBProgressHUD'
-    pod 'YYText'
     pod 'KVOController'
+    pod 'YYText'
+    pod 'FMDB'
 
     # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
     pod 'AVOSCloudDynamic', '~> 3.3.5'

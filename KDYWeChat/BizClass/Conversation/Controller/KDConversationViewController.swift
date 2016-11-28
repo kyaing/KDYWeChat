@@ -83,6 +83,9 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         registerChatDelegate()
         
         refreshConversations()
+        
+        // 创建数据库
+        FMSQLite.shareInstance.openDB()
     }
     
     override func viewDidDisappear(animated: Bool) {
