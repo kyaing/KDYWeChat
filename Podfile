@@ -11,8 +11,8 @@ target 'KDYWeChat' do
     pod 'SwiftyJSON', '~> 2.3.2'
     pod 'Alamofire', '~> 3.4.0'
     pod 'Kingfisher', '~> 2.5.0'
-    pod 'UIColor_Hex_Swift', '~> 2.0'
     pod 'Proposer', '~> 0.9.0'
+    pod 'PermissionScope', '~> 1.0.2'
 
     pod 'Moya', '~> 7.0.0'
     pod 'Moya/RxSwift'
@@ -26,11 +26,13 @@ target 'KDYWeChat' do
     pod 'Reusable', '~> 2.5.0'
     pod 'RealmSwift', '1.0.2'
     pod 'Validator', '~> 1.2.0'
+    pod 'EZSwiftExtensions', '~> 1.6'
 
     # Objective-C
     pod 'MBProgressHUD'
-    pod 'YYText'
     pod 'KVOController'
+    pod 'YYText'
+    pod 'FMDB'
 
     # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
     pod 'AVOSCloudDynamic', '~> 3.3.5'

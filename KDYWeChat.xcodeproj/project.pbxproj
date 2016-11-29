@@ -22,6 +22,9 @@
 		0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */; };
 		0421027E1DC890BF004C3326 /* KDChatLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */; };
 		042102801DC898AC004C3326 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0421027F1DC898AC004C3326 /* MapKit.framework */; };
+		0427C03E1DEC26FC00DE324F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0427C03D1DEC26FC00DE324F /* libsqlite3.0.tbd */; };
+		0427C0411DEC2B0000DE324F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427C0401DEC2B0000DE324F /* RealmHelper.swift */; };
+		0427C0431DEC2B4200DE324F /* FMSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427C0421DEC2B4200DE324F /* FMSQLite.swift */; };
 		042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */; };
 		042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE6F1D9E35630096CDF2 /* MessageModel.swift */; };
 		042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE721D9E35630096CDF2 /* MessageTableCell.swift */; };
@@ -42,7 +45,6 @@
 		047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF31D9E187000022544 /* AppDelegate.swift */; };
 		047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */; };
 		047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */; };
-		0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */; };
 		048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559181D99273B001A076A /* UIScreen+Frame.swift */; };
 		048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559201D9A1E27001A076A /* ChatTimeTableCell.swift */; };
 		048559231D9A1E27001A076A /* ChatTimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048559211D9A1E27001A076A /* ChatTimeTableCell.xib */; };
@@ -84,6 +86,8 @@
 		049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */; };
 		049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */; };
 		049CCDCA1D8F961300CC6394 /* ChatBottomBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */; };
+		04A7B7FA1DEBD8EE0016FE53 /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A7B7F91DEBD8EE0016FE53 /* EZSwiftExtensions.framework */; };
+		04A7B8031DEBE10C0016FE53 /* AuthorityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7B8021DEBE10C0016FE53 /* AuthorityManager.swift */; };
 		04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */; };
 		04B45B0A1DB5C67E005C7A83 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B091DB5C67E005C7A83 /* ContactModel.swift */; };
 		04B45B101DB60E12005C7A83 /* ContactsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */; };
@@ -102,8 +106,7 @@
 		04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */; };
 		04B6B20A1D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */; };
 		04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */; };
-		04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */; };
-		04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */; };
+		04B899071DDE9F9D00B0D138 /* MessageDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B899061DDE9F9D00B0D138 /* MessageDBModel.swift */; };
 		04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */; };
 		04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */; };
 		0F14BC22BF7D951731B7F2E7 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */; };
@@ -115,7 +118,6 @@
 		180F3BD11D8BDBBE00D79668 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD01D8BDBBE00D79668 /* libz.tbd */; };
 		180F3BD31D8BDBD400D79668 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD21D8BDBD400D79668 /* libc++.tbd */; };
 		180F3BD51D8BDBDB00D79668 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD41D8BDBDB00D79668 /* libstdc++.6.0.9.tbd */; };
-		180F3BD71D8BDBE400D79668 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 180F3BD61D8BDBE400D79668 /* libsqlite3.tbd */; };
 		1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833DCCD1DB34F20008B036B /* MeHeaderTableCell.swift */; };
 		1833DCD01DB34F20008B036B /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1833DCCE1DB34F20008B036B /* MeHeaderTableCell.xib */; };
 		1833DCD51DB3788C008B036B /* KDMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1833DCD31DB3788C008B036B /* KDMeViewController.swift */; };
@@ -167,13 +169,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0490AE761DE690F600C90950 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 18452C9B1D819E9100D4B2BE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 18452CA21D819E9100D4B2BE;
-			remoteInfo = KDYWeChat;
-		};
 		18452CB81D819E9100D4B2BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 18452C9B1D819E9100D4B2BE /* Project object */;
@@ -220,6 +215,9 @@
 		0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonalDetailViewController.swift; sourceTree = "<group>"; };
 		0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatLocationViewController.swift; sourceTree = "<group>"; };
 		0421027F1DC898AC004C3326 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0427C03D1DEC26FC00DE324F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		0427C0401DEC2B0000DE324F /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		0427C0421DEC2B4200DE324F /* FMSQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSQLite.swift; sourceTree = "<group>"; };
 		042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConversationViewController.swift; sourceTree = "<group>"; };
 		042FFE6F1D9E35630096CDF2 /* MessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		042FFE721D9E35630096CDF2 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 		047F8EF31D9E187000022544 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeanCloud.swift"; sourceTree = "<group>"; };
 		047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+EaseSDK.swift"; sourceTree = "<group>"; };
-		0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorityManager.swift; sourceTree = "<group>"; };
 		048559181D99273B001A076A /* UIScreen+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Frame.swift"; sourceTree = "<group>"; };
 		048559201D9A1E27001A076A /* ChatTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTimeTableCell.swift; sourceTree = "<group>"; };
 		048559211D9A1E27001A076A /* ChatTimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTimeTableCell.xib; sourceTree = "<group>"; };
@@ -292,7 +289,6 @@
 		0490AE671DE420AA00C90950 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0490AE691DE420DC00C90950 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		0490AE6B1DE4520500C90950 /* MBProgressHUD+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Loading.swift"; sourceTree = "<group>"; };
-		0490AE711DE690F500C90950 /* WeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049234D21DAF33B100FD0B29 /* KDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		049234D31DAF33B100FD0B29 /* KDLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDLoginViewController.xib; sourceTree = "<group>"; };
 		0495CAAB1DD1CB78003F4862 /* KDDiscoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDDiscoveryViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +298,9 @@
 		049CCDAD1D8F92C400CC6394 /* ChatBaseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBaseTableCell.swift; sourceTree = "<group>"; };
 		049CCDC71D8F95E300CC6394 /* ChatBottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBottomBarView.swift; sourceTree = "<group>"; };
 		049CCDC91D8F961300CC6394 /* ChatBottomBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatBottomBarView.xib; sourceTree = "<group>"; };
+		04A7B7F71DEBD8620016FE53 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/KDYWeChat-bemixjdjfxnjvvdbbdjierkackvr/Build/Products/Debug-iphonesimulator/SnapKit.framework"; sourceTree = "<group>"; };
+		04A7B7F91DEBD8EE0016FE53 /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../../Library/Developer/Xcode/DerivedData/KDYWeChat-bemixjdjfxnjvvdbbdjierkackvr/Build/Products/Debug-iphonesimulator/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
+		04A7B8021DEBE10C0016FE53 /* AuthorityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorityManager.swift; sourceTree = "<group>"; };
 		04B45B011DB4D7FD005C7A83 /* KDContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDContactsViewController.swift; sourceTree = "<group>"; };
 		04B45B091DB5C67E005C7A83 /* ContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		04B45B0E1DB60E12005C7A83 /* ContactsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableCell.swift; sourceTree = "<group>"; };
@@ -320,10 +319,9 @@
 		04B6B2071D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRedEnvelopeCell.swift; sourceTree = "<group>"; };
 		04B6B2081D98BE4000BCBDE7 /* ChatRedEnvelopeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatRedEnvelopeCell.xib; sourceTree = "<group>"; };
 		04B6B20B1D98F3C400BCBDE7 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
-		04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRealmModel.swift; sourceTree = "<group>"; };
+		04B899061DDE9F9D00B0D138 /* MessageDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDBModel.swift; sourceTree = "<group>"; };
 		04CF41E01DDDB15100A6C125 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		04CF41E11DDDB15100A6C125 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		04FCCC1A1DC0971D00EF5B53 /* PHAssets+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssets+UIImage.swift"; sourceTree = "<group>"; };
 		04FEF9D31DAA5148001812D1 /* KDYWeChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYWeChatHelper.swift; sourceTree = "<group>"; };
 		16CA1DDC17CA1B044E7B84D5 /* Pods-KDYWeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -430,23 +428,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0490AE6E1DE690F500C90950 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		18452CA01D819E9100D4B2BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A7B7FA1DEBD8EE0016FE53 /* EZSwiftExtensions.framework in Frameworks */,
 				044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */,
 				042102801DC898AC004C3326 /* MapKit.framework in Frameworks */,
 				189E88621D8D66DD0007C9A5 /* libiconv.tbd in Frameworks */,
 				189E885E1D8D665E0007C9A5 /* libHyphenateFullSDK.a in Frameworks */,
-				180F3BD71D8BDBE400D79668 /* libsqlite3.tbd in Frameworks */,
 				180F3BD51D8BDBDB00D79668 /* libstdc++.6.0.9.tbd in Frameworks */,
+				0427C03E1DEC26FC00DE324F /* libsqlite3.0.tbd in Frameworks */,
 				180F3BD31D8BDBD400D79668 /* libc++.tbd in Frameworks */,
 				180F3BD11D8BDBBE00D79668 /* libz.tbd in Frameworks */,
 				044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */,
@@ -487,6 +479,15 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		0427C03F1DEC2B0000DE324F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				0427C0401DEC2B0000DE324F /* RealmHelper.swift */,
+				0427C0421DEC2B4200DE324F /* FMSQLite.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		042FFE6B1D9E35630096CDF2 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,7 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				042FFE6F1D9E35630096CDF2 /* MessageModel.swift */,
-				04B899061DDE9F9D00B0D138 /* MessageRealmModel.swift */,
+				04B899061DDE9F9D00B0D138 /* MessageDBModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -566,14 +567,6 @@
 				047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		0480DCEA1DB71FF900129EC4 /* Authority */ = {
-			isa = PBXGroup;
-			children = (
-				0480DCEB1DB721E300129EC4 /* AuthorityManager.swift */,
-			);
-			path = Authority;
 			sourceTree = "<group>";
 		};
 		048AF0D91DCC2A7000B9108C /* MJRefresh */ = {
@@ -802,6 +795,15 @@
 			path = Bar;
 			sourceTree = "<group>";
 		};
+		04A7B8011DEBE10C0016FE53 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				04A7B8021DEBE10C0016FE53 /* AuthorityManager.swift */,
+			);
+			name = Permission;
+			path = permission;
+			sourceTree = "<group>";
+		};
 		04B45B001DB4D7FD005C7A83 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -838,14 +840,6 @@
 				04B45B0F1DB60E12005C7A83 /* ContactsTableCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		04CF41F31DDDBD4B00A6C125 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				04CF41F41DDDBD6E00A6C125 /* RealmHelper.swift */,
-			);
-			path = Realm;
 			sourceTree = "<group>";
 		};
 		180F3BD81D8BDC6300D79668 /* HyphenateFullSDK */ = {
@@ -964,7 +958,6 @@
 				18452CA31D819E9100D4B2BE /* KDYWeChat.app */,
 				18452CB71D819E9100D4B2BE /* KDYWeChatTests.xctest */,
 				18452CC21D819E9100D4B2BE /* KDYWeChatUITests.xctest */,
-				0490AE711DE690F500C90950 /* WeChatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1071,15 +1064,15 @@
 		1845A9501D83D223008BD883 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0480DCEA1DB71FF900129EC4 /* Authority */,
 				18ABF8181D995C4900F305EB /* Chat */,
+				0427C03F1DEC2B0000DE324F /* Database */,
 				047546821DA8E38A008076F1 /* EaseSDK */,
 				1845A95E1D83E956008BD883 /* Extension */,
 				0455D40F1DC0559B00320798 /* ImagePicker */,
 				049234D71DAF4C3700FD0B29 /* LeanClound */,
 				0490AE641DE2F5A400C90950 /* Loading */,
 				042FFE781D9E393F0096CDF2 /* Macro */,
-				04CF41F31DDDBD4B00A6C125 /* Realm */,
+				04A7B8011DEBE10C0016FE53 /* Permission */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1236,6 +1229,9 @@
 		67602AFFD9847F1AC4068B5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0427C03D1DEC26FC00DE324F /* libsqlite3.0.tbd */,
+				04A7B7F91DEBD8EE0016FE53 /* EZSwiftExtensions.framework */,
+				04A7B7F71DEBD8620016FE53 /* SnapKit.framework */,
 				04CF41E01DDDB15100A6C125 /* Realm.framework */,
 				04CF41E11DDDB15100A6C125 /* RealmSwift.framework */,
 				180F3BC81D8BDB8E00D79668 /* AudioToolbox.framework */,
@@ -1269,24 +1265,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0490AE701DE690F500C90950 /* WeChatTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0490AE7A1DE690F600C90950 /* Build configuration list for PBXNativeTarget "WeChatTests" */;
-			buildPhases = (
-				0490AE6D1DE690F500C90950 /* Sources */,
-				0490AE6E1DE690F500C90950 /* Frameworks */,
-				0490AE6F1DE690F500C90950 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0490AE771DE690F600C90950 /* PBXTargetDependency */,
-			);
-			name = WeChatTests;
-			productName = WeChatTests;
-			productReference = 0490AE711DE690F500C90950 /* WeChatTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		18452CA21D819E9100D4B2BE /* KDYWeChat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18452CCB1D819E9100D4B2BE /* Build configuration list for PBXNativeTarget "KDYWeChat" */;
@@ -1358,10 +1336,6 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = kaideyi.com;
 				TargetAttributes = {
-					0490AE701DE690F500C90950 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 18452CA21D819E9100D4B2BE;
-					};
 					18452CA21D819E9100D4B2BE = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 36D935N6NX;
@@ -1400,19 +1374,11 @@
 				18452CA21D819E9100D4B2BE /* KDYWeChat */,
 				18452CB61D819E9100D4B2BE /* KDYWeChatTests */,
 				18452CC11D819E9100D4B2BE /* KDYWeChatUITests */,
-				0490AE701DE690F500C90950 /* WeChatTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0490AE6F1DE690F500C90950 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		18452CA11D819E9100D4B2BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1528,13 +1494,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0490AE6D1DE690F500C90950 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		18452C9F1D819E9100D4B2BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1578,6 +1537,7 @@
 				04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */,
 				1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */,
 				18A37F941DC4860900FCAAE0 /* TSYYTextLinePositionModifier.swift in Sources */,
+				0427C0431DEC2B4200DE324F /* FMSQLite.swift in Sources */,
 				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
 				040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */,
@@ -1594,9 +1554,8 @@
 				048AF1071DCC2A7100B9108C /* MJRefreshBackFooter.m in Sources */,
 				048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */,
 				04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */,
-				04B899071DDE9F9D00B0D138 /* MessageRealmModel.swift in Sources */,
+				04B899071DDE9F9D00B0D138 /* MessageDBModel.swift in Sources */,
 				1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */,
-				04CF41F51DDDBD6E00A6C125 /* RealmHelper.swift in Sources */,
 				0495CAAF1DD1CB78003F4862 /* KDDiscoveryViewController.swift in Sources */,
 				048AF1171DCC2A7100B9108C /* UIScrollView+MJRefresh.m in Sources */,
 				048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */,
@@ -1629,6 +1588,7 @@
 				0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */,
 				049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */,
 				048AF10F1DCC2A7100B9108C /* MJRefreshBackNormalFooter.m in Sources */,
+				04A7B8031DEBE10C0016FE53 /* AuthorityManager.swift in Sources */,
 				189FCCFE1DC482D90011268E /* ChatRecordingView.swift in Sources */,
 				1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */,
 				047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */,
@@ -1645,9 +1605,9 @@
 				042FFE741D9E35630096CDF2 /* KDConversationViewController.swift in Sources */,
 				18B593751DD371D4003F2F6E /* KDFriendAlbumViewController.swift in Sources */,
 				189557EC1DD214540016F885 /* AlumbCellDelegate.swift in Sources */,
-				0480DCEC1DB721E300129EC4 /* AuthorityManager.swift in Sources */,
 				0472632C1D8FC64200D9380C /* ChatEmotionView.swift in Sources */,
 				048AF10D1DCC2A7100B9108C /* MJRefreshAutoStateFooter.m in Sources */,
+				0427C0411DEC2B0000DE324F /* RealmHelper.swift in Sources */,
 				188B05611D85306200393752 /* KDNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1671,11 +1631,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0490AE771DE690F600C90950 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 18452CA21D819E9100D4B2BE /* KDYWeChat */;
-			targetProxy = 0490AE761DE690F600C90950 /* PBXContainerItemProxy */;
-		};
 		18452CB91D819E9100D4B2BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 18452CA21D819E9100D4B2BE /* KDYWeChat */;
@@ -1716,32 +1671,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0490AE781DE690F600C90950 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WeChatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.WeChatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
-			};
-			name = Debug;
-		};
-		0490AE791DE690F600C90950 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = WeChatTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.WeChatTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
-			};
-			name = Release;
-		};
 		18452CC91D819E9100D4B2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1857,6 +1786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "armv7 armv7s arm64";
@@ -1889,6 +1819,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1943,15 +1874,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0490AE7A1DE690F600C90950 /* Build configuration list for PBXNativeTarget "WeChatTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0490AE781DE690F600C90950 /* Debug */,
-				0490AE791DE690F600C90950 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		18452C9E1D819E9100D4B2BE /* Build configuration list for PBXProject "KDYWeChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

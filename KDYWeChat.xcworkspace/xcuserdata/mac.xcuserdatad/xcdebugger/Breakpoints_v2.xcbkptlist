@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/BizClass/Chat/View/Bar/ChatRecordingView.swift"
-            timestampString = "500888382.71556"
+            filePath = "KDYWeChat/Helpers/Database/FMSQLite.swift"
+            timestampString = "502105723.126326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "recordWithShortTime()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "updateTable(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

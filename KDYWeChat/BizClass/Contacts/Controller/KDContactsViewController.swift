@@ -242,7 +242,8 @@ final class KDContactsViewController: UIViewController {
     
     // MARK: - Event Response 
     func addFrinedAction() {
-        
+        let controller = KDAddFriendViewController.initFromNib()
+        ky_pushViewController(controller, animated: true)
     }
     
     /**

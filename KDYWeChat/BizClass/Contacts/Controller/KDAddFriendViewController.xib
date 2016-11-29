@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KDAddFriendViewController" customModule="KDYWeChat" customModuleProvider="target">
             <connections>
+                <outlet property="friendTableView" destination="tUa-er-bwR" id="fbZ-uL-6un"/>
+                <outlet property="searchBar" destination="PP3-ue-aDz" id="0IJ-1H-IgV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,9 +16,29 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="用户名" translatesAutoresizingMaskIntoConstraints="NO" id="PP3-ue-aDz">
+                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet"/>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tUa-er-bwR">
+                    <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tUa-er-bwR" secondAttribute="trailing" id="26V-e7-sNU"/>
+                <constraint firstItem="tUa-er-bwR" firstAttribute="top" secondItem="PP3-ue-aDz" secondAttribute="bottom" id="5pa-CI-dot"/>
+                <constraint firstItem="PP3-ue-aDz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BPR-Jm-0vx"/>
+                <constraint firstItem="PP3-ue-aDz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Cq2-gW-EJa"/>
+                <constraint firstItem="tUa-er-bwR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H6i-QL-e8B"/>
+                <constraint firstAttribute="trailing" secondItem="PP3-ue-aDz" secondAttribute="trailing" id="Iul-LU-78K"/>
+                <constraint firstAttribute="bottom" secondItem="tUa-er-bwR" secondAttribute="bottom" id="MZa-uM-Kir"/>
+                <constraint firstItem="tUa-er-bwR" firstAttribute="top" secondItem="PP3-ue-aDz" secondAttribute="bottom" id="ZvT-7u-cSX"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="261" y="334"/>
+            <point key="canvasLocation" x="136" y="298"/>
         </view>
     </objects>
 </document>
