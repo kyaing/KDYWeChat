@@ -83,9 +83,6 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         registerChatDelegate()
         
         refreshConversations()
-        
-        // 创建数据库
-        FMSQLite.shareInstance.openDB()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -113,6 +110,9 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     func refreshConversations() {
         // self.realm = RealmHelper.shareInstance.setupRealm()
         // print("path = \(self.realm.configuration.fileURL)")
+        
+        // 创建数据库
+        // FMSQLite.shareInstance.openDB()
         
         getChatConversations()
     }
@@ -175,6 +175,14 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             
             let model = MessageModel(conversation: conversation)
             self.messageDataSource.addObject(model)
+            
+            // 存储到FMDB中
+            //    let dbModel = MessageDBModel()
+            //    dbModel.nickname    = conversation.conversationId
+            //    dbModel.lastContent = self.getLastMessageForConversation(model)!
+            //    dbModel.time        = self.getlastMessageTimeForConversation(model)
+            //    
+            //    FMSQLite.shareInstance.updateTable(dbModel)
             
             // 存储到 Realm数据库
             //    do {
