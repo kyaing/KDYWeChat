@@ -14,6 +14,22 @@ class MessageViewModel {
     
     // MARK: - Parameters
     
+    let addBarDidTap = PublishSubject<Void>()
+    let itemSelected = PublishSubject<NSIndexPath>()
+    let itemDeleted  = PublishSubject<NSIndexPath>()
+    
+    var pushChatViewModel: Observable<Void>
+    
+    let disposeBag = DisposeBag()
+    
+    // MARK: - Life Cycle
+    init() {
+        self.pushChatViewModel = self.itemSelected
+            .map { indexPath in
+                
+            }.asObservable()
+    }
+    
     // MARK: - Public Methods
 
     /**
@@ -69,7 +85,7 @@ class MessageViewModel {
             return AnonymousDisposable{}
         }
     }
-    
+
     /**
      *  对应会话的最后一条消息
      */

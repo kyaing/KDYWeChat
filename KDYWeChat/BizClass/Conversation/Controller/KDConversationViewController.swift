@@ -72,30 +72,19 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         return headerView
     }()
     
+    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain, target: nil,
+                                       action: Selector())
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem =
-            UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"),
-                            style: .Plain,
-                            target: self,
-                            action: #selector(self.handleAddFriendViewAction))
+        self.navigationItem.rightBarButtonItem = self.rightBarItem
         
         self.view.addSubview(self.tableView)
         
-        // 配置Cell
-        self.dataSorce.configureCell = {
-            _, tableView, indexPath, model in
-            let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
-            cell.model = model
-            
-            return cell
-        }
-        
-        self.viewModel.getChatConversations()
-            .bindTo(self.tableView.rx_itemsWithDataSource(self.dataSorce))
-            .addDisposableTo(self.disposeBag)
+        // 配置 ViewModel
+        configures(self.viewModel)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -142,6 +131,40 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
     
     // MARK: - Private Methods
+    private func configures(viewModel: MessageViewModel) {
+        
+        // 按钮点击
+        self.rightBarItem.rx_tap
+            .bindTo(viewModel.addBarDidTap)
+            .addDisposableTo(self.disposeBag)
+        
+        // 选中cell
+        self.tableView.rx_itemSelected
+            .bindTo(viewModel.itemSelected)
+            .addDisposableTo(self.disposeBag)
+        
+        // 删除cell
+        self.tableView.rx_itemDeleted
+            .bindTo(viewModel.itemDeleted)
+            .addDisposableTo(self.disposeBag)
+        
+        // 配置cell
+        self.dataSorce.configureCell = {
+            _, tableView, indexPath, model in
+            let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            cell.model = model
+            
+            return cell
+        }
+        
+        // 绑定数据源
+        viewModel.getChatConversations()
+            .bindTo(self.tableView.rx_itemsWithDataSource(self.dataSorce))
+            .addDisposableTo(self.disposeBag)
+        
+        viewModel.pushChatViewModel
+            
+    }
     
     /**
      *  网络是否连接 (准确地说是否连上环信服务器)
@@ -252,22 +275,4 @@ extension KDConversationViewController: UITableViewDelegate {
         // 发送未读消息的通知
         NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)
     }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .Delete
-    }
-    
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        // 添加备注按钮
-        let noteRowAction = UITableViewRowAction(style: .Default, title: "删除") { (rowAction, indexPath) in
-            print(">>> 删除聊天 <<<")
-        }
-        
-        return [noteRowAction]
-    }
-}
 */
