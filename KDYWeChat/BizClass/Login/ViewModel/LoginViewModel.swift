@@ -11,10 +11,10 @@ import RxCocoa
 import RxSwift
 import Validator
 
-/// 登录ViewModel
 class LoginViewModel {
     
     // MARK: - Parameters
+    
     /// 是否登录的序列
     let loginBtnEnabled: Driver<Bool>
     

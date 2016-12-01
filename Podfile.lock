@@ -42,6 +42,7 @@ PODS:
   - RxSwift (2.5.0)
   - SnapKit (0.22.0)
   - SwiftyJSON (2.3.2)
+  - Then (1.0.3)
   - UIImageViewModeScaleAspect (1.5)
   - Validator (1.2.0)
   - YYText (1.0.5)
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - RxSwift (~> 2.5.0)
   - SnapKit
   - SwiftyJSON (~> 2.3.2)
+  - Then (~> 1.0.3)
   - Validator (~> 1.2.0)
   - YYText
 
@@ -93,6 +95,7 @@ SPEC CHECKSUMS:
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   SnapKit: 0dd2fd157330f1ea11fd84da13e6be8a7a22bae0
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Then: c2502b763132c80dfa64d325065d70c45e2d48ca
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
   Validator: 4015c0fcaacd165100b337dc4198ba308fb567fb
   YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae

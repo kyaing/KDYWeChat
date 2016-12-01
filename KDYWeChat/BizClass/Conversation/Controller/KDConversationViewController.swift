@@ -8,6 +8,9 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxDataSources
+import Then
 
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
@@ -50,16 +53,21 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     // 断网状态的视图
     lazy var networkFailHeaderView: UIView = {
-        let headerView: UIView = UIView(frame: CGRectMake(0, 0, self.conversationTableView.width, 40))
-        headerView.backgroundColor = UIColor(colorHex: .networkFailedColor)
+        // $0确实更简洁，但却没自动提示
+        let headerView = UIView().then {
+            $0.frame = CGRectMake(0, 0, self.conversationTableView.width, 40)
+            $0.backgroundColor = UIColor(colorHex: .networkFailedColor)
+        }
         
-        let tipLabel = UILabel(frame: CGRectMake((headerView.width - 300)/2.0, 10, 300, 20))
-        tipLabel.textColor = UIColor.grayColor()
-        tipLabel.backgroundColor = UIColor.clearColor()
-        tipLabel.text = "当前网络有问题，请您检查网络"
-        tipLabel.font = UIFont.systemFontOfSize(14)
-        tipLabel.textAlignment = .Center
-        headerView.addSubview(tipLabel)
+        let tipLabel = UILabel().then {
+            $0.frame = CGRectMake((headerView.width - 300)/2.0, 10, 300, 20)
+            $0.textColor = UIColor.grayColor()
+            $0.backgroundColor = .clearColor()
+            $0.text = "当前网络有问题，请您检查网络"
+            $0.font = UIFont.systemFontOfSize(14)
+            $0.textAlignment = .Center
+            headerView.addSubview($0)
+        }
         
         return headerView
     }()
@@ -69,6 +77,8 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         
         return rightBarItem
     }()
+    
+    let 
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
