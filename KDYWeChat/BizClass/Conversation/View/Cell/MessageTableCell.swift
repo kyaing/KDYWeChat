@@ -21,6 +21,49 @@ class MessageTableCell: UITableViewCell, NibReusable {
     @IBOutlet weak var unReadMsgWidthContraint: NSLayoutConstraint!
     @IBOutlet weak var unReadMsgHeightContriant: NSLayoutConstraint!
     
+    var model: MessageModel! {
+        willSet {
+            self.userNameLabel.text     = newValue.title
+            self.lastMessageLabel?.text = newValue.lastContent
+            self.lastMsgDateLabel.text  = newValue.lastTime
+            self.unReadMsgLabel.text    = newValue.unReadCount
+            
+            let unReadCount = newValue.unReadCount.toInt()
+            if unReadCount > 0 {
+                self.unReadMsgLabel.hidden = false
+                self.unReadMsgLabel.text = newValue.unReadCount
+                
+                // 处理气泡的大小
+                if unReadCount > 9 {
+                    self.unReadMsgWidthContraint.constant  = 23
+                    self.unReadMsgHeightContriant.constant = 18
+                    self.unReadMsgLabel.layer.cornerRadius = 9
+                    
+                    if unReadCount > 99 {
+                        self.unReadMsgLabel.text = "99"
+                    }
+                    
+                } else {
+                    self.unReadMsgWidthContraint.constant  = 19
+                    self.unReadMsgHeightContriant.constant = 19
+                    self.unReadMsgLabel.layer.cornerRadius = 9.5
+                }
+                
+            } else {
+                self.unReadMsgLabel.hidden = true
+            }
+            
+            // 处理头像
+            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) {
+                if userInfo.imageUrl != nil {
+                    self.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                } else {
+                    self.avatorImageView.image = UIImage(named: kUserAvatarDefault)
+                }
+            }
+        }
+    }
+    
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +79,7 @@ class MessageTableCell: UITableViewCell, NibReusable {
         lastMsgDateLabel.textColor = UIColor.grayColor()
     }
     
-    // 当cell选中和高高时，重新设置label颜色
+    // 当Cell选中和高高时，重新设置label颜色
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         unReadMsgLabel.backgroundColor = .redColor()
