@@ -27,6 +27,7 @@ target 'KDYWeChat' do
     pod 'RealmSwift', '1.0.2'
     pod 'Validator', '~> 1.2.0'
     pod 'EZSwiftExtensions', '~> 1.6'
+    pod 'Then', '~> 1.0.3'
 
     # Objective-C
     pod 'MBProgressHUD'

@@ -8,6 +8,9 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxDataSources
+import Then
 
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
@@ -17,7 +20,11 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     /// 数据源
     var messageDataSource = NSMutableArray()
     
-    var realm: Realm!
+    let viewModel = MessageViewModel()
+    
+    let dataSorce = RxTableViewSectionedReloadDataSource<SectionModel<String, MessageModel>>()
+    
+    let disposeBag = DisposeBag()
     
     /// 搜索控制器
     lazy var searchController: UISearchController = {
@@ -31,58 +38,60 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         return searchController
     }()
     
-    lazy var conversationTableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
+        tableView.registerReusableCell(MessageTableCell)
         tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         tableView.separatorColor = UIColor(colorHex: .separatorColor)
-        tableView.registerReusableCell(MessageTableCell)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         tableView.tableHeaderView = self.searchController.searchBar
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 60
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        self.view.addSubview(tableView)
         
         return tableView
     }()
     
     // 断网状态的视图
     lazy var networkFailHeaderView: UIView = {
-        let headerView: UIView = UIView(frame: CGRectMake(0, 0, self.conversationTableView.width, 40))
-        headerView.backgroundColor = UIColor(colorHex: .networkFailedColor)
+        // $0 确实更简洁，但却没自动提示
+        let headerView = UIView().then {
+            $0.frame = CGRectMake(0, 0, self.tableView.width, 40)
+            $0.backgroundColor = UIColor(colorHex: .networkFailedColor)
+        }
         
-        let tipLabel = UILabel(frame: CGRectMake((headerView.width - 300)/2.0, 10, 300, 20))
-        tipLabel.textColor = UIColor.grayColor()
-        tipLabel.backgroundColor = UIColor.clearColor()
-        tipLabel.text = "当前网络有问题，请您检查网络"
-        tipLabel.font = UIFont.systemFontOfSize(14)
-        tipLabel.textAlignment = .Center
-        headerView.addSubview(tipLabel)
+        let tipLabel = UILabel().then {
+            $0.frame = CGRectMake((headerView.width - 300)/2.0, 10, 300, 20)
+            $0.textColor = UIColor.grayColor()
+            $0.backgroundColor = .clearColor()
+            $0.text = "当前网络有问题，请您检查网络"
+            $0.font = UIFont.systemFontOfSize(14)
+            $0.textAlignment = .Center
+            headerView.addSubview($0)
+        }
         
         return headerView
     }()
     
-    lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain, target: self, action: #selector(self.handleAddFriendViewAction))
-        
-        return rightBarItem
-    }()
+    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain, target: nil,
+                                       action: Selector())
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = rightBarItem
+        
+        self.navigationItem.rightBarButtonItem = self.rightBarItem
+        
+        self.view.addSubview(self.tableView)
+        
+        // 配置 ViewModel
+        configures(self.viewModel)
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         networkIsConnected()
         registerChatDelegate()
-        
-        refreshConversations()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -97,10 +106,10 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     // MARK: - Public Methods
     func networkStateChanged(connectionState: EMConnectionState) {
         if connectionState == EMConnectionDisconnected {   // 断网状态
-            self.conversationTableView.tableHeaderView = self.networkFailHeaderView
+            self.tableView.tableHeaderView = self.networkFailHeaderView
             
         } else {   // 联网状态
-            self.conversationTableView.tableHeaderView = self.searchController.searchBar
+            self.tableView.tableHeaderView = self.searchController.searchBar
         }
     }
     
@@ -122,6 +131,40 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
     
     // MARK: - Private Methods
+    private func configures(viewModel: MessageViewModel) {
+        
+        // 按钮点击
+        self.rightBarItem.rx_tap
+            .bindTo(viewModel.addBarDidTap)
+            .addDisposableTo(self.disposeBag)
+        
+        // 选中cell
+        self.tableView.rx_itemSelected
+            .bindTo(viewModel.itemSelected)
+            .addDisposableTo(self.disposeBag)
+        
+        // 删除cell
+        self.tableView.rx_itemDeleted
+            .bindTo(viewModel.itemDeleted)
+            .addDisposableTo(self.disposeBag)
+        
+        // 配置cell
+        self.dataSorce.configureCell = {
+            _, tableView, indexPath, model in
+            let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            cell.model = model
+            
+            return cell
+        }
+        
+        // 绑定数据源
+        viewModel.getChatConversations()
+            .bindTo(self.tableView.rx_itemsWithDataSource(self.dataSorce))
+            .addDisposableTo(self.disposeBag)
+        
+        viewModel.pushChatViewModel
+            
+    }
     
     /**
      *  网络是否连接 (准确地说是否连上环信服务器)
@@ -130,11 +173,11 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         // 若没连上环信服务器，应该有重连操作！
         let isConnected = EMClient.sharedClient().isConnected
         if !isConnected {   // 断网状态
-            self.conversationTableView.tableHeaderView = self.networkFailHeaderView
-            view.addSubview(self.conversationTableView)
+            self.tableView.tableHeaderView = self.networkFailHeaderView
+            view.addSubview(self.tableView)
             
         } else {   // 联网状态
-            self.conversationTableView.tableHeaderView = self.searchController.searchBar
+            self.tableView.tableHeaderView = self.searchController.searchBar
         }
     }
     
@@ -175,88 +218,11 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             
             let model = MessageModel(conversation: conversation)
             self.messageDataSource.addObject(model)
-            
-            // 存储到FMDB中
-            //    let dbModel = MessageDBModel()
-            //    dbModel.nickname    = conversation.conversationId
-            //    dbModel.lastContent = self.getLastMessageForConversation(model)!
-            //    dbModel.time        = self.getlastMessageTimeForConversation(model)
-            //    
-            //    FMSQLite.shareInstance.updateTable(dbModel)
-            
-            // 存储到 Realm数据库
-            //    do {
-            //        try self.realm.write {
-            //            let realmModel = MessageRealmModel()
-            //            realmModel.nickname    = conversation.conversationId
-            //            realmModel.lastContent = self.getLastMessageForConversation(model)!
-            //            realmModel.time        = self.getlastMessageTimeForConversation(model)
-            //            
-            //            // 存储头像数据流
-            //            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
-            //                if userInfo.imageUrl != nil {
-            //                    let avatarData = NSData(contentsOfURL: NSURL(string: userInfo.imageUrl!)!)
-            //                    realmModel.avatarData = avatarData
-            //                }
-            //            }
-            //            
-            //            self.realm.add(realmModel)
-            //        }
-            //        
-            //    } catch let error as NSError {
-            //        print("Error = \(error.debugDescription)")
-            //    }
         }
         
         dispatch_async(dispatch_get_main_queue()) { 
-            self.conversationTableView.reloadData()
+            self.tableView.reloadData()
         }
-    }
-    
-    /**
-     *  由数据模型，得到对应会话的最后一条消息
-     */
-    func getLastMessageForConversation(model: MessageModel) -> String? {
-        
-        var latestMsgTitle: String = ""
-        if let message = model.conversation.latestMessage {
-            
-            switch message.body.type {
-            // 除了文本消息，其它都是自已判断
-            case EMMessageBodyTypeText:
-                let textBody = message.body as! EMTextMessageBody
-                latestMsgTitle = textBody.text
-
-            case EMMessageBodyTypeImage:    latestMsgTitle = "[图片]"
-            case EMMessageBodyTypeVoice:    latestMsgTitle = "[语音]"
-            case EMMessageBodyTypeVideo:    latestMsgTitle = "[视频]"
-            case EMMessageBodyTypeLocation: latestMsgTitle = "[位置]"
-            case EMMessageBodyTypeFile:     latestMsgTitle = "[文件]"
-        
-            default: latestMsgTitle = ""
-            }
-            
-            return latestMsgTitle
-        }
-        
-        return ""
-    }
-    
-    /**
-     *  得到对应会话的最后一条消息的时间
-     */
-    func getlastMessageTimeForConversation(model: MessageModel) -> String {
-        let lastMessage = model.conversation.latestMessage
-        if lastMessage == nil { return "" }
-        
-        // 得到时间戳，把微秒转化成具体时间
-        // let timeString = NSDate.formattedTimeFromTimeInterval(lastMessage.timestamp)
-        let seconds = Double(lastMessage.timestamp) / 1000
-        let timeInterval: NSTimeInterval = NSTimeInterval(seconds)
-        let date = NSDate(timeIntervalSince1970: timeInterval)
-        let timeString = NSDate.messageAgoSinceDate(date)
-        
-        return timeString
     }
     
     func registerChatDelegate() {
@@ -294,68 +260,7 @@ extension KDConversationViewController: UISearchControllerDelegate {
     }
 }
 
-// MARK: - UITableViewDataSource
-extension KDConversationViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messageDataSource.count ?? 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
-        
-        let model = self.messageDataSource.objectAtIndex(indexPath.row) as! MessageModel
-        
-        // 设置Cell的数据
-        let lastMessage     = getLastMessageForConversation(model)
-        let lastMessageTime = getlastMessageTimeForConversation(model)
-        
-        let unreadMessageCount = model.conversation.unreadMessagesCount
-        if unreadMessageCount > 0 {
-            cell.unReadMsgLabel.hidden = false
-            cell.unReadMsgLabel.text = String(unreadMessageCount)
-            
-            // 处理气泡的大小
-            if unreadMessageCount > 9 {
-                cell.unReadMsgWidthContraint.constant  = 23
-                cell.unReadMsgHeightContriant.constant = 18
-                cell.unReadMsgLabel.layer.cornerRadius = 9
-                
-                if unreadMessageCount > 99 {
-                    cell.unReadMsgLabel.text = "99"
-                }
-                
-            } else {
-                cell.unReadMsgWidthContraint.constant  = 19
-                cell.unReadMsgHeightContriant.constant = 19
-                cell.unReadMsgLabel.layer.cornerRadius = 9.5
-            }
-            
-        } else {
-            cell.unReadMsgLabel.hidden = true
-        }
-        
-        cell.userNameLabel.text     = model.title
-        cell.lastMessageLabel?.text = lastMessage
-        cell.lastMsgDateLabel.text  = lastMessageTime
-        
-        if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.conversation.conversationId) {
-            if userInfo.imageUrl != nil {
-                cell.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
-            } else {
-                cell.avatorImageView.image = UIImage(named: kUserAvatarDefault)
-            }
-        }
-        
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
+/*
 extension KDConversationViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -370,22 +275,4 @@ extension KDConversationViewController: UITableViewDelegate {
         // 发送未读消息的通知
         NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)
     }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .Delete
-    }
-    
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        // 添加备注按钮
-        let noteRowAction = UITableViewRowAction(style: .Default, title: "删除") { (rowAction, indexPath) in
-            print(">>> 删除聊天 <<<")
-        }
-        
-        return [noteRowAction]
-    }
-}
-
+*/

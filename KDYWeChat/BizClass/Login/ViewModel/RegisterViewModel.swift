@@ -10,7 +10,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-/// 注册ViewModel
 class RegisterViewModel {
     
     // MARK: - Parameters

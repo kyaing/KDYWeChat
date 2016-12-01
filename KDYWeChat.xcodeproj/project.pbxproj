@@ -11,6 +11,7 @@
 		040AB8391DD2F3DA00BFE9A1 /* AlumbPraiseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */; };
 		040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */; };
 		040EF92A1DC9C679008B1E6B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040EF9281DC9C679008B1E6B /* Launch Screen.storyboard */; };
+		04102F4F1DEFCDB200ECEEB5 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102F4E1DEFCDB200ECEEB5 /* MessageViewModel.swift */; };
 		04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA31D92569200E5F6F7 /* ChatBarButton.swift */; };
 		04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */; };
 		04109BA81D9265C100E5F6F7 /* KDChatViewController+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */; };
@@ -204,6 +205,7 @@
 		040AB8371DD2F3DA00BFE9A1 /* AlumbPraiseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbPraiseView.xib; sourceTree = "<group>"; };
 		040AB83C1DD2F53C00BFE9A1 /* AlumbCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbCommentView.swift; sourceTree = "<group>"; };
 		040EF9291DC9C679008B1E6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		04102F4E1DEFCDB200ECEEB5 /* MessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		04109BA31D92569200E5F6F7 /* ChatBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBarButton.swift; sourceTree = "<group>"; };
 		04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+SubViews.swift"; sourceTree = "<group>"; };
@@ -479,6 +481,14 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		04102F4D1DEFCD5300ECEEB5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04102F4E1DEFCDB200ECEEB5 /* MessageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0427C03F1DEC2B0000DE324F /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				042FFE6E1D9E35630096CDF2 /* Model */,
+				04102F4D1DEFCD5300ECEEB5 /* ViewModel */,
 				042FFE701D9E35630096CDF2 /* View */,
 				042FFE6C1D9E35630096CDF2 /* Controller */,
 			);
@@ -1516,6 +1527,7 @@
 				048D47821DB8735C00BDE27D /* KDAddFriendViewController.swift in Sources */,
 				048AF10E1DCC2A7100B9108C /* MJRefreshBackGifFooter.m in Sources */,
 				189E885D1D8D65F30007C9A5 /* EMOptions.h in Sources */,
+				04102F4F1DEFCDB200ECEEB5 /* MessageViewModel.swift in Sources */,
 				18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */,
 				048AF1101DCC2A7100B9108C /* MJRefreshBackStateFooter.m in Sources */,
 				0495CAB31DD1CE2A003F4862 /* KDQRCodeViewController.swift in Sources */,
