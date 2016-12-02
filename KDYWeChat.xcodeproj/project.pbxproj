@@ -31,6 +31,7 @@
 		042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE721D9E35630096CDF2 /* MessageTableCell.swift */; };
 		042FFE771D9E35630096CDF2 /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFE731D9E35630096CDF2 /* MessageTableCell.xib */; };
 		042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE791D9E394E0096CDF2 /* Macro.swift */; };
+		04405BD11DF11F2F001796E5 /* KDConversationViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */; };
 		044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620361DB0CAF5001D13B1 /* CoreTelephony.framework */; };
 		044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620381DB0CAFF001D13B1 /* CoreLocation.framework */; };
 		0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455D4101DC055E700320798 /* BSImagePicker.swift */; };
@@ -225,6 +226,7 @@
 		042FFE721D9E35630096CDF2 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		042FFE731D9E35630096CDF2 /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
 		042FFE791D9E394E0096CDF2 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDConversationViewController+Delegate.swift"; sourceTree = "<group>"; };
 		044620361DB0CAF5001D13B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		044620381DB0CAFF001D13B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0455D4101DC055E700320798 /* BSImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSImagePicker.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				042FFE6D1D9E35630096CDF2 /* KDConversationViewController.swift */,
+				04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1536,6 +1539,7 @@
 				048AF1131DCC2A7100B9108C /* MJRefreshStateHeader.m in Sources */,
 				1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */,
 				049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */,
+				04405BD11DF11F2F001796E5 /* KDConversationViewController+Delegate.swift in Sources */,
 				04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */,
 				048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */,
 				049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */,

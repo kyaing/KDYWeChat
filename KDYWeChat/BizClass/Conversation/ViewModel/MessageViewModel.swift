@@ -18,16 +18,11 @@ class MessageViewModel {
     let itemSelected = PublishSubject<NSIndexPath>()
     let itemDeleted  = PublishSubject<NSIndexPath>()
     
-    var pushChatViewModel: Observable<Void>
-    
     let disposeBag = DisposeBag()
     
     // MARK: - Life Cycle
     init() {
-        self.pushChatViewModel = self.itemSelected
-            .map { indexPath in
-                
-            }.asObservable()
+        
     }
     
     // MARK: - Public Methods
@@ -41,13 +36,13 @@ class MessageViewModel {
             let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
             
             // 删除最后一条为空的会话
-            conversations.enumerateObjectsUsingBlock({ (conversation, idx, stop) in
+            conversations.enumerateObjectsUsingBlock { (conversation, idx, stop) in
                 let conversation = conversation as! EMConversation
                 if conversation.latestMessage == nil {
                     EMClient.sharedClient().chatManager.deleteConversation(conversation.conversationId,
                         isDeleteMessages: false, completion: nil)
                 }
-            })
+            }
             
             // 按时间的降序，排列会话列表
             let sortedConversations: NSArray = conversations.sortedArrayUsingComparator {

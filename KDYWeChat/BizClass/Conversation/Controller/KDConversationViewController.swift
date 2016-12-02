@@ -20,35 +20,28 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     /// 数据源
     var messageDataSource = NSMutableArray()
     
-    let viewModel = MessageViewModel()
-    
-    let dataSorce = RxTableViewSectionedReloadDataSource<SectionModel<String, MessageModel>>()
-    
-    let disposeBag = DisposeBag()
-    
     /// 搜索控制器
     lazy var searchController: UISearchController = {
-        let searchController: UISearchController = UISearchController(searchResultsController: nil)
-        searchController.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = UIColor(colorHex: .chatGreenColor)
-        searchController.searchBar.sizeToFit()
+        let search: UISearchController = UISearchController(searchResultsController: nil)
+        search.dimsBackgroundDuringPresentation = false
+        search.searchBar.tintColor = UIColor(colorHex: .chatGreenColor)
+        search.searchBar.sizeToFit()
         
-        return searchController
+        return search
     }()
+
     
     lazy var tableView: UITableView = {
-        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
-        tableView.registerReusableCell(MessageTableCell)
-        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
-        tableView.separatorColor = UIColor(colorHex: .separatorColor)
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-        tableView.tableHeaderView = self.searchController.searchBar
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = 60
+        let tb: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
+        tb.registerReusableCell(MessageTableCell)
+        tb.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        tb.separatorColor  = UIColor(colorHex: .separatorColor)
+        tb.separatorInset  = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        tb.tableHeaderView = self.searchController.searchBar
+        tb.tableFooterView = UIView()
+        tb.rowHeight = 60
         
-        return tableView
+        return tb
     }()
     
     // 断网状态的视图
@@ -72,19 +65,29 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         return headerView
     }()
     
-    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain, target: nil,
-                                       action: Selector())
+    let viewModel = MessageViewModel()
+    
+    let dataSorce = RxTableViewSectionedReloadDataSource<SectionModel<String, MessageModel>>()
+    
+    let disposeBag = DisposeBag()
+    
+    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain,
+                                       target: nil, action: Selector())
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = self.rightBarItem
+        self.navigationItem.rightBarButtonItem = rightBarItem
         
-        self.view.addSubview(self.tableView)
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        tableView.delegate = self
+        
+        self.view.addSubview(tableView)
         
         // 配置 ViewModel
-        configures(self.viewModel)
+        configures(viewModel)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -106,10 +109,12 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     // MARK: - Public Methods
     func networkStateChanged(connectionState: EMConnectionState) {
         if connectionState == EMConnectionDisconnected {   // 断网状态
-            self.tableView.tableHeaderView = self.networkFailHeaderView
-            
+            view.addSubview(tableView)
+            tableView.tableHeaderView = self.networkFailHeaderView
+
         } else {   // 联网状态
-            self.tableView.tableHeaderView = self.searchController.searchBar
+            view.addSubview(tableView)
+            tableView.tableHeaderView = self.searchController.searchBar
         }
     }
     
@@ -117,67 +122,70 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      *  获取用户会话列表
      */
     func refreshConversations() {
-        // self.realm = RealmHelper.shareInstance.setupRealm()
-        // print("path = \(self.realm.configuration.fileURL)")
-        
-        // 创建数据库
-        // FMSQLite.shareInstance.openDB()
-        
         getChatConversations()
-    }
-    
-    func handleAddFriendViewAction() {
-        
     }
     
     // MARK: - Private Methods
     private func configures(viewModel: MessageViewModel) {
         
         // 按钮点击
-        self.rightBarItem.rx_tap
+        rightBarItem.rx_tap
             .bindTo(viewModel.addBarDidTap)
-            .addDisposableTo(self.disposeBag)
+            .addDisposableTo(disposeBag)
         
-        // 选中cell
-        self.tableView.rx_itemSelected
+        rightBarItem.rx_tap
+            .subscribeNext {
+                
+            }
+            .addDisposableTo(disposeBag)
+        
+        // 选中cell (写法更简洁)
+        tableView.rx_itemSelected
             .bindTo(viewModel.itemSelected)
-            .addDisposableTo(self.disposeBag)
+            .addDisposableTo(disposeBag)
+        
+        tableView.rx_modelSelected(MessageModel)
+            .subscribeNext { model in
+                let chatController = KDChatViewController()
+                chatController.conversationId = model.conversation.conversationId
+                chatController.title = model.title
+                self.ky_pushAndHideTabbar(chatController)
+                
+                // 发送未读消息的通知
+                NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)
+            }
+            .addDisposableTo(disposeBag)
         
         // 删除cell
-        self.tableView.rx_itemDeleted
+        tableView.rx_itemDeleted
             .bindTo(viewModel.itemDeleted)
-            .addDisposableTo(self.disposeBag)
+            .addDisposableTo(disposeBag)
         
         // 配置cell
-        self.dataSorce.configureCell = {
-            _, tableView, indexPath, model in
+        dataSorce.configureCell = { _, tableView, indexPath, model in
             let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             cell.model = model
-            
             return cell
         }
         
         // 绑定数据源
         viewModel.getChatConversations()
-            .bindTo(self.tableView.rx_itemsWithDataSource(self.dataSorce))
-            .addDisposableTo(self.disposeBag)
-        
-        viewModel.pushChatViewModel
-            
+            .bindTo(tableView.rx_itemsWithDataSource(dataSorce))
+            .addDisposableTo(disposeBag)
     }
     
     /**
-     *  网络是否连接 (准确地说是否连上环信服务器)
+     *  是否连上环信服务器
      */
     func networkIsConnected() {
-        // 若没连上环信服务器，应该有重连操作！
         let isConnected = EMClient.sharedClient().isConnected
         if !isConnected {   // 断网状态
-            self.tableView.tableHeaderView = self.networkFailHeaderView
-            view.addSubview(self.tableView)
+            view.addSubview(tableView)
+            tableView.tableHeaderView = networkFailHeaderView
             
         } else {   // 联网状态
-            self.tableView.tableHeaderView = self.searchController.searchBar
+            view.addSubview(tableView)
+            tableView.tableHeaderView = searchController.searchBar
         }
     }
     
@@ -217,7 +225,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         for conversation in sortedConversations as! [EMConversation] {
             
             let model = MessageModel(conversation: conversation)
-            self.messageDataSource.addObject(model)
+            messageDataSource.addObject(model)
         }
         
         dispatch_async(dispatch_get_main_queue()) { 
@@ -234,45 +242,3 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
 }
 
-// MARK: - UISearchResultsUpdating
-extension KDConversationViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-    }
-}
-
-// MARK: - UISearchControllerDelegate
-extension KDConversationViewController: UISearchControllerDelegate {
-    func willPresentSearchController(searchController: UISearchController) {
-        
-    }
-    
-    func didPresentSearchController(searchController: UISearchController) {
-        UIApplication.sharedApplication().statusBarStyle = .Default
-    }
-    
-    func willDismissSearchController(searchController: UISearchController) {
-        
-    }
-    
-    func didDismissSearchController(searchController: UISearchController) {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-    }
-}
-
-/*
-extension KDConversationViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let model = self.messageDataSource.objectAtIndex(indexPath.row) as! MessageModel
-    
-        let chatController = KDChatViewController()
-        chatController.conversationId = model.conversation.conversationId
-        chatController.title = model.title
-        ky_pushAndHideTabbar(chatController)
-        
-        // 发送未读消息的通知
-        NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)
-    }
-*/

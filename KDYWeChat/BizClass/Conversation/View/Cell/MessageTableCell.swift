@@ -23,43 +23,38 @@ class MessageTableCell: UITableViewCell, NibReusable {
     
     var model: MessageModel! {
         willSet {
-            self.userNameLabel.text     = newValue.title
-            self.lastMessageLabel?.text = newValue.lastContent
-            self.lastMsgDateLabel.text  = newValue.lastTime
-            self.unReadMsgLabel.text    = newValue.unReadCount
+            userNameLabel.text     = newValue.title
+            lastMessageLabel?.text = newValue.lastContent
+            lastMsgDateLabel.text  = newValue.lastTime
+            unReadMsgLabel.text    = newValue.unReadCount
             
             let unReadCount = newValue.unReadCount.toInt()
-            if unReadCount > 0 {
-                self.unReadMsgLabel.hidden = false
-                self.unReadMsgLabel.text = newValue.unReadCount
+            guard unReadCount > 0 else {  return unReadMsgLabel.hidden = true }
+            
+            unReadMsgLabel.hidden = false
+            unReadMsgLabel.text = newValue.unReadCount
+            
+            // 处理气泡的大小
+            if unReadCount > 9 {
+                unReadMsgWidthContraint.constant  = 23
+                unReadMsgHeightContriant.constant = 18
+                unReadMsgLabel.layer.cornerRadius = 9
                 
-                // 处理气泡的大小
-                if unReadCount > 9 {
-                    self.unReadMsgWidthContraint.constant  = 23
-                    self.unReadMsgHeightContriant.constant = 18
-                    self.unReadMsgLabel.layer.cornerRadius = 9
-                    
-                    if unReadCount > 99 {
-                        self.unReadMsgLabel.text = "99"
-                    }
-                    
-                } else {
-                    self.unReadMsgWidthContraint.constant  = 19
-                    self.unReadMsgHeightContriant.constant = 19
-                    self.unReadMsgLabel.layer.cornerRadius = 9.5
+                if unReadCount > 99 {
+                    unReadMsgLabel.text = "99"
                 }
                 
             } else {
-                self.unReadMsgLabel.hidden = true
+                unReadMsgWidthContraint.constant  = 19
+                unReadMsgHeightContriant.constant = 19
+                unReadMsgLabel.layer.cornerRadius = 9.5
             }
             
             // 处理头像
-            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) {
-                if userInfo.imageUrl != nil {
-                    self.avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
-                } else {
-                    self.avatorImageView.image = UIImage(named: kUserAvatarDefault)
-                }
+            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) where userInfo.imageUrl != nil {
+                    avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+            } else {
+                avatorImageView.image = UIImage(named: kUserAvatarDefault)
             }
         }
     }
