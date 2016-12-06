@@ -16,9 +16,6 @@
 		04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */; };
 		04109BA81D9265C100E5F6F7 /* KDChatViewController+SubViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */; };
 		04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */; };
-		04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */; };
-		04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */; };
-		04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */; };
 		042102781DC848DD004C3326 /* ChatCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042102771DC848DD004C3326 /* ChatCellDelegate.swift */; };
 		0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */; };
 		0421027E1DC890BF004C3326 /* KDChatLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */; };
@@ -31,6 +28,17 @@
 		042FFE761D9E35630096CDF2 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE721D9E35630096CDF2 /* MessageTableCell.swift */; };
 		042FFE771D9E35630096CDF2 /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042FFE731D9E35630096CDF2 /* MessageTableCell.xib */; };
 		042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042FFE791D9E394E0096CDF2 /* Macro.swift */; };
+		043B9D3D1DF6A240008A38AA /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D311DF6A240008A38AA /* NSDate+Extension.swift */; };
+		043B9D3E1DF6A240008A38AA /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D321DF6A240008A38AA /* NSNotificationCenter+Block.swift */; };
+		043B9D3F1DF6A240008A38AA /* NSString+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D331DF6A240008A38AA /* NSString+Validate.swift */; };
+		043B9D401DF6A240008A38AA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D351DF6A240008A38AA /* UIColor+Extension.swift */; };
+		043B9D411DF6A240008A38AA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D361DF6A240008A38AA /* UIImage+Extension.swift */; };
+		043B9D421DF6A240008A38AA /* UIScreen+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D371DF6A240008A38AA /* UIScreen+Frame.swift */; };
+		043B9D431DF6A240008A38AA /* UIScrollView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D381DF6A240008A38AA /* UIScrollView+ChatAdditions.swift */; };
+		043B9D441DF6A240008A38AA /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D391DF6A240008A38AA /* UITableView+ChatAdditions.swift */; };
+		043B9D451DF6A240008A38AA /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D3A1DF6A240008A38AA /* UIView+Frame.swift */; };
+		043B9D461DF6A240008A38AA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D3B1DF6A240008A38AA /* UIViewController+Extension.swift */; };
+		043B9D471DF6A240008A38AA /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D3C1DF6A240008A38AA /* UIViewController+Proposer.swift */; };
 		04405BD11DF11F2F001796E5 /* KDConversationViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */; };
 		044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620361DB0CAF5001D13B1 /* CoreTelephony.framework */; };
 		044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620381DB0CAFF001D13B1 /* CoreLocation.framework */; };
@@ -41,13 +49,11 @@
 		0472632E1D8FC66A00D9380C /* ChatEmotionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0472632D1D8FC66A00D9380C /* ChatEmotionView.xib */; };
 		047263311D8FCAB600D9380C /* ChatShareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472632F1D8FCAB600D9380C /* ChatShareCollectionCell.swift */; };
 		047263321D8FCAB600D9380C /* ChatShareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */; };
-		0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0475467E1D9E7415008076F1 /* NSDate+Extension.swift */; };
 		047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047546831DA8E38A008076F1 /* EaseSDKHelper.swift */; };
 		047E1BCC1DD5919A000DB77E /* AlumbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E1BCB1DD5919A000DB77E /* AlumbModel.swift */; };
 		047F8EF41D9E187000022544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF31D9E187000022544 /* AppDelegate.swift */; };
 		047F8EF61D9E188500022544 /* AppDelegate+LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */; };
 		047F8EF81D9E189200022544 /* AppDelegate+EaseSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */; };
-		048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559181D99273B001A076A /* UIScreen+Frame.swift */; };
 		048559221D9A1E27001A076A /* ChatTimeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048559201D9A1E27001A076A /* ChatTimeTableCell.swift */; };
 		048559231D9A1E27001A076A /* ChatTimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048559211D9A1E27001A076A /* ChatTimeTableCell.xib */; };
 		048AF1061DCC2A7100B9108C /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 048AF0DC1DCC2A7000B9108C /* MJRefreshAutoFooter.m */; };
@@ -69,7 +75,6 @@
 		048AF1161DCC2A7100B9108C /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048AF1011DCC2A7100B9108C /* UIScrollView+MJExtension.m */; };
 		048AF1171DCC2A7100B9108C /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 048AF1031DCC2A7100B9108C /* UIScrollView+MJRefresh.m */; };
 		048AF1181DCC2A7100B9108C /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048AF1051DCC2A7100B9108C /* UIView+MJExtension.m */; };
-		048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D477E1DB76A8000BDE27D /* UIViewController+Proposer.swift */; };
 		048D47821DB8735C00BDE27D /* KDAddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D47801DB8735C00BDE27D /* KDAddFriendViewController.swift */; };
 		048D47831DB8735C00BDE27D /* KDAddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048D47811DB8735C00BDE27D /* KDAddFriendViewController.xib */; };
 		048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */; };
@@ -133,9 +138,6 @@
 		1845A94E1D83D1AB008BD883 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1845A94A1D83D1AB008BD883 /* Info.plist */; };
 		1845A94F1D83D1AB008BD883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845A94B1D83D1AB008BD883 /* Assets.xcassets */; };
 		1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A95C1D83E05A008BD883 /* KDTabBarController.swift */; };
-		1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */; };
-		1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9611D83E9BA008BD883 /* UIView+Frame.swift */; };
-		1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */; };
 		184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */; };
 		1879C73A1DD7640700156857 /* KDPublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879C7391DD7640700156857 /* KDPublishViewController.swift */; };
 		1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1882065E1DC5CEB30013D831 /* MediaFileManager.swift */; };
@@ -159,7 +161,6 @@
 		18A37F9C1DC4E11D00FCAAE0 /* VideoManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9B1DC4E11D00FCAAE0 /* VideoManger.swift */; };
 		18A37F9E1DC4E16800FCAAE0 /* PlayMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */; };
 		18A37FA01DC4E1A300FCAAE0 /* MediaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */; };
-		18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */; };
 		18B593741DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */; };
 		18B593751DD371D4003F2F6E /* KDFriendAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */; };
 		18B593761DD371D4003F2F6E /* KDMyLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B593731DD371D4003F2F6E /* KDMyLiveViewController.swift */; };
@@ -167,7 +168,6 @@
 		18B5937C1DD4A7C6003F2F6E /* AlumbTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B5937A1DD4A7C6003F2F6E /* AlumbTableViewCell.xib */; };
 		18DDDD3E1DCE0830002D0F9C /* KDChatSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */; };
 		18EA8CB01D8552BA00B4E274 /* KDChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */; };
-		18F878DF1DB1EF3C00A32BF0 /* NSString+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,9 +211,6 @@
 		04109BA51D92658400E5F6F7 /* KDChatViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		04109BA71D9265C100E5F6F7 /* KDChatViewController+SubViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+SubViews.swift"; sourceTree = "<group>"; };
 		04109BA91D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+ChatCells.swift"; sourceTree = "<group>"; };
-		04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
-		04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
-		04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		042102771DC848DD004C3326 /* ChatCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCellDelegate.swift; sourceTree = "<group>"; };
 		0421027B1DC88451004C3326 /* KDPersonalDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonalDetailViewController.swift; sourceTree = "<group>"; };
 		0421027D1DC890BF004C3326 /* KDChatLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatLocationViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +223,17 @@
 		042FFE721D9E35630096CDF2 /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		042FFE731D9E35630096CDF2 /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
 		042FFE791D9E394E0096CDF2 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		043B9D311DF6A240008A38AA /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
+		043B9D321DF6A240008A38AA /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
+		043B9D331DF6A240008A38AA /* NSString+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Validate.swift"; sourceTree = "<group>"; };
+		043B9D351DF6A240008A38AA /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		043B9D361DF6A240008A38AA /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		043B9D371DF6A240008A38AA /* UIScreen+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Frame.swift"; sourceTree = "<group>"; };
+		043B9D381DF6A240008A38AA /* UIScrollView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ChatAdditions.swift"; sourceTree = "<group>"; };
+		043B9D391DF6A240008A38AA /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
+		043B9D3A1DF6A240008A38AA /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		043B9D3B1DF6A240008A38AA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		043B9D3C1DF6A240008A38AA /* UIViewController+Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Proposer.swift"; sourceTree = "<group>"; };
 		04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDConversationViewController+Delegate.swift"; sourceTree = "<group>"; };
 		044620361DB0CAF5001D13B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		044620381DB0CAFF001D13B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -236,13 +244,11 @@
 		0472632D1D8FC66A00D9380C /* ChatEmotionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatEmotionView.xib; sourceTree = "<group>"; };
 		0472632F1D8FCAB600D9380C /* ChatShareCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatShareCollectionCell.swift; sourceTree = "<group>"; };
 		047263301D8FCAB600D9380C /* ChatShareCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatShareCollectionCell.xib; sourceTree = "<group>"; };
-		0475467E1D9E7415008076F1 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		047546831DA8E38A008076F1 /* EaseSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSDKHelper.swift; sourceTree = "<group>"; };
 		047E1BCB1DD5919A000DB77E /* AlumbModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlumbModel.swift; sourceTree = "<group>"; };
 		047F8EF31D9E187000022544 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047F8EF51D9E188500022544 /* AppDelegate+LeanCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeanCloud.swift"; sourceTree = "<group>"; };
 		047F8EF71D9E189200022544 /* AppDelegate+EaseSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+EaseSDK.swift"; sourceTree = "<group>"; };
-		048559181D99273B001A076A /* UIScreen+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Frame.swift"; sourceTree = "<group>"; };
 		048559201D9A1E27001A076A /* ChatTimeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTimeTableCell.swift; sourceTree = "<group>"; };
 		048559211D9A1E27001A076A /* ChatTimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTimeTableCell.xib; sourceTree = "<group>"; };
 		048AF0DB1DCC2A7000B9108C /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
@@ -283,7 +289,6 @@
 		048AF1031DCC2A7100B9108C /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		048AF1041DCC2A7100B9108C /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		048AF1051DCC2A7100B9108C /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		048D477E1DB76A8000BDE27D /* UIViewController+Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Proposer.swift"; sourceTree = "<group>"; };
 		048D47801DB8735C00BDE27D /* KDAddFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDAddFriendViewController.swift; sourceTree = "<group>"; };
 		048D47811DB8735C00BDE27D /* KDAddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDAddFriendViewController.xib; sourceTree = "<group>"; };
 		048E1CE31DB0EA0F0049571C /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
@@ -395,9 +400,6 @@
 		1845A94A1D83D1AB008BD883 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1845A94B1D83D1AB008BD883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1845A95C1D83E05A008BD883 /* KDTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTabBarController.swift; sourceTree = "<group>"; };
-		1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		1845A9611D83E9BA008BD883 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
-		1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		184D71461D96B7C30000B923 /* KDChatViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		1869968E1D8D3DC5008D57B1 /* KDYWeChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KDYWeChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		1879C7391DD7640700156857 /* KDPublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPublishViewController.swift; sourceTree = "<group>"; };
@@ -419,7 +421,6 @@
 		18A37F9B1DC4E11D00FCAAE0 /* VideoManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoManger.swift; sourceTree = "<group>"; };
 		18A37F9D1DC4E16800FCAAE0 /* PlayMediaManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMediaManger.swift; sourceTree = "<group>"; };
 		18A37F9F1DC4E1A300FCAAE0 /* MediaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaManagerDelegate.swift; sourceTree = "<group>"; };
-		18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		18B593701DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDFriendAlbumViewControlle+Delegate.swift"; sourceTree = "<group>"; };
 		18B593711DD371D4003F2F6E /* KDFriendAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDFriendAlbumViewController.swift; sourceTree = "<group>"; };
 		18B593731DD371D4003F2F6E /* KDMyLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMyLiveViewController.swift; sourceTree = "<group>"; };
@@ -427,7 +428,6 @@
 		18B5937A1DD4A7C6003F2F6E /* AlumbTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlumbTableViewCell.xib; sourceTree = "<group>"; };
 		18DDDD3D1DCE0830002D0F9C /* KDChatSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatSettingViewController.swift; sourceTree = "<group>"; };
 		18EA8CAD1D8552BA00B4E274 /* KDChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDChatViewController.swift; sourceTree = "<group>"; };
-		18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Validate.swift"; sourceTree = "<group>"; };
 		E8489D9432F2FD343DF22B8D /* Pods_KDYWeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KDYWeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -553,6 +553,38 @@
 				042FFE791D9E394E0096CDF2 /* Macro.swift */,
 			);
 			path = Macro;
+			sourceTree = "<group>";
+		};
+		043B9D301DF6A240008A38AA /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				043B9D311DF6A240008A38AA /* NSDate+Extension.swift */,
+				043B9D321DF6A240008A38AA /* NSNotificationCenter+Block.swift */,
+				043B9D331DF6A240008A38AA /* NSString+Validate.swift */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		043B9D341DF6A240008A38AA /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				043B9D3A1DF6A240008A38AA /* UIView+Frame.swift */,
+				043B9D351DF6A240008A38AA /* UIColor+Extension.swift */,
+				043B9D361DF6A240008A38AA /* UIImage+Extension.swift */,
+				043B9D371DF6A240008A38AA /* UIScreen+Frame.swift */,
+				043B9D381DF6A240008A38AA /* UIScrollView+ChatAdditions.swift */,
+				043B9D391DF6A240008A38AA /* UITableView+ChatAdditions.swift */,
+				043B9D3B1DF6A240008A38AA /* UIViewController+Extension.swift */,
+				043B9D3C1DF6A240008A38AA /* UIViewController+Proposer.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		043B9D481DF6A972008A38AA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0455D40F1DC0559B00320798 /* ImagePicker */ = {
@@ -1038,6 +1070,7 @@
 			isa = PBXGroup;
 			children = (
 				04B45B021DB4D7FD005C7A83 /* Model */,
+				043B9D481DF6A972008A38AA /* ViewModel */,
 				04B45B031DB4D7FD005C7A83 /* View */,
 				04B45B001DB4D7FD005C7A83 /* Controller */,
 			);
@@ -1112,17 +1145,8 @@
 		1845A95E1D83E956008BD883 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1845A9611D83E9BA008BD883 /* UIView+Frame.swift */,
-				048559181D99273B001A076A /* UIScreen+Frame.swift */,
-				1845A9631D83E9F0008BD883 /* UIColor+Extension.swift */,
-				18ABF80A1D96C61200F305EB /* UIImage+Extension.swift */,
-				1845A95F1D83E99B008BD883 /* UIViewController+Extension.swift */,
-				04109BC91D9531E400E5F6F7 /* UITableView+ChatAdditions.swift */,
-				04109BCB1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift */,
-				048D477E1DB76A8000BDE27D /* UIViewController+Proposer.swift */,
-				18F878DE1DB1EF3C00A32BF0 /* NSString+Validate.swift */,
-				0475467E1D9E7415008076F1 /* NSDate+Extension.swift */,
-				04109BC71D952B1900E5F6F7 /* NSNotificationCenter+Block.swift */,
+				043B9D301DF6A240008A38AA /* NSObject */,
+				043B9D341DF6A240008A38AA /* UIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1535,40 +1559,41 @@
 				048AF1101DCC2A7100B9108C /* MJRefreshBackStateFooter.m in Sources */,
 				0495CAB31DD1CE2A003F4862 /* KDQRCodeViewController.swift in Sources */,
 				040AB8381DD2F3DA00BFE9A1 /* AlumbPraiseView.swift in Sources */,
-				04109BCA1D9531E400E5F6F7 /* UITableView+ChatAdditions.swift in Sources */,
+				043B9D431DF6A240008A38AA /* UIScrollView+ChatAdditions.swift in Sources */,
+				043B9D421DF6A240008A38AA /* UIScreen+Frame.swift in Sources */,
 				048AF1131DCC2A7100B9108C /* MJRefreshStateHeader.m in Sources */,
 				1882065F1DC5CEB30013D831 /* MediaFileManager.swift in Sources */,
 				049CCDC81D8F95E300CC6394 /* ChatBottomBarView.swift in Sources */,
 				04405BD11DF11F2F001796E5 /* KDConversationViewController+Delegate.swift in Sources */,
 				04B45B041DB4D7FD005C7A83 /* KDContactsViewController.swift in Sources */,
-				048559191D99273B001A076A /* UIScreen+Frame.swift in Sources */,
 				049CCDAE1D8F92C400CC6394 /* ChatBaseTableCell.swift in Sources */,
 				04B6B2091D98BE4000BCBDE7 /* ChatRedEnvelopeCell.swift in Sources */,
+				043B9D461DF6A240008A38AA /* UIViewController+Extension.swift in Sources */,
 				047546841DA8E38A008076F1 /* EaseSDKHelper.swift in Sources */,
 				18B593741DD371D4003F2F6E /* KDFriendAlbumViewControlle+Delegate.swift in Sources */,
 				0490AE6A1DE420DC00C90950 /* RegisterViewModel.swift in Sources */,
 				04109BA61D92658400E5F6F7 /* KDChatViewController+Keyboard.swift in Sources */,
 				18B5937B1DD4A7C6003F2F6E /* AlumbTableViewCell.swift in Sources */,
+				043B9D471DF6A240008A38AA /* UIViewController+Proposer.swift in Sources */,
 				18953D221D94268600F52F1E /* ChatBarButton+UI.swift in Sources */,
 				04109BAA1D9265F300E5F6F7 /* KDChatViewController+ChatCells.swift in Sources */,
-				1845A9621D83E9BA008BD883 /* UIView+Frame.swift in Sources */,
 				18A37F941DC4860900FCAAE0 /* TSYYTextLinePositionModifier.swift in Sources */,
 				0427C0431DEC2B4200DE324F /* FMSQLite.swift in Sources */,
-				1845A9641D83E9F0008BD883 /* UIColor+Extension.swift in Sources */,
 				04B45B1B1DB620C0005C7A83 /* KDNewFriendsViewController.swift in Sources */,
 				040AB83D1DD2F53C00BFE9A1 /* AlumbCommentView.swift in Sources */,
 				042FFE751D9E35630096CDF2 /* MessageModel.swift in Sources */,
 				048E1CEB1DB4A3340049571C /* KDSettingViewController.swift in Sources */,
-				048D477F1DB76A8000BDE27D /* UIViewController+Proposer.swift in Sources */,
 				0421027C1DC88451004C3326 /* KDPersonalDetailViewController.swift in Sources */,
 				1879C73A1DD7640700156857 /* KDPublishViewController.swift in Sources */,
-				04109BCC1D9534F200E5F6F7 /* UIScrollView+ChatAdditions.swift in Sources */,
+				043B9D411DF6A240008A38AA /* UIImage+Extension.swift in Sources */,
 				0455D4111DC055E700320798 /* BSImagePicker.swift in Sources */,
 				1838A6691DAFC34D0019A8AD /* KDRegisterViewController.swift in Sources */,
+				043B9D451DF6A240008A38AA /* UIView+Frame.swift in Sources */,
 				04B6B2011D98BDE400BCBDE7 /* ChatImageTableCell.swift in Sources */,
 				048AF1061DCC2A7100B9108C /* MJRefreshAutoFooter.m in Sources */,
 				048AF1071DCC2A7100B9108C /* MJRefreshBackFooter.m in Sources */,
 				048E1CE41DB0EA0F0049571C /* UserInfoManager.swift in Sources */,
+				043B9D3F1DF6A240008A38AA /* NSString+Validate.swift in Sources */,
 				04109BA41D92569200E5F6F7 /* ChatBarButton.swift in Sources */,
 				04B899071DDE9F9D00B0D138 /* MessageDBModel.swift in Sources */,
 				1833DCDE1DB665E8008B036B /* KDEditInfoViewController.swift in Sources */,
@@ -1590,27 +1615,26 @@
 				184D71471D96B7C30000B923 /* KDChatViewController+Delegates.swift in Sources */,
 				0421027E1DC890BF004C3326 /* KDChatLocationViewController.swift in Sources */,
 				042102781DC848DD004C3326 /* ChatCellDelegate.swift in Sources */,
-				1845A9601D83E99B008BD883 /* UIViewController+Extension.swift in Sources */,
 				1845A95D1D83E05A008BD883 /* KDTabBarController.swift in Sources */,
 				048AF10A1DCC2A7100B9108C /* MJRefreshHeader.m in Sources */,
-				04109BC81D952B1900E5F6F7 /* NSNotificationCenter+Block.swift in Sources */,
+				043B9D401DF6A240008A38AA /* UIColor+Extension.swift in Sources */,
 				0490AE6C1DE4520500C90950 /* MBProgressHUD+Loading.swift in Sources */,
 				18A37F931DC4860900FCAAE0 /* TSChatTextParser.swift in Sources */,
 				18B593761DD371D4003F2F6E /* KDMyLiveViewController.swift in Sources */,
 				0495CABD1DD1DDCC003F4862 /* AlumbHeaderView.swift in Sources */,
 				18A37F9C1DC4E11D00FCAAE0 /* VideoManger.swift in Sources */,
 				048AF1091DCC2A7100B9108C /* MJRefreshFooter.m in Sources */,
+				043B9D441DF6A240008A38AA /* UITableView+ChatAdditions.swift in Sources */,
 				04B6B1FD1D98BDB300BCBDE7 /* ChatAudioTableCell.swift in Sources */,
-				0475467F1D9E7415008076F1 /* NSDate+Extension.swift in Sources */,
 				049234D41DAF33B100FD0B29 /* KDLoginViewController.swift in Sources */,
 				048AF10F1DCC2A7100B9108C /* MJRefreshBackNormalFooter.m in Sources */,
 				04A7B8031DEBE10C0016FE53 /* AuthorityManager.swift in Sources */,
+				043B9D3E1DF6A240008A38AA /* NSNotificationCenter+Block.swift in Sources */,
 				189FCCFE1DC482D90011268E /* ChatRecordingView.swift in Sources */,
 				1833DCCF1DB34F20008B036B /* MeHeaderTableCell.swift in Sources */,
 				047263281D8FC43D00D9380C /* ChatShareMoreView.swift in Sources */,
 				042FFE7A1D9E394E0096CDF2 /* Macro.swift in Sources */,
-				18F878DF1DB1EF3C00A32BF0 /* NSString+Validate.swift in Sources */,
-				18ABF80B1D96C61200F305EB /* UIImage+Extension.swift in Sources */,
+				043B9D3D1DF6A240008A38AA /* NSDate+Extension.swift in Sources */,
 				18A37F921DC4860900FCAAE0 /* TSChatEmojiDictionary.swift in Sources */,
 				048AF1111DCC2A7100B9108C /* MJRefreshGifHeader.m in Sources */,
 				04B45B101DB60E12005C7A83 /* ContactsTableCell.swift in Sources */,

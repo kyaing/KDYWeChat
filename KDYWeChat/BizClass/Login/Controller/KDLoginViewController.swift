@@ -10,6 +10,7 @@ import UIKit
 import AVOSCloud
 import RxSwift
 import RxCocoa
+import MBProgressHUD
 
 /// 登录页面
 final class KDLoginViewController: UIViewController {
@@ -28,63 +29,86 @@ final class KDLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 隐藏导航栏
         self.navigationController?.navigationBar.hidden = true
         UIApplication.sharedApplication().statusBarStyle = .Default
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tapGesture)
         
         // 初始化UI
         setupViewsUI()
         
-        self.viewModel
-            = LoginViewModel(input: (username: self.accountTextFiled.rx_text.asDriver(),
-                password: self.passwordTextField.rx_text.asDriver()))
+        viewModel = LoginViewModel(input:
+                (username: accountTextFiled.rx_text.asDriver(),
+                 password: passwordTextField.rx_text.asDriver()))
         
-        self.viewModel.loginBtnEnabled
+        viewModel.loginBtnEnabled
             .driveNext { [weak self] (valid) in
                 self?.loginButton.backgroundColor
                     = valid ? UIColor(colorHex: .chatGreenColor) : UIColor(colorHex: .chatLightGreenColor)
                 self?.loginButton.enabled = valid ? true : false
             }
-            .addDisposableTo(self.disposeBag)
+            .addDisposableTo(disposeBag)
     }
     
     func setupViewsUI() {
-        self.loginButton.layer.cornerRadius = 5
-        self.loginButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
-        self.loginButton.layer.borderWidth = 0.5
-        self.loginButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        loginButton.layer.borderWidth = 0.5
+        loginButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
         
         // 修改光标颜色
-        self.accountTextFiled.tintColor  = UIColor(colorHex: .tabbarSelectedTextColor)
-        self.passwordTextField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
-    }
-    
-    // for test
-    func getNumber() -> Int {
-        return 100
+        accountTextFiled.tintColor  = UIColor(colorHex: .tabbarSelectedTextColor)
+        passwordTextField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
     }
     
     // MARK: - Event Responses
     @IBAction func loginButtonAction(sender: AnyObject) {
         
-        var userName = self.accountTextFiled.text
-        let password = self.passwordTextField.text
-        
-        LoadingHUDShow.shareInstance.showHUDWithText("登录中...", toView: self.view)
-        AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
+        var userName = accountTextFiled.text
+        let password = passwordTextField.text
     
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
+        
             if error != nil {
                 print("error = \(error.localizedDescription)")
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 
             } else {
                 print(">>> 登录成功 <<<")
                 
                 // 从LeanCloud中取出对应的环信用户名
                 userName = AVUser.currentUser().username
-                self.loginEaseSDK(userName!, password: password!)
+                EMClient.sharedClient().loginWithUsername(userName, password: password) { (name, error) in
+                
+                    if (error != nil) {
+                        var codeString = ""
+                        switch error.code {
+                        case EMErrorNetworkUnavailable: codeString = "网络不可用"
+                        case EMErrorServerNotReachable: codeString = "服务器未连接"
+                        case EMErrorUserAuthenticationFailed: codeString = "密码验证错误"
+                        default: codeString = "环信登录失败"
+                        }
+                        print("\(codeString)")
+                        
+                    } else {
+                        print(">> 环信登录成功 <<")
+                        
+                        // 设置自动登录
+                        EMClient.sharedClient().options.isAutoLogin = true
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            KDYWeChatHelper.shareInstance.asyncPushOptions()
+                            KDYWeChatHelper.shareInstance.asyncConversationFromDB()
+                            
+                            // 发送自动登录的通知
+                            self.postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: EMClient.sharedClient().isLoggedIn))
+                            
+                            MBProgressHUD.hideHUDForView(self.view, animated: true)
+                        }
+                    }
+                }
             }
         }
     }
@@ -93,7 +117,6 @@ final class KDLoginViewController: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
 
         let changeAction = UIAlertAction(title: "切换账号", style: .Default) { alertAction in
-        
         }
         
         let registerAction = UIAlertAction(title: "注册", style: .Default) { alertAction in
@@ -119,38 +142,8 @@ final class KDLoginViewController: UIViewController {
     }
     
     func hideKeyboard() {
-        self.accountTextFiled.resignFirstResponder()
-        self.passwordTextField.resignFirstResponder()
-    }
-    
-    // MARK: - Private Methods
-    func loginEaseSDK(userName: String, password: String) {
-        EMClient.sharedClient().loginWithUsername(userName, password: password) { (name, error) in
-            LoadingHUDShow.shareInstance.hideHUD(self.view)
-            
-            if (error != nil) {
-                switch error.code {
-                case EMErrorNetworkUnavailable: print("网络不可用")
-                case EMErrorServerNotReachable: print("服务器未连接")
-                case EMErrorUserAuthenticationFailed: print("密码验证错误")
-                default: print(">> 环信登录失败 <<")
-                }
-                
-            } else {
-                print(">> 环信登录成功 <<")
-                
-                // 设置自动登录
-                EMClient.sharedClient().options.isAutoLogin = true
-                
-                dispatch_async(dispatch_get_main_queue(), { 
-                    KDYWeChatHelper.shareInstance.asyncPushOptions()
-                    KDYWeChatHelper.shareInstance.asyncConversationFromDB()
-                    
-                    // 发送自动登录的通知
-                    NSNotificationCenter.defaultCenter().postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: EMClient.sharedClient().isLoggedIn))
-                })
-            }
-        }
+        accountTextFiled.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
 }
 

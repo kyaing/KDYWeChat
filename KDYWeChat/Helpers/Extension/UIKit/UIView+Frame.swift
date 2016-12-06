@@ -31,7 +31,7 @@ extension UIView {
         }
     }
     
-    /// 圆点
+    /// origin
     var origin: CGPoint {
         get { return self.frame.origin }
         
@@ -42,7 +42,7 @@ extension UIView {
         }
     }
     
-    /// 宽度
+    /// width
     var width: CGFloat {
         get { return self.frame.size.width }
         
@@ -53,7 +53,7 @@ extension UIView {
         }
     }
     
-    /// 高度
+    /// height
     var height: CGFloat {
         get { return self.frame.size.height }
         
@@ -64,7 +64,7 @@ extension UIView {
         }
     }
     
-    /// 大小
+    /// size
     var size: CGSize {
         get { return self.frame.size }
         
@@ -75,7 +75,7 @@ extension UIView {
         }
     }
     
-    /// 左边
+    /// left
     var left: CGFloat {
         get { return self.frame.origin.x }
         
@@ -86,7 +86,7 @@ extension UIView {
         }
     }
     
-    /// 右边
+    /// right
     var right: CGFloat {
         get { return self.frame.origin.x + self.frame.size.width }
         
@@ -97,7 +97,7 @@ extension UIView {
         }
     }
     
-    /// 顶部
+    /// top
     var top: CGFloat {
         get { return self.frame.origin.y }
         
@@ -108,7 +108,7 @@ extension UIView {
         }
     }
     
-    /// 底部
+    /// bottom
     var bottom: CGFloat {
         get { return self.frame.origin.y + self.frame.size.height }
         

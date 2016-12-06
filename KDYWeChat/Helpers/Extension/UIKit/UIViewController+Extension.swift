@@ -15,6 +15,7 @@ extension NSObject {
 }
 
 extension UIViewController {
+    
     // Nib
     class func initFromNib() -> UIViewController {
         let hasNib: Bool = NSBundle.mainBundle().pathForResource(self.nameOfClass, ofType: "nib") != nil
@@ -28,7 +29,7 @@ extension UIViewController {
 
     // Push
     public func ky_pushAndHideTabbar(viewController: UIViewController) {
-        self.ky_pushViewController(viewController, animated: true, hideTabbar: true)
+        ky_pushViewController(viewController, animated: true, hideTabbar: true)
     }
     
     private func ky_pushViewController(viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
@@ -48,6 +49,29 @@ extension UIViewController {
     // Pop 
     public func ky_popViewController() {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+}
+
+extension UIViewController {
+    // Noti
+    public func postNotificationName(name: String) {
+        postNotificationName(name, object: nil)
+    }
+    
+    public func postNotificationName(name: String, object: AnyObject?) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name, object: object, userInfo: nil)
+    }
+    
+    public func addNotificationObserver(name: String, selector: Selector) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: selector, name: name, object: nil)
+    }
+    
+    public func removeNotificationObserver(name: String) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: name, object: nil)
+    }
+    
+    public func removeNotificationObserver() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
 

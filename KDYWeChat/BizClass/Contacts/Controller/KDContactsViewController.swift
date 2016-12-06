@@ -9,6 +9,7 @@
 import UIKit
 import AVOSCloud
 import SnapKit
+import MBProgressHUD
 
 /// 通讯录页面
 final class KDContactsViewController: UIViewController {
@@ -127,7 +128,7 @@ final class KDContactsViewController: UIViewController {
             newSectionArray.replaceObjectAtIndex(index, withObject: sortedUserObjsArrayForSection)
         }
         
-        self.sectionsArray = newSectionArray
+        sectionsArray = newSectionArray
     }
     
     /**
@@ -195,8 +196,8 @@ final class KDContactsViewController: UIViewController {
         // 查询 _User表里的用户 (这里的查询效率会低点)
         let userQuery = AVQuery(className: "_User")
         var frindsArray: [AnyObject] = []
-        
-        LoadingHUDShow.shareInstance.showHUDWithText("加载中...", toView: self.view)
+    
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
             
             for object in objects as! [AVUser] {
@@ -235,6 +236,8 @@ final class KDContactsViewController: UIViewController {
 
                 LoadingHUDShow.shareInstance.hideHUD(self.view)
                 self.contactsTableView.reloadData()
+                
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
             })
         }
     }
@@ -283,7 +286,7 @@ extension KDContactsViewController: UISearchControllerDelegate {
 // MARK: - UITableViewDataSource
 extension KDContactsViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.collation.sectionTitles.count + 1
+        return collation.sectionTitles.count + 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
