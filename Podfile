@@ -28,6 +28,7 @@ target 'KDYWeChat' do
     pod 'Validator', '~> 1.2.0'
     pod 'EZSwiftExtensions', '~> 1.6'
     pod 'Then', '~> 1.0.3'
+    pod 'APIKit', '~> 2.0.4'
 
     # Objective-C
     pod 'MBProgressHUD'

@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-KDYWeChat/APIKit.framework"
   install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.3.5/Dynamic/AVOSCloud.framework"
   install_framework "Pods-KDYWeChat/Alamofire.framework"
   install_framework "Pods-KDYWeChat/BSGridCollectionViewLayout.framework"
@@ -112,6 +113,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-KDYWeChat/YYText.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-KDYWeChat/APIKit.framework"
   install_framework "${PODS_ROOT}/AVOSCloudDynamic/iOS/release-v3.3.5/Dynamic/AVOSCloud.framework"
   install_framework "Pods-KDYWeChat/Alamofire.framework"
   install_framework "Pods-KDYWeChat/BSGridCollectionViewLayout.framework"
