@@ -39,6 +39,7 @@
 		043B9D451DF6A240008A38AA /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D3A1DF6A240008A38AA /* UIView+Frame.swift */; };
 		043B9D461DF6A240008A38AA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D3B1DF6A240008A38AA /* UIViewController+Extension.swift */; };
 		043B9D471DF6A240008A38AA /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D3C1DF6A240008A38AA /* UIViewController+Proposer.swift */; };
+		043B9D4A1DF6AD4F008A38AA /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9D491DF6AD4F008A38AA /* BaseViewModel.swift */; };
 		04405BD11DF11F2F001796E5 /* KDConversationViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */; };
 		044620371DB0CAF5001D13B1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620361DB0CAF5001D13B1 /* CoreTelephony.framework */; };
 		044620391DB0CAFF001D13B1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044620381DB0CAFF001D13B1 /* CoreLocation.framework */; };
@@ -234,6 +235,7 @@
 		043B9D3A1DF6A240008A38AA /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		043B9D3B1DF6A240008A38AA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		043B9D3C1DF6A240008A38AA /* UIViewController+Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Proposer.swift"; sourceTree = "<group>"; };
+		043B9D491DF6AD4F008A38AA /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		04405BD01DF11F2F001796E5 /* KDConversationViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KDConversationViewController+Delegate.swift"; sourceTree = "<group>"; };
 		044620361DB0CAF5001D13B1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		044620381DB0CAFF001D13B1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1138,6 +1140,7 @@
 			children = (
 				1845A95C1D83E05A008BD883 /* KDTabBarController.swift */,
 				188B05601D85306200393752 /* KDNavigationController.swift */,
+				043B9D491DF6AD4F008A38AA /* BaseViewModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1607,6 +1610,7 @@
 				04FCCC1B1DC0971D00EF5B53 /* PHAssets+UIImage.swift in Sources */,
 				189FCCFC1DBCFA490011268E /* KDChatViewController+SendMessage.swift in Sources */,
 				18DDDD3E1DCE0830002D0F9C /* KDChatSettingViewController.swift in Sources */,
+				043B9D4A1DF6AD4F008A38AA /* BaseViewModel.swift in Sources */,
 				04FEF9D41DAA5148001812D1 /* KDYWeChatHelper.swift in Sources */,
 				04B6B20C1D98F3C400BCBDE7 /* ChatModel.swift in Sources */,
 				04B6B2051D98BE0A00BCBDE7 /* ChatLocationTableCell.swift in Sources */,
