@@ -15,8 +15,8 @@ class MessageViewModel {
     // MARK: - Parameters
     
     let addBarDidTap = PublishSubject<Void>()
-    let itemSelected = PublishSubject<NSIndexPath>()
-    let itemDeleted  = PublishSubject<NSIndexPath>()
+    let itemSelected = PublishSubject<IndexPath>()
+    let itemDeleted  = PublishSubject<IndexPath>()
     
     let disposeBag = DisposeBag()
     
@@ -84,7 +84,7 @@ class MessageViewModel {
     /**
      *  对应会话的最后一条消息
      */
-    func getLastMessageForConversation(model: MessageModel) -> String {
+    func getLastMessageForConversation(_ model: MessageModel) -> String {
         
         var latestMsgTitle: String = ""
         if let message = model.conversation.latestMessage {
@@ -113,16 +113,16 @@ class MessageViewModel {
     /**
      *  会话的最后一条消息的时间
      */
-    func getlastMessageTimeForConversation(model: MessageModel) -> String {
+    func getlastMessageTimeForConversation(_ model: MessageModel) -> String {
         let lastMessage = model.conversation.latestMessage
         if lastMessage == nil { return "" }
         
         // 得到时间戳，把微秒转化成具体时间
         // let timeString = NSDate.formattedTimeFromTimeInterval(lastMessage.timestamp)
-        let seconds      = Double(lastMessage.timestamp) / 1000
-        let timeInterval = NSTimeInterval(seconds)
-        let date         = NSDate(timeIntervalSince1970: timeInterval)
-        let timeString   = NSDate.messageAgoSinceDate(date)
+        let seconds      = Double((lastMessage?.timestamp)!) / 1000
+        let timeInterval = TimeInterval(seconds)
+        let date         = Date(timeIntervalSince1970: timeInterval)
+        let timeString   = Date.messageAgoSinceDate(date)
         
         return timeString
     }

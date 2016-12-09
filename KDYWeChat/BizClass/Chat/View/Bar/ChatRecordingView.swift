@@ -36,10 +36,10 @@ class ChatRecordingView: UIView, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         self.centerView.layer.cornerRadius  = 5
         self.centerView.layer.masksToBounds = true
-        self.tipsLabel.backgroundColor = UIColor.clearColor()
+        self.tipsLabel.backgroundColor = UIColor.clear
     }
 }
 
@@ -48,13 +48,13 @@ extension ChatRecordingView {
      *  正在录音
      */
     func recording() {
-        self.hidden = false
+        self.isHidden = false
         
-        self.cancelRecrodImageView.hidden = true
-        self.tooShortImageView.hidden = true
+        self.cancelRecrodImageView.isHidden = true
+        self.tooShortImageView.isHidden = true
         
-        self.recordingBgView.hidden = false
-        self.tipsLabel.backgroundColor = UIColor.clearColor()
+        self.recordingBgView.isHidden = false
+        self.tipsLabel.backgroundColor = UIColor.clear
         self.tipsLabel.text = "手指上滑，取消发送"
     }
     
@@ -62,17 +62,17 @@ extension ChatRecordingView {
      *  录音过短
      */
     func recordWithShortTime() {
-        self.hidden = false
+        self.isHidden = false
         
-        self.cancelRecrodImageView.hidden = true
-        self.tooShortImageView.hidden = false
+        self.cancelRecrodImageView.isHidden = true
+        self.tooShortImageView.isHidden = false
         
-        self.recordingBgView.hidden = true
+        self.recordingBgView.isHidden = true
         self.tipsLabel.text = "说话时间太短"
         
         // 0.5秒后消失
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        let delayTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             self.stopRecording()
         }
     }
@@ -81,20 +81,20 @@ extension ChatRecordingView {
      *  上滑取消录音
      */
     func cancelRecordBySldeUp() {
-        self.hidden = false
+        self.isHidden = false
         
-        self.cancelRecrodImageView.hidden = false
-        self.tooShortImageView.hidden = true
+        self.cancelRecrodImageView.isHidden = false
+        self.tooShortImageView.isHidden = true
         
-        self.recordingBgView.hidden = true
-        self.tipsLabel.backgroundColor = UIColor.redColor()
+        self.recordingBgView.isHidden = true
+        self.tipsLabel.backgroundColor = UIColor.red
         self.tipsLabel.text = "松开手指，取消发送"
     }
     
     /**
      *  更新录音音量
      */
-    func updateVolumeValue(value: Float) {
+    func updateVolumeValue(_ value: Float) {
         var index = Int(round(value))
         index = index > 7 ? 7 : index
         index = index < 0 ? 0 : index
@@ -116,7 +116,7 @@ extension ChatRecordingView {
      *  结束录音
      */
     func stopRecording() {
-        self.hidden = true
+        self.isHidden = true
     }
 }
 

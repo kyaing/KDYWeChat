@@ -12,9 +12,9 @@ import MBProgressHUD
 class LoadingHUDShow: NSObject {
     
     enum LodingHUDType {
-        case Loding
-        case Success
-        case Error
+        case loding
+        case success
+        case error
     }
     
     var hud: MBProgressHUD!
@@ -22,16 +22,16 @@ class LoadingHUDShow: NSObject {
     static let shareInstance = LoadingHUDShow()
     
     // MARK: - Life Cycle
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
     // MARK: - Public Methods
-    func showHUDWithText(text: String, toView: UIView) {
-        MBProgressHUD.showHUD(text, mode: .Indeterminate, toView: toView)
+    func showHUDWithText(_ text: String, toView: UIView) {
+        MBProgressHUD.showHUD(text, mode: .indeterminate, toView: toView)
     }
     
-    func hideHUD(toView: UIView) {
+    func hideHUD(_ toView: UIView) {
         MBProgressHUD.hideHUD(toView)
     }
 }

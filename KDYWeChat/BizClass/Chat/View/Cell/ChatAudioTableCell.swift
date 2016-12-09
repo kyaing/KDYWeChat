@@ -20,7 +20,7 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
     /// 播放语音按钮
     @IBOutlet weak var voiceButton: UIButton! {
         didSet {
-            voiceButton.backgroundColor = UIColor.clearColor()
+            voiceButton.backgroundColor = UIColor.clear
         }
     }
     
@@ -32,27 +32,27 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
         super.awakeFromNib()
     }
     
-    override func setupCellContent(model: ChatModel) {
+    override func setupCellContent(_ model: ChatModel) {
         super.setupCellContent(model)
     
         // 拉伸气泡图片，设置语音按钮背景图片
         let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
-        let bubbleImage = stretchImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
+        let bubbleImage = stretchImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         
         // 设置语音按钮高亮时的背景图片
         let stretchHLImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkgHL") : UIImage(named: "ReceiverTextNodeBkgHL")
-        let bubbleHLImage  = stretchHLImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
+        let bubbleHLImage  = stretchHLImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         
-        self.voiceButton.setBackgroundImage(bubbleImage, forState: .Normal)
-        self.voiceButton.setBackgroundImage(bubbleHLImage, forState: .Highlighted)
+        self.voiceButton.setBackgroundImage(bubbleImage, for: UIControlState())
+        self.voiceButton.setBackgroundImage(bubbleHLImage, for: .highlighted)
         
         // 设置语音按钮播放图片
         let voiceImage = (model.fromMe!) ? UIImage(named: "SenderVoiceNodePlaying") : UIImage(named: "ReceiverVoiceNodePlaying")
-        self.voiceButton.setImage(voiceImage, forState: .Normal)
+        self.voiceButton.setImage(voiceImage, for: UIControlState())
         
         // 设置语音按钮，图片的内边距与对齐方式
         self.voiceButton.imageEdgeInsets = (model.fromMe!) ? UIEdgeInsetsMake(-kChatBubbleBottomTransparentHeight, 0, 0, kChatVoicePlayingMarginLeft) : UIEdgeInsetsMake(-kChatBubbleBottomTransparentHeight, kChatVoicePlayingMarginLeft, 0, 0)
-        self.voiceButton.contentHorizontalAlignment = (model.fromMe!) ? .Right : .Left
+        self.voiceButton.contentHorizontalAlignment = (model.fromMe!) ? .right : .left
 
         // 语音总时长
         self.vocieTimeLabel.text = String(format:"%zd\"", Int(model.duration))
@@ -79,13 +79,13 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
                 - self.voiceButton.width
             
             self.vocieTimeLabel.left = self.voiceButton.left - self.vocieTimeLabel.width
-            self.vocieTimeLabel.textAlignment = .Right
+            self.vocieTimeLabel.textAlignment = .right
 
         } else {
             self.voiceButton.left = kChatBubbleLeft
             
             self.vocieTimeLabel.left = self.voiceButton.right
-            self.vocieTimeLabel.textAlignment = .Left
+            self.vocieTimeLabel.textAlignment = .left
         }
         
         // 消息状态布局
@@ -118,7 +118,7 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
         }
     }
     
-    class func layoutCellHeight(model: ChatModel) -> CGFloat {
+    class func layoutCellHeight(_ model: ChatModel) -> CGFloat {
         if model.cellHeight != 0 {
             return model.cellHeight
         }
@@ -131,11 +131,11 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
     }
     
     // MARK: - Event Response 
-    @IBAction func playVoiceAction(sender: UIButton) {
-        sender.selected = !sender.selected
+    @IBAction func playVoiceAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
         
         // 选中按钮，开始动画
-        if sender.selected {
+        if sender.isSelected {
             self.voiceButton.imageView!.startAnimating()
             
         } else {  // 停止动画
@@ -143,7 +143,7 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
         }
         
         guard let delegate = self.cellDelegate else { return }
-        delegate.didClickCellVoiceAndPlaying(self, isPlaying: sender.selected)
+        delegate.didClickCellVoiceAndPlaying(self, isPlaying: sender.isSelected)
     }
     
     /**
@@ -151,7 +151,7 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
      */
     func stopPlayVoiceAnimation() {
         self.voiceButton.imageView?.stopAnimating()
-        self.voiceButton.selected = false
+        self.voiceButton.isSelected = false
     }
 }
 

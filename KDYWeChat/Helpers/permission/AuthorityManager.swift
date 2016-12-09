@@ -14,7 +14,7 @@ import AVFoundation
 class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     static let shareInstance = AuthorityManager()
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
@@ -25,14 +25,14 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
         return imagePicker
     }()
     
-    typealias presentControllerAction = (imagePicker: UIImagePickerController) -> Void
-    typealias showAlertAction = (resource: PrivateResource) -> Void
+    typealias presentControllerAction = (_ imagePicker: UIImagePickerController) -> Void
+    typealias showAlertAction = (_ resource: PrivateResource) -> Void
     
     // MARK: - Public Methods
     /**
      *  选取照片
      */
-    func choosePhotos(presentAction: presentControllerAction, alertAction: showAlertAction) {
+    func choosePhotos(_ presentAction: @escaping presentControllerAction, alertAction: showAlertAction) {
         let photos: PrivateResource = .Photos
         
         proposeToAccess(photos, agreed: {
@@ -82,7 +82,7 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
     func checkRecordingPermission() -> Bool {
         let session = AVAudioSession.sharedInstance()
         do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: .DuckOthers)
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .duckOthers)
             do {
                 try session.setActive(true)
                 session.requestRecordPermission{ allowed in
@@ -105,13 +105,13 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
     }
     
     // MARK: - UIImagePickerControllerDelegate
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
-        picker.dismissViewControllerAnimated(true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 

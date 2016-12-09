@@ -47,27 +47,27 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
         
         self.contentLabel = YYLabel()
         self.contentLabel.numberOfLines = 0
-        self.contentLabel.font = UIFont.systemFontOfSize(15)
+        self.contentLabel.font = UIFont.systemFont(ofSize: 15)
         self.contentLabel.preferredMaxLayoutWidth = maxLayoutWidth
-        self.contentLabel.backgroundColor = UIColor.clearColor()
+        self.contentLabel.backgroundColor = UIColor.clear
         self.contentBodyView.addSubview(self.contentLabel)
         
         self.contentLabel.snp_makeConstraints { (make) in
             make.edges.equalTo(self.contentBodyView)
         }
         
-        self.contentBodyView.backgroundColor = UIColor.clearColor()
-        self.pictureBodyView.backgroundColor = UIColor.clearColor()
+        self.contentBodyView.backgroundColor = UIColor.clear
+        self.pictureBodyView.backgroundColor = UIColor.clear
         
         self.usernameLabel.textColor = UIColor(red: 73/255.0, green: 80/255.0, blue: 126/255.0, alpha: 1.0)
-        self.timeLabel.textColor = UIColor.lightGrayColor()
+        self.timeLabel.textColor = UIColor.lightGray
     }
     
     /**
      *  设置Cell内容
      */
-    func setupCellContents(model: AlumbModel) {
-        self.avatarImage.kf_setImageWithURL(NSURL(string: model.avatarURL), placeholderImage: UIImage(named: kUserAvatarDefault))
+    func setupCellContents(_ model: AlumbModel) {
+        self.avatarImage.kf_setImageWithURL(URL(string: model.avatarURL), placeholderImage: UIImage(named: kUserAvatarDefault))
     
         self.timeLabel.text     = model.time
         self.usernameLabel.text = model.nickname
@@ -82,10 +82,10 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
     /**
      *  创建照片墙 (根据照片个数布局)
      */
-    func setupPicturesView(pictures: [String]?) {
+    func setupPicturesView(_ pictures: [String]?) {
         self.pictureBodyView.removeAllSubviews()
         
-        guard let counts = pictures?.count where pictures != nil else {
+        guard let counts = pictures?.count , pictures != nil else {
             self.pictureBodyHeight.constant = 0
             return
         }
@@ -135,17 +135,17 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
             // 创建相应的每张图片
             let imageView = UIImageView()
             imageView.frame = CGRect(x: xPos, y: yPos, width: pictureWidth, height: pictureHeight)
-            imageView.userInteractionEnabled = true
-            imageView.contentMode = .ScaleAspectFill
+            imageView.isUserInteractionEnabled = true
+            imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 2
             self.pictureBodyView.addSubview(imageView)
             
-            imageView.kf_setImageWithURL(NSURL(string: pictures![index]), placeholderImage: UIImage(named: "place_holder_album"))
+            imageView.kf_setImageWithURL(URL(string: pictures![index]), placeholderImage: UIImage(named: "place_holder_album"))
         }
     }
     
-    func getMaxColumn(counts: Int) -> Int {
+    func getMaxColumn(_ counts: Int) -> Int {
         if counts == 3 || counts == 4 {
             return 2
         } else {
@@ -164,7 +164,7 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
         layoutIfNeeded()
         
         // 若用了系统的分隔线，就再加1个像素，否则高度出错
-        let cellHiehgt = self.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+        let cellHiehgt = self.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
         
         return cellHiehgt + 1
     }

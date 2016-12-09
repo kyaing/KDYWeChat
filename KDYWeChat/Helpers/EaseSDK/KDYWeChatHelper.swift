@@ -18,23 +18,23 @@ class KDYWeChatHelper: NSObject {
     
     // MARK: - Life Cycle
     static let shareInstance = KDYWeChatHelper()
-    private override init() {
+    fileprivate override init() {
         super.init()
         self.initHeapler()
     }
     
     func initHeapler() {
-        EMClient.sharedClient().addDelegate(self, delegateQueue: nil)
-        EMClient.sharedClient().chatManager.addDelegate(self, delegateQueue: nil)
-        EMClient.sharedClient().contactManager.addDelegate(self, delegateQueue: nil)
-        EMClient.sharedClient().groupManager.addDelegate(self, delegateQueue: nil)
+        EMClient.shared().add(self, delegateQueue: nil)
+        EMClient.shared().chatManager.add(self, delegateQueue: nil)
+        EMClient.shared().contactManager.add(self, delegateQueue: nil)
+        EMClient.shared().groupManager.add(self, delegateQueue: nil)
     }
     
     deinit {
-        EMClient.sharedClient().removeDelegate(self)
-        EMClient.sharedClient().chatManager.removeDelegate(self)
-        EMClient.sharedClient().contactManager.removeDelegate(self)
-        EMClient.sharedClient().groupManager.removeDelegate(self)
+        EMClient.shared().removeDelegate(self)
+        EMClient.shared().chatManager.remove(self)
+        EMClient.shared().contactManager.removeDelegate(self)
+        EMClient.shared().groupManager.removeDelegate(self)
     }
     
     func clearHeapler() {
@@ -43,27 +43,27 @@ class KDYWeChatHelper: NSObject {
     
     // MARK: - Public Methods
     func asyncPushOptions() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { 
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { 
             var error: EMError?
-            EMClient.sharedClient().getPushOptionsFromServerWithError(&error)
+            EMClient.shared().getPushOptionsFromServerWithError(&error)
         }
     }
     
     func asyncConversationFromDB() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
-            conversations.enumerateObjectsUsingBlock({ (conversation, idx, stop) in
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+            let conversations: NSArray = EMClient.shared().chatManager.getAllConversations() as NSArray
+            conversations.enumerateObjects({ (conversation, idx, stop) in
                 
                 let conversation = conversation as! EMConversation
                 if conversation.latestMessage == nil {
                     // 当会话最后一条信息为空，则删除此会话
-                    EMClient.sharedClient().chatManager.deleteConversation(conversation.conversationId,
+                    EMClient.shared().chatManager.deleteConversation(conversation.conversationId,
                         isDeleteMessages: false, completion: nil)
                 }
             })
         }
         
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             // 设置未读消息数
             if (self.mainTabbarVC != nil) {
                 self.mainTabbarVC!.setupUnReadMessageCount()
@@ -82,7 +82,7 @@ extension KDYWeChatHelper: EMClientDelegate {
     /**
      *  监测sdk的网络状态
      */
-    func connectionStateDidChange(aConnectionState: EMConnectionState) {
+    func connectionStateDidChange(_ aConnectionState: EMConnectionState) {
         if (self.mainTabbarVC != nil) {
             self.mainTabbarVC!.networkStateChanged(aConnectionState)
         }
@@ -91,7 +91,7 @@ extension KDYWeChatHelper: EMClientDelegate {
     /**
      *  自动登录失败时的回调
      */
-    func autoLoginDidCompleteWithError(aError: EMError!) {
+    func autoLoginDidCompleteWithError(_ aError: EMError!) {
         
     }
     
@@ -115,7 +115,7 @@ extension KDYWeChatHelper: EMChatManagerDelegate {
     /**
      *  会话列表发生更新
      */
-    func conversationListDidUpdate(aConversationList: [AnyObject]!) {
+    func conversationListDidUpdate(_ aConversationList: [AnyObject]!) {
         if (self.mainTabbarVC != nil) {
             self.mainTabbarVC!.setupUnReadMessageCount()
         }
@@ -128,20 +128,20 @@ extension KDYWeChatHelper: EMChatManagerDelegate {
     /**
      *  收到 EMMessage消息
      */
-    func messagesDidReceive(aMessages: [AnyObject]!) {
+    func messagesDidReceive(_ aMessages: [AnyObject]!) {
         
         for message in aMessages as! [EMMessage] {    
             let needPushnotification = (message.chatType == EMChatTypeChat)
             if needPushnotification {
 #if !TARGET_IPHONE_SIMULATOR
-                let applicationState = UIApplication.sharedApplication().applicationState
+                let applicationState = UIApplication.shared.applicationState
                 
                 switch applicationState {
-                case .Active, .Inactive:
+                case .active, .inactive:
                     if (self.mainTabbarVC != nil) {
                         self.mainTabbarVC!.playSoundAndVibration()
                     }
-                case .Background:
+                case .background:
                     if (self.mainTabbarVC != nil) {
                         self.mainTabbarVC!.showNotificationWithMessage(message)
                     }
@@ -166,7 +166,7 @@ extension KDYWeChatHelper: EMContactManagerDelegate {
     /**
      *  对方同意加好友
      */
-    func friendRequestDidApproveByUser(aUsername: String!) {
+    func friendRequestDidApprove(byUser aUsername: String!) {
         let messageStr = "\(aUsername)同意了您加好友的申请"
         let alertView = UIAlertView(title: nil, message: messageStr, delegate: nil, cancelButtonTitle: "确定")
         alertView.show()
@@ -175,7 +175,7 @@ extension KDYWeChatHelper: EMContactManagerDelegate {
     /**
      *  对方拒绝加好友
      */
-    func friendRequestDidDeclineByUser(aUsername: String!) {
+    func friendRequestDidDecline(byUser aUsername: String!) {
         let messageStr = "\(aUsername)拒绝了您加好友的申请"
         let alertView = UIAlertView(title: nil, message: messageStr, delegate: nil, cancelButtonTitle: "确定")
         alertView.show()
@@ -184,21 +184,21 @@ extension KDYWeChatHelper: EMContactManagerDelegate {
     /**
      *  建立双方好友关系
      */
-    func friendshipDidAddByUser(aUsername: String!) {
+    func friendshipDidAdd(byUser aUsername: String!) {
         
     }
     
     /**
      *  解除双方好友关系
      */
-    func friendshipDidRemoveByUser(aUsername: String!) {
+    func friendshipDidRemove(byUser aUsername: String!) {
         
     }
     
     /**
      *  收到对方申请加好友的消息
      */
-    func friendRequestDidReceiveFromUser(aUsername: String!, message aMessage: String!) {
+    func friendRequestDidReceive(fromUser aUsername: String!, message aMessage: String!) {
         
     }
 }

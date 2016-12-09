@@ -11,34 +11,34 @@ import Foundation
 // MARK: - UITableViewDelegate
 extension KDConversationViewController: UITableViewDelegate {
     // 是否必要仍然要 delegate 方法？
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 // MARK: - UISearchResultsUpdating
 extension KDConversationViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         
     }
 }
 
 // MARK: - UISearchControllerDelegate
 extension KDConversationViewController: UISearchControllerDelegate {
-    func willPresentSearchController(searchController: UISearchController) {
+    func willPresentSearchController(_ searchController: UISearchController) {
         
     }
     
-    func didPresentSearchController(searchController: UISearchController) {
-        UIApplication.sharedApplication().statusBarStyle = .Default
+    func didPresentSearchController(_ searchController: UISearchController) {
+        UIApplication.shared.statusBarStyle = .default
     }
     
-    func willDismissSearchController(searchController: UISearchController) {
+    func willDismissSearchController(_ searchController: UISearchController) {
         
     }
     
-    func didDismissSearchController(searchController: UISearchController) {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    func didDismissSearchController(_ searchController: UISearchController) {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 }
 

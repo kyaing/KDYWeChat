@@ -32,7 +32,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
 
     
     lazy var tableView: UITableView = {
-        let tb: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tb: UITableView = UITableView(frame: self.view.bounds, style: .plain)
         tb.registerReusableCell(MessageTableCell)
         tb.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         tb.separatorColor  = UIColor(colorHex: .separatorColor)
@@ -71,7 +71,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     let disposeBag = DisposeBag()
     
-    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .Plain,
+    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .plain,
                                        target: nil, action: Selector())
     
     // MARK: - Life Cycle
@@ -90,14 +90,14 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         configures(viewModel)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         networkIsConnected()
         registerChatDelegate()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         unRegisterChatDelegate()
     }
@@ -107,7 +107,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
     
     // MARK: - Public Methods
-    func networkStateChanged(connectionState: EMConnectionState) {
+    func networkStateChanged(_ connectionState: EMConnectionState) {
         if connectionState == EMConnectionDisconnected {   // 断网状态
             view.addSubview(tableView)
             tableView.tableHeaderView = self.networkFailHeaderView
@@ -126,7 +126,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     }
     
     // MARK: - Private Methods
-    private func configures(viewModel: MessageViewModel) {
+    fileprivate func configures(_ viewModel: MessageViewModel) {
         
         // 按钮点击
         rightBarItem.rx_tap
@@ -178,7 +178,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
      *  是否连上环信服务器
      */
     func networkIsConnected() {
-        let isConnected = EMClient.sharedClient().isConnected
+        let isConnected = EMClient.shared().isConnected
         if !isConnected {   // 断网状态
             view.addSubview(tableView)
             tableView.tableHeaderView = networkFailHeaderView
@@ -189,22 +189,22 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         }
     }
     
-    private func getChatConversations() {
-        let conversations: NSArray = EMClient.sharedClient().chatManager.getAllConversations()
+    fileprivate func getChatConversations() {
+        let conversations: NSArray = EMClient.shared().chatManager.getAllConversations() as NSArray
         if conversations.count == 0 { return }
 
         // 删除最后一条为空的会话
-        conversations.enumerateObjectsUsingBlock({ (conversation, idx, stop) in
+        conversations.enumerateObjects({ (conversation, idx, stop) in
             let conversation = conversation as! EMConversation
             if conversation.latestMessage == nil {
-                EMClient.sharedClient().chatManager.deleteConversation(conversation.conversationId,
+                EMClient.shared().chatManager.deleteConversation(conversation.conversationId,
                     isDeleteMessages: false, completion: nil)
             }
         })
         
         // 按时间的降序，排列会话列表
-        let sortedConversations: NSArray = conversations.sortedArrayUsingComparator {
-            (Obj1, Obj2) -> NSComparisonResult in
+        let sortedConversations: NSArray = conversations.sortedArray (comparator: {
+            (Obj1, Obj2) -> ComparisonResult in
         
             let message1 = Obj1 as? EMConversation
             let message2 = Obj2 as? EMConversation
@@ -212,33 +212,33 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             if message1?.latestMessage != nil && message2?.latestMessage != nil {
                 if message1!.latestMessage.timestamp >
                     message2!.latestMessage.timestamp {
-                    return .OrderedAscending
+                    return .orderedAscending
                 } else {
-                    return .OrderedDescending
+                    return .orderedDescending
                 }
             }
             
-            return .OrderedSame
-        }
+            return .orderedSame
+        }) as NSArray
     
         self.messageDataSource.removeAllObjects()
         for conversation in sortedConversations as! [EMConversation] {
             
             let model = MessageModel(conversation: conversation)
-            messageDataSource.addObject(model)
+            messageDataSource.add(model)
         }
         
-        dispatch_async(dispatch_get_main_queue()) { 
+        DispatchQueue.main.async { 
             self.tableView.reloadData()
         }
     }
     
     func registerChatDelegate() {
-        EMClient.sharedClient().chatManager.addDelegate(self, delegateQueue: nil)
+        EMClient.shared().chatManager.add(self, delegateQueue: nil)
     }
     
     func unRegisterChatDelegate() {
-        EMClient.sharedClient().chatManager.removeDelegate(self)
+        EMClient.shared().chatManager.remove(self)
     }
 }
 

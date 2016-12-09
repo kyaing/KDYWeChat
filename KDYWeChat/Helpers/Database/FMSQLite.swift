@@ -17,7 +17,7 @@ class FMSQLite: NSObject {
     var db: FMDatabase!
     static let shareInstance = FMSQLite()
     
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
@@ -33,10 +33,10 @@ class FMSQLite: NSObject {
      *  打开数据库
      */
     func openDB() {
-        let fileName = AVUser.currentUser().username
-        let fileURL = try! NSFileManager.defaultManager()
-            .URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: false)
-            .URLByAppendingPathComponent("\(fileName).sqlite")
+        let fileName = AVUser.current().username
+        let fileURL = try! FileManager.default
+            .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent("\(fileName).sqlite")
         
         self.db = FMDatabase(path: fileURL.path)
         
@@ -62,7 +62,7 @@ class FMSQLite: NSObject {
     /**
      *  更新数据
      */
-    func updateTable(model: MessageDBModel) {
+    func updateTable(_ model: MessageDBModel) {
         if !self.db.open() {
             return
         }

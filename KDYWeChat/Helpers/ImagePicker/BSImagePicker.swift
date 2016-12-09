@@ -14,9 +14,9 @@ extension UIViewController {
     /**
      *  封装BSImagePicker 图片选择器
      */
-    func ky_presentImagePickerController(maxNumberOfSelections maxNumberOfSelections: Int,
-                                         select: ((asset: PHAsset) -> Void)?,
-                                         deselect: ((asset: PHAsset) -> Void)?,
+    func ky_presentImagePickerController(maxNumberOfSelections: Int,
+                                         select: ((_ asset: PHAsset) -> Void)?,
+                                         deselect: ((_ asset: PHAsset) -> Void)?,
                                          cancel: (([PHAsset]) -> Void)?,
                                          finish: (([PHAsset]) -> Void)?,
                                          completion: (() -> Void)?) {

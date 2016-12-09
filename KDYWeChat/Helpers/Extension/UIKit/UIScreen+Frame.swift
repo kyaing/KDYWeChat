@@ -10,15 +10,15 @@ import Foundation
 
 public extension UIScreen {
     class var size: CGSize {
-        return UIScreen.mainScreen().bounds.size
+        return UIScreen.main.bounds.size
     }
     
     class var width: CGFloat {
-        return UIScreen.mainScreen().bounds.size.width
+        return UIScreen.main.bounds.size.width
     }
     
     class var height: CGFloat {
-        return UIScreen.mainScreen().bounds.size.height
+        return UIScreen.main.bounds.size.height
     }
 }
 

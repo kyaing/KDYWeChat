@@ -20,11 +20,11 @@ class KDSettingViewController: UITableViewController {
     }
     
     // MARK: - UITableViewDataSoure
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {
             return 3
         }
@@ -32,11 +32,11 @@ class KDSettingViewController: UITableViewController {
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("settingCell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "settingCell")
-            cell!.accessoryType = .DisclosureIndicator
+            cell = UITableViewCell(style: .default, reuseIdentifier: "settingCell")
+            cell!.accessoryType = .disclosureIndicator
             cell!.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         }
         
@@ -45,52 +45,52 @@ class KDSettingViewController: UITableViewController {
         return cell!
     }
     
-    func configCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.font = UIFont.systemFontOfSize(16)
+    func configCell(_ cell: UITableViewCell, indexPath: IndexPath) {
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             cell.textLabel?.text = "账号和安全"
-        } else if indexPath.section == 1 {
-            if indexPath.row == 0 {
+        } else if (indexPath as NSIndexPath).section == 1 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.textLabel?.text = "新消息通知"
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.textLabel?.text = "隐私"
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 cell.textLabel?.text = "通用"
             }
         } else {
             cell.textLabel?.text = "退出登录"
             
-            cell.accessoryType = .None
-            cell.textLabel?.textAlignment = .Center
+            cell.accessoryType = .none
+            cell.textLabel?.textAlignment = .center
         }
     }
     
     // MARK: - UITableViewDelegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             
         } else {  // 退出登录
             setupAlertController()
         }
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
     
     // MARK: - Private Method 
     func setupAlertController() {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let logoutAction = UIAlertAction(title: "退出登录", style: .Destructive) { alertAction in
+        let logoutAction = UIAlertAction(title: "退出登录", style: .destructive) { alertAction in
             self.logoutCurrentUserAction()
         }
-        let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
         logoutAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
         cancelAction.setValue(UIColor(rgba: "#7d7d7d"), forKey: "_titleTextColor")
@@ -98,18 +98,18 @@ class KDSettingViewController: UITableViewController {
         alertController.addAction(logoutAction)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Event Response
     func logoutCurrentUserAction() {
-        EMClient.sharedClient().logout(true) { error in
+        EMClient.shared().logout(true) { error in
             if error != nil {
-                print(">>> 环信退出失败，error = \(error.description) <<<")
+                print(">>> 环信退出失败，error = \(error?.description) <<<")
                 
             } else {
                 AVUser.logOut()  // 退出LeanCloud
-                NSNotificationCenter.defaultCenter().postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: false))
+                NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: false as Bool))
             }
         }
     }

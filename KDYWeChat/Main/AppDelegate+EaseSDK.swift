@@ -13,16 +13,16 @@ extension AppDelegate {
     /**
      *  配置环信sdk
      */
-    func easemobApplication(application: UIApplication,
-                            launchOptions: [NSObject: AnyObject]?,
+    func easemobApplication(_ application: UIApplication,
+                            launchOptions: [AnyHashable: Any]?,
                             appKey: String,
                             apnsCerName: String,
-                            otherConfig: [NSObject: AnyObject]?) {
+                            otherConfig: [AnyHashable: Any]?) {
         
         // 登录状态通知
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(AppDelegate.loginStateChanged(_:)),
-                                                         name: kLoginStateChangedNoti,
+                                                         name: NSNotification.Name(rawValue: kLoginStateChangedNoti),
                                                          object: nil)
         
         // 初始化sdk
@@ -36,22 +36,22 @@ extension AppDelegate {
         KDYWeChatHelper.shareInstance.initHeapler()
         
         // 根据用户是否自动登录，来发送登录状态的通知
-        let isAutoLogin = EMClient.sharedClient().isAutoLogin
+        let isAutoLogin = EMClient.shared().isAutoLogin
         if isAutoLogin {
-            NSNotificationCenter.defaultCenter().postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: true))
+            NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: true as Bool))
         } else {
-            NSNotificationCenter.defaultCenter().postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: false))
+            NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: false as Bool))
         }
     }
     
     /**
      *  登录状态改变
      */
-    func loginStateChanged(notification: NSNotification) {
+    func loginStateChanged(_ notification: Notification) {
         var navigationController: KDNavigationController?
         
         // 根据登录状态的不同，设置不同的 rootController
-        let loginState = (notification.object?.boolValue)!
+        let loginState = ((notification.object as AnyObject).boolValue)!
         if loginState {   // 登录成功，切换到tabbar
             if self.mainTabbarVC == nil {
                 self.mainTabbarVC = KDTabBarController()
@@ -69,7 +69,7 @@ extension AppDelegate {
             
         } else {   // 登录失败，切换到登录页面
             if self.mainTabbarVC != nil {
-                self.mainTabbarVC?.navigationController?.popToRootViewControllerAnimated(false)
+                self.mainTabbarVC?.navigationController?.popToRootViewController(animated: false)
             }
             
             self.mainTabbarVC = nil
@@ -83,14 +83,14 @@ extension AppDelegate {
     }
     
     // MARK: - AppDelegate
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // 注册远程通知成功，交给SDK并绑定
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { 
-            EMClient.sharedClient().bindDeviceToken(deviceToken)
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { 
+            EMClient.shared().bindDeviceToken(deviceToken)
         }
     }
     
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
 #if TARGET_IPHONE_SIMULATOR
         // 注册远程通知失败，若有失败看看环境配置或证书是否有误！
         let alertView = UIAlertView.init(title: "注册APN失败",

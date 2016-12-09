@@ -22,10 +22,10 @@ class ChatBaseTableCell: UITableViewCell {
     // 聊天头像
     @IBOutlet weak var avatarImageView: UIImageView! {
         didSet {
-            avatarImageView.backgroundColor = UIColor.blueColor()
+            avatarImageView.backgroundColor = UIColor.blue
             avatarImageView.width = kChatAvatarWidth
             avatarImageView.height = kChatAvatarWidth
-            avatarImageView.contentMode = .ScaleAspectFill
+            avatarImageView.contentMode = .scaleAspectFill
             avatarImageView.layer.masksToBounds = true
         }
     }
@@ -33,14 +33,14 @@ class ChatBaseTableCell: UITableViewCell {
     // 用户名，用于群组聊天时
     @IBOutlet weak var nicknameLabel: UILabel! {
         didSet {
-            nicknameLabel.font = UIFont.systemFontOfSize(12)
-            nicknameLabel.textColor = UIColor.darkGrayColor()
+            nicknameLabel.font = UIFont.systemFont(ofSize: 12)
+            nicknameLabel.textColor = UIColor.darkGray
         }
     }
     
     // 菊花进度控件
     lazy var activityView: UIActivityIndicatorView = {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         self.contentView.addSubview(activityView)
         
         return activityView
@@ -49,9 +49,9 @@ class ChatBaseTableCell: UITableViewCell {
     // 消息发送失败按钮
     lazy var failSendMsgButton: UIButton = {
         let failButton = UIButton()
-        failButton.size = CGSizeMake(20, 20)
-        failButton.setImage(UIImage(named: "messageSendFail"), forState: .Normal)
-        failButton.addTarget(self, action: #selector(self.reSendMessageAction), forControlEvents: .TouchUpInside)
+        failButton.size = CGSize(width: 20, height: 20)
+        failButton.setImage(UIImage(named: "messageSendFail"), for: UIControlState())
+        failButton.addTarget(self, action: #selector(self.reSendMessageAction), for: .touchUpInside)
         
         self.contentView.addSubview(failButton)
         
@@ -67,28 +67,28 @@ class ChatBaseTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.selectionStyle = .None
-        self.backgroundColor = UIColor.clearColor()
+        self.selectionStyle = .none
+        self.backgroundColor = UIColor.clear
         
         let tapAvatarGuesture = UITapGestureRecognizer(target: self, action: #selector(self.tapAvatarAction))
-        self.avatarImageView.userInteractionEnabled = true
+        self.avatarImageView.isUserInteractionEnabled = true
         self.avatarImageView.addGestureRecognizer(tapAvatarGuesture)
     }
     
-    func setupCellContent(model: ChatModel) {
+    func setupCellContent(_ model: ChatModel) {
         self.model = model
         
         let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
         if model.fromMe! {   // 发送方
             if let imageURL = currentUser?.imageUrl {
-                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                self.avatarImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             } else {
                 self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
             }
             
         } else {   // 接收方
             if let imageURL = model.avatarURL {
-                self.avatarImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                self.avatarImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             } else {
                 self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
             }
@@ -99,22 +99,22 @@ class ChatBaseTableCell: UITableViewCell {
             switch model.messageStatus {
             case EMMessageStatusPending, EMMessageStatusDelivering:
                 print("消息正在发送中...")
-                self.failSendMsgButton.hidden = true
+                self.failSendMsgButton.isHidden = true
                 
-                self.activityView.hidden = false
+                self.activityView.isHidden = false
                 self.activityView.startAnimating()
                 
             case EMMessageStatusSuccessed:
                 print("消息发送成功")
-                self.failSendMsgButton.hidden = true
+                self.failSendMsgButton.isHidden = true
                 
                 self.activityView.stopAnimating()
-                self.activityView.hidden = true
+                self.activityView.isHidden = true
                 
             case EMMessageStatusFailed:
                 print("消失发送失败")
-                self.failSendMsgButton.hidden = false
-                self.activityView.hidden = true
+                self.failSendMsgButton.isHidden = false
+                self.activityView.isHidden = true
                 
             default:
                 break

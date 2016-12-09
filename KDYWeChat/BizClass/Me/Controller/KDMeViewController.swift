@@ -22,14 +22,14 @@ class KDMeViewController: UITableViewController {
         self.meTableView.registerReusableCell(MeHeaderTableCell)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.meTableView.reloadData()
     }
     
     // MARK: - UITableViewDataSoure
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).section == 0 {
             let headerCell: MeHeaderTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
             
             if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
@@ -42,16 +42,16 @@ class KDMeViewController: UITableViewController {
                 }
                 
                 if let imageURL = currentUser.imageUrl {
-                    headerCell.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault))
+                    headerCell.avatorImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault))
                 }
             }
             
             return headerCell
             
         } else {
-            var baseCell = tableView.dequeueReusableCellWithIdentifier("baseCell")
+            var baseCell = tableView.dequeueReusableCell(withIdentifier: "baseCell")
             if baseCell == nil {
-                baseCell = UITableViewCell(style: .Default, reuseIdentifier: "baseCell")
+                baseCell = UITableViewCell(style: .default, reuseIdentifier: "baseCell")
             }
             
             // 为什么在storyboard设置的没有显示出来？
@@ -61,20 +61,20 @@ class KDMeViewController: UITableViewController {
         }
     }
     
-    func configureCells(baseCell: UITableViewCell, indexPath: NSIndexPath) {
+    func configureCells(_ baseCell: UITableViewCell, indexPath: IndexPath) {
         // 统一改变下字体大小
-        baseCell.textLabel?.font = UIFont.systemFontOfSize(16)
-        baseCell.accessoryType = .DisclosureIndicator
+        baseCell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        baseCell.accessoryType = .disclosureIndicator
         baseCell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
+        if (indexPath as NSIndexPath).section == 1 {
+            if (indexPath as NSIndexPath).row == 0 {
                 baseCell.textLabel?.text = "相册"
                 baseCell.imageView?.image = UIImage(named: "MoreMyAlbum")
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 baseCell.textLabel?.text = "收藏"
                 baseCell.imageView?.image = UIImage(named: "MoreMyFavorites")
-            } else if indexPath.row == 2 {
+            } else if (indexPath as NSIndexPath).row == 2 {
                 baseCell.textLabel?.text = "钱包"
                 baseCell.imageView?.image = UIImage(named: "MoreMyBankCard")
             } else {
@@ -82,29 +82,29 @@ class KDMeViewController: UITableViewController {
                 baseCell.imageView?.image = UIImage(named: "MyCardPackageIcon")
             }
             
-        } else if indexPath.section == 2 {
+        } else if (indexPath as NSIndexPath).section == 2 {
             baseCell.textLabel?.text = "表情"
             baseCell.imageView?.image = UIImage(named: "MoreExpressionShops")
             
-        } else if indexPath.section == 3 {
+        } else if (indexPath as NSIndexPath).section == 3 {
             baseCell.textLabel?.text = "设置"
             baseCell.imageView?.image = UIImage(named: "MoreSetting")
         }
     }
     
     // MARK: - UITableViewDelegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             ky_pushViewController(KDPersonInfoViewController(), animated: true)
             
-        } else if indexPath.section == 3 {
+        } else if (indexPath as NSIndexPath).section == 3 {
             ky_pushViewController(KDSettingViewController(), animated: true)
         }
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        return 15
     }
 }

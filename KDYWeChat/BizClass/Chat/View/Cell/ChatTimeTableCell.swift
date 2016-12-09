@@ -17,7 +17,7 @@ class ChatTimeTableCell: UITableViewCell, NibReusable {
         didSet {
             timeLabel.layer.cornerRadius = 6
             timeLabel.layer.masksToBounds = true
-            timeLabel.textColor = UIColor.whiteColor()
+            timeLabel.textColor = UIColor.white
             timeLabel.backgroundColor = UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 0.5)
         }
     }
@@ -27,12 +27,12 @@ class ChatTimeTableCell: UITableViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.selectionStyle = .None
-        self.backgroundColor = UIColor.clearColor()
-        self.contentView.backgroundColor = UIColor.clearColor()
+        self.selectionStyle = .none
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
     }
     
-    func setupCellContent(model: ChatModel) {
+    func setupCellContent(_ model: ChatModel) {
         self.model = model
         self.timeLabel.text = model.timestamp
     }

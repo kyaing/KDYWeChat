@@ -16,7 +16,7 @@ class KDQRCodeViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "扫一扫"
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
     }
 }
 

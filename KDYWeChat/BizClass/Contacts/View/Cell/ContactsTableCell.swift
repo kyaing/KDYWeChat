@@ -19,7 +19,7 @@ class ContactsTableCell: UITableViewCell, NibReusable {
         super.awakeFromNib()
         
         self.avatorImage.layer.masksToBounds = true
-        self.avatorImage.contentMode = .ScaleAspectFill
+        self.avatorImage.contentMode = .scaleAspectFill
     }
 }
 

@@ -14,7 +14,7 @@ extension KDChatViewController {
     /**
      *  发送文本消息
      */
-    func sendChatTextMessage(textView: UITextView) {
+    func sendChatTextMessage(_ textView: UITextView) {
         let textMessage =
             EaseSDKHelper.shareInstance.initSendTextMessage(textView.text,
                                                             toUser: self.conversationId,
@@ -29,7 +29,7 @@ extension KDChatViewController {
     /**
      *  发送图片消息
      */
-    func sendChatImageMessage(image: UIImage) {
+    func sendChatImageMessage(_ image: UIImage) {
         let imageMessage =
             EaseSDKHelper.shareInstance.initSendImageMessageWithImage(image,
                                                                       toUser: self.conversationId,
@@ -41,7 +41,7 @@ extension KDChatViewController {
     /**
      *  发送语音消息
      */
-    func sendChatVoiceMessage(path: String, duration: Int32) {
+    func sendChatVoiceMessage(_ path: String, duration: Int32) {
         let voiceMessage =
             EaseSDKHelper.shareInstance.initSendVoiceMessageWithLocalPath(path,
                                                                           duration: duration,
@@ -54,7 +54,7 @@ extension KDChatViewController {
     /**
      *  发送地理位置消息
      */
-    func sendChatLocationMessage(latitude: Double, longitude: Double, address: String) {
+    func sendChatLocationMessage(_ latitude: Double, longitude: Double, address: String) {
         let locationMessage =
             EaseSDKHelper.shareInstance.initSendLocationMessageWithLatitude(latitude,
                                                                             longitude: longitude,
@@ -75,43 +75,43 @@ extension KDChatViewController {
     /**
      *  将消息添加到数据源中
      */
-    func addMessageToDataSource(message: EMMessage!) {
+    func addMessageToDataSource(_ message: EMMessage!) {
         
         // 消息加入到消息数组
-        self.messageSource.addObject(message)
+        self.messageSource.add(message)
         
-        dispatch_async(self.messageQueue) {
+        self.messageQueue.async {
             let formatMessages = self.formatEMMessages([message])
-            self.itemDataSource.addObjectsFromArray(formatMessages)
+            self.itemDataSource.addObjects(from: formatMessages)
             
             self.chatTableView.reloadData()
             
             // 滚动动tableView的底部
-            let indexPath = NSIndexPath(forRow: self.itemDataSource.count - 1, inSection: 0)
-            self.chatTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
+            let indexPath = IndexPath(row: self.itemDataSource.count - 1, section: 0)
+            self.chatTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
     // MARK: - Private Methods
-    private func sendMessage(message: EMMessage!) {
+    fileprivate func sendMessage(_ message: EMMessage!) {
         
         // 添加到数据源中，并发送到服务器上
         addMessageToDataSource(message)
         
-        EMClient.sharedClient().chatManager.sendMessage(message, progress: { (progress) in
+        EMClient.shared().chatManager.send(message, progress: { (progress) in
             print("progress = \(progress)")
             
         }) { (message, error) in
             if error == nil {
                 self.chatTableView.reloadData()
             } else {
-                print("Send Message Error = \(error.description)")
+                print("Send Message Error = \(error?.description)")
                 self.chatTableView.reloadData()
             }
         }
     }
     
-    private func messageTypeFromConversationType() -> EMChatType {
+    fileprivate func messageTypeFromConversationType() -> EMChatType {
         var type = EMChatTypeChat
         
         switch (self.conversation.type) {

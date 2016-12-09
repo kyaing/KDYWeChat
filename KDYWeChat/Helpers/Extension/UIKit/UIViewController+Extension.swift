@@ -10,7 +10,7 @@ import Foundation
 
 extension NSObject {
     class var nameOfClass: String {
-        return NSStringFromClass(self).componentsSeparatedByString(".").last! as String
+        return NSStringFromClass(self).components(separatedBy: ".").last! as String
     }
 }
 
@@ -18,7 +18,7 @@ extension UIViewController {
     
     // Nib
     class func initFromNib() -> UIViewController {
-        let hasNib: Bool = NSBundle.mainBundle().pathForResource(self.nameOfClass, ofType: "nib") != nil
+        let hasNib: Bool = Bundle.main.path(forResource: self.nameOfClass, ofType: "nib") != nil
         guard hasNib else {
             assert(!hasNib, "Invalid parameter")
             return UIViewController()
@@ -28,50 +28,50 @@ extension UIViewController {
     }
 
     // Push
-    public func ky_pushAndHideTabbar(viewController: UIViewController) {
+    public func ky_pushAndHideTabbar(_ viewController: UIViewController) {
         ky_pushViewController(viewController, animated: true, hideTabbar: true)
     }
     
-    private func ky_pushViewController(viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
+    fileprivate func ky_pushViewController(_ viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
-    public func ky_pushViewController(viewController: UIViewController, animated: Bool) {
+    public func ky_pushViewController(_ viewController: UIViewController, animated: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
     // Present
-    public func ky_presentViewController(viewController: UIViewController, animated: Bool, completion: (()->Void)?) {
+    public func ky_presentViewController(_ viewController: UIViewController, animated: Bool, completion: (()->Void)?) {
         let navigation = UINavigationController(rootViewController: viewController)
-        self.presentViewController(navigation, animated: animated, completion: completion)
+        self.present(navigation, animated: animated, completion: completion)
     }
     
     // Pop 
     public func ky_popViewController() {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
 extension UIViewController {
     // Noti
-    public func postNotificationName(name: String) {
+    public func postNotificationName(_ name: String) {
         postNotificationName(name, object: nil)
     }
     
-    public func postNotificationName(name: String, object: AnyObject?) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: object, userInfo: nil)
+    public func postNotificationName(_ name: String, object: AnyObject?) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: object, userInfo: nil)
     }
     
-    public func addNotificationObserver(name: String, selector: Selector) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: selector, name: name, object: nil)
+    public func addNotificationObserver(_ name: String, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: name), object: nil)
     }
     
-    public func removeNotificationObserver(name: String) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: name, object: nil)
+    public func removeNotificationObserver(_ name: String) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: name), object: nil)
     }
     
     public func removeNotificationObserver() {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

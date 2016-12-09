@@ -12,11 +12,11 @@ import UIKit
 class KDFriendAlbumViewController: UIViewController {
 
     lazy var albumTableView: UITableView = {
-        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(colorHex: .separatorColor)
-        tableView.registerNib(UINib(nibName: "AlumbTableViewCell", bundle: nil), forCellReuseIdentifier: "AlumbTableViewCell")
+        tableView.register(UINib(nibName: "AlumbTableViewCell", bundle: nil), forCellReuseIdentifier: "AlumbTableViewCell")
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = self.albumHeaderView
         tableView.tableFooterView = UIView()
@@ -45,7 +45,7 @@ class KDFriendAlbumViewController: UIViewController {
         super.viewDidLoad()
         self.title = "朋友圈"
          
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_Camera"), style: .Plain, target: self, action: #selector(self.publishAlumbAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_Camera"), style: .plain, target: self, action: #selector(self.publishAlumbAction))
         
         // 测试数据模拟
         testDataModels()
@@ -53,7 +53,7 @@ class KDFriendAlbumViewController: UIViewController {
         self.albumTableView.reloadData()
         
         // 注册计算高度的Cell
-        self.tempAlumbCell = self.albumTableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell") as? AlumbTableViewCell
+        self.tempAlumbCell = self.albumTableView.dequeueReusableCell(withIdentifier: "AlumbTableViewCell") as? AlumbTableViewCell
     }
     
     func testDataModels() {
@@ -88,12 +88,12 @@ class KDFriendAlbumViewController: UIViewController {
                                 text: "Snapkit+Autolayout动态计算高度",
                                 pictures: [picUrl1, picUrl2, picUrl3])
         
-        self.albumDataSoruce.addObject(model1)
-        self.albumDataSoruce.addObject(model2)
-        self.albumDataSoruce.addObject(model3)
-        self.albumDataSoruce.addObject(model4)
-        self.albumDataSoruce.addObject(model5)
-        self.albumDataSoruce.addObject(model6)
+        self.albumDataSoruce.add(model1)
+        self.albumDataSoruce.add(model2)
+        self.albumDataSoruce.add(model3)
+        self.albumDataSoruce.add(model4)
+        self.albumDataSoruce.add(model5)
+        self.albumDataSoruce.add(model6)
     }
     
     // MARK: - Event Response 
@@ -107,20 +107,20 @@ class KDFriendAlbumViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension KDFriendAlbumViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.albumDataSoruce.count > 0 ? self.albumDataSoruce.count : 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AlumbTableViewCell", forIndexPath: indexPath) as! AlumbTableViewCell
-        cell.selectionStyle = .None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlumbTableViewCell", for: indexPath) as! AlumbTableViewCell
+        cell.selectionStyle = .none
         
         // 设置Cell的内容
-        let model = self.albumDataSoruce.objectAtIndex(indexPath.row) as! AlumbModel
+        let model = self.albumDataSoruce.object(at: (indexPath as NSIndexPath).row) as! AlumbModel
         cell.setupCellContents(model)
         
         return cell
@@ -129,10 +129,10 @@ extension KDFriendAlbumViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension KDFriendAlbumViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let cell = self.tempAlumbCell {
             // 以Model的内容来计算高度
-            let model = self.albumDataSoruce.objectAtIndex(indexPath.row) as! AlumbModel
+            let model = self.albumDataSoruce.object(at: (indexPath as NSIndexPath).row) as! AlumbModel
             cell.setupCellContents(model)
             
             let height = cell.getCellHeight()

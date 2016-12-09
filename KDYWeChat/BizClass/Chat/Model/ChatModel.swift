@@ -9,6 +9,26 @@
 import UIKit
 import Foundation
 import YYText
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 /* 消息内容类型:
  0 - 文本
@@ -119,9 +139,9 @@ class ChatModel: NSObject {
             self.messageContentType = .Image
             
             let imageBody = firstMessageBody as! EMImageMessageBody
-            let imageData = NSData(contentsOfFile: imageBody.localPath)
+            let imageData = try? Data(contentsOf: URL(fileURLWithPath: imageBody.localPath))
             
-            if imageData?.length > 0 {
+            if imageData?.count > 0 {
                 self.image = UIImage(data: imageData!)
             }
             

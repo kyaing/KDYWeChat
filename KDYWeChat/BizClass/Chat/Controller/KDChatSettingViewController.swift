@@ -13,11 +13,11 @@ import Photos
 class KDChatSettingViewController: UIViewController {
 
     lazy var settingTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
-        tableView.sectionIndexColor = UIColor.darkGrayColor()
+        tableView.sectionIndexBackgroundColor = UIColor.clear
+        tableView.sectionIndexColor = UIColor.darkGray
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
@@ -37,21 +37,21 @@ class KDChatSettingViewController: UIViewController {
         self.settingTableView.reloadData()
     }
     
-    func configurePushController(indexPath: NSIndexPath) {
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
+    func configurePushController(_ indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 1 {
+            if (indexPath as NSIndexPath).row == 0 {
                 setupPickerAlertController()
             }
         }
     }
     
     func setupPickerAlertController() {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "拍照", style: .Default) { (alertAction) in
+        let cameraAction = UIAlertAction(title: "拍照", style: .default) { (alertAction) in
         }
         
-        let photoAction = UIAlertAction(title: "从手机相册选择", style: .Default) { (alertAction) in
+        let photoAction = UIAlertAction(title: "从手机相册选择", style: .default) { (alertAction) in
             
             // 相册中选择图片，做为聊天背景
             self.ky_presentImagePickerController(
@@ -65,18 +65,18 @@ class KDChatSettingViewController: UIViewController {
                 }, finish: { (assets: [PHAsset]) in
     
                     if let image = assets[0].getUIImage() {
-                        let imageData = NSKeyedArchiver.archivedDataWithRootObject(image)
+                        let imageData = NSKeyedArchiver.archivedData(withRootObject: image)
                         
                         // 暂且先把图片，存储到本地
-                        NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: self.conversationId)
-                        NSUserDefaults.standardUserDefaults().synchronize()
+                        UserDefaults.standard.set(imageData, forKey: self.conversationId)
+                        UserDefaults.standard.synchronize()
                     }
             }) {
                 print("completion")
             }
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
         cameraAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
         photoAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
@@ -86,17 +86,17 @@ class KDChatSettingViewController: UIViewController {
         alertController.addAction(photoAction)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
 // MARK: - UITableViewDataSource
 extension KDChatSettingViewController:  UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         } else {
@@ -104,11 +104,11 @@ extension KDChatSettingViewController:  UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var settingCell = tableView.dequeueReusableCellWithIdentifier("settingCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var settingCell = tableView.dequeueReusableCell(withIdentifier: "settingCell")
         if settingCell == nil {
-            settingCell = UITableViewCell(style: .Value1, reuseIdentifier: "settingCell")
-            settingCell?.accessoryType = .DisclosureIndicator
+            settingCell = UITableViewCell(style: .value1, reuseIdentifier: "settingCell")
+            settingCell?.accessoryType = .disclosureIndicator
         }
         
         configureCells(settingCell!, indexPath: indexPath)
@@ -116,16 +116,16 @@ extension KDChatSettingViewController:  UITableViewDataSource {
         return settingCell!
     }
     
-    func configureCells(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.font = UIFont.systemFontOfSize(16)
+    func configureCells(_ cell: UITableViewCell, indexPath: IndexPath) {
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         
-        if indexPath.section == 0 {
-            cell.accessoryType = .None
+        if (indexPath as NSIndexPath).section == 0 {
+            cell.accessoryType = .none
             
         } else {
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.textLabel?.text = "设置聊天背景"
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.textLabel?.text = "查找聊天内容"
             } else {
                 cell.textLabel?.text = "清空聊天记录"
@@ -136,21 +136,21 @@ extension KDChatSettingViewController:  UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension KDChatSettingViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         configurePushController(indexPath)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).section == 0 {
             return 70
         }
         
         return 44
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
 }

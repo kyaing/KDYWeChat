@@ -26,7 +26,7 @@ class ChatLocationTableCell: ChatBaseTableCell, NibReusable {
         super.awakeFromNib()
     }
     
-    override func setupCellContent(model: ChatModel) {
+    override func setupCellContent(_ model: ChatModel) {
         super.setupCellContent(model)
         
     }
@@ -37,7 +37,7 @@ class ChatLocationTableCell: ChatBaseTableCell, NibReusable {
         
     }
     
-    class func layoutCellHeight(model: ChatModel) -> CGFloat {
+    class func layoutCellHeight(_ model: ChatModel) -> CGFloat {
         return 0
     }
 }

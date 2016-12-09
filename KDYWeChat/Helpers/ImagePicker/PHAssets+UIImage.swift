@@ -17,17 +17,17 @@ extension PHAsset {
      */
     func getUIImage() -> UIImage? {
         var image: UIImage?
-        let manager = PHImageManager.defaultManager()
+        let manager = PHImageManager.default()
         
         let options = PHImageRequestOptions()
-        options.synchronous = true  // 是否同步加载
-        options.networkAccessAllowed = true  // 是否允许从 iCloud加载图片
-        options.resizeMode = .Exact 
+        options.isSynchronous = true  // 是否同步加载
+        options.isNetworkAccessAllowed = true  // 是否允许从 iCloud加载图片
+        options.resizeMode = .exact 
      
-        manager.requestImageForAsset(
-            self,
+        manager.requestImage(
+            for: self,
             targetSize: CGSize(width: self.pixelWidth, height: self.pixelHeight),
-            contentMode: .AspectFill,
+            contentMode: .aspectFill,
             options: options) { (retImage, info) in
                 if let returnImage = retImage {
                     image = returnImage

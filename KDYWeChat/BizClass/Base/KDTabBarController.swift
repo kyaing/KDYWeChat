@@ -13,7 +13,7 @@ final class KDTabBarController: UITabBarController {
     
     /// 默认播放声音的间隔
     let kDefaultPlaySoundInterval = 3.0
-    var lastPlaySoundDate: NSDate = NSDate()
+    var lastPlaySoundDate: Date = Date()
     
     /// 联网状态
     var connectionState: EMConnectionState = EMConnectionConnected
@@ -23,7 +23,7 @@ final class KDTabBarController: UITabBarController {
     let discoveryVC    = KDDiscoveryViewController()
     
     // 从 stroryboard 中加载我界面
-    let meVC = UIStoryboard(name: "Me", bundle: nil).instantiateViewControllerWithIdentifier("KDMeViewController")
+    let meVC = UIStoryboard(name: "Me", bundle: nil).instantiateViewController(withIdentifier: "KDMeViewController")
     
     var navigationControllers: NSMutableArray = []
     
@@ -45,7 +45,7 @@ final class KDTabBarController: UITabBarController {
         KDYWeChatHelper.shareInstance.contactVC = self.contactVC
     }
 
-    private func setupViewControllers() {
+    fileprivate func setupViewControllers() {
         let titleArray = ["微信", "通讯录", "发现", "我"]
         
         let normalImageArray = ["tabbar_mainframe",
@@ -64,18 +64,18 @@ final class KDTabBarController: UITabBarController {
         self.conversationVC.networkStateChanged(self.connectionState)
         
         // 设置tabarItem，并设置导航控制器
-        for (index, controller) in controllerArray.enumerate() {
+        for (index, controller) in controllerArray.enumerated() {
             // 设置标题和图片，改变图片的渲染模式
             controller.title            = titleArray[index]
             controller.tabBarItem.title = titleArray[index]
-            controller.tabBarItem.image = UIImage(named: normalImageArray[index])?.imageWithRenderingMode(.AlwaysOriginal)
-            controller.tabBarItem.selectedImage = UIImage(named: seletedImageArray[index])?.imageWithRenderingMode(.AlwaysOriginal)
+            controller.tabBarItem.image = UIImage(named: normalImageArray[index])?.withRenderingMode(.alwaysOriginal)
+            controller.tabBarItem.selectedImage = UIImage(named: seletedImageArray[index])?.withRenderingMode(.alwaysOriginal)
             
-            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGrayColor()], forState: .Normal)
-            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorHex: KDYColor.tabbarSelectedTextColor)], forState: .Selected)
+            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
+            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorHex: KDYColor.tabbarSelectedTextColor)], for: .selected)
             
             let navigation = KDNavigationController(rootViewController: controller)
-            self.navigationControllers.addObject(navigation)
+            self.navigationControllers.add(navigation)
         }
         
         self.viewControllers = self.navigationControllers.mutableCopy() as? [KDNavigationController]
@@ -83,10 +83,10 @@ final class KDTabBarController: UITabBarController {
     
     func setupNotifications() {
         // 接收处理未读消息的通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.setupUnReadMessageCount), name: unReadMessageCountNoti, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setupUnReadMessageCount), name: NSNotification.Name(rawValue: unReadMessageCountNoti), object: nil)
         
         // 接收处理请求加好友的通知
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.setupUntreatedApplyCount), name: unTreatApplyCountNoti, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setupUntreatedApplyCount), name: NSNotification.Name(rawValue: unTreatApplyCountNoti), object: nil)
     }
     
     // MARK: - Public Methods
@@ -102,11 +102,11 @@ final class KDTabBarController: UITabBarController {
      *  设置未读消息数目
      */
     func setupUnReadMessageCount() {
-        let conversations = EMClient.sharedClient().chatManager.getAllConversations()
+        let conversations = EMClient.shared().chatManager.getAllConversations()
         var unReadMsgCount: Int32 = 0
         
-        for conversation in conversations {
-            unReadMsgCount += conversation.unreadMessagesCount
+        for conversation in conversations! {
+            unReadMsgCount += (conversation as AnyObject).unreadMessagesCount
         }
         
         if unReadMsgCount > 0 {
@@ -115,7 +115,7 @@ final class KDTabBarController: UITabBarController {
             self.conversationVC.tabBarItem.badgeValue = nil
         }
         
-        UIApplication.sharedApplication().applicationIconBadgeNumber = NSInteger(unReadMsgCount)
+        UIApplication.shared.applicationIconBadgeNumber = NSInteger(unReadMsgCount)
     }
     
     /**
@@ -128,7 +128,7 @@ final class KDTabBarController: UITabBarController {
     /**
      *  监测网络状态变化
      */
-    func networkStateChanged(connectionState: EMConnectionState) {
+    func networkStateChanged(_ connectionState: EMConnectionState) {
         self.connectionState = connectionState
         self.conversationVC.networkStateChanged(connectionState)
     }
@@ -137,42 +137,42 @@ final class KDTabBarController: UITabBarController {
      *  播放声音或振动(有新消息时)
      */
     func playSoundAndVibration() {        
-        let timeInterval: NSTimeInterval = NSDate().timeIntervalSinceDate(self.lastPlaySoundDate)
+        let timeInterval: TimeInterval = Date().timeIntervalSince(self.lastPlaySoundDate)
         if timeInterval < kDefaultPlaySoundInterval {
             // 如果距离上次响铃和震动时间太短, 则跳过响铃
-            print("skip ringing & vibration \(NSDate()), \(self.lastPlaySoundDate)")
+            print("skip ringing & vibration \(Date()), \(self.lastPlaySoundDate)")
             return;
         }
         
-        self.lastPlaySoundDate = NSDate()
+        self.lastPlaySoundDate = Date()
     }
     
     /**
      *  显示推送消息(通过环信发过来的最新消息)
      */
-    func showNotificationWithMessage(message: EMMessage) {
-        let pushOptions: EMPushOptions = EMClient.sharedClient().pushOptions
+    func showNotificationWithMessage(_ message: EMMessage) {
+        let pushOptions: EMPushOptions = EMClient.shared().pushOptions
         pushOptions.displayStyle = EMPushDisplayStyleMessageSummary
         
         // 发送本地推送
         let localNotification = UILocalNotification()
-        localNotification.fireDate = NSDate()
+        localNotification.fireDate = Date()
         
-        let title = EMClient.sharedClient().currentUsername
+        let title = EMClient.shared().currentUsername
         if pushOptions.displayStyle == EMPushDisplayStyleMessageSummary {  // 显示推送具体内容
             let messageBody = message.body
     
             var pushMessageStr: String? = nil
-            switch messageBody.type {
-            case EMMessageBodyTypeText:
+            switch messageBody?.type {
+            case ?EMMessageBodyTypeText:
                 pushMessageStr = (messageBody as! EMTextMessageBody).text
-            case EMMessageBodyTypeImage:
+            case ?EMMessageBodyTypeImage:
                 pushMessageStr = "图片"
-            case EMMessageBodyTypeVideo:
+            case ?EMMessageBodyTypeVideo:
                 pushMessageStr = "视频"
-            case EMMessageBodyTypeLocation:
+            case ?EMMessageBodyTypeLocation:
                 pushMessageStr = "位置"
-            case EMMessageBodyTypeVoice:
+            case ?EMMessageBodyTypeVoice:
                 pushMessageStr = "语音"
             default:
                 pushMessageStr = ""
@@ -184,14 +184,14 @@ final class KDTabBarController: UITabBarController {
             localNotification.alertBody = "您有一条新消息"
         }
         
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        UIApplication.sharedApplication().applicationIconBadgeNumber += 1
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+        UIApplication.shared.applicationIconBadgeNumber += 1
     }
     
     /**
      *  接收本地通知
      */
-    func didReceviedLocalNotification(localNotification: UILocalNotification) {
+    func didReceviedLocalNotification(_ localNotification: UILocalNotification) {
         
     }
 }

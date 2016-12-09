@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - 聊天Cells
 extension MessageContentType {
-    func chatCellHeight(model: ChatModel) -> CGFloat {
+    func chatCellHeight(_ model: ChatModel) -> CGFloat {
         switch self {
         case .Text:
             return ChatTextTableCell.layoutCellHeight(model)
@@ -32,8 +32,8 @@ extension MessageContentType {
         }
     }
     
-    func chatCell(tableView: UITableView,
-                  indexPath: NSIndexPath,
+    func chatCell(_ tableView: UITableView,
+                  indexPath: IndexPath,
                   model: ChatModel,
                   viewController: KDChatViewController) -> UITableViewCell? {
         

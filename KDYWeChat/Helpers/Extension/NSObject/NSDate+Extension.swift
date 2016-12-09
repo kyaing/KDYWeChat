@@ -14,27 +14,27 @@ let D_DAY: Int	  =	86400
 let D_WEEK: Int	  =	604800
 let D_YEAR: Int	  =	31556926
 
-extension NSDate {
-    class var milliseconds: NSTimeInterval {
-        get { return NSDate().timeIntervalSince1970 * 1000 }
+extension Date {
+    static var milliseconds: TimeInterval {
+        get { return Date().timeIntervalSince1970 * 1000 }
     }
     
     func week() -> String {
-        let myWeekday = NSCalendar.currentCalendar().components([NSCalendarUnit.Weekday], fromDate: self).weekday
+        let myWeekday = (Calendar.current as NSCalendar).components([NSCalendar.Unit.weekday], from: self).weekday
         switch myWeekday {
-        case 0:
+        case ?0:
             return "周日"
-        case 1:
+        case ?1:
             return "周一"
-        case 2:
+        case ?2:
             return "周二"
-        case 3:
+        case ?3:
             return "周三"
-        case 4:
+        case ?4:
             return "周四"
-        case 5:
+        case ?5:
             return "周五"
-        case 6:
+        case ?6:
             return "周六"
         default:
             break
@@ -42,53 +42,53 @@ extension NSDate {
         return "未取到数据"
     }
     
-    class func messageAgoSinceDate(date: NSDate) -> String {
+    static func messageAgoSinceDate(_ date: Date) -> String {
         return self.timeAgoSinceDate(date, numericDates: false)
     }
     
-    class func timeAgoSinceDate(date: NSDate, numericDates: Bool) -> String {
-        let dateFormatter = NSDateFormatter()
-        let calendar = NSCalendar.currentCalendar()
-        let now = NSDate()
-        let earliest = now.earlierDate(date)
+    static func timeAgoSinceDate(_ date: Date, numericDates: Bool) -> String {
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        let now = Date()
+        let earliest = (now as NSDate).earlierDate(date)
         let latest = (earliest == now) ? date : now
-        let components: NSDateComponents = calendar.components([
-            NSCalendarUnit.Minute,
-            NSCalendarUnit.Hour,
-            NSCalendarUnit.Day,
-            NSCalendarUnit.WeekOfYear,
-            NSCalendarUnit.Month,
-            NSCalendarUnit.Year,
-            NSCalendarUnit.Second
-            ], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
+        let components: DateComponents = (calendar as NSCalendar).components([
+            NSCalendar.Unit.minute,
+            NSCalendar.Unit.hour,
+            NSCalendar.Unit.day,
+            NSCalendar.Unit.weekOfYear,
+            NSCalendar.Unit.month,
+            NSCalendar.Unit.year,
+            NSCalendar.Unit.second
+            ], from: earliest, to: latest, options: NSCalendar.Options())
         
-        if (components.year >= 2) {
+        if (components.year! >= 2) {
             return "\(components.year)年前"
-        } else if (components.year >= 1) {
+        } else if (components.year! >= 1) {
             if (numericDates){
                 return "1年前"
             } else {
                 return "去年"
             }
-        } else if (components.month >= 2) {
+        } else if (components.month! >= 2) {
             return "\(components.month)月前"
-        } else if (components.month >= 1) {
+        } else if (components.month! >= 1) {
             if (numericDates){
                 return "1个月前"
             } else {
                 return "上个月"
             }
-        } else if (components.weekOfYear >= 2) {
+        } else if (components.weekOfYear! >= 2) {
             return "\(components.weekOfYear)周前"
-        } else if (components.weekOfYear >= 1) {
+        } else if (components.weekOfYear! >= 1) {
             if (numericDates){
                 return "1周前"
             } else {
                 return "上一周"
             }
-        } else if (components.day >= 2) {
+        } else if (components.day! >= 2) {
             return "\(components.day)天前"
-        } else if (components.day >= 1) {
+        } else if (components.day! >= 1) {
             if (numericDates){
                 return "1天前"
             } else {
@@ -96,7 +96,7 @@ extension NSDate {
             }
         } else {  // 当天则，采用具体时间 (如：09:22)
             dateFormatter.dateFormat = "HH:mm"
-            let timeString = dateFormatter.stringFromDate(date)
+            let timeString = dateFormatter.string(from: date)
             
             return timeString
         }
@@ -116,32 +116,32 @@ extension NSDate {
         //    }
     }
     
-    class func formattedTimeFromTimeInterval(milliSeconds: Int64) -> String {
+    static func formattedTimeFromTimeInterval(_ milliSeconds: Int64) -> String {
         var seconds = milliSeconds
         if milliSeconds > 140000000000 {
             seconds = milliSeconds / 1000
         }
-        let timeInterval: NSTimeInterval = NSTimeInterval(seconds)
+        let timeInterval: TimeInterval = TimeInterval(seconds)
         
-        let date = NSDate(timeIntervalSince1970: timeInterval)
-        let timeString = NSDate.formattedDateTime(date)
+        let date = Date(timeIntervalSince1970: timeInterval)
+        let timeString = Date.formattedDateTime(date)
         
         return timeString
     }
     
-    class func formattedDateTime(date: NSDate) -> String {
-        let dateFormatter = NSDateFormatter()
+    static func formattedDateTime(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let dateNow = dateFormatter.stringFromDate(NSDate()) as NSString
-        let components = NSDateComponents()
+        let dateNow = dateFormatter.string(from: Date()) as NSString
+        var components = DateComponents()
         
-        components.day   = NSInteger(dateNow.substringWithRange(NSMakeRange(8, 2)))!
-        components.month = NSInteger(dateNow.substringWithRange(NSMakeRange(5, 2)))!
-        components.year  = NSInteger(dateNow.substringWithRange(NSMakeRange(0, 4)))!
+        components.day   = NSInteger(dateNow.substring(with: NSMakeRange(8, 2)))!
+        components.month = NSInteger(dateNow.substring(with: NSMakeRange(5, 2)))!
+        components.year  = NSInteger(dateNow.substring(with: NSMakeRange(0, 4)))!
         
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        _ = calendar?.dateFromComponents(components)
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        _ = calendar.date(from: components)
      
         return ""
     }

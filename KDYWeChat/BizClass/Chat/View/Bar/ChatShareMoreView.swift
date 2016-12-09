@@ -11,7 +11,7 @@ import Reusable
 
 protocol ChatShareMoreViewDelegate: class {
     /// 点击照片
-    func didClickPhotoItemAction(photoCounts: Int)
+    func didClickPhotoItemAction(_ photoCounts: Int)
     
     /// 点击拍照
     func didClickCamaraItemAction()
@@ -52,39 +52,39 @@ class ChatShareMoreView: UIView, NibReusable {
         
         self.shareCollectionView.delegate = self
         self.shareCollectionView.dataSource = self
-        self.shareCollectionView.scrollEnabled = false
-        self.shareCollectionView.backgroundColor = UIColor.whiteColor()
+        self.shareCollectionView.isScrollEnabled = false
+        self.shareCollectionView.backgroundColor = UIColor.white
         
         let flowLayout = UICollectionViewFlowLayout()
         let interSpacing: CGFloat = (UIScreen.width - 4 * 60 - 50) / 5.0
         let lineSpaceing: CGFloat = (216 - 2 * 85 - 20) / 3.0
         
-        flowLayout.itemSize = CGSizeMake(60, 85)
+        flowLayout.itemSize = CGSize(width: 60, height: 85)
         flowLayout.minimumInteritemSpacing = interSpacing
         flowLayout.minimumLineSpacing = lineSpaceing
         flowLayout.sectionInset = UIEdgeInsetsMake(20, 25, 20, 25)
         
         self.shareCollectionView.collectionViewLayout = flowLayout        
-        self.shareCollectionView.registerNib(UINib(nibName: "ChatShareCollectionCell", bundle: nil), forCellWithReuseIdentifier: "ChatShareCollectionCell")
+        self.shareCollectionView.register(UINib(nibName: "ChatShareCollectionCell", bundle: nil), forCellWithReuseIdentifier: "ChatShareCollectionCell")
     }
 }
 
 // MARK: - UICollectionViewDataSource
 extension ChatShareMoreView: UICollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.itemDataSource.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let object = self.itemDataSource[indexPath.row]
+        let object = self.itemDataSource[(indexPath as NSIndexPath).row]
         
-        let collectionCell = collectionView.dequeueReusableCellWithReuseIdentifier("ChatShareCollectionCell", forIndexPath: indexPath) as! ChatShareCollectionCell
-        collectionCell.shareButton.setImage(UIImage(named: object.image), forState: .Normal)
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatShareCollectionCell", for: indexPath) as! ChatShareCollectionCell
+        collectionCell.shareButton.setImage(UIImage(named: object.image), for: UIControlState())
         collectionCell.shareLabel.text = object.name
         
         return collectionCell
@@ -93,12 +93,12 @@ extension ChatShareMoreView: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension ChatShareMoreView: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         
         guard let delegate = self.delegate else { return }
         
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0: delegate.didClickPhotoItemAction(1)
         case 1: delegate.didClickCamaraItemAction()
         case 3: delegate.didClickAudioChatItemAction()

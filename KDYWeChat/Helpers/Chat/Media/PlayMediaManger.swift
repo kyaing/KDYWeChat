@@ -17,12 +17,12 @@ class PlayMediaManger: NSObject {
     weak var mediaDelegate: MediaManagerDelegate?
     
     static let shareInstance = PlayMediaManger()
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
     // MARK: - Voice Methods
-    func startPlayingVoice(model: ChatModel) {
+    func startPlayingVoice(_ model: ChatModel) {
         // 播放 .wav格式的语音
         let voiceBody = model.message.body as! EMVoiceMessageBody
         let status = voiceBody.downloadStatus
@@ -31,7 +31,7 @@ class PlayMediaManger: NSObject {
             print("语音正式下载中"); return
             
         } else if status == EMDownloadStatusFailed {
-            EMClient.sharedClient().chatManager.downloadMessageThumbnail(model.message, progress: nil, completion: nil)
+            EMClient.shared().chatManager.downloadMessageThumbnail(model.message, progress: nil, completion: nil)
         }
         
         if let path = model.localFilePath {
@@ -47,12 +47,12 @@ class PlayMediaManger: NSObject {
         self.audioPlayer = nil
         
         // 播放停止后，关闭此功能
-        UIDevice.currentDevice().proximityMonitoringEnabled = false
+        UIDevice.current.isProximityMonitoringEnabled = false
     }
     
-    private func playVoiceWithPath(path: String) {
+    fileprivate func playVoiceWithPath(_ path: String) {
         do {
-            self.audioPlayer = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
+            self.audioPlayer = try AVAudioPlayer(contentsOf: URL(string: path)!)
             
             guard let audioPlayer = self.audioPlayer else { return }
             
@@ -63,7 +63,7 @@ class PlayMediaManger: NSObject {
             
             if audioPlayer.play() {
                 // 开始红外感应，用于切换听筒与扬声器
-                UIDevice.currentDevice().proximityMonitoringEnabled = true
+                UIDevice.current.isProximityMonitoringEnabled = true
             } else {
                 mediaDelegate.playVoiceFailed()
             }
@@ -76,8 +76,8 @@ class PlayMediaManger: NSObject {
 
 // MARK: - AVAudioPlayerDelegate
 extension PlayMediaManger: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
-        UIDevice.currentDevice().proximityMonitoringEnabled = false
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        UIDevice.current.isProximityMonitoringEnabled = false
         
         guard let mediaDelegate = self.mediaDelegate else { return }
         if flag {

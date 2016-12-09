@@ -13,31 +13,31 @@ protocol ChatCellActionDelegate: class {
     /**
      *  点击头像
      */
-    func didClickCellAavator(cell: ChatBaseTableCell)
+    func didClickCellAavator(_ cell: ChatBaseTableCell)
     
     /**
      *  点击图片
      */
-    func didClickCellWithImageView(cell: ChatBaseTableCell)
+    func didClickCellWithImageView(_ cell: ChatBaseTableCell)
     
     /**
      *  点击位置
      */
-    func didClickCellWithLocations(cell: ChatBaseTableCell)
+    func didClickCellWithLocations(_ cell: ChatBaseTableCell)
     
     /**
      *  点击语音并播放
      */
-    func didClickCellVoiceAndPlaying(cell: ChatAudioTableCell, isPlaying: Bool)
+    func didClickCellVoiceAndPlaying(_ cell: ChatAudioTableCell, isPlaying: Bool)
     
     /**
      *  点击视频并播放
      */
-    func didClickCellVideoAndPlaying(cell: ChatBaseTableCell, isPlaying: Bool)
+    func didClickCellVideoAndPlaying(_ cell: ChatBaseTableCell, isPlaying: Bool)
     
     /**
      *  发送失败，重发消息
      */
-    func didClickCellAndReSendMessage(cell: ChatBaseTableCell)
+    func didClickCellAndReSendMessage(_ cell: ChatBaseTableCell)
 }
 

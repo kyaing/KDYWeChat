@@ -18,7 +18,7 @@ class KDPersonalDetailViewController: UIViewController {
 
     // MARK: - Parameters
     lazy var detailTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: gaps, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(colorHex: .separatorColor)
@@ -32,26 +32,26 @@ class KDPersonalDetailViewController: UIViewController {
     }()
     
     lazy var footerView: UIView = {
-        let footerView = UIView(frame: CGRectMake(0, 1, 0, 120))
+        let footerView = UIView(frame: CGRect(x: 0, y: 1, width: 0, height: 120))
         let sendMsgButton = UIButton()
         let sendVideoButton = UIButton()
         
         sendMsgButton.layer.cornerRadius = 5.0
-        sendMsgButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        sendMsgButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
         sendMsgButton.layer.borderWidth = 0.5
-        sendMsgButton.setTitle("发消息", forState: .Normal)
-        sendMsgButton.titleLabel?.font = UIFont.systemFontOfSize(fontSize)
+        sendMsgButton.setTitle("发消息", for: UIControlState())
+        sendMsgButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         sendMsgButton.backgroundColor = UIColor(colorHex: .chatGreenColor)
-        sendMsgButton.addTarget(self, action: #selector(self.chatWithMessageAction), forControlEvents: .TouchUpInside)
+        sendMsgButton.addTarget(self, action: #selector(self.chatWithMessageAction), for: .touchUpInside)
         
         sendVideoButton.layer.cornerRadius = 5.0
-        sendVideoButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        sendVideoButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
         sendVideoButton.layer.borderWidth = 0.5
-        sendVideoButton.setTitle("视频聊天", forState: .Normal)
-        sendVideoButton.titleLabel?.font = UIFont.systemFontOfSize(fontSize)
-        sendVideoButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        sendVideoButton.backgroundColor = UIColor.whiteColor()
-        sendVideoButton.addTarget(self, action: #selector(self.chatWithAudioAndVideoAction), forControlEvents: .TouchUpInside)
+        sendVideoButton.setTitle("视频聊天", for: UIControlState())
+        sendVideoButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        sendVideoButton.setTitleColor(UIColor.black, for: UIControlState())
+        sendVideoButton.backgroundColor = UIColor.white
+        sendVideoButton.addTarget(self, action: #selector(self.chatWithAudioAndVideoAction), for: .touchUpInside)
         
         footerView.addSubview(sendMsgButton)
         footerView.addSubview(sendVideoButton)
@@ -87,25 +87,25 @@ class KDPersonalDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "详细资料"
-        self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clear
         self.detailTableView.reloadData()
     }
     
     // MARK: - Public Methods
-    func configureCells(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.font = UIFont.systemFontOfSize(fontSize)
+    func configureCells(_ cell: UITableViewCell, indexPath: IndexPath) {
+        cell.textLabel?.font = UIFont.systemFont(ofSize: fontSize)
         
-        if indexPath.section == 0 {
-            cell.accessoryType = .None
-            cell.selectionStyle = .None
+        if (indexPath as NSIndexPath).section == 0 {
+            cell.accessoryType = .none
+            cell.selectionStyle = .none
             
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             cell.textLabel?.text = "设置备注"
             
         } else {
-            if indexPath.row == 0 {
-                cell.accessoryType = .None
-                cell.selectionStyle = .None
+            if (indexPath as NSIndexPath).row == 0 {
+                cell.accessoryType = .none
+                cell.selectionStyle = .none
                 cell.textLabel?.text = "所在地区"
                 
             } else  {
@@ -114,9 +114,9 @@ class KDPersonalDetailViewController: UIViewController {
         }
     }
     
-    func configurePushController(indexPath: NSIndexPath) {
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
+    func configurePushController(_ indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 1 {
+            if (indexPath as NSIndexPath).row == 0 {
                 ky_pushViewController(KDEditInfoViewController(title: "备注信息"), animated: true)
             }
         }
@@ -147,11 +147,11 @@ class KDPersonalDetailViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension KDPersonalDetailViewController:  UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 || section == 1 {
             return 1
             
@@ -160,11 +160,11 @@ extension KDPersonalDetailViewController:  UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var detailCell = tableView.dequeueReusableCellWithIdentifier("detailCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var detailCell = tableView.dequeueReusableCell(withIdentifier: "detailCell")
         if detailCell == nil {
-            detailCell = UITableViewCell(style: .Value1, reuseIdentifier: "detailCell")
-            detailCell?.accessoryType = .DisclosureIndicator
+            detailCell = UITableViewCell(style: .value1, reuseIdentifier: "detailCell")
+            detailCell?.accessoryType = .disclosureIndicator
         }
         
         configureCells(detailCell!, indexPath: indexPath)
@@ -175,16 +175,16 @@ extension KDPersonalDetailViewController:  UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension KDPersonalDetailViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         configurePushController(indexPath)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).section == 0 {
             return 70
-        } else if indexPath.section == 2 {
-            if indexPath.row == 1 {
+        } else if (indexPath as NSIndexPath).section == 2 {
+            if (indexPath as NSIndexPath).row == 1 {
                 return 70
             }
         }
@@ -192,7 +192,7 @@ extension KDPersonalDetailViewController: UITableViewDelegate {
         return 44
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
 }

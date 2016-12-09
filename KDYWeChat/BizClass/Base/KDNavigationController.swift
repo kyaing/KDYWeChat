@@ -21,17 +21,17 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
         self.setupNavigationBar()
     }
 
-    override func pushViewController(viewController: UIViewController, animated: Bool) {
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         // 添加返回手势
-        self.interactivePopGestureRecognizer?.enabled = true
+        self.interactivePopGestureRecognizer?.isEnabled = true
         
         if self.viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
             
             // 自定义返回按钮
             let button = UIButton()
-            button.setBackgroundImage(UIImage(named: "main_back"), forState: .Normal)
-            button.addTarget(self, action: #selector(self.backItemAction), forControlEvents: .TouchUpInside)
+            button.setBackgroundImage(UIImage(named: "main_back"), for: UIControlState())
+            button.addTarget(self, action: #selector(self.backItemAction), for: .touchUpInside)
             button.frame.size = (button.currentBackgroundImage?.size)!
             
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
@@ -41,25 +41,25 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
     }
 
     func setupNavigationBar() {
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         UINavigationBar.appearance().barTintColor = UIColor(colorHex: .barTintColor)
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.white
         
-        UINavigationBar.appearance().translucent = true
+        UINavigationBar.appearance().isTranslucent = true
         let attributes = [
-            NSFontAttributeName: UIFont.systemFontOfSize(18),
-            NSForegroundColorAttributeName: UIColor.whiteColor()
+            NSFontAttributeName: UIFont.systemFont(ofSize: 18),
+            NSForegroundColorAttributeName: UIColor.white
         ]
         UINavigationBar.appearance().titleTextAttributes = attributes
         
         UIBarButtonItem.appearance().setTitleTextAttributes(
-                [NSFontAttributeName: UIFont.systemFontOfSize(16),
-                NSForegroundColorAttributeName: UIColor.whiteColor()],
-                forState: UIControlState.Normal)
+                [NSFontAttributeName: UIFont.systemFont(ofSize: 16),
+                NSForegroundColorAttributeName: UIColor.white],
+                for: UIControlState())
     }
     
     func backItemAction() {
-        self.popViewControllerAnimated(true)
+        self.popViewController(animated: true)
     }
 }
 

@@ -26,23 +26,23 @@ class ChatBottomBarView: UIView, NibReusable {
     
     // 键盘类型
     enum ChatBarKeyboardType: Int {
-        case Default
-        case Text
-        case Emotion
-        case Share
+        case `default`
+        case text
+        case emotion
+        case share
     }
     
     // 按着录音按钮
     @IBOutlet weak var recordButton: UIButton! {
         didSet {
             // recordButton是自定义按钮
-            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#F3F4F8")), forState: .Normal)
-            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#C6C7CB")), forState: .Highlighted)
-            recordButton.layer.borderColor = UIColor.grayColor().CGColor
+            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#F3F4F8")), for: .Normal)
+            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#C6C7CB")), for: .Highlighted)
+            recordButton.layer.borderColor = UIColor.gray.cgColor
             recordButton.layer.cornerRadius  = 5.0
             recordButton.layer.borderWidth   = 0.5
             recordButton.layer.masksToBounds = true
-            recordButton.hidden = true
+            recordButton.isHidden = true
         }
     }
     
@@ -55,10 +55,10 @@ class ChatBottomBarView: UIView, NibReusable {
             inputTextView.layer.cornerRadius  = 5.0
             inputTextView.layer.masksToBounds = true
             inputTextView.textContainerInset  = UIEdgeInsetsMake(10, 5, 5, 5)
-            inputTextView.returnKeyType       = .Send
-            inputTextView.font = UIFont.systemFontOfSize(15)
+            inputTextView.returnKeyType       = .send
+            inputTextView.font = UIFont.systemFont(ofSize: 15)
             inputTextView.enablesReturnKeyAutomatically = true
-            inputTextView.hidden = false
+            inputTextView.isHidden = false
         }
     }
     
@@ -67,7 +67,7 @@ class ChatBottomBarView: UIView, NibReusable {
     @IBOutlet weak var shareButton: ChatBarButton!
     
     weak var delegate: ChatBarViewDelegate?
-    var keyboardType: ChatBarKeyboardType? = .Default
+    var keyboardType: ChatBarKeyboardType? = .default
     var inputTextViewCurrentHeight: CGFloat = kBarViewHeight
     
     override init(frame: CGRect) {
@@ -99,30 +99,30 @@ extension ChatBottomBarView {
      *  改变按钮状态
      */
     func setupBtnUIStatus() {
-        audioButton.setImage(UIImage(named: "tool_voice_1"), forState: .Normal)
-        audioButton.setImage(UIImage(named: "tool_voice_2"), forState: .Highlighted)
+        audioButton.setImage(UIImage(named: "tool_voice_1"), for: UIControlState())
+        audioButton.setImage(UIImage(named: "tool_voice_2"), for: .highlighted)
         
-        emotionButton.setImage(UIImage(named: "tool_emotion_1"), forState: .Normal)
-        emotionButton.setImage(UIImage(named: "tool_emotion_2"), forState: .Highlighted)
+        emotionButton.setImage(UIImage(named: "tool_emotion_1"), for: UIControlState())
+        emotionButton.setImage(UIImage(named: "tool_emotion_2"), for: .highlighted)
         
-        shareButton.setImage(UIImage(named: "tool_share_1"), forState: .Normal)
-        shareButton.setImage(UIImage(named: "tool_share_2"), forState: .Highlighted)
+        shareButton.setImage(UIImage(named: "tool_share_1"), for: UIControlState())
+        shareButton.setImage(UIImage(named: "tool_share_2"), for: .highlighted)
     }
     
     /**
      *  显示录音状态
      */
     func showAudioRecording() {
-        keyboardType = .Default
+        keyboardType = .default
         
-        inputTextView.hidden = true
+        inputTextView.isHidden = true
         inputTextView.resignFirstResponder()
         
         if let delegate = delegate {
             delegate.bottomBarViewHideAllKeyboardWhenVoice()
         }
         
-        recordButton.hidden = false
+        recordButton.isHidden = false
         audioButton.showTypingKeyboard   = true
         emotionButton.showTypingKeyboard = false
         shareButton.showTypingKeyboard   = false
@@ -132,13 +132,13 @@ extension ChatBottomBarView {
      *  显示文字输入键盘
      */
     func showTypingKeyboard() {
-        keyboardType = .Text
+        keyboardType = .text
         
-        inputTextView.hidden = false
+        inputTextView.isHidden = false
         inputTextView.becomeFirstResponder()
         
         // 操作其它按钮
-        recordButton.hidden = true
+        recordButton.isHidden = true
         audioButton.showTypingKeyboard   = false
         emotionButton.showTypingKeyboard = true
         shareButton.showTypingKeyboard   = true
@@ -148,16 +148,16 @@ extension ChatBottomBarView {
      *  显示表情键盘
      */
     func showEmotionKeyboard() {
-        keyboardType = .Emotion
+        keyboardType = .emotion
         
-        inputTextView.hidden = false
+        inputTextView.isHidden = false
         inputTextView.resignFirstResponder()
         
         if let delegate = delegate {
             delegate.bottomBarViewShowEmotionKeyboard()
         }
         
-        recordButton.hidden = true
+        recordButton.isHidden = true
         audioButton.showTypingKeyboard   = false
         emotionButton.showTypingKeyboard = false
         shareButton.showTypingKeyboard   = true
@@ -167,16 +167,16 @@ extension ChatBottomBarView {
      *  显示扩展键盘
      */
     func showShardKeyboard() {
-        keyboardType = .Share
+        keyboardType = .share
         
-        inputTextView.hidden = false
+        inputTextView.isHidden = false
         inputTextView.resignFirstResponder()
         
         if let delegate = delegate {
             delegate.bottomBarViewShowShareKeyboard()
         }
         
-        recordButton.hidden = true
+        recordButton.isHidden = true
         audioButton.showTypingKeyboard   = false
         emotionButton.showTypingKeyboard = true
         shareButton.showTypingKeyboard   = false
@@ -186,13 +186,13 @@ extension ChatBottomBarView {
      *  当显示表情或扩展自定义键盘时，点击输入框唤起系统键盘
      */
     func inputTextViewCallKeyboard() {
-        keyboardType = .Text
-        inputTextView.hidden = false
+        keyboardType = .text
+        inputTextView.isHidden = false
         
         // 同时恢复表情按钮图标
         emotionButton.emotionButtonChangeToKeyboardUI(showKeyboard: false)
         
-        recordButton.hidden = true
+        recordButton.isHidden = true
         audioButton.showTypingKeyboard   = false
         emotionButton.showTypingKeyboard = false
         shareButton.showTypingKeyboard   = false
@@ -202,7 +202,7 @@ extension ChatBottomBarView {
      *  取消用户输入
      */
     func resignKeyboardInput() {
-        keyboardType = .Default
+        keyboardType = .default
         inputTextView.resignFirstResponder()
         
         emotionButton.showTypingKeyboard = true

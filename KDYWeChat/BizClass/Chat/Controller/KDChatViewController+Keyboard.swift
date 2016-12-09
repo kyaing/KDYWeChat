@@ -20,12 +20,12 @@ extension KDChatViewController {
      *  键盘控制
      */
     func keyboardControl() {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let notificationCenter = NotificationCenter.default
         
         // 系统键盘显示的通知
         notificationCenter.addObserver(
             self,
-            name: UIKeyboardWillShowNotification,
+            name: NSNotification.Name.UIKeyboardWillShow,
             object: nil) { (observer, notification) in
                 self.chatTableView.scrollToBottom(animated: false)
                 self.keyboardControling(notification, isShowkeyboard: true)
@@ -33,9 +33,9 @@ extension KDChatViewController {
         
         notificationCenter.addObserver(
             self,
-            name: UIKeyboardDidShowNotification,
+            name: NSNotification.Name.UIKeyboardDidShow,
             object: nil) { (observer, notification) in
-                if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue {
                     _ = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
                 }
             }
@@ -43,7 +43,7 @@ extension KDChatViewController {
         // 系统键盘隐藏的通知
         notificationCenter.addObserver(
             self,
-            name: UIKeyboardWillHideNotification,
+            name: NSNotification.Name.UIKeyboardWillHide,
             object: nil) { (observer, notification) in
                 self.chatTableView.scrollToBottom(animated: true)
                 self.keyboardControling(notification, isShowkeyboard: false)
@@ -51,7 +51,7 @@ extension KDChatViewController {
         
         notificationCenter.addObserver(
             self,
-            name: UIKeyboardDidHideNotification,
+            name: NSNotification.Name.UIKeyboardDidHide,
             object: nil) { (observer, notification) in
                 
             }
@@ -63,7 +63,7 @@ extension KDChatViewController {
      - parameter notification:   通知对象
      - parameter isShowkeyboard: 是否显示键盘
      */
-    func keyboardControling(notification: NSNotification, isShowkeyboard: Bool) {
+    func keyboardControling(_ notification: Notification, isShowkeyboard: Bool) {
         /*
          如果是表情键盘或者 分享键盘 ，响应自己 delegate 的处理键盘事件。
          
@@ -73,19 +73,19 @@ extension KDChatViewController {
          */
         
         let keyboardType = bottomBarView.keyboardType
-        if keyboardType == .Emotion || keyboardType == .Share {
+        if keyboardType == .emotion || keyboardType == .share {
             return
         }
         
         self.keyboardNoti = notification
         
         // 处理系统键盘 .Default, .Text
-        var userInfo       = notification.userInfo!
-        let keyboardRect   = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue
-        let curve          = userInfo[UIKeyboardAnimationCurveUserInfoKey]!.integerValue  // curve值：7
-        let duration       = userInfo[UIKeyboardAnimationDurationUserInfoKey]!.doubleValue
+        var userInfo       = (notification as NSNotification).userInfo!
+        let keyboardRect   = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
+        let curve          = (userInfo[UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue  // curve值：7
+        let duration       = (userInfo[UIKeyboardAnimationDurationUserInfoKey]! as AnyObject).doubleValue
 
-        let convertedFrame = self.view.convertRect(keyboardRect, fromView: nil)
+        let convertedFrame = self.view.convert(keyboardRect!, from: nil)
         let heightOffset   = self.view.bounds.size.height - convertedFrame.origin.y
         // let options     = UIViewAnimationOptions(rawValue: UInt(curve) << 16 | UIViewAnimationOptions.BeginFromCurrentState.rawValue)
         
@@ -94,7 +94,7 @@ extension KDChatViewController {
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(duration)
+        UIView.setAnimationDuration(duration!)
         UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve!)!)
         self.view.layoutIfNeeded()
         if isShowkeyboard {

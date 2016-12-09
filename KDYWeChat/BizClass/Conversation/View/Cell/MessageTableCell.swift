@@ -8,6 +8,26 @@
 
 import UIKit
 import Reusable
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class MessageTableCell: UITableViewCell, NibReusable {
     
@@ -29,9 +49,9 @@ class MessageTableCell: UITableViewCell, NibReusable {
             unReadMsgLabel.text    = newValue.unReadCount
             
             let unReadCount = newValue.unReadCount.toInt()
-            guard unReadCount > 0 else {  return unReadMsgLabel.hidden = true }
+            guard unReadCount > 0 else {  return unReadMsgLabel.isHidden = true }
             
-            unReadMsgLabel.hidden = false
+            unReadMsgLabel.isHidden = false
             unReadMsgLabel.text = newValue.unReadCount
             
             // 处理气泡的大小
@@ -51,8 +71,8 @@ class MessageTableCell: UITableViewCell, NibReusable {
             }
             
             // 处理头像
-            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) where userInfo.imageUrl != nil {
-                    avatorImageView.kf_setImageWithURL(NSURL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) , userInfo.imageUrl != nil {
+                    avatorImageView.kf_setImageWithURL(URL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             } else {
                 avatorImageView.image = UIImage(named: kUserAvatarDefault)
             }
@@ -65,24 +85,24 @@ class MessageTableCell: UITableViewCell, NibReusable {
         
         avatorImageView.layer.cornerRadius  = 5
         avatorImageView.layer.masksToBounds = true
-        avatorImageView.contentMode = .ScaleAspectFill
+        avatorImageView.contentMode = .scaleAspectFill
 
         unReadMsgLabel.layer.cornerRadius   = 9.5
         unReadMsgLabel.layer.masksToBounds  = true
         
-        lastMessageLabel.textColor = UIColor.grayColor()
-        lastMsgDateLabel.textColor = UIColor.grayColor()
+        lastMessageLabel.textColor = UIColor.gray
+        lastMsgDateLabel.textColor = UIColor.gray
     }
     
     // 当Cell选中和高高时，重新设置label颜色
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        unReadMsgLabel.backgroundColor = .redColor()
+        unReadMsgLabel.backgroundColor = .red()
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        unReadMsgLabel.backgroundColor = .redColor()
+        unReadMsgLabel.backgroundColor = .red()
     }
 }
 

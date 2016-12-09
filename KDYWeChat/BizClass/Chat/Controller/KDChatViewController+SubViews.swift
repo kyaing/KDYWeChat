@@ -29,7 +29,7 @@ extension KDChatViewController {
      */
     func setupBgImageView() {
         self.bgImageView = UIImageView()
-        self.bgImageView.contentMode = .ScaleAspectFill
+        self.bgImageView.contentMode = .scaleAspectFill
         self.bgImageView.clipsToBounds = true
         self.view.addSubview(self.bgImageView)
         
@@ -124,7 +124,7 @@ extension KDChatViewController {
      */
     func setupRecordingView() {
         self.recordingView = ChatRecordingView.loadFromNib()
-        self.recordingView.hidden = true
+        self.recordingView.isHidden = true
         self.view.addSubview(self.recordingView)
         
         self.recordingView.snp_makeConstraints { (make) in

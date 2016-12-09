@@ -13,12 +13,12 @@ import Photos
 class KDPersonInfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
-        tableView.sectionIndexColor = UIColor.darkGrayColor()
+        tableView.sectionIndexBackgroundColor = UIColor.clear
+        tableView.sectionIndexColor = UIColor.darkGray
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 50
         tableView.dataSource = self
@@ -38,15 +38,15 @@ class KDPersonInfoViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    func configureCells(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.font = UIFont.systemFontOfSize(16)
-        cell.detailTextLabel?.font = UIFont.systemFontOfSize(16)
+    func configureCells(_ cell: UITableViewCell, indexPath: IndexPath) {
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 16)
         
-        cell.accessoryType   = .DisclosureIndicator
+        cell.accessoryType   = .disclosureIndicator
         cell.separatorInset  = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         
         let titleArray = [["头像", "昵称", "ID号"], ["性别", "地区"]]
-        cell.textLabel?.text = titleArray[indexPath.section][indexPath.row]
+        cell.textLabel?.text = titleArray[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         
         // 加载个人信息详情
         let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
@@ -54,31 +54,31 @@ class KDPersonInfoViewController: UIViewController {
         let nickname = currentUser?.nickname
         let gender   = currentUser?.gender
         
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                cell.accessoryType = .None
+        if (indexPath as NSIndexPath).section == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
+                cell.accessoryType = .none
                 
-                let avatorImageView = UIImageView(frame: CGRectMake(0, 0, 55, 55))
-                avatorImageView.contentMode = .ScaleAspectFill
+                let avatorImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 55, height: 55))
+                avatorImageView.contentMode = .scaleAspectFill
                 avatorImageView.layer.masksToBounds = true
                 
                 if let imageURL = currentUser?.imageUrl {
-                    avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                    avatorImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
                 } else {
                     avatorImageView.image = UIImage(named: kUserAvatarDefault)
                 }
                 
                 cell.accessoryView = avatorImageView
                 
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.detailTextLabel?.text = nickname
             } else {
-                cell.accessoryType  = .None
-                cell.selectionStyle = .None
+                cell.accessoryType  = .none
+                cell.selectionStyle = .none
                 cell.detailTextLabel?.text = idString
             }
         } else {
-            if indexPath.row == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.detailTextLabel?.text = gender
             } else {
                 cell.detailTextLabel?.text = "北京"
@@ -86,16 +86,16 @@ class KDPersonInfoViewController: UIViewController {
         }
     }
     
-    func configurePushController(indexPath: NSIndexPath) {
-        let section = indexPath.section
-        let row = indexPath.row
+    func configurePushController(_ indexPath: IndexPath) {
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         
         if section == 0 {
             if row == 0 {   // 头像
                 setupPickerAlertController()
             } else if row == 1 {  // 昵称
                 // 取得对应的 Cell
-                let cell = self.infoTableView.cellForRowAtIndexPath(indexPath)
+                let cell = self.infoTableView.cellForRow(at: indexPath)
                 
                 let editController = KDEditInfoViewController(title: "昵称")
                 editController.editInfoStr = cell?.detailTextLabel?.text
@@ -133,12 +133,12 @@ class KDPersonInfoViewController: UIViewController {
      *  图片和拍照选择器
      */
     func setupPickerAlertController() {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let cameraAction = UIAlertAction(title: "拍照", style: .Default) { (alertAction) in
+        let cameraAction = UIAlertAction(title: "拍照", style: .default) { (alertAction) in
         }
         
-        let photoAction = UIAlertAction(title: "从手机相册选择", style: .Default) { (alertAction) in
+        let photoAction = UIAlertAction(title: "从手机相册选择", style: .default) { (alertAction) in
             // 相册中选择图片
             self.ky_presentImagePickerController(
                 maxNumberOfSelections: 1,
@@ -156,7 +156,7 @@ class KDPersonInfoViewController: UIViewController {
                         UserInfoManager.shareInstance.uploadUserAvatorInBackground(image, successs: { (success) in
                             print("上传头像成功")
                             
-                            dispatch_async(dispatch_get_main_queue(), { 
+                            DispatchQueue.main.async(execute: { 
                                 strongSelf.infoTableView.reloadData()
                             })
                             
@@ -170,7 +170,7 @@ class KDPersonInfoViewController: UIViewController {
             }
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
         cameraAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
         photoAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
@@ -180,24 +180,24 @@ class KDPersonInfoViewController: UIViewController {
         alertController.addAction(photoAction)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
 // MARK: - UITableViewDataSource
 extension KDPersonInfoViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 3 : 2
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var infoCell = tableView.dequeueReusableCellWithIdentifier("infoCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var infoCell = tableView.dequeueReusableCell(withIdentifier: "infoCell")
         if infoCell == nil {
-            infoCell = UITableViewCell(style: .Value1, reuseIdentifier: "infoCell")
+            infoCell = UITableViewCell(style: .value1, reuseIdentifier: "infoCell")
         }
         configureCells(infoCell!, indexPath: indexPath)
         
@@ -207,18 +207,18 @@ extension KDPersonInfoViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension KDPersonInfoViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         configurePushController(indexPath)
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath as NSIndexPath).section == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 return 70
             }
         }

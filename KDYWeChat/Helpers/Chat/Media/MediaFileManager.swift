@@ -15,14 +15,14 @@ private let videoRecordDirectory = "ChatVideo"
 class MediaFileManager: NSObject {
     
     /// 语音文件目录
-    class var recordingDirecotry: NSURL {
+    class var recordingDirecotry: URL {
         get {
             return createFilesDirectory(audioRecordDirectory)
         }
     }
     
     // 视频文件目录
-    class var videoDirecotry: NSURL {
+    class var videoDirecotry: URL {
         get {
             return createFilesDirectory(videoRecordDirectory)
         }
@@ -31,15 +31,15 @@ class MediaFileManager: NSObject {
     /**
      *  创建文件的目录
      */
-    class func createFilesDirectory(directoryName: String) -> NSURL {
-        let documentDirectory = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask).first
+    class func createFilesDirectory(_ directoryName: String) -> URL {
+        let documentDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
         
-        let fileManager = NSFileManager.defaultManager()
-        let directoryURL = documentDirectory?.URLByAppendingPathComponent(directoryName)
+        let fileManager = FileManager.default
+        let directoryURL = documentDirectory?.appendingPathComponent(directoryName)
         
-        if !fileManager.fileExistsAtPath((directoryURL?.absoluteString)!) {
+        if !fileManager.fileExists(atPath: (directoryURL?.absoluteString)!) {
             do {
-                try fileManager.createDirectoryAtPath((directoryURL?.path)!, withIntermediateDirectories: true, attributes: nil)
+                try fileManager.createDirectory(atPath: (directoryURL?.path)!, withIntermediateDirectories: true, attributes: nil)
                 return directoryURL!
                 
             } catch let error as NSError {
@@ -53,16 +53,16 @@ class MediaFileManager: NSObject {
     /**
      *  获取语音文件的路径
      */
-    class func getRecordingFilePath(fileName: String) -> NSURL {
+    class func getRecordingFilePath(_ fileName: String) -> URL {
         // 这里直接使用苹果的语音格式 .wav，而不用 .amr
-        return self.recordingDirecotry.URLByAppendingPathComponent("\(fileName)" + ".wav")
+        return self.recordingDirecotry.appendingPathComponent("\(fileName)" + ".wav")
     }
     
     /**
      *  获取视频文件的路径
      */
-    class func getVideoFilePath(fileName: String) -> NSURL {
-        return self.videoDirecotry.URLByAppendingPathComponent("\(fileName)" + ".mp4")
+    class func getVideoFilePath(_ fileName: String) -> URL {
+        return self.videoDirecotry.appendingPathComponent("\(fileName)" + ".mp4")
     }
 }
 

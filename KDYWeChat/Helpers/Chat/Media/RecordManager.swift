@@ -16,13 +16,13 @@ class RecordManager: NSObject {
     lazy var recordSetting: [String: AnyObject] = {
         let setting = [
             // 线性采样位数  8、16、24、32
-            AVLinearPCMBitDepthKey: NSNumber(int: 16),
+            AVLinearPCMBitDepthKey: NSNumber(value: 16 as Int32),
             // 设置录音格式  AVFormatIDKey == kAudioFormatLinearPCM
-            AVFormatIDKey: NSNumber(unsignedInt: kAudioFormatLinearPCM),
+            AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM as UInt32),
             // 录音通道数  1 或 2
-            AVNumberOfChannelsKey: NSNumber(int: 1),
+            AVNumberOfChannelsKey: NSNumber(value: 1 as Int32),
             // 设置录音采样率(Hz) 如：AVSampleRateKey == 8000/44100/96000（影响音频的质量）
-            AVSampleRateKey: NSNumber(float: 8000.0)
+            AVSampleRateKey: NSNumber(value: 8000.0 as Float)
             ]
         
         return setting
@@ -30,9 +30,9 @@ class RecordManager: NSObject {
     
     var recorder: AVAudioRecorder!
     
-    var operationQueue: NSOperationQueue! {
+    var operationQueue: OperationQueue! {
         get {
-            return NSOperationQueue()
+            return OperationQueue()
         }
     }
     
@@ -52,13 +52,13 @@ class RecordManager: NSObject {
     var isCancelRecord: Bool = false
     
     /// 语音本地路径
-    var recordingTempFilePath: NSURL!
+    var recordingTempFilePath: URL!
     
     /// 多媒体的代理
     weak var mediaDelegate: MediaManagerDelegate?
     
     static let shareInstance = RecordManager()
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
     
@@ -69,7 +69,7 @@ class RecordManager: NSObject {
         let session = AVAudioSession.sharedInstance()
         
         do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, withOptions: .DuckOthers)
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .duckOthers)
             do {
                 try session.setActive(true)
                 session.requestRecordPermission{allowed in
@@ -97,21 +97,21 @@ class RecordManager: NSObject {
         do {
             // 根据时间，生成每条语音的路径
             let random = arc4random() % 100000
-            let time: Int32 = (Int32)(NSDate().timeIntervalSince1970)
+            let time: Int32 = (Int32)(Date().timeIntervalSince1970)
             let fileName = String(format: "%d%d", time, random)
             
             self.recordingTempFilePath = MediaFileManager.getRecordingFilePath(fileName)
             
-            self.recorder = try AVAudioRecorder(URL: self.recordingTempFilePath, settings: self.recordSetting)
+            self.recorder = try AVAudioRecorder(url: self.recordingTempFilePath, settings: self.recordSetting)
             self.recorder.delegate = self
-            self.recorder.meteringEnabled = true
+            self.recorder.isMeteringEnabled = true
             self.recorder.prepareToRecord()
             
         } catch _ as NSError {
             self.recorder = nil
         }
         
-        self.performSelector(#selector(self.readyStartRecord), withObject: self, afterDelay: 0.0)
+        self.perform(#selector(self.readyStartRecord), with: self, afterDelay: 0.0)
     }
     
     /**
@@ -122,7 +122,7 @@ class RecordManager: NSObject {
         
         self.recorder.record()
         
-        let operation = NSBlockOperation()
+        let operation = BlockOperation()
         operation.addExecutionBlock(updateVolume)
         self.operationQueue.addOperation(operation)
     }
@@ -132,7 +132,7 @@ class RecordManager: NSObject {
      */
     func cancelRecord() {
         self.isCancelRecord = true
-        NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(self.readyStartRecord), object: self)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.readyStartRecord), object: self)
         self.isFinishRecord = false
         
         self.recorder.stop()
@@ -144,14 +144,14 @@ class RecordManager: NSObject {
      *  更新录音音量
      */
     func updateVolume() {
-        guard let recorder = self.recorder where self.recorder != nil else { return }
+        guard let recorder = self.recorder , self.recorder != nil else { return }
         
         repeat {
             recorder.updateMeters()
             
-            self.recordingTimeInterval = NSNumber(int: NSNumber(double: recorder.currentTime).intValue)
+            self.recordingTimeInterval = NSNumber(value: NSNumber(value: recorder.currentTime as Double).int32Value as Int32)
             
-            let averagePower = recorder.averagePowerForChannel(0)
+            let averagePower = recorder.averagePower(forChannel: 0)
             let lowPassResults = pow(10, (0.05 * averagePower)) * 10
             
             dispatch_async_safely_to_main_queue({ () -> () in
@@ -159,13 +159,13 @@ class RecordManager: NSObject {
             })
             
             // 大于60秒，停止录音
-            if self.recordingTimeInterval.intValue > 60 {
+            if self.recordingTimeInterval.int32Value > 60 {
                 stopRecord()
             }
             
-            NSThread.sleepForTimeInterval(0.05)
+            Thread.sleep(forTimeInterval: 0.05)
             
-        } while(recorder.recording)
+        } while(recorder.isRecording)
     }
     
     /**
@@ -178,19 +178,19 @@ class RecordManager: NSObject {
         self.endTime = CACurrentMediaTime()
         
         if (self.endTime - self.startTime) < 0.5 {
-            NSObject.cancelPreviousPerformRequestsWithTarget(self, selector: #selector(self.readyStartRecord), object: self)
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.readyStartRecord), object: self)
             
             dispatch_async_safely_to_main_queue({ () -> () in
                 self.mediaDelegate?.recordTimeTooShort()
             })
             
         } else {
-            guard let currentTime: NSTimeInterval = self.recorder.currentTime where self.recorder != nil
+            guard let currentTime: TimeInterval = self.recorder.currentTime , self.recorder != nil
                 else { return }
-            self.recordingTimeInterval = NSNumber(int: NSNumber(double: currentTime).intValue)
+            self.recordingTimeInterval = NSNumber(value: NSNumber(value: currentTime as Double).int32Value as Int32)
             
-            if self.recordingTimeInterval.intValue < 1 {
-                self.performSelector(#selector(self.readyStopRecord), withObject: self, afterDelay: 0.5)
+            if self.recordingTimeInterval.int32Value < 1 {
+                self.perform(#selector(self.readyStopRecord), with: self, afterDelay: 0.5)
             } else {
                 self.readyStopRecord()
             }
@@ -207,7 +207,7 @@ class RecordManager: NSObject {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setActive(false, withOptions: .NotifyOthersOnDeactivation)
+            try audioSession.setActive(false, with: .notifyOthersOnDeactivation)
         } catch _ as NSError {
             
         }
@@ -228,15 +228,15 @@ class RecordManager: NSObject {
         }
     }
     
-    func dispatch_async_safely_to_main_queue(block: ()->()) {
-        dispatch_async_safely_to_queue(dispatch_get_main_queue(), block)
+    func dispatch_async_safely_to_main_queue(_ block: @escaping ()->()) {
+        dispatch_async_safely_to_queue(DispatchQueue.main, block)
     }
     
-    func dispatch_async_safely_to_queue(queue: dispatch_queue_t, _ block: ()->()) {
-        if queue === dispatch_get_main_queue() && NSThread.isMainThread() {
+    func dispatch_async_safely_to_queue(_ queue: DispatchQueue, _ block: @escaping ()->()) {
+        if queue === DispatchQueue.main && Thread.isMainThread {
             block()
         } else {
-            dispatch_async(queue) {
+            queue.async {
                 block()
             }
         }
@@ -245,10 +245,10 @@ class RecordManager: NSObject {
 
 // MARK: - AVAudioRecorderDelegate
 extension RecordManager: AVAudioRecorderDelegate {
-    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag && self.isFinishRecord {
             // 完成录音
-            self.mediaDelegate?.recordFinished(self.recordingTempFilePath.absoluteString, duration: self.recordingTimeInterval.intValue)
+            self.mediaDelegate?.recordFinished(self.recordingTempFilePath.absoluteString, duration: self.recordingTimeInterval.int32Value)
             
         } else {
             

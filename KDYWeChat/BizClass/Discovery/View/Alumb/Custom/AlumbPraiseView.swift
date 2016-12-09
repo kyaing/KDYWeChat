@@ -22,11 +22,11 @@ class AlumbPraiseView: UIView {
     }
     
     // MARK: - Event Response
-    @IBAction func praiseButtonAction(sender: AnyObject) {
+    @IBAction func praiseButtonAction(_ sender: AnyObject) {
         
     }
     
-    @IBAction func commentButtonAction(sender: AnyObject) {
+    @IBAction func commentButtonAction(_ sender: AnyObject) {
         
     }
 }

@@ -36,7 +36,7 @@ class KDYWeChatTests: XCTestCase {
     func testPerformanceExample() {
         // 测试性能例子
         
-        self.measureBlock {
+        self.measure {
             // 需要测试性能的代码
             for i in 0..<100 {
                 print(i)

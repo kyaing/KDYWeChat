@@ -22,9 +22,9 @@ class MeHeaderTableCell: UITableViewCell, NibReusable {
         
         self.avatorImageView.layer.cornerRadius = 5
         self.avatorImageView.layer.masksToBounds = true
-        self.avatorImageView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.avatorImageView.layer.borderColor = UIColor.lightGray.cgColor
         self.avatorImageView.layer.borderWidth = 0.5
-        self.avatorImageView.contentMode = .ScaleAspectFill
+        self.avatorImageView.contentMode = .scaleAspectFill
     }
 }
 

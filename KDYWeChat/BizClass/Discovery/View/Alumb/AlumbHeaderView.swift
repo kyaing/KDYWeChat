@@ -20,12 +20,12 @@ class AlumbHeaderView: UIView, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.avatorView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        self.avatorView.layer.borderColor = UIColor.darkGray.cgColor
         self.avatorView.layer.borderWidth = 0.5
         
         if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
             if let imageURL = currentUser.imageUrl {
-                self.avatorImageView.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                self.avatorImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
             }
             
             self.usernameLabel.text = currentUser.username

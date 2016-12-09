@@ -18,18 +18,18 @@ class KDEditInfoViewController: UIViewController {
     var editInfoStr: String?
     
     lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(self.editInfoDoneAction))
+        let rightBarItem = UIBarButtonItem(title: "确定", style: .plain, target: self, action: #selector(self.editInfoDoneAction))
         
         return rightBarItem
     }()
     
     lazy var infoTextField: UITextField = {
         let textField = UITextField()
-        textField.font = UIFont.systemFontOfSize(15)
+        textField.font = UIFont.systemFont(ofSize: 15)
         textField.adjustsFontSizeToFitWidth = true
-        textField.clearButtonMode = .WhileEditing
-        textField.borderStyle = .None
-        textField.autocorrectionType = .No
+        textField.clearButtonMode = .whileEditing
+        textField.borderStyle = .none
+        textField.autocorrectionType = .no
         textField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
         textField.becomeFirstResponder()
         
@@ -51,14 +51,14 @@ class KDEditInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = .None
+        self.edgesForExtendedLayout = UIRectEdge()
         self.navigationItem.rightBarButtonItem = self.rightBarItem
         self.view.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         
         self.title = self.titleStr
         
         let containerView = UIView()
-        containerView.backgroundColor = UIColor.whiteColor()
+        containerView.backgroundColor = UIColor.white
         
         self.view.addSubview(containerView)
         self.view.addSubview(self.infoTextField)

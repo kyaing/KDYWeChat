@@ -16,6 +16,6 @@ class KDMyLiveViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "我直播"
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
     }
 }

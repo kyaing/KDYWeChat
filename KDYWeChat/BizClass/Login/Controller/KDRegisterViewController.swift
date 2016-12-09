@@ -23,7 +23,7 @@ final class KDRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.shared.statusBarStyle = .default
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(tapGesture)
@@ -33,11 +33,11 @@ final class KDRegisterViewController: UIViewController {
     
     func setupViewsUI() {
         self.registerButton.layer.cornerRadius = 5
-        self.registerButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        self.registerButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
         self.registerButton.layer.borderWidth = 0.5
         self.registerButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
         
-        self.cancelButton.setTitleColor(UIColor(colorHex: .tabbarSelectedTextColor), forState: .Normal)
+        self.cancelButton.setTitleColor(UIColor(colorHex: .tabbarSelectedTextColor), for: UIControlState())
         
         // 修改光标颜色
         self.mailTextField.tintColor    = UIColor(colorHex: KDYColor.tabbarSelectedTextColor)
@@ -46,11 +46,11 @@ final class KDRegisterViewController: UIViewController {
     }
 
     // MARK: - Event Responses
-    @IBAction func cancelButtonAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonAction(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func registerButtonAction(sender: AnyObject) {
+    @IBAction func registerButtonAction(_ sender: AnyObject) {
         
         /**
          *  注册环信，并同时注册LeanClound，建立 _User表
@@ -59,9 +59,9 @@ final class KDRegisterViewController: UIViewController {
         let username = self.accountTextField.text
         let password = self.passwordTextFiled.text
         
-        EMClient.sharedClient().registerWithUsername(username, password: password) { (account, error) in
+        EMClient.shared().register(withUsername: username, password: password) { (account, error) in
             if error != nil {
-                print("注册环信失败！error = \(error.description)")
+                print("注册环信失败！error = \(error?.description)")
             } else {   // 成功后，注册LeanCloud..
                 print(">>> 注册环信成功 <<<")
                 self.loginLeanCloud(mail!, userName: username!, password: password!)
@@ -69,13 +69,13 @@ final class KDRegisterViewController: UIViewController {
         }
     }
     
-    func loginLeanCloud(mail: String, userName: String, password: String) {
+    func loginLeanCloud(_ mail: String, userName: String, password: String) {
         let user = AVUser()
         user.email    = mail
         user.username = userName
         user.password = password
         
-        user.signUpInBackgroundWithBlock({ (succeeded, error) in
+        user.signUpInBackground({ (succeeded, error) in
             if succeeded {
                 // 跳转到tabbar
                 print(">>> 注册LeanCloud成功 <<<")

@@ -9,6 +9,26 @@
 import UIKit
 import MapKit
 import CoreLocation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 /// 地理位置页面
 class KDChatLocationViewController: UIViewController {
@@ -32,48 +52,48 @@ class KDChatLocationViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "位置"
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         // 导航栏按钮
         seupBarButtonItems()
         
         self.mapView = MKMapView(frame: self.view.bounds)
-        self.mapView.mapType = .Standard
-        self.mapView.zoomEnabled = true
+        self.mapView.mapType = .standard
+        self.mapView.isZoomEnabled = true
         self.mapView.showsUserLocation = true
-        self.mapView.userTrackingMode = .Follow
+        self.mapView.userTrackingMode = .follow
         self.view.addSubview(mapView)
         
         self.mapView.delegate = self
         self.locationManager.delegate = self
         
-        if Float(UIDevice.currentDevice().systemVersion) >= 8.0 {
+        if Float(UIDevice.current.systemVersion) >= 8.0 {
             self.locationManager.requestWhenInUseAuthorization()
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.locationManager.startUpdatingLocation()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.locationManager.stopUpdatingLocation()
     }
     
     func seupBarButtonItems() {
-        let leftBarItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: #selector(leftBarButtonAction))
+        let leftBarItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(leftBarButtonAction))
         self.navigationItem.leftBarButtonItem = leftBarItem
         
-        let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(rightBarButtonAction))
+        let rightBarItem = UIBarButtonItem(title: "确定", style: .plain, target: self, action: #selector(rightBarButtonAction))
         self.navigationItem.rightBarButtonItem = rightBarItem
-        self.navigationItem.rightBarButtonItem?.enabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     // MARK: - Event Response 
     func leftBarButtonAction() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func rightBarButtonAction() {
@@ -84,7 +104,7 @@ class KDChatLocationViewController: UIViewController {
 
 // MARK: - MKMapViewDelegate
 extension KDChatLocationViewController: MKMapViewDelegate {
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation.location!) { (array, error) in
@@ -95,32 +115,32 @@ extension KDChatLocationViewController: MKMapViewDelegate {
         }
     }
     
-    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError) {
+    func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
         
     }
 }
 
 // MARK: - CLLocationManagerDelegate
 extension KDChatLocationViewController: CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
         let location = locations.first
         print("纬度 = \(location?.coordinate.latitude)，经度 = \(location?.coordinate.longitude)")
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error = \(error.localizedDescription)")
     }
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch (status) {
-        case .NotDetermined: print("用户未决定")
-        case .Denied:
+        case .notDetermined: print("用户未决定")
+        case .denied:
             // 判断定位服务被拒绝
             if CLLocationManager.locationServicesEnabled() {
-                if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
-                    if UIApplication.sharedApplication().canOpenURL(url) {
-                        UIApplication.sharedApplication().openURL(url)
+                if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.openURL(url)
                     }
                 }
                 

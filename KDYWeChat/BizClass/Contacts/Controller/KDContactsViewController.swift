@@ -10,6 +10,26 @@ import UIKit
 import AVOSCloud
 import SnapKit
 import MBProgressHUD
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 /// 通讯录页面
 final class KDContactsViewController: UIViewController {
@@ -37,13 +57,13 @@ final class KDContactsViewController: UIViewController {
     }()
     
     lazy var contactsTableView: UITableView = {
-        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .Plain)
+        let tableView: UITableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         tableView.registerReusableCell(ContactsTableCell)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(colorHex: .separatorColor)
-        tableView.sectionIndexBackgroundColor = UIColor.clearColor()
-        tableView.sectionIndexColor = UIColor.darkGrayColor()
+        tableView.sectionIndexBackgroundColor = UIColor.clear
+        tableView.sectionIndexColor = UIColor.darkGray
         tableView.tableHeaderView = self.searchController.searchBar
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 50
@@ -56,16 +76,16 @@ final class KDContactsViewController: UIViewController {
     }()
     
     lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_addfriends"), style: .Plain, target: self, action: #selector(self.addFrinedAction))
+        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_addfriends"), style: .plain, target: self, action: #selector(self.addFrinedAction))
         
         return rightBarItem
     }()
     
     lazy var tableFooterLabel: UILabel = {
-        let label = UILabel(frame: CGRectMake(0, 0, 0, 44))
-        label.font = UIFont.systemFontOfSize(15)
-        label.textColor = UIColor.grayColor()
-        label.textAlignment = .Center
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = UIColor.gray
+        label.textAlignment = .center
         
         return label
     }()
@@ -74,13 +94,13 @@ final class KDContactsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = .None
+        self.edgesForExtendedLayout = UIRectEdge()
         self.navigationItem.rightBarButtonItem = self.rightBarItem
         
         reloadFriendsDataArray()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
@@ -91,7 +111,7 @@ final class KDContactsViewController: UIViewController {
      *  获取好友列表
      */
     func reloadFriendsDataArray() {
-        let friendsNames = EMClient.sharedClient().contactManager.getContactsFromServerWithError(nil)
+        let friendsNames = EMClient.shared().contactManager.getContactsFromServerWithError(nil)
         print("friendsName = \(friendsNames)")
         
         // 从leanClond 加载好友列表
@@ -101,8 +121,8 @@ final class KDContactsViewController: UIViewController {
     /**
      *  配置分组的内容
      */
-    func configureSections(dataArray: NSMutableArray) {
-        self.collation = UILocalizedIndexedCollation.currentCollation()
+    func configureSections(_ dataArray: NSMutableArray) {
+        self.collation = UILocalizedIndexedCollation.current()
         self.sectionTitlesArray = NSMutableArray(array: collation.sectionTitles)
         
         let index = self.collation.sectionTitles.count
@@ -112,20 +132,20 @@ final class KDContactsViewController: UIViewController {
         
         for _ in 0...index {
             let array = NSMutableArray()
-            newSectionArray.addObject(array)
+            newSectionArray.add(array)
         }
         
         for contact in contactsDataSource {
-            let sectionNumber = collation.sectionForObject(contact, collationStringSelector: Selector("username"))
-            let sectionObjs = newSectionArray.objectAtIndex(sectionNumber)
-            sectionObjs.addObject(contact)
+            let sectionNumber = collation.section(for: contact, collationStringSelector: #selector(getter: AVUser.username))
+            let sectionObjs = newSectionArray.object(at: sectionNumber)
+            (sectionObjs as AnyObject).add(contact)
         }
         
         for _ in 0...index {
-            let userObjsArrayForSection = newSectionArray.objectAtIndex(index)
+            let userObjsArrayForSection = newSectionArray.object(at: index)
             
-            let sortedUserObjsArrayForSection = collation.sortedArrayFromArray(userObjsArrayForSection as! [AnyObject], collationStringSelector: Selector("username"))
-            newSectionArray.replaceObjectAtIndex(index, withObject: sortedUserObjsArrayForSection)
+            let sortedUserObjsArrayForSection = collation.sortedArray(from: userObjsArrayForSection as! [AnyObject], collationStringSelector: #selector(getter: AVUser.username))
+            newSectionArray.replaceObject(at: index, with: sortedUserObjsArrayForSection)
         }
         
         sectionsArray = newSectionArray
@@ -134,13 +154,13 @@ final class KDContactsViewController: UIViewController {
     /**
      *  配置Cell内容
      */
-    func configureCells(cell: ContactsTableCell, indexPath: NSIndexPath) {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
+    func configureCells(_ cell: ContactsTableCell, indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 cell.usernameLabel.text = "新的朋友"
                 cell.avatorImage.image = UIImage(named: "plugins_FriendNotify")
                 
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 cell.usernameLabel.text = "群聊"
                 cell.avatorImage.image = UIImage(named: "add_friend_icon_addgroup")
                 
@@ -150,13 +170,13 @@ final class KDContactsViewController: UIViewController {
             }
             
         } else {
-            let userNameInSection = self.sectionsArray.objectAtIndex(indexPath.section)
-            let model = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
+            let userNameInSection = self.sectionsArray.object(at: (indexPath as NSIndexPath).section)
+            let model = (userNameInSection as AnyObject).object(at: (indexPath as NSIndexPath).row) as! ContactModel
             
             let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.username!)
             cell.usernameLabel.text = userInfo?.username
             if let imageURL = userInfo?.imageUrl {
-                cell.avatorImage.kf_setImageWithURL(NSURL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                cell.avatorImage.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
             }
         }
     }
@@ -164,22 +184,22 @@ final class KDContactsViewController: UIViewController {
     /**
      *  配置进入下一个的界面
      */
-    func configurePushController(indexPath: NSIndexPath) {
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
+    func configurePushController(_ indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 0 {
+            if (indexPath as NSIndexPath).row == 0 {
                 let newfriendController = KDNewFriendsViewController.initFromNib()
                 ky_pushViewController(newfriendController, animated: true)
                 
-            } else if indexPath.row == 1 {
+            } else if (indexPath as NSIndexPath).row == 1 {
                 
             } else {
                 
             }
             
         } else {
-            let userNameInSection = self.sectionsArray.objectAtIndex(indexPath.section)
-            let contactModel = userNameInSection.objectAtIndex(indexPath.row) as! ContactModel
-            if contactModel.username == AVUser.currentUser().username { return }
+            let userNameInSection = self.sectionsArray.object(at: (indexPath as NSIndexPath).section)
+            let contactModel = (userNameInSection as AnyObject).object(at: (indexPath as NSIndexPath).row) as! ContactModel
+            if contactModel.username == AVUser.current().username { return }
             
             let detailController = KDPersonalDetailViewController(model: nil)
             detailController.contactModel = contactModel
@@ -191,18 +211,18 @@ final class KDContactsViewController: UIViewController {
     /**
      *  加载在LeanClond 的好友
      */
-    func loadFrinedsFromLeanCloudWithBuddy(frinedNames: [String]) {
+    func loadFrinedsFromLeanCloudWithBuddy(_ frinedNames: [String]) {
         
         // 查询 _User表里的用户 (这里的查询效率会低点)
         let userQuery = AVQuery(className: "_User")
         var frindsArray: [AnyObject] = []
     
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        userQuery?.findObjectsInBackground { (objects, error) in
             
             for object in objects as! [AVUser] {
                 let dic = object.dictionaryForObject()
-                let username = dic.objectForKey("username") as! String
+                let username = dic?.object(forKey: "username") as! String
                 
                 let index = frinedNames.count
                 for i in 0..<index {
@@ -217,17 +237,17 @@ final class KDContactsViewController: UIViewController {
             for friend in frindsArray as! [AVUser] {
                 let model = ContactModel()
                 model.username = friend.username
-                model.avatorURL = (friend.objectForKey("avatorImage") as? AVFile)?.url
+                model.avatorURL = (friend.object(forKey: "avatorImage") as? AVFile)?.url
                 
-                self.contactsDataSource.addObject(model)
+                self.contactsDataSource.add(model)
             }
             
             let userModel = ContactModel()
-            let currentName = EMClient.sharedClient().currentUsername
+            let currentName = EMClient.shared().currentUsername
             userModel.username = currentName
-            self.contactsDataSource.addObject(userModel)
+            self.contactsDataSource.add(userModel)
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 // 配置分组
                 self.configureSections(self.contactsDataSource)
                 
@@ -237,7 +257,7 @@ final class KDContactsViewController: UIViewController {
                 LoadingHUDShow.shareInstance.hideHUD(self.view)
                 self.contactsTableView.reloadData()
                 
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
             })
         }
     }
@@ -259,45 +279,45 @@ final class KDContactsViewController: UIViewController {
 
 // MARK: - UISearchResultsUpdating
 extension KDContactsViewController: UISearchResultsUpdating {
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         
     }
 }
 
 // MARK: - UISearchControllerDelegate
 extension KDContactsViewController: UISearchControllerDelegate {
-    func willPresentSearchController(searchController: UISearchController) {
+    func willPresentSearchController(_ searchController: UISearchController) {
         
     }
     
-    func didPresentSearchController(searchController: UISearchController) {
-        UIApplication.sharedApplication().statusBarStyle = .Default
+    func didPresentSearchController(_ searchController: UISearchController) {
+        UIApplication.shared.statusBarStyle = .default
     }
     
-    func willDismissSearchController(searchController: UISearchController) {
+    func willDismissSearchController(_ searchController: UISearchController) {
         
     }
     
-    func didDismissSearchController(searchController: UISearchController) {
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    func didDismissSearchController(_ searchController: UISearchController) {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 }
 
 // MARK: - UITableViewDataSource
 extension KDContactsViewController: UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return collation.sectionTitles.count + 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
         } else {
-            return sectionsArray[section].count
+            return (sectionsArray[section] as AnyObject).count
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contactsCell: ContactsTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
         
         // 设置Cell的数据
@@ -306,57 +326,57 @@ extension KDContactsViewController: UITableViewDataSource {
         return contactsCell
     }
     
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
         headerView.backgroundColor = UIColor(red: 245/255.0, green: 245/255.0, blue: 245/255.0, alpha: 1.0)
         
-        headerView.textLabel?.font = UIFont.systemFontOfSize(14)
+        headerView.textLabel?.font = UIFont.systemFont(ofSize: 14)
         headerView.textLabel?.textColor = UIColor(red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return nil
         }
         
         let objsInSection = sectionsArray[section]
-        guard objsInSection.count > 0 else { return nil }
+        guard (objsInSection as AnyObject).count > 0 else { return nil }
         
         return self.collation.sectionTitles[section]
     }
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return self.collation.sectionIndexTitles
     }
 }
 
 // MARK: - UITableViewDelegate
 extension KDContactsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         configurePushController(indexPath)
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .Delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // 添加备注按钮
-        let noteRowAction = UITableViewRowAction(style: .Normal, title: "备注") { (rowAction, indexPath) in
+        let noteRowAction = UITableViewRowAction(style: .normal, title: "备注") { (rowAction, indexPath) in
             print(">>> 备注好友 <<<")
         }
         
         return [noteRowAction]
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let objsInSection = sectionsArray[section]
-        guard objsInSection.count > 0 else { return 0 }
+        guard (objsInSection as AnyObject).count > 0 else { return 0 }
         
         return 20
     }

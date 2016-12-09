@@ -14,7 +14,7 @@ extension KDChatViewController: UITextViewDelegate {
     /**
      *  将要进入到编辑模式
      */
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         self.bottomBarView.inputTextViewCallKeyboard()
         return true
     }
@@ -22,14 +22,14 @@ extension KDChatViewController: UITextViewDelegate {
     /**
      *  内容发生改变时
      */
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         
     }
     
     /**
      *  键盘内容即将输入到 textView 中时
      */
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             // 发送文本消息
             sendChatTextMessage(textView)
@@ -46,7 +46,7 @@ extension KDChatViewController: MediaManagerDelegate {
     /**
      *  更新录音音量
      */
-    func updateRecordingVolumn(value: Float) {
+    func updateRecordingVolumn(_ value: Float) {
         self.recordingView.updateVolumeValue(value)
     }
     
@@ -60,7 +60,7 @@ extension KDChatViewController: MediaManagerDelegate {
     /**
      *  录音完成
      */
-    func recordFinished(path: String, duration: Int32) {
+    func recordFinished(_ path: String, duration: Int32) {
         // 发送语音消息
         sendChatVoiceMessage(path, duration: duration)
     }
@@ -86,7 +86,7 @@ extension KDChatViewController: ChatCellActionDelegate {
     /**
      *  点击头像
      */
-    func didClickCellAavator(cell: ChatBaseTableCell) {
+    func didClickCellAavator(_ cell: ChatBaseTableCell) {
         guard let model = cell.model else { return }
         ky_pushViewController(KDPersonalDetailViewController(model: model), animated: true)
     }
@@ -94,21 +94,21 @@ extension KDChatViewController: ChatCellActionDelegate {
     /**
      *  点击图片
      */
-    func didClickCellWithImageView(cell: ChatBaseTableCell) {
+    func didClickCellWithImageView(_ cell: ChatBaseTableCell) {
         print("didClickCellWithImageView")
     }
     
     /**
      *  点击地理位置
      */
-    func didClickCellWithLocations(cell: ChatBaseTableCell) {
+    func didClickCellWithLocations(_ cell: ChatBaseTableCell) {
         print("didClickCellWithLocations")
     }
     
     /**
      *  播放语音
      */
-    func didClickCellVoiceAndPlaying(cell: ChatAudioTableCell, isPlaying: Bool) {
+    func didClickCellVoiceAndPlaying(_ cell: ChatAudioTableCell, isPlaying: Bool) {
         if self.currentVoiceCell != nil && self.currentVoiceCell != cell {
             self.currentVoiceCell.stopPlayVoiceAnimation()
         }
@@ -127,14 +127,14 @@ extension KDChatViewController: ChatCellActionDelegate {
     /**
      *  播放视频
      */
-    func didClickCellVideoAndPlaying(cell: ChatBaseTableCell, isPlaying: Bool) {
+    func didClickCellVideoAndPlaying(_ cell: ChatBaseTableCell, isPlaying: Bool) {
         print("didClickCellVideoAndPlaying")
     }
     
     /**
      *  重发消息
      */
-    func didClickCellAndReSendMessage(cell: ChatBaseTableCell) {
+    func didClickCellAndReSendMessage(_ cell: ChatBaseTableCell) {
         print("didClickCellAndReSendMessage")
     }
 }
@@ -195,10 +195,10 @@ extension KDChatViewController: ChatBarViewDelegate {
      
      -  parameter showExpandable: show or hide expandable inputTextView
      */
-    func controlExpandableInputView(showExpandable showExpandable: Bool) {
+    func controlExpandableInputView(showExpandable: Bool) {
         let textView = self.bottomBarView.inputTextView
         let currentTextHeight = self.bottomBarView.inputTextViewCurrentHeight
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let textHeight = showExpandable ? currentTextHeight : kBarViewHeight
             self.bottomBarView.snp_updateConstraints { (make) -> Void in
                 make.height.equalTo(textHeight)
@@ -206,8 +206,8 @@ extension KDChatViewController: ChatBarViewDelegate {
             
             self.view.layoutIfNeeded()
             self.chatTableView.scrollBottomToLastRow()
-            textView.contentOffset = CGPoint.zero
-        }
+            textView?.contentOffset = CGPoint.zero
+        }) 
     }
 }
 
@@ -219,7 +219,7 @@ extension KDChatViewController: ChatEmotionViewDelegate {
 // MARK: - ChatShareMoreViewDelegate
 extension KDChatViewController: ChatShareMoreViewDelegate {
     /// 点击照片
-    func didClickPhotoItemAction(photoCounts: Int) {
+    func didClickPhotoItemAction(_ photoCounts: Int) {
         print("did Click PhotoItem")
         
         // 弹出 BSImagePicker 图片选择器 (最多一次性选择九张)

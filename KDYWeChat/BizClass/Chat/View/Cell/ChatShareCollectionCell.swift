@@ -17,14 +17,14 @@ class ChatShareCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.shareButton.userInteractionEnabled = false
+        self.shareButton.isUserInteractionEnabled = false
         self.shareButton.layer.cornerRadius = 10
         self.shareButton.layer.masksToBounds = true
         self.shareButton.layer.borderWidth = 0.5
-        self.shareButton.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.shareButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    @IBAction func shareButtonAction(sender: AnyObject) {
+    @IBAction func shareButtonAction(_ sender: AnyObject) {
        
     }
 }

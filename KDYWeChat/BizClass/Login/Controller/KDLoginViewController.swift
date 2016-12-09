@@ -29,8 +29,8 @@ final class KDLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.hidden = true
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        self.navigationController?.navigationBar.isHidden = true
+        UIApplication.shared.statusBarStyle = .default
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tapGesture)
@@ -53,7 +53,7 @@ final class KDLoginViewController: UIViewController {
     
     func setupViewsUI() {
         loginButton.layer.cornerRadius = 5
-        loginButton.layer.borderColor = UIColor(colorHex: .separatorColor).CGColor
+        loginButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
         loginButton.layer.borderWidth = 0.5
         loginButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
         
@@ -63,31 +63,31 @@ final class KDLoginViewController: UIViewController {
     }
     
     // MARK: - Event Responses
-    @IBAction func loginButtonAction(sender: AnyObject) {
+    @IBAction func loginButtonAction(_ sender: AnyObject) {
         
         var userName = accountTextFiled.text
         let password = passwordTextField.text
     
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        AVUser.logInWithUsernameInBackground(userName, password: password) { (user, error) in
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        AVUser.logInWithUsername(inBackground: userName, password: password) { (user, error) in
         
             if error != nil {
-                print("error = \(error.localizedDescription)")
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                print("error = \(error?.localizedDescription)")
+                MBProgressHUD.hide(for: self.view, animated: true)
                 
             } else {
                 print(">>> 登录成功 <<<")
                 
                 // 从LeanCloud中取出对应的环信用户名
-                userName = AVUser.currentUser().username
-                EMClient.sharedClient().loginWithUsername(userName, password: password) { (name, error) in
+                userName = AVUser.current().username
+                EMClient.shared().login(withUsername: userName, password: password) { (name, error) in
                 
                     if (error != nil) {
                         var codeString = ""
-                        switch error.code {
-                        case EMErrorNetworkUnavailable: codeString = "网络不可用"
-                        case EMErrorServerNotReachable: codeString = "服务器未连接"
-                        case EMErrorUserAuthenticationFailed: codeString = "密码验证错误"
+                        switch error?.code {
+                        case ?EMErrorNetworkUnavailable: codeString = "网络不可用"
+                        case ?EMErrorServerNotReachable: codeString = "服务器未连接"
+                        case ?EMErrorUserAuthenticationFailed: codeString = "密码验证错误"
                         default: codeString = "环信登录失败"
                         }
                         print("\(codeString)")
@@ -96,16 +96,16 @@ final class KDLoginViewController: UIViewController {
                         print(">> 环信登录成功 <<")
                         
                         // 设置自动登录
-                        EMClient.sharedClient().options.isAutoLogin = true
+                        EMClient.shared().options.isAutoLogin = true
                         
-                        dispatch_async(dispatch_get_main_queue()) {
+                        DispatchQueue.main.async {
                             KDYWeChatHelper.shareInstance.asyncPushOptions()
                             KDYWeChatHelper.shareInstance.asyncConversationFromDB()
                             
                             // 发送自动登录的通知
-                            self.postNotificationName(kLoginStateChangedNoti, object: NSNumber(bool: EMClient.sharedClient().isLoggedIn))
+                            self.postNotificationName(kLoginStateChangedNoti, object: NSNumber(value: EMClient.shared().isLoggedIn as Bool))
                             
-                            MBProgressHUD.hideHUDForView(self.view, animated: true)
+                            MBProgressHUD.hide(for: self.view, animated: true)
                         }
                     }
                 }
@@ -113,18 +113,18 @@ final class KDLoginViewController: UIViewController {
         }
     }
     
-    @IBAction func moreButtonAction(sender: AnyObject) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+    @IBAction func moreButtonAction(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-        let changeAction = UIAlertAction(title: "切换账号", style: .Default) { alertAction in
+        let changeAction = UIAlertAction(title: "切换账号", style: .default) { alertAction in
         }
         
-        let registerAction = UIAlertAction(title: "注册", style: .Default) { alertAction in
+        let registerAction = UIAlertAction(title: "注册", style: .default) { alertAction in
             let registerController = KDRegisterViewController.initFromNib()
-            self.navigationController?.presentViewController(registerController, animated: true, completion: nil)
+            self.navigationController?.present(registerController, animated: true, completion: nil)
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .Cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
         /**
          *  修改显示的字体颜色 
@@ -138,7 +138,7 @@ final class KDLoginViewController: UIViewController {
         alertController.addAction(registerAction)
         alertController.addAction(cancelAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func hideKeyboard() {

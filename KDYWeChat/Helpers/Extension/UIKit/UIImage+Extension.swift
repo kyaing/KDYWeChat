@@ -14,7 +14,7 @@ public extension UIImage {
     //https://github.com/melvitax/AFImageHelper/blob/master/AFImageHelper%2FAFImageExtension.swift
     
     public enum UIImageContentMode {
-        case ScaleToFill, ScaleAspectFit, ScaleAspectFill
+        case scaleToFill, scaleAspectFit, scaleAspectFill
     }
     
     /**
@@ -26,17 +26,17 @@ public extension UIImage {
      
      - Returns A new image
      */
-    func resize(size:CGSize, contentMode: UIImageContentMode = .ScaleToFill, quality: CGInterpolationQuality = .Medium) -> UIImage? {
+    func resize(_ size:CGSize, contentMode: UIImageContentMode = .scaleToFill, quality: CGInterpolationQuality = .medium) -> UIImage? {
         let horizontalRatio = size.width / self.size.width;
         let verticalRatio = size.height / self.size.height;
         var ratio: CGFloat!
         
         switch contentMode {
-        case .ScaleToFill:
+        case .scaleToFill:
             ratio = 1
-        case .ScaleAspectFill:
+        case .scaleAspectFill:
             ratio = max(horizontalRatio, verticalRatio)
-        case .ScaleAspectFit:
+        case .scaleAspectFit:
             ratio = min(horizontalRatio, verticalRatio)
         }
         
@@ -46,76 +46,76 @@ public extension UIImage {
         // images. See here: http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/comment-page-2/#comment-39951
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let context = CGBitmapContextCreate(nil, Int(rect.size.width), Int(rect.size.height), 8, 0, colorSpace, bitmapInfo.rawValue)
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let context = CGContext(data: nil, width: Int(rect.size.width), height: Int(rect.size.height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
         
-        let transform = CGAffineTransformIdentity
+        let transform = CGAffineTransform.identity
         
         // Rotate and/or flip the image if required by its orientation
-        CGContextConcatCTM(context, transform);
+        context?.concatenate(transform);
         
         // Set the quality level to use when rescaling
-        CGContextSetInterpolationQuality(context, quality)
+        context!.interpolationQuality = quality
         
         
         //CGContextSetInterpolationQuality(context, CGInterpolationQuality(kCGInterpolationHigh.value))
         
         // Draw into the context; this scales the image
-        CGContextDrawImage(context, rect, self.CGImage)
+        context?.draw(self.cgImage!, in: rect)
         
         // Get the resized image from the context and a UIImage
-        let newImage = UIImage(CGImage: CGBitmapContextCreateImage(context)!, scale: self.scale, orientation: self.imageOrientation)
+        let newImage = UIImage(cgImage: (context?.makeImage()!)!, scale: self.scale, orientation: self.imageOrientation)
         return newImage;
     }
     
     //iOS7+ capture screen
-    func screenCaptureWithView(view: UIView, rect: CGRect) -> UIImage {
+    func screenCaptureWithView(_ view: UIView, rect: CGRect) -> UIImage {
         var capture: UIImage
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 1.0)
-        let context: CGContextRef = UIGraphicsGetCurrentContext()!
-        CGContextTranslateCTM(context, -rect.origin.x, -rect.origin.y)
+        let context: CGContext = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: -rect.origin.x, y: -rect.origin.y)
         //        let layer: CALayer = view.layer
-        if view.respondsToSelector(#selector(UIView.drawViewHierarchyInRect(_:afterScreenUpdates:))) {
-            view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
+        if view.responds(to: #selector(UIView.drawHierarchy(`in`:afterScreenUpdates:)(_:afterScreenUpdates:))) {
+            view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         } else {
-            view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            view.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
-        capture = UIGraphicsGetImageFromCurrentImageContext()
+        capture = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return capture
     }
     
-    class func imageWithColor(color: UIColor) -> UIImage {
-        let rect = CGRectMake(0, 0, 1.0, 1.0)
+    class func imageWithColor(_ color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
     
-    func roundWithCornerRadius(cornerRadius: CGFloat) -> UIImage {
+    func roundWithCornerRadius(_ cornerRadius: CGFloat) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: self.size)
         UIGraphicsBeginImageContextWithOptions(self.size, false, 1)
         UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
-        drawInRect(rect)
-        return UIGraphicsGetImageFromCurrentImageContext()
+        draw(in: rect)
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
     
     func hasAlpha() -> Bool {
-        let alpha: CGImageAlphaInfo = CGImageGetAlphaInfo(self.CGImage)
-        return (alpha == .First || alpha == .Last || alpha == .PremultipliedFirst || alpha == .PremultipliedLast)
+        let alpha: CGImageAlphaInfo = self.cgImage!.alphaInfo
+        return (alpha == .first || alpha == .last || alpha == .premultipliedFirst || alpha == .premultipliedLast)
     }
     
-    class func scaleImage(image: UIImage, scaleSize: CGFloat) -> UIImage {
+    class func scaleImage(_ image: UIImage, scaleSize: CGFloat) -> UIImage {
         UIGraphicsBeginImageContext(CGSize(width: image.size.width * scaleSize, height: image.size.height * scaleSize))
-        image.drawInRect(CGRect(x: 0, y: 0, width: image.size.width * scaleSize, height: image.size.height * scaleSize))
+        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width * scaleSize, height: image.size.height * scaleSize))
         let scaleImage = UIGraphicsGetImageFromCurrentImageContext()
         
-        return scaleImage
+        return scaleImage!
     }
 }
 

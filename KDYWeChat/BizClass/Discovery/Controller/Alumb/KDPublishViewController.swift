@@ -16,23 +16,23 @@ class KDPublishViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "发动态"
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         seupBarButtonItems()
     }
     
     func seupBarButtonItems() {
-        let leftBarItem = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: #selector(leftBarButtonAction))
+        let leftBarItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(leftBarButtonAction))
         self.navigationItem.leftBarButtonItem = leftBarItem
         
-        let rightBarItem = UIBarButtonItem(title: "确定", style: .Plain, target: self, action: #selector(rightBarButtonAction))
+        let rightBarItem = UIBarButtonItem(title: "确定", style: .plain, target: self, action: #selector(rightBarButtonAction))
         self.navigationItem.rightBarButtonItem = rightBarItem
-        self.navigationItem.rightBarButtonItem?.enabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     // MARK: - Event Response
     func leftBarButtonAction() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func rightBarButtonAction() {

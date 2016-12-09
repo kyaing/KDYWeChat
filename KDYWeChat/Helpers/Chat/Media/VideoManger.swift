@@ -14,7 +14,7 @@ class VideoManger: NSObject {
     weak var mediaDelegate: MediaManagerDelegate?
     
     static let shareInstance = VideoManger()
-    private override init() {
+    fileprivate override init() {
         super.init()
     }
 }

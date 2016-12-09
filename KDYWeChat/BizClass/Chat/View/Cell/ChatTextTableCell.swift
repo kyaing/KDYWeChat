@@ -24,7 +24,7 @@ let kChatBubblePaddingTop: CGFloat = 3                                  //气泡
 let kChatBubbleMaginLeft: CGFloat = 5                                   //气泡和头像的 gap 值：5
 let kChatBubblePaddingBottom: CGFloat = 8                               //气泡距离底部分割线 gap 值：8
 let kChatBubbleLeft: CGFloat = kChatAvatarMarginLeft + kChatAvatarWidth + kChatBubbleMaginLeft  //气泡距离屏幕左的距
-private let kChatTextFont: UIFont = UIFont.systemFontOfSize(15)
+private let kChatTextFont: UIFont = UIFont.systemFont(ofSize: 15)
 
 /// 聊天文本Cell
 class ChatTextTableCell: ChatBaseTableCell, NibReusable {
@@ -35,11 +35,11 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
     // 内容文本 (使用YYText处理)
     @IBOutlet weak var contentLabel: YYLabel! {
         didSet {
-            contentLabel.backgroundColor = UIColor.clearColor()
+            contentLabel.backgroundColor = UIColor.clear
             contentLabel.numberOfLines = 0
             contentLabel.displaysAsynchronously = false
             contentLabel.ignoreCommonProperties = true
-            contentLabel.textVerticalAlignment = .Top
+            contentLabel.textVerticalAlignment = .top
             contentLabel.font = kChatTextFont
         }
     }
@@ -50,7 +50,7 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
     }
     
     // 设置文本内容
-    override func setupCellContent(model: ChatModel) {
+    override func setupCellContent(_ model: ChatModel) {
         super.setupCellContent(model)
         
         if let textLinePositionModifier = model.textLinePositionModifier {
@@ -67,7 +67,7 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
         
         // 拉伸气泡图片
         let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
-        let bubbleImage = stretchImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .Stretch)
+        let bubbleImage = stretchImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         self.bubbleImageView.image = bubbleImage
     
         self.setNeedsLayout()
@@ -119,7 +119,7 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
     /**
      *  根据数据模型，计算高度
      */
-    class func layoutCellHeight(model: ChatModel) -> CGFloat {
+    class func layoutCellHeight(_ model: ChatModel) -> CGFloat {
         if model.cellHeight != 0 {
             return model.cellHeight
         }
@@ -135,7 +135,7 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
         
         // 初始化 YYTextContainer
         let textContainer: YYTextContainer = YYTextContainer()
-        textContainer.size = CGSize(width: kChatTextMaxWidth, height: CGFloat.max)
+        textContainer.size = CGSize(width: kChatTextMaxWidth, height: CGFloat.greatestFiniteMagnitude)
         textContainer.linePositionModifier = modifier
         textContainer.maximumNumberOfRows = 0
         

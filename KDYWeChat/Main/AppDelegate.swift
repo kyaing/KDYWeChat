@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mainTabbarVC: KDTabBarController?
     
     // MARK: - AppDelegate
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.backgroundColor = UIColor.white
     
         // 初始化 LeanCloud
         setupLeanCloud(application, launchOptions: launchOptions)
@@ -33,30 +33,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // App进入后台
-    func applicationDidEnterBackground(application: UIApplication) {
-        EMClient.sharedClient().applicationDidEnterBackground(application)
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        EMClient.shared().applicationDidEnterBackground(application)
     }
     
     // App将要进入前台
-    func applicationWillEnterForeground(application: UIApplication) {
-        EMClient.sharedClient().applicationWillEnterForeground(application)
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        EMClient.shared().applicationWillEnterForeground(application)
     }
     
     // App准备激活
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         
     }
     
     // 接收远程通知
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         if (self.mainTabbarVC != nil) {
             self.mainTabbarVC!.jumpToConversationListVC()
         }
     }
     
     // 接收本地通知
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        UIApplication.shared.cancelAllLocalNotifications()
         
         if (self.mainTabbarVC != nil) {
             self.mainTabbarVC!.didReceviedLocalNotification(notification)
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Private Methods
-    func setupEmSDK(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+    func setupEmSDK(_ application: UIApplication, launchOptions: [AnyHashable: Any]?) {
         
         let apnsCerName: String = emApnsDevCerName
         easemobApplication(application,
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                            otherConfig: nil)
     }
     
-    func setupLeanCloud(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+    func setupLeanCloud(_ application: UIApplication, launchOptions: [AnyHashable: Any]?) {
         leanCloundApplication(application, launchOptions: launchOptions)
     }
 }

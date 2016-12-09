@@ -22,7 +22,7 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
     
     /// 用于图片下载
     lazy var imageIndicatiorView: UIActivityIndicatorView = {
-        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         self.contentView.addSubview(activityView)
         
         return activityView
@@ -33,18 +33,18 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
         super.awakeFromNib()
         
         // 这里不能使用 .ScaleAspectFit模式
-        self.chatImageView.contentMode = .ScaleAspectFill
+        self.chatImageView.contentMode = .scaleAspectFill
     }
     
-    override func setupCellContent(model: ChatModel) {
+    override func setupCellContent(_ model: ChatModel) {
         super.setupCellContent(model)
         
         if !model.fromMe {   // 接收方
             if let thumbnailImage = model.thumbnailImage {
-                self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
+                self.chatImageView.kf_setImageWithURL(URL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
                 
             } else {
-                self.chatImageView.kf_setImageWithURL(NSURL(string: model.fileURLPath!), placeholderImage: UIImage(named: kUserAvatarDefault))
+                self.chatImageView.kf_setImageWithURL(URL(string: model.fileURLPath!), placeholderImage: UIImage(named: kUserAvatarDefault))
             }
             
         } else {   // 发送方
@@ -63,7 +63,7 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
      - parameter originalSize: 原始图的尺寸 size
      - returns: 返回的缩略图尺寸
      */
-    class func getThumbImageSize(originalSize: CGSize) -> CGSize {
+    class func getThumbImageSize(_ originalSize: CGSize) -> CGSize {
         
         let imageRealHeight = originalSize.height
         let imageRealWidth  = originalSize.width
@@ -86,15 +86,15 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
             resizeThumbWidth = kChatImageMaxWidth
         }
         
-        return CGSizeMake(resizeThumbWidth, resizeThumbHeight)
+        return CGSize(width: resizeThumbWidth, height: resizeThumbHeight)
     }
     
-    func CGRectCenterRectForResizableImage(image: UIImage) -> CGRect {
-        return CGRectMake(
-            image.capInsets.left / image.size.width,
-            image.capInsets.top / image.size.height,
-            (image.size.width - image.capInsets.right - image.capInsets.left) / image.size.width,
-            (image.size.height - image.capInsets.bottom - image.capInsets.top) / image.size.height
+    func CGRectCenterRectForResizableImage(_ image: UIImage) -> CGRect {
+        return CGRect(
+            x: image.capInsets.left / image.size.width,
+            y: image.capInsets.top / image.size.height,
+            width: (image.size.width - image.capInsets.right - image.capInsets.left) / image.size.width,
+            height: (image.size.height - image.capInsets.bottom - image.capInsets.top) / image.size.height
         )
     }
     
@@ -117,7 +117,7 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
         }
         
         // 根据原图尺寸等比获取缩略图的 size
-        let originalSize = CGSizeMake(imageOriginalWidth, imageOriginalHeight)
+        let originalSize = CGSize(width: imageOriginalWidth, height: imageOriginalHeight)
         self.chatImageView.size = ChatImageTableCell.getThumbImageSize(originalSize)
         
         if model.fromMe! {
@@ -132,15 +132,15 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
         
         // 拉伸图片
         let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
-        let bubbleMaskImage = stretchImage!.resizableImageWithCapInsets(UIEdgeInsetsMake(30, 10, 23, 28), resizingMode: .Stretch)
+        let bubbleMaskImage = stretchImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 10, 23, 28), resizingMode: .stretch)
         
         // 设置image的 mask图层
         let maskLayer = CALayer()
-        maskLayer.contents = bubbleMaskImage.CGImage
+        maskLayer.contents = bubbleMaskImage.cgImage
         maskLayer.contentsCenter = self.CGRectCenterRectForResizableImage(bubbleMaskImage)
-        maskLayer.contentsScale = UIScreen.mainScreen().scale
+        maskLayer.contentsScale = UIScreen.main.scale
         maskLayer.opacity = 1
-        maskLayer.frame = CGRectMake(0, 0, self.chatImageView.width, self.chatImageView.height)
+        maskLayer.frame = CGRect(x: 0, y: 0, width: self.chatImageView.width, height: self.chatImageView.height)
         
         self.chatImageView.layer.mask = maskLayer
         self.chatImageView.layer.masksToBounds = true
@@ -157,7 +157,7 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
         }
     }
     
-    class func layoutHeight(model: ChatModel) -> CGFloat {        
+    class func layoutHeight(_ model: ChatModel) -> CGFloat {        
         if model.cellHeight != 0 {
             return model.cellHeight
         }

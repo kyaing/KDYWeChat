@@ -14,7 +14,7 @@ import AVOSCloud
 class RealmHelper: NSObject {
     
     static let shareInstance = RealmHelper()
-    private override init() {}
+    fileprivate override init() {}
     
     /**
      *  初始化Realm

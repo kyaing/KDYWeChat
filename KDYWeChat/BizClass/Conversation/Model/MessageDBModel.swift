@@ -21,7 +21,7 @@ class MessageDBModel: Object {
     var avatarURLPath: String = ""
     
     /// 头像数据流
-    var avatarData: NSData? = nil
+    var avatarData: Data? = nil
     
     /// 消息的时间
     var time: String = ""

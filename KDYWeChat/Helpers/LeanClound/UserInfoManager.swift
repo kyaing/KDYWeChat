@@ -8,6 +8,26 @@
 
 import UIKit
 import AVOSCloud
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 /// _User 表
 let kUserClass     = "_User"
@@ -65,18 +85,18 @@ let kImageArray  = "images"
 ]
 */
 
-func dicConvertToJsonString(dic: NSMutableDictionary) -> String {
-    let jsonData = try? NSJSONSerialization.dataWithJSONObject(dic, options: [])
-    let jsonStr = String(data: jsonData!, encoding: NSUTF8StringEncoding)!
+func dicConvertToJsonString(_ dic: NSMutableDictionary) -> String {
+    let jsonData = try? JSONSerialization.data(withJSONObject: dic, options: [])
+    let jsonStr = String(data: jsonData!, encoding: String.Encoding.utf8)!
     print("jsonStr = \(jsonStr)")
     
     return jsonStr
 }
 
-func jsonStringConvertToDic(jsonStr: String) -> NSDictionary {
+func jsonStringConvertToDic(_ jsonStr: String) -> NSDictionary {
     var dic = NSDictionary()
-    let jsonData = jsonStr.dataUsingEncoding(NSUTF8StringEncoding)
-    dic = try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: []) as! NSDictionary
+    let jsonData = jsonStr.data(using: String.Encoding.utf8)
+    dic = try! JSONSerialization.jsonObject(with: jsonData!, options: []) as! NSDictionary
     
     return dic
 }
@@ -99,23 +119,23 @@ class UserInfoEntity: NSObject {
         self.objectId = user.objectId
         self.username = user.username
         
-        if let avatorFile = user.objectForKey(kAvatarImage) as? AVFile {
+        if let avatorFile = user.object(forKey: kAvatarImage) as? AVFile {
             self.imageUrl = avatorFile.url
         }
         
-        if let nickname = user.objectForKey(kNickname) as? String {
+        if let nickname = user.object(forKey: kNickname) as? String {
             self.nickname = nickname
         }
         
-        if let gender = user.objectForKey(kGender) as? String {
+        if let gender = user.object(forKey: kGender) as? String {
             self.gender = gender
         }
         
-        if let location = user.objectForKey(kLocation) as? String {
+        if let location = user.object(forKey: kLocation) as? String {
             self.location = location
         }
         
-        if let jsonStr = user.objectForKey(kAlumbJson) as? String {
+        if let jsonStr = user.object(forKey: kAlumbJson) as? String {
             self.alumbs = jsonStringConvertToDic(jsonStr)
         }
     }
@@ -130,13 +150,13 @@ class UserInfoManager: NSObject {
     static let shareInstance = UserInfoManager()
     
     // MARK: - Life Cycle
-    private override init() {
+    fileprivate override init() {
         super.init()
         initUsers()
     }
     
-    typealias successAction = (success: Bool) -> Void
-    typealias failureAction = (error: NSError) -> Void
+    typealias successAction = (_ success: Bool) -> Void
+    typealias failureAction = (_ error: NSError) -> Void
     
     /**
      *  查询LeanCloud 所有用户
@@ -146,14 +166,14 @@ class UserInfoManager: NSObject {
         let userQuery = AVQuery(className: kUserClass)
         
         // 异步查询，存储所有用户 (# 这里要优化！应该查当前用户的所有好友再存储)
-        userQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+        userQuery?.findObjectsInBackground { (objects, error) in
             
-            guard objects != nil && objects.count > 0 else { return }
+            guard objects != nil && objects?.count > 0 else { return }
             
             for object in objects as! [AVUser] {
                 let userInfo = UserInfoEntity(user: object)
                 if userInfo.username?.characters.count > 0 {
-                    self.users.setObject(userInfo, forKey: userInfo.username!)
+                    self.users.setObject(userInfo, forKey: userInfo.username! as NSCopying)
                 }
             }
         }
@@ -170,11 +190,11 @@ class UserInfoManager: NSObject {
     /**
      *  上传用户头像
      */
-    func uploadUserAvatorInBackground(image: UIImage,
-                                      successs: successAction,
-                                      failures: failureAction) {
+    func uploadUserAvatorInBackground(_ image: UIImage,
+                                      successs: @escaping successAction,
+                                      failures: @escaping failureAction) {
         
-        var imageData: NSData?
+        var imageData: Data?
         if UIImagePNGRepresentation(image) == nil {
             imageData = UIImageJPEGRepresentation(image, 0.5)!
         } else {
@@ -182,20 +202,20 @@ class UserInfoManager: NSObject {
         }
         
         if imageData != nil {
-            let currentUser = AVUser.currentUser()
+            let currentUser = AVUser.current()
             let avatorFile = AVFile(data: imageData)
-            avatorFile.saveInBackground()
+            avatorFile?.saveInBackground()
     
-            currentUser.setObject(avatorFile, forKey: kAvatarImage)
-            currentUser.saveInBackgroundWithBlock { (success, error) in
+            currentUser?.setObject(avatorFile, forKey: kAvatarImage)
+            currentUser?.saveInBackground { (success, error) in
                 if success {
-                    let userinfo = UserInfoEntity(user: currentUser)
-                    self.users.setObject(userinfo, forKey: userinfo.username!)
+                    let userinfo = UserInfoEntity(user: currentUser!)
+                    self.users.setObject(userinfo, forKey: userinfo.username! as NSCopying)
                     
-                    successs(success: success)
+                    successs(success)
                     
                 } else {
-                    failures(error: error)
+                    failures(error as! NSError)
                 }
             }
         }
@@ -204,21 +224,21 @@ class UserInfoManager: NSObject {
     /**
      *  上传用户昵称
      */
-    func uploadUserNicknameInBackground(nickname: String,
-                                        successs: successAction,
-                                        failures: failureAction) {
+    func uploadUserNicknameInBackground(_ nickname: String,
+                                        successs: @escaping successAction,
+                                        failures: @escaping failureAction) {
         
-        let currentUser = AVUser.currentUser()
-        currentUser.setObject(nickname, forKey: kNickname)
-        currentUser.saveInBackgroundWithBlock { (success, error) in
+        let currentUser = AVUser.current()
+        currentUser?.setObject(nickname, forKey: kNickname)
+        currentUser?.saveInBackground { (success, error) in
             if success {
-                let userinfo = UserInfoEntity(user: currentUser)
-                self.users.setObject(userinfo, forKey: userinfo.username!)
+                let userinfo = UserInfoEntity(user: currentUser!)
+                self.users.setObject(userinfo, forKey: userinfo.username! as NSCopying)
                 
-                successs(success: success)
+                successs(success)
                 
             } else {
-                failures(error: error)
+                failures(error as! NSError)
             }
         }
     }
@@ -226,7 +246,7 @@ class UserInfoManager: NSObject {
     /**
      *  获取用户信息 by frineds
      */
-    func getUserInfoInBackgroundWithFriends(friends: [AnyObject],
+    func getUserInfoInBackgroundWithFriends(_ friends: [AnyObject],
                                             success: successAction,
                                             failure: failureAction) {
         
@@ -236,8 +256,8 @@ class UserInfoManager: NSObject {
      *  获取当前用户信息
      */
     func getCurrentUserInfo() -> UserInfoEntity? {
-        if AVUser.currentUser().username != nil {
-            if let userInfo = self.users.objectForKey(AVUser.currentUser().username) {
+        if AVUser.current().username != nil {
+            if let userInfo = self.users.object(forKey: AVUser.current().username) {
                 return userInfo as? UserInfoEntity
             }
         }
@@ -248,8 +268,8 @@ class UserInfoManager: NSObject {
     /**
      *  获取用户信息，by 用户名
      */
-    func getUserInfoByName(username: String) -> UserInfoEntity? {
-        if let userInfo = self.users.objectForKey(username) {
+    func getUserInfoByName(_ username: String) -> UserInfoEntity? {
+        if let userInfo = self.users.object(forKey: username) {
             return userInfo as? UserInfoEntity
         }
         
@@ -259,25 +279,25 @@ class UserInfoManager: NSObject {
     /**
      *  发表个人动态
      */
-    func publishAlumbInfomation(time: String,
+    func publishAlumbInfomation(_ time: String,
                                 text: String,
                                 images: [UIImage],
-                                successs: successAction,
-                                failures: failureAction) {
+                                successs: @escaping successAction,
+                                failures: @escaping failureAction) {
         
-        let currentUser  = AVUser.currentUser()
+        let currentUser  = AVUser.current()
         let alumbinfoDic = NSMutableDictionary()  // 单条动态
         let imagesArray  = NSMutableArray()       // 照片数组
         
         let avatarUrl: String
-        if let avatorFile = currentUser.objectForKey(kAvatarImage) as? AVFile {
+        if let avatorFile = currentUser?.object(forKey: kAvatarImage) as? AVFile {
             avatarUrl = avatorFile.url
         } else {
             avatarUrl = ""
         }
         
         for image in images {
-            var imageData: NSData?
+            var imageData: Data?
             if UIImagePNGRepresentation(image) == nil {
                 imageData = UIImageJPEGRepresentation(image, 0.5)!
             } else {
@@ -285,28 +305,28 @@ class UserInfoManager: NSObject {
             }
             
             let imageDic = NSMutableDictionary()
-            imageDic.setObject(String(format: "%@", imageData!), forKey: kImageUrl)
+            imageDic.setObject(String(format: "%@", imageData! as CVarArg), forKey: kImageUrl as NSCopying)
             
-            imagesArray.addObject(imageDic)
+            imagesArray.add(imageDic)
         }
         
-        alumbinfoDic.setObject(time, forKey: kTime)
-        alumbinfoDic.setObject(avatarUrl, forKey: kAvatarImage)
-        alumbinfoDic.setObject(currentUser.username, forKey: kNickname)
-        alumbinfoDic.setObject(text, forKey: kContentText)
+        alumbinfoDic.setObject(time, forKey: kTime as NSCopying)
+        alumbinfoDic.setObject(avatarUrl, forKey: kAvatarImage as NSCopying)
+        alumbinfoDic.setObject(currentUser!.username, forKey: kNickname as NSCopying)
+        alumbinfoDic.setObject(text, forKey: kContentText as NSCopying)
         // alumbinfoDic.setObject(imagesArray, forKey: kImageArray)  // 先不处理图片
         
-        currentUser.setObject(dicConvertToJsonString(alumbinfoDic), forKey: kAlumbJson)
+        currentUser?.setObject(dicConvertToJsonString(alumbinfoDic), forKey: kAlumbJson)
         
-        currentUser.saveInBackgroundWithBlock({ (success, error) in
+        currentUser?.saveInBackground({ (success, error) in
             if success {
-                let userinfo = UserInfoEntity(user: currentUser)
-                self.users.setObject(userinfo, forKey: userinfo.username!)
+                let userinfo = UserInfoEntity(user: currentUser!)
+                self.users.setObject(userinfo, forKey: userinfo.username! as NSCopying)
 
-                successs(success: success)
+                successs(success)
 
             } else {
-                failures(error: error)
+                failures(error as! NSError)
             }
         })
     }

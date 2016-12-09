@@ -21,17 +21,17 @@ extension MBProgressHUD {
     /**
      *  显示提示信息
      */
-    class func showHUD(text: String, mode: MBProgressHUDMode, toView view: UIView) {
-        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    class func showHUD(_ text: String, mode: MBProgressHUDMode, toView view: UIView) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.text = text
-        hud.label.font = UIFont.systemFontOfSize(13)
+        hud.label.font = UIFont.systemFont(ofSize: 13)
         hud.mode = mode
         hud.removeFromSuperViewOnHide = true
-        hud.hideAnimated(true, afterDelay: 0.5)
+        hud.hide(animated: true, afterDelay: 0.5)
     }
     
-    class func hideHUD(view: UIView) {
-        MBProgressHUD.hideHUDForView(view, animated: true)
+    class func hideHUD(_ view: UIView) {
+        MBProgressHUD.hide(for: view, animated: true)
     }
 }
 

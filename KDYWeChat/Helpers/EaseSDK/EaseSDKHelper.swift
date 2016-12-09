@@ -15,25 +15,25 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     static let shareInstance = EaseSDKHelper()
     
     // 注意初始化方法应该是私有的，保证单例的真正唯一性！
-    private override init() {}
+    fileprivate override init() {}
     
     // MARK: - Init SDK
-    func hyphenateApplication(application: UIApplication,
-                              launchOptions: [NSObject: AnyObject]?,
+    func hyphenateApplication(_ application: UIApplication,
+                              launchOptions: [AnyHashable: Any]?,
                               appkey: String,
                               apnsCerName: String,
-                              otherConfig: [NSObject: AnyObject]?) {
+                              otherConfig: [AnyHashable: Any]?) {
         
         self.setupAppDelegateNotifiction()
         self.registerRemoteNotification()
         
         // 配置SDK
         let options = EMOptions(appkey: appkey)
-        options.apnsCertName = apnsCerName
-        options.isAutoAcceptGroupInvitation = false
-        options.enableConsoleLog = true
+        options?.apnsCertName = apnsCerName
+        options?.isAutoAcceptGroupInvitation = false
+        options?.enableConsoleLog = true
 
-        EMClient.sharedClient().initializeSDKWithOptions(options)
+        EMClient.shared().initializeSDK(with: options)
     }
     
     // MARK: - Private Methods
@@ -41,44 +41,44 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
      *  注册Appdelegate的通知
      */
     func setupAppDelegateNotifiction() {
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(self.appDidEnterBackgroundNotif(_:)),
-                                                         name: UIApplicationDidEnterBackgroundNotification,
+                                                         name: NSNotification.Name.UIApplicationDidEnterBackground,
                                                          object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(self.appWillEnterForegroundNotif(_:)),
-                                                         name: UIApplicationWillEnterForegroundNotification,
+                                                         name: NSNotification.Name.UIApplicationWillEnterForeground,
                                                          object: nil)
     }
     
-    func appDidEnterBackgroundNotif(notification: NSNotification) {
+    func appDidEnterBackgroundNotif(_ notification: Notification) {
         // 进入后台时断开SDK
-        EMClient.sharedClient().applicationDidEnterBackground(notification.object)
+        EMClient.shared().applicationDidEnterBackground(notification.object)
     }
     
-    func appWillEnterForegroundNotif(notification: NSNotification) {
+    func appWillEnterForegroundNotif(_ notification: Notification) {
         // 即将进入前台时连接SDK
-        EMClient.sharedClient().applicationWillEnterForeground(notification.object)
+        EMClient.shared().applicationWillEnterForeground(notification.object)
     }
     
     /**
      *  注册远程通知
      */
     func registerRemoteNotification() {
-        let application = UIApplication.sharedApplication()
+        let application = UIApplication.shared
         application.applicationIconBadgeNumber = 0
 
-        if application.respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
+        if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
             let notificationTypes: UIUserNotificationType =
-                UIUserNotificationType(rawValue: UIUserNotificationType.Badge.rawValue |
-                UIUserNotificationType.Sound.rawValue |
-                UIUserNotificationType.Alert.rawValue)
+                UIUserNotificationType(rawValue: UIUserNotificationType.badge.rawValue |
+                UIUserNotificationType.sound.rawValue |
+                UIUserNotificationType.alert.rawValue)
             
-            let settting: UIUserNotificationSettings = UIUserNotificationSettings.init(forTypes: notificationTypes, categories: nil)
+            let settting: UIUserNotificationSettings = UIUserNotificationSettings.init(types: notificationTypes, categories: nil)
             application.registerUserNotificationSettings(settting)
             
-            if application.respondsToSelector(#selector(UIApplication.registerForRemoteNotifications)) {
+            if application.responds(to: #selector(UIApplication.registerForRemoteNotifications)) {
                 application.registerForRemoteNotifications()
             }
             
@@ -110,19 +110,19 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
      
      - returns: 返回 EmMessage 的文本消息
      */
-    func initSendTextMessage(text: String,
+    func initSendTextMessage(_ text: String,
                              toUser: String,
                              messageType: EMChatType,
-                             messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+                             messageExt: [AnyHashable: Any]!) -> EMMessage? {
         
         let textBody         = EMTextMessageBody(text: text)
-        let from             = EMClient.sharedClient().currentUsername
+        let from             = EMClient.shared().currentUsername
         let textMessage      = EMMessage(conversationID: toUser,
                                          from: from,
                                          to: toUser,
                                          body: textBody,
                                          ext: messageExt)
-        textMessage.chatType = messageType
+        textMessage?.chatType = messageType
 
         return textMessage
     }
@@ -130,20 +130,20 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     /**
      *  初始化图片消息
      */
-    func initSendImageMessageWithImage(image: UIImage,
+    func initSendImageMessageWithImage(_ image: UIImage,
                                        toUser: String,
                                        messageType: EMChatType,
-                                       messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+                                       messageExt: [AnyHashable: Any]!) -> EMMessage? {
         
         let data              = UIImageJPEGRepresentation(image, 1)
         let imageBody         = EMImageMessageBody(data: data, displayName: "image.png")
-        let from              = EMClient.sharedClient().currentUsername
+        let from              = EMClient.shared().currentUsername
         let imageMessage      = EMMessage(conversationID: toUser,
                                           from: from,
                                           to: toUser,
                                           body: imageBody,
                                           ext: messageExt)
-        imageMessage.chatType = messageType
+        imageMessage?.chatType = messageType
         
         return imageMessage
     }
@@ -151,21 +151,21 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     /**
      *  初始化语音消息
      */
-    func initSendVoiceMessageWithLocalPath(path: String,
+    func initSendVoiceMessageWithLocalPath(_ path: String,
                                        duration: Int32,
                                        toUser: String,
                                        messageType: EMChatType,
-                                       messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+                                       messageExt: [AnyHashable: Any]!) -> EMMessage? {
     
         let vocieBody         = EMVoiceMessageBody(localPath: path, displayName: "voice")
-        let from              = EMClient.sharedClient().currentUsername
+        let from              = EMClient.shared().currentUsername
         let vocieMessage      = EMMessage(conversationID: toUser,
                                           from: from,
                                           to: toUser,
                                           body: vocieBody,
                                           ext: messageExt)
-        vocieBody.duration    = duration
-        vocieMessage.chatType = messageType
+        vocieBody?.duration    = duration
+        vocieMessage?.chatType = messageType
         
         return vocieMessage
     }
@@ -173,21 +173,21 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
     /**
      *  初始化位置消息
      */
-    func initSendLocationMessageWithLatitude(latitude: Double,
+    func initSendLocationMessageWithLatitude(_ latitude: Double,
                                              longitude: Double,
                                              address: String,
                                              toUser: String,
                                              messageType: EMChatType,
-                                             messageExt: [NSObject: AnyObject]!) -> EMMessage? {
+                                             messageExt: [AnyHashable: Any]!) -> EMMessage? {
         
         let locationBody = EMLocationMessageBody(latitude: latitude, longitude: longitude, address: address)
-        let from = EMClient.sharedClient().currentUsername
+        let from = EMClient.shared().currentUsername
         let locationMessage = EMMessage(conversationID: toUser,
                                         from: from,
                                         to: toUser,
                                         body: locationBody,
                                         ext: messageExt)
-        locationMessage.chatType = messageType
+        locationMessage?.chatType = messageType
         
         return locationMessage
     }

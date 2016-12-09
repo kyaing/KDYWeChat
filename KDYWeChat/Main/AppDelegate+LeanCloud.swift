@@ -15,7 +15,7 @@ extension AppDelegate {
      *  初始化 LeanClound 
      *  (因环信不维护用户体系，所以采用LeanClound服务，来管理用户系统；再逐渐再加入其它功能)
      */
-    func leanCloundApplication(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+    func leanCloundApplication(_ application: UIApplication, launchOptions: [AnyHashable: Any]?) {
         
         AVOSCloud.setApplicationId(leanCloudAppId, clientKey: leanCloudAppKey)
         AVOSCloud.setAllLogsEnabled(true)

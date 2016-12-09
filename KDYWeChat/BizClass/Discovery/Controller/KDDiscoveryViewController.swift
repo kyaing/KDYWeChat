@@ -21,20 +21,20 @@ final class KDDiscoveryViewController: UITableViewController {
     }
     
     // MARK: - UITableViewDataSoure
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("discoveryCell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "discoveryCell")
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "discoveryCell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: "discoveryCell")
             cell?.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-            cell?.accessoryType = .DisclosureIndicator
+            cell?.accessoryType = .disclosureIndicator
         }
         
         configCell(cell!, indexPath: indexPath)
@@ -42,13 +42,13 @@ final class KDDiscoveryViewController: UITableViewController {
         return cell!
     }
     
-    func configCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.textLabel?.font = UIFont.systemFontOfSize(16)
+    func configCell(_ cell: UITableViewCell, indexPath: IndexPath) {
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             cell.textLabel?.text = "朋友圈"
             cell.imageView?.image = UIImage(named: "ff_IconShowAlbum")
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             cell.textLabel?.text = "扫一扫"
             cell.imageView?.image = UIImage(named: "ff_IconQRCode")
         } else {
@@ -58,13 +58,13 @@ final class KDDiscoveryViewController: UITableViewController {
     }
     
     // MARK: - UITableViewDelegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             ky_pushViewController(KDFriendAlbumViewController(), animated: true)
             
-        } else if indexPath.section == 1 {
+        } else if (indexPath as NSIndexPath).section == 1 {
             ky_pushViewController(KDQRCodeViewController(), animated: true)
             
         } else {
@@ -72,7 +72,7 @@ final class KDDiscoveryViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
 }
