@@ -29,13 +29,43 @@
 
 import Foundation
 
+/**
+ 
+ A type conforming to `ValidationRule` describes how to validate an input of an 
+ associated type, and an error should the validation fail.
+ 
+ */
 public protocol ValidationRule {
     
+    /** 
+    
+    The type of input on which the validation is performed, e.g. `String`
+    
+    */
     associatedtype InputType
     
-    func validateInput(input: InputType?) -> Bool
+    /**
+     
+     The validate method validates the associated type against a condition, 
+     returning true if the validation passes.
+     
+     - Parameters:
+        - input: The input to be validated.
+     
+     - Returns:
+     true if valid.
+     
+     */
+    func validate(input: InputType?) -> Bool
     
-    var failureError: ValidationErrorType { get }
+    /**
+     
+     An error to be contained in an `.invalid` `ValidationResult` should an 
+     input not satify the condition of the validation described by 
+     `validate(input:)`
+     
+     */
+    var error: Error { get }
     
 }
 
@@ -43,15 +73,15 @@ internal struct AnyValidationRule<InputType>: ValidationRule {
     
     private let baseValidateInput: (InputType?) -> Bool
     
-    let failureError: ValidationErrorType
+    let error: Error
     
-    init<R: ValidationRule where R.InputType == InputType>(base: R) {
-        baseValidateInput = base.validateInput
-        failureError = base.failureError
+    init<R: ValidationRule>(base: R) where R.InputType == InputType {
+        baseValidateInput = base.validate
+        error = base.error
     }
     
-    func validateInput(input: InputType?) -> Bool {
+    func validate(input: InputType?) -> Bool {
         return baseValidateInput(input)
     }
-    
+
 }

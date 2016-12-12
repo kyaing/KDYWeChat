@@ -95,12 +95,12 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
             self.activityView.top  = self.voiceButton.top + 15
             
             // 消息发送失败按钮
-            self.failSendMsgButton.left = self.activityView.left
-            self.failSendMsgButton.top  = self.activityView.top
+            failSendMsgButton.left = activityView.left
+            failSendMsgButton.top  = activityView.top
         }
         
         // 图像控件，实现动画播放
-        self.voiceButton.imageView?.animationDuration = 1.0
+        voiceButton.imageView?.animationDuration = 1.0
         if model.fromMe! {
             // 设置 animationImages
             self.voiceButton.imageView?.animationImages = [

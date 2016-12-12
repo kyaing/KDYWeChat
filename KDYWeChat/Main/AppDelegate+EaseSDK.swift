@@ -20,8 +20,7 @@ extension AppDelegate {
                             otherConfig: [AnyHashable: Any]?) {
         
         // 登录状态通知
-        NotificationCenter.default.addObserver(self,
-                                                         selector: #selector(AppDelegate.loginStateChanged(_:)),
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.loginStateChanged(_:)),
                                                          name: NSNotification.Name(rawValue: kLoginStateChangedNoti),
                                                          object: nil)
         

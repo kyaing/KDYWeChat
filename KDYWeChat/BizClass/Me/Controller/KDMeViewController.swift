@@ -30,7 +30,7 @@ class KDMeViewController: UITableViewController {
     // MARK: - UITableViewDataSoure
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath as NSIndexPath).section == 0 {
-            let headerCell: MeHeaderTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let headerCell: MeHeaderTableCell = tableView.dequeueReusableCell(for: indexPath)
             
             if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
                 headerCell.usernameLabel.text = currentUser.username

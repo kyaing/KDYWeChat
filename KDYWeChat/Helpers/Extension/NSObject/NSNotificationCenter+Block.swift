@@ -41,7 +41,7 @@ private class ObservationRemover: NSObject {
 
 private var ObservationRemoverKey: UnsafeRawPointer? = nil
 
-private func observationRemoversForObject(_ object: AnyObject) -> NSMutableArray {
+fileprivate func observationRemoversForObject(_ object: AnyObject) -> NSMutableArray {
     if ObservationRemoverKey == nil {
         withUnsafePointer(to: &ObservationRemoverKey) { pointer in
             ObservationRemoverKey = UnsafeRawPointer(pointer)

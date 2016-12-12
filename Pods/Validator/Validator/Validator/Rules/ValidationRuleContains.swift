@@ -29,19 +29,54 @@
 
 import Foundation
 
-public struct ValidationRuleContains<T: Equatable, S: SequenceType where S.Generator.Element == T>: ValidationRule {
+/**
+ 
+ `ValidationRuleContains` validates a `Sequence` type `S` contains 
+ an `Equatable` type `T` in it's elements.
+ 
+ */
+public struct ValidationRuleContains<T: Equatable, S: Sequence>: ValidationRule where S.Iterator.Element == T {
     
     public typealias InputType = T
     
+    public let error: Error
+
+    /**
+     
+     A sequence an input should be contained in to pass as valid.
+     
+     */
     public var sequence: S
-    public var failureError: ValidationErrorType
     
-    public init(sequence: S, failureError: ValidationErrorType) {
+    /**
+     
+     Initializes a `ValidationRuleContains` with a sequence an input should be 
+     contained in to pass as valid, and an error describing a failed validation.
+     
+     - Parameters:
+        - sequence:  A sequence an input should be contained in to pass as 
+        valid.
+        - error: An error describing a failed validation.
+     
+     */
+    public init(sequence: S, error: Error) {
         self.sequence = sequence
-        self.failureError = failureError
+        self.error = error
     }
     
-    public func validateInput(input: T?) -> Bool {
+    /**
+     
+     Validates the input.
+     
+     - Parameters:
+        - input: Input to validate.
+     
+     - Returns:
+     true if the sequence contains the input.
+     
+     */
+
+    public func validate(input: T?) -> Bool {
         guard let input = input else { return false }
         return sequence.contains(input)
     }

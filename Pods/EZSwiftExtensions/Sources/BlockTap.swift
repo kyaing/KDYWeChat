@@ -9,10 +9,11 @@
 import UIKit
 
 ///Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
-public class BlockTap: UITapGestureRecognizer {
-    private var tapAction: ((UITapGestureRecognizer) -> Void)?
 
-    public override init(target: AnyObject?, action: Selector) {
+open class BlockTap: UITapGestureRecognizer {
+    fileprivate var tapAction: ((UITapGestureRecognizer) -> Void)?
+
+    public override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
     }
 
@@ -24,16 +25,14 @@ public class BlockTap: UITapGestureRecognizer {
             self.numberOfTapsRequired = tapCount
 
             #if os(iOS)
-
             self.numberOfTouchesRequired = fingerCount
-
             #endif
 
             self.tapAction = action
             self.addTarget(self, action: #selector(BlockTap.didTap(_:)))
     }
 
-    public func didTap (tap: UITapGestureRecognizer) {
+    open func didTap (_ tap: UITapGestureRecognizer) {
         tapAction? (tap)
     }
 }

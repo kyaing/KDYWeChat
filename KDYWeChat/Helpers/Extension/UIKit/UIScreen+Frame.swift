@@ -6,7 +6,7 @@
 //  Copyright © 2016年 kaideyi.com. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension UIScreen {
     class var size: CGSize {

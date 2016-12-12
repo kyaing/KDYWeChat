@@ -2,8 +2,8 @@
 //  KDYWeChatUITests.swift
 //  KDYWeChatUITests
 //
-//  Created by kaideyi on 16/9/8.
-//  Copyright © 2016年 kaideyi.com. All rights reserved.
+//  Created by mac on 16/12/12.
+//  Copyright © 2016年 mac. All rights reserved.
 //
 
 import XCTest

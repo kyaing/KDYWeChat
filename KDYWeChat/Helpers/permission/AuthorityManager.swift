@@ -32,19 +32,19 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
     /**
      *  选取照片
      */
-    func choosePhotos(_ presentAction: @escaping presentControllerAction, alertAction: showAlertAction) {
+    func choosePhotos(_ presentAction: @escaping presentControllerAction, alertAction: @escaping showAlertAction) {
         let photos: PrivateResource = .Photos
         
         proposeToAccess(photos, agreed: {
             print("成功选取 photos")
-            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
-                self.imagePicker.sourceType = .PhotoLibrary
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                self.imagePicker.sourceType = .photoLibrary
                 self.imagePicker.allowsEditing = true
                 
-                presentAction(imagePicker: self.imagePicker)
+                presentAction(self.imagePicker)
             }
         }) {
-            alertAction(resource: photos)
+            alertAction(photos)
         }
     }
     

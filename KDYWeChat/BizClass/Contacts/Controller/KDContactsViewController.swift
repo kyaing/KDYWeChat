@@ -318,7 +318,7 @@ extension KDContactsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contactsCell: ContactsTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+        let contactsCell: ContactsTableCell = tableView.dequeueReusableCell(for: indexPath)
         
         // 设置Cell的数据
         configureCells(contactsCell, indexPath: indexPath)

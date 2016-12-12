@@ -6,7 +6,7 @@
 //  Copyright © 2016年 kaideyi.com. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -24,32 +24,32 @@ extension KDChatViewController {
         let inputTextView: UITextView    = bottomBarView.inputTextView  // 文本输入框
         
         // 点击语音按钮
-        voiceButton.rx_tap.subscribeNext { [weak self] _ in
+        voiceButton.rx.tap.subscribe { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
             
             // 根据录音按钮是否显示判断键盘的不同状态
-            let showRecording = strongSelf.bottomBarView.recordButton.hidden
+            let showRecording = strongSelf.bottomBarView.recordButton.isHidden
             if showRecording {  // 当录音按钮隐藏
                 strongSelf.bottomBarView.showAudioRecording()
-                voiceButton.voiceButtonChangeToKeyboardUI(showKeyboard: true)
-                strongSelf.controlExpandableInputView(showExpandable: false)
+                voiceButton.voiceButtonChangeToKeyboardUI(true)
+                strongSelf.controlExpandableInputView(false)
                 
             } else {
                 strongSelf.bottomBarView.showTypingKeyboard()
-                voiceButton.voiceButtonChangeToKeyboardUI(showKeyboard: false)
-                strongSelf.controlExpandableInputView(showExpandable: true)
+                voiceButton.voiceButtonChangeToKeyboardUI(false)
+                strongSelf.controlExpandableInputView(true)
             }
             
         }.addDisposableTo(disposeBag)
         
         // 点击表情按钮
-        emotionButton.rx_tap.subscribeNext { [weak self] _ in
+        emotionButton.rx.tap.subscribe { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
             
             // 改变表情按钮UI
-            emotionButton.emotionButtonChangeToKeyboardUI(showKeyboard: emotionButton.showTypingKeyboard)
+            emotionButton.emotionButtonChangeToKeyboardUI(emotionButton.showTypingKeyboard)
             
             if !emotionButton.showTypingKeyboard {
                 strongSelf.bottomBarView.showTypingKeyboard()
@@ -58,12 +58,12 @@ extension KDChatViewController {
                 strongSelf.bottomBarView.showEmotionKeyboard()
             }
             
-            strongSelf.controlExpandableInputView(showExpandable: true)
+            strongSelf.controlExpandableInputView(true)
             
         }.addDisposableTo(disposeBag)
         
         // 点击扩展按钮
-        shareButton.rx_tap.subscribeNext { [weak self] _ in
+        shareButton.rx.tap.subscribe { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
             
@@ -74,7 +74,7 @@ extension KDChatViewController {
                 strongSelf.bottomBarView.showShardKeyboard()
             }
             
-            strongSelf.controlExpandableInputView(showExpandable: true)
+            strongSelf.controlExpandableInputView(true)
             
         }.addDisposableTo(disposeBag)
         
@@ -82,18 +82,18 @@ extension KDChatViewController {
         var finishRecording: Bool = true
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
-        longPressGesture.rx_event.subscribeNext { event in
+        longPressGesture.rx.event.subscribe { event in
 
             let state = event.state
             switch state {
-            case .Began:  // 开始录音
+            case .began:  // 开始录音
                 finishRecording = true
                 
                 self.recordingView.recording()
                 RecordManager.shareInstance.startRecord()
-                recordButton.replaceRecordButtonUI(isRecording: true)
+                recordButton.replaceRecordButtonUI(true)
                 
-            case .Changed:  // 录音移动中 (如上滑取消录音)
+            case .changed:  // 录音移动中 (如上滑取消录音)
                 // 判断手势移动的Point，是否在视图中
                 let point = event.locationInView(self.recordingView)
                 if self.recordingView.pointInside(point, withEvent: nil) {
@@ -105,14 +105,14 @@ extension KDChatViewController {
                     finishRecording = true
                 }
                 
-            case .Ended:  // 录音结束
+            case .ended:  // 录音结束
                 if finishRecording {
                     RecordManager.shareInstance.stopRecord()
                 } else {
                     RecordManager.shareInstance.cancelRecord()
                 }
                 self.recordingView.stopRecording()
-                recordButton.replaceRecordButtonUI(isRecording: false)
+                recordButton.replaceRecordButtonUI(false)
                 
             default: break
             }
@@ -121,7 +121,7 @@ extension KDChatViewController {
         // 点击文本框 (添加点击手势)
         let tapGesture = UITapGestureRecognizer()
         inputTextView.addGestureRecognizer(tapGesture)
-        tapGesture.rx_event.subscribeNext { (event) in
+        tapGesture.rx.event.subscribe { (event) in
             
             inputTextView.becomeFirstResponder()
             inputTextView.inputView = nil

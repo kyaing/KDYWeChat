@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Reusable
 
 // MARK: - SubViews
 extension KDChatViewController {
@@ -28,12 +29,12 @@ extension KDChatViewController {
      *  初始化聊天图片
      */
     func setupBgImageView() {
-        self.bgImageView = UIImageView()
-        self.bgImageView.contentMode = .scaleAspectFill
-        self.bgImageView.clipsToBounds = true
-        self.view.addSubview(self.bgImageView)
+        bgImageView = UIImageView()
+        bgImageView.contentMode = .scaleAspectFill
+        bgImageView.clipsToBounds = true
+        self.view.addSubview(bgImageView)
         
-        self.bgImageView.snp_makeConstraints { (make) in
+        self.bgImageView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
     }
@@ -42,17 +43,17 @@ extension KDChatViewController {
      *  初始化底部视图
      */
     func setupBottomBarView() {
-        self.bottomBarView = ChatBottomBarView.loadFromNib()
-        self.bottomBarView.delegate = self   // 工具栏代理
-        self.bottomBarView.inputTextView.delegate = self  // 输入框代理
-        self.view.addSubview(self.bottomBarView)
+        bottomBarView = ChatBottomBarView.loadFromNib()
+        bottomBarView.delegate = self   // 工具栏代理
+        bottomBarView.inputTextView.delegate = self  // 输入框代理
+        self.view.addSubview(bottomBarView)
         
-        self.bottomBarView.snp_makeConstraints { (make) in
+        self.bottomBarView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
             make.height.equalTo(kBarViewHeight)
             
             // BarView底部的约束
-            barPaddingBottomConstranit = make.bottom.equalTo(view.snp_bottom).constraint
+            barPaddingBottomConstranit = make.bottom.equalTo(view.snp.bottom).constraint
         }
     }
     
@@ -62,29 +63,32 @@ extension KDChatViewController {
     func setupChatTableView() {
         self.view.addSubview(self.chatTableView)
         
-        self.chatTableView.snp_makeConstraints { (make) in
-            make.left.equalTo(self.view.snp_left)
-            make.right.equalTo(self.view.snp_right)
-            make.top.equalTo(self.view.snp_top).offset(64)  
-            make.bottom.equalTo(self.bottomBarView.snp_top)
+        self.chatTableView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.top.equalTo(self.view.snp.top).offset(64)
+            make.bottom.equalTo(self.bottomBarView.snp.top)
         }
         
         // 添加点击手势，隐藏所有键盘
         let tapGesture = UITapGestureRecognizer()
         tapGesture.cancelsTouchesInView = false
         self.chatTableView.addGestureRecognizer(tapGesture)
-        tapGesture.rx_event.subscribeNext { _ in
+        tapGesture.rx.event.subscribe { _ in
             self.hideAllKeyboard()
         }
         .addDisposableTo(self.disposeBag)
         
-        // 注册各个自定义的 Cell
-        self.chatTableView.registerReusableCell(ChatTextTableCell)     // 文本 cell
-        self.chatTableView.registerReusableCell(ChatImageTableCell)    // 图片 cell
-        self.chatTableView.registerReusableCell(ChatAudioTableCell)    // 语音 cell
-        self.chatTableView.registerReusableCell(ChatLocationTableCell) // 位置 cell
-        self.chatTableView.registerReusableCell(ChatRedEnvelopeCell)   // 红包 cell
-        self.chatTableView.registerReusableCell(ChatTimeTableCell)     // 时间 cell
+        // 注册自定义的 Cell
+        chatTableView.register(cellType: ChatTextTableCell())
+//        chatTableView.register(cellType: ChatImageTableCell),
+        
+//        chatTableView.registerReusableCell(ChatTextTableCell)     // 文本 cell
+//        chatTableView.registerReusableCell(ChatImageTableCell)    // 图片 cell
+//        chatTableView.registerReusableCell(ChatAudioTableCell)    // 语音 cell
+//        chatTableView.registerReusableCell(ChatLocationTableCell) // 位置 cell
+//        chatTableView.registerReusableCell(ChatRedEnvelopeCell)   // 红包 cell
+//        chatTableView.registerReusableCell(ChatTimeTableCell)     // 时间 cell
     }
     
     /**

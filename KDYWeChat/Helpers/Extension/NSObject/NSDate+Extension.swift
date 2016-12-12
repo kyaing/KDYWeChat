@@ -6,7 +6,7 @@
 //  Copyright © 2016 Hilen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 let D_MINUTE: Int =	60
 let D_HOUR: Int	  =	3600
@@ -22,19 +22,19 @@ extension Date {
     func week() -> String {
         let myWeekday = (Calendar.current as NSCalendar).components([NSCalendar.Unit.weekday], from: self).weekday
         switch myWeekday {
-        case ?0:
+        case 0:
             return "周日"
-        case ?1:
+        case 1:
             return "周一"
-        case ?2:
+        case 2:
             return "周二"
-        case ?3:
+        case 3:
             return "周三"
-        case ?4:
+        case 4:
             return "周四"
-        case ?5:
+        case 5:
             return "周五"
-        case ?6:
+        case 6:
             return "周六"
         default:
             break

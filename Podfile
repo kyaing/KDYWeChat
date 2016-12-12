@@ -1,43 +1,49 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '8.0'
-# Uncomment this line if you're using Swift
-use_frameworks!
-platform:ios, '8.0'
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
 
 target 'KDYWeChat' do
-    
-    # Swift
-    pod 'SnapKit'
-    pod 'SwiftyJSON', '~> 2.3.2'
-    pod 'Alamofire', '~> 3.4.0'
-    pod 'Kingfisher', '~> 2.5.0'
-    pod 'Proposer', '~> 0.9.0'
-    pod 'PermissionScope', '~> 1.0.2'
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+ 
+  pod 'SnapKit', '3.0.2'
+  pod 'Alamofire','~> 4.0.0'
+  pod 'SwiftyJSON', '3.1.3'
+  pod 'Kingfisher', '3.2.2'
+  pod 'ObjectMapper', '2.2.2'
+  
+  pod 'Proposer', '1.1.0'
+  pod 'PermissionScope', '1.1.1'
+  pod 'Then', '2.1.0'
+  pod 'APIKit', '3.1.1'
+  pod 'BSImagePicker', '2.5.1'
+  
+  #pod 'Moya'
+  #pod 'Moya/RxSwift'
+  pod 'RxSwift', '3.0.1'
+  pod 'RxDataSources', '1.0.0'
+  pod 'Reusable', '3.0.1'
+  pod 'RealmSwift', '2.1.1'
+  pod 'Validator', '2.1.1'
+  pod 'EZSwiftExtensions', '1.7'
 
-    pod 'Moya', '~> 7.0.0'
-    pod 'Moya/RxSwift'
-    pod 'RxSwift', '~> 2.5.0'
-    pod 'RxCocoa', '~> 2.5.0'
-    pod 'RxDataSources', '~> 0.8.1'
-    pod 'ObjectMapper', '~> 1.4.0'
-    pod 'BSImagePicker', '~> 2.3.0'
-    # pod 'Quick', '~> 0.9.3'
-    # pod 'Nimble', '~> 4.1.0'
-    pod 'Reusable', '~> 2.5.0'
-    pod 'RealmSwift', '1.0.2'
-    pod 'Validator', '~> 1.2.0'
-    pod 'EZSwiftExtensions', '~> 1.6'
-    pod 'Then', '~> 1.0.3'
-    pod 'APIKit', '~> 2.0.4'
+  # Objective-C
+  pod 'MBProgressHUD', '1.0.0'
+  pod 'KVOController', '1.2.0'
+  pod 'YYText', '1.0.7'
+  pod 'FMDB', '2.6.2'
+  
+  # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
+  pod 'AVOSCloudDynamic', '~> 3.3.5'
 
-    # Objective-C
-    pod 'MBProgressHUD'
-    pod 'KVOController'
-    pod 'YYText'
-    pod 'FMDB'
+  target 'KDYWeChatTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
-    # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
-    pod 'AVOSCloudDynamic', '~> 3.3.5'
-    
+  target 'KDYWeChatUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end
 

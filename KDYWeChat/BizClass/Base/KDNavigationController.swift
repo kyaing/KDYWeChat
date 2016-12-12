@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIColor_Hex_Swift
 
 /// 自定义导航栏
 class KDNavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {

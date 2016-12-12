@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18452CA21D819E9100D4B2BE"
+               BlueprintIdentifier = "049F789D1DFE6E8E00F32861"
                BuildableName = "KDYWeChat.app"
                BlueprintName = "KDYWeChat"
                ReferencedContainer = "container:KDYWeChat.xcodeproj">
@@ -26,14 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18452CB61D819E9100D4B2BE"
+               BlueprintIdentifier = "049F78B11DFE6E8E00F32861"
                BuildableName = "KDYWeChatTests.xctest"
                BlueprintName = "KDYWeChatTests"
                ReferencedContainer = "container:KDYWeChat.xcodeproj">
@@ -43,19 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18452CC11D819E9100D4B2BE"
+               BlueprintIdentifier = "049F78BC1DFE6E8E00F32861"
                BuildableName = "KDYWeChatUITests.xctest"
                BlueprintName = "KDYWeChatUITests"
-               ReferencedContainer = "container:KDYWeChat.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0490AE701DE690F500C90950"
-               BuildableName = "WeChatTests.xctest"
-               BlueprintName = "WeChatTests"
                ReferencedContainer = "container:KDYWeChat.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -63,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18452CA21D819E9100D4B2BE"
+            BlueprintIdentifier = "049F789D1DFE6E8E00F32861"
             BuildableName = "KDYWeChat.app"
             BlueprintName = "KDYWeChat"
             ReferencedContainer = "container:KDYWeChat.xcodeproj">
@@ -86,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18452CA21D819E9100D4B2BE"
+            BlueprintIdentifier = "049F789D1DFE6E8E00F32861"
             BuildableName = "KDYWeChat.app"
             BlueprintName = "KDYWeChat"
             ReferencedContainer = "container:KDYWeChat.xcodeproj">
@@ -105,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18452CA21D819E9100D4B2BE"
+            BlueprintIdentifier = "049F789D1DFE6E8E00F32861"
             BuildableName = "KDYWeChat.app"
             BlueprintName = "KDYWeChat"
             ReferencedContainer = "container:KDYWeChat.xcodeproj">

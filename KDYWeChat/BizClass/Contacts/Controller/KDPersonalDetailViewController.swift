@@ -56,12 +56,12 @@ class KDPersonalDetailViewController: UIViewController {
         footerView.addSubview(sendMsgButton)
         footerView.addSubview(sendVideoButton)
         
-        sendMsgButton.snp_makeConstraints(closure: { (make) in
+        sendMsgButton.snp_makeConstraints({ (make) in
             make.top.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(20, gaps, 0, gaps))
             make.height.equalTo(btnHeight)
         })
         
-        sendVideoButton.snp_makeConstraints(closure: { (make) in
+        sendVideoButton.snp_makeConstraints({ (make) in
             make.top.equalTo(sendMsgButton.snp_bottom).offset(gaps)
             make.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
             make.height.equalTo(btnHeight)

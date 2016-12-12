@@ -33,7 +33,6 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     lazy var tableView: UITableView = {
         let tb: UITableView = UITableView(frame: self.view.bounds, style: .plain)
-        tb.registerReusableCell(MessageTableCell)
         tb.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
         tb.separatorColor  = UIColor(colorHex: .separatorColor)
         tb.separatorInset  = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
@@ -48,17 +47,17 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     lazy var networkFailHeaderView: UIView = {
         // $0 确实更简洁，但却没自动提示
         let headerView = UIView().then {
-            $0.frame = CGRectMake(0, 0, self.tableView.width, 40)
+            $0.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.tableView.width, height: 40))
             $0.backgroundColor = UIColor(colorHex: .networkFailedColor)
         }
         
         let tipLabel = UILabel().then {
-            $0.frame = CGRectMake((headerView.width - 300)/2.0, 10, 300, 20)
-            $0.textColor = UIColor.grayColor()
-            $0.backgroundColor = .clearColor()
+            $0.frame = CGRect(origin: CGPoint(x: (headerView.width - 300)/2.0, y: 10), size: CGSize(width: 300, height: 20))
+            $0.textColor = .gray
+            $0.backgroundColor = .clear
             $0.text = "当前网络有问题，请您检查网络"
-            $0.font = UIFont.systemFontOfSize(14)
-            $0.textAlignment = .Center
+            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.textAlignment = .center
             headerView.addSubview($0)
         }
         
@@ -72,7 +71,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     let disposeBag = DisposeBag()
     
     let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .plain,
-                                       target: nil, action: Selector())
+                                       target: nil, action: #selector(addAction))
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -118,6 +117,10 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         }
     }
     
+    func addAction() {
+        
+    }
+    
     /**
      *  获取用户会话列表
      */
@@ -129,48 +132,50 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     fileprivate func configures(_ viewModel: MessageViewModel) {
         
         // 按钮点击
-        rightBarItem.rx_tap
+        rightBarItem.rx.tap
             .bindTo(viewModel.addBarDidTap)
             .addDisposableTo(disposeBag)
         
-        rightBarItem.rx_tap
-            .subscribeNext {
+        rightBarItem.rx.tap
+            .subscribe {
                 
             }
             .addDisposableTo(disposeBag)
         
         // 选中cell (写法更简洁)
-        tableView.rx_itemSelected
+        tableView.rx.itemSelected
             .bindTo(viewModel.itemSelected)
             .addDisposableTo(disposeBag)
         
-        tableView.rx_modelSelected(MessageModel)
-            .subscribeNext { model in
+        tableView.rx.modelSelected(MessageModel.self)
+            .subscribe(onNext: { model in
+                
                 let chatController = KDChatViewController()
                 chatController.conversationId = model.conversation.conversationId
                 chatController.title = model.title
                 self.ky_pushAndHideTabbar(chatController)
                 
                 // 发送未读消息的通知
-                NSNotificationCenter.defaultCenter().postNotificationName(unReadMessageCountNoti, object: self, userInfo: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: unReadMessageCountNoti), object: self)
+                }) {
             }
             .addDisposableTo(disposeBag)
         
         // 删除cell
-        tableView.rx_itemDeleted
+        tableView.rx.itemDeleted
             .bindTo(viewModel.itemDeleted)
             .addDisposableTo(disposeBag)
         
         // 配置cell
         dataSorce.configureCell = { _, tableView, indexPath, model in
-            let cell: MessageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let cell: MessageTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.model = model
             return cell
         }
         
         // 绑定数据源
         viewModel.getChatConversations()
-            .bindTo(tableView.rx_itemsWithDataSource(dataSorce))
+            .bindTo(tableView.rx.items(dataSource: dataSorce))
             .addDisposableTo(disposeBag)
     }
     

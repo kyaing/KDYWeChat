@@ -6,8 +6,9 @@
 //  Copyright © 2016年 kaideyi.com. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Photos
+import SnapKit
 
 // MARK: - UITextViewDelegate
 extension KDChatViewController: UITextViewDelegate {
@@ -148,18 +149,18 @@ extension KDChatViewController: ChatBarViewDelegate {
     func bottomBarViewShowEmotionKeyboard() {
         // 更新BarView和表情键盘的布局
         let emotionHeight = self.emotionView.height
-        barPaddingBottomConstranit?.updateOffset(-emotionHeight)
+        barPaddingBottomConstranit?.update(offset: -emotionHeight)
         
         // 动画显示表情键盘，同时隐藏扩展键盘
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(0.25)
-        self.emotionView.snp_updateConstraints() { (make) in
-            make.top.equalTo(self.bottomBarView.snp_bottom)
+        self.emotionView.snp.updateConstraints() { (make) in
+            make.top.equalTo(self.bottomBarView.snp.bottom)
         }
         // 同时隐藏扩展键盘
-        self.shareView.snp_updateConstraints() { (make) in
-            make.top.equalTo(self.bottomBarView.snp_bottom).offset(self.view.height)
+        self.shareView.snp.updateConstraints() { (make) in
+            make.top.equalTo(self.bottomBarView.snp.bottom).offset(self.view.height)
         }
         UIView.commitAnimations()
     }
@@ -169,14 +170,14 @@ extension KDChatViewController: ChatBarViewDelegate {
      */
     func bottomBarViewShowShareKeyboard() {
         let shareHeight = self.shareView.height
-        barPaddingBottomConstranit?.updateOffset(-shareHeight)
+        barPaddingBottomConstranit?.updateOffset(amount: -shareHeight)
         
         // 直接显示扩展键盘，覆盖在表情键盘之上
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(0.25)
-        self.shareView.snp_updateConstraints() { (make) in
-            make.top.equalTo(self.bottomBarView.snp_bottom)
+        self.shareView.snp.updateConstraints() { (make) in
+            make.top.equalTo(self.bottomBarView.snp.bottom)
         }
         UIView.commitAnimations()
     }
@@ -195,7 +196,7 @@ extension KDChatViewController: ChatBarViewDelegate {
      
      -  parameter showExpandable: show or hide expandable inputTextView
      */
-    func controlExpandableInputView(showExpandable: Bool) {
+    func controlExpandableInputView(_ showExpandable: Bool) {
         let textView = self.bottomBarView.inputTextView
         let currentTextHeight = self.bottomBarView.inputTextViewCurrentHeight
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
@@ -224,7 +225,7 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
         
         // 弹出 BSImagePicker 图片选择器 (最多一次性选择九张)
         ky_presentImagePickerController(
-            maxNumberOfSelections: photoCounts,
+            photoCounts,
             select: { (asset) in
                 
             }, deselect: { (asset) in

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Hilen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UITableView {
     func reloadData(_ completion: @escaping ()->()) {
@@ -69,7 +69,7 @@ extension UITableView {
         self.scrollToRow(at: indexPath, at: .bottom, animated: false)
     }
     
-    func scrollToBottom(animated: Bool) {
+    func scrollToBottom(_ animated: Bool) {
         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
         if self.contentSize.height - self.bounds.size.height < 0.0 {
             return

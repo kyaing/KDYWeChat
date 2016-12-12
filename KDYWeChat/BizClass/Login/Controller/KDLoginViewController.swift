@@ -39,11 +39,11 @@ final class KDLoginViewController: UIViewController {
         setupViewsUI()
         
         viewModel = LoginViewModel(input:
-                (username: accountTextFiled.rx_text.asDriver(),
-                 password: passwordTextField.rx_text.asDriver()))
+                (username: accountTextFiled.rx.text.asDriver(),
+                 password: passwordTextField.rx.text.asDriver()))
         
         viewModel.loginBtnEnabled
-            .driveNext { [weak self] (valid) in
+            .drive { [weak self] (valid) in
                 self?.loginButton.backgroundColor
                     = valid ? UIColor(colorHex: .chatGreenColor) : UIColor(colorHex: .chatLightGreenColor)
                 self?.loginButton.enabled = valid ? true : false
@@ -85,9 +85,9 @@ final class KDLoginViewController: UIViewController {
                     if (error != nil) {
                         var codeString = ""
                         switch error?.code {
-                        case ?EMErrorNetworkUnavailable: codeString = "网络不可用"
-                        case ?EMErrorServerNotReachable: codeString = "服务器未连接"
-                        case ?EMErrorUserAuthenticationFailed: codeString = "密码验证错误"
+                        case EMErrorNetworkUnavailable: codeString = "网络不可用"
+                        case EMErrorServerNotReachable: codeString = "服务器未连接"
+                        case EMErrorUserAuthenticationFailed: codeString = "密码验证错误"
                         default: codeString = "环信登录失败"
                         }
                         print("\(codeString)")

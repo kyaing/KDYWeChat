@@ -30,61 +30,115 @@
 import Foundation
 import ObjectiveC
 
+/**
+ 
+ A user input UI element conforming to `ValidatableInterfaceElement` may 
+ validate it's inputValue (e.g. a `UITextField`s `text`) with a validation rule,
+ or mutiple validation rules contained in a `ValidationRuleSet`.
+ 
+ A `ValidatableInterfaceElement` may also be registered to observe and validate 
+ on input change, optionally executing a closure containing the validation result. 
+ 
+ - Important: 
+ The protocol extension implements most of the desired behaviour.
+ The required explicit implmentations in your types are as follows:
+    - `InputType`: The associated validatable type.
+    - `inputValue`: A getter to access the input to validate.
+    - `validateOnInputChange`: A means to register, observe and validate the 
+    input as it changes.
+ See UITextField+ValidatableInterfaceElement.swift for a better idea.
+ 
+ */
 public protocol ValidatableInterfaceElement: AnyObject {
     
+    /**
+     
+     The `Validatable` input type of the UI element (e.g. `String` in `UITextField`)
+     
+     */
     associatedtype InputType: Validatable
     
+    /**
+     
+     The input to pass through validation (e.g. `text` in `UITextField`)
+     
+     */
     var inputValue: InputType? { get }
     
-    func validate<R: ValidationRule where R.InputType == InputType>(rule r: R) -> ValidationResult
+    /**
+     
+     A closure executed when the UI element is validated.
+     
+     */
+    var validationHandler: ((ValidationResult) -> Void)? { get set }
     
-    func validate(rules rs: ValidationRuleSet<InputType>) -> ValidationResult
-
-    func validate() -> ValidationResult
     
-    func validateOnInputChange(validationEnabled: Bool)
+    /**
+     
+     Validates the receiver's input against a `ValidationRule`.
+     
+     - Parameters:
+        - rule: The rule used to validate the receiver's input.
+     
+     - Returns:
+     A validation result.
+     
+     */
+    func validate<R: ValidationRule>(rule r: R) -> ValidationResult where R.InputType == InputType
+    
+    /**
+     
+     Validates the receiver's input against a `ValidationRuleSet`.
+     
+     - Parameters:
+        - rules: The rules used to validate the receiver's input.
+     
+     - Returns:
+     A validation result.
+     
+     */
+    func validate(rules: ValidationRuleSet<InputType>) -> ValidationResult
+    
+    /**
+     
+     Registers the element to validate it's input when it changes.
+     
+     - Parameters:
+        - enabled: `true` to start observation, `false` to end observation.
+     
+     */
+    func validateOnInputChange(enabled: Bool)
     
 }
 
 private var ValidatableInterfaceElementRulesKey: UInt8 = 0
 private var ValidatableInterfaceElementHandlerKey: UInt8 = 0
 
-private final class Box<T>: NSObject {
-    let thing: T
-    init(thing t: T) { thing = t }
-}
-
 extension ValidatableInterfaceElement {
-
-    public typealias ValidationHandler = ValidationResult -> Void
 
     public var validationRules: ValidationRuleSet<InputType>? {
         get {
-            guard let boxed: Box<ValidationRuleSet<InputType>>? = objc_getAssociatedObject(self, &ValidatableInterfaceElementRulesKey) as? Box<ValidationRuleSet<InputType>>? else { return nil }
-            return boxed?.thing
+            return objc_getAssociatedObject(self, &ValidatableInterfaceElementRulesKey) as? ValidationRuleSet<InputType>
         }
         set(newValue) {
             if let n = newValue {
-                let boxed = Box<ValidationRuleSet<InputType>>(thing: n)
-                objc_setAssociatedObject(self, &ValidatableInterfaceElementRulesKey, boxed, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &ValidatableInterfaceElementRulesKey, n as AnyObject, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
     
-    public var validationHandler: ValidationHandler? {
+    public var validationHandler: ((ValidationResult) -> Void)? {
         get {
-            guard let boxed: Box<ValidationHandler>? = objc_getAssociatedObject(self, &ValidatableInterfaceElementHandlerKey) as? Box<ValidationHandler>? else { fatalError("") }
-            return boxed?.thing
+            return objc_getAssociatedObject(self, &ValidatableInterfaceElementHandlerKey) as? (ValidationResult) -> Void
         }
         set(newValue) {
             if let n = newValue {
-                let boxed = Box<ValidationHandler>(thing: n)
-                objc_setAssociatedObject(self, &ValidatableInterfaceElementHandlerKey, boxed, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &ValidatableInterfaceElementHandlerKey, n as AnyObject, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
     }
     
-    public func validate<R: ValidationRule where R.InputType == InputType>(rule r: R) -> ValidationResult {
+    public func validate<R: ValidationRule>(rule r: R) -> ValidationResult where R.InputType == InputType {
         let result = Validator.validate(input: inputValue, rule: r)
         if let h = validationHandler { h(result) }
         return result
@@ -92,11 +146,13 @@ extension ValidatableInterfaceElement {
     
     public func validate(rules rs: ValidationRuleSet<InputType>) -> ValidationResult {
         let result = Validator.validate(input: inputValue, rules: rs)
-        if let h = validationHandler { h(result) }
+        if let h = validationHandler {
+            h(result)
+        }
         return result
     }
     
-    public func validate() -> ValidationResult {
+    @discardableResult public func validate() -> ValidationResult {
         guard let attachedRules = validationRules else { fatalError("Validator Error: attempted to validate without attaching rules") }
         return validate(rules: attachedRules)
     }

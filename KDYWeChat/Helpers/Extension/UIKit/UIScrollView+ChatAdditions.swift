@@ -6,7 +6,7 @@
 //  Copyright © 2015 Hilen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIScrollView {
     fileprivate struct AssociatedKeys {

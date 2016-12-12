@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension NSObject {
     class var nameOfClass: String {

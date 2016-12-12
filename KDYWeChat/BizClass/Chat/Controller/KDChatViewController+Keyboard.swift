@@ -25,7 +25,7 @@ extension KDChatViewController {
         // 系统键盘显示的通知
         notificationCenter.addObserver(
             self,
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: NSNotification.Name.UIKeyboardWillShow.rawValue,
             object: nil) { (observer, notification) in
                 self.chatTableView.scrollToBottom(animated: false)
                 self.keyboardControling(notification, isShowkeyboard: true)
@@ -33,7 +33,7 @@ extension KDChatViewController {
         
         notificationCenter.addObserver(
             self,
-            name: NSNotification.Name.UIKeyboardDidShow,
+            name: NSNotification.Name.UIKeyboardDidShow.rawValue,
             object: nil) { (observer, notification) in
                 if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue {
                     _ = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
@@ -43,7 +43,7 @@ extension KDChatViewController {
         // 系统键盘隐藏的通知
         notificationCenter.addObserver(
             self,
-            name: NSNotification.Name.UIKeyboardWillHide,
+            name: NSNotification.Name.UIKeyboardWillHide.rawValue,
             object: nil) { (observer, notification) in
                 self.chatTableView.scrollToBottom(animated: true)
                 self.keyboardControling(notification, isShowkeyboard: false)
@@ -51,7 +51,7 @@ extension KDChatViewController {
         
         notificationCenter.addObserver(
             self,
-            name: NSNotification.Name.UIKeyboardDidHide,
+            name: NSNotification.Name.UIKeyboardDidHide.rawValue,
             object: nil) { (observer, notification) in
                 
             }

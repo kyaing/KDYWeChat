@@ -39,34 +39,34 @@ extension MessageContentType {
         
         switch self {
         case .Text:
-            let cell: ChatTextTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let cell: ChatTextTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             
             return cell
         
         case .Time:
-            let cell: ChatTimeTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let cell: ChatTimeTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setupCellContent(model)
             
             return cell
             
         case .Image:
-            let cell: ChatImageTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let cell: ChatImageTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             
             return cell
             
         case .Voice:
-            let cell: ChatAudioTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let cell: ChatAudioTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             
             return cell
             
         case .Location:
-            let cell: ChatLocationTableCell = tableView.dequeueReusableCell(indexPath: indexPath)
+            let cell: ChatLocationTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setupCellContent(model)
             cell.cellDelegate = viewController
             

@@ -270,13 +270,13 @@ final class KDChatViewController: UIViewController {
         let messageBody = message.body
         
         switch messageBody?.type {
-        case ?EMMessageBodyTypeImage:
+        case EMMessageBodyTypeImage:
             let imageBody = messageBody as! EMImageMessageBody
             if imageBody.thumbnailDownloadStatus != EMDownloadStatusSuccessed {
                 EMClient.shared().chatManager.downloadMessageThumbnail(message, progress: nil, completion: nil)
             }
         
-        case ?EMMessageBodyTypeVoice:
+        case EMMessageBodyTypeVoice:
             let voiceBody = messageBody as! EMVoiceMessageBody
             if voiceBody.downloadStatus != EMDownloadStatusSuccessed {
                 EMClient.shared().chatManager.downloadMessageThumbnail(message, progress: nil, completion: nil)

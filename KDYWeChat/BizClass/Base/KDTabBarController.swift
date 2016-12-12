@@ -164,15 +164,15 @@ final class KDTabBarController: UITabBarController {
     
             var pushMessageStr: String? = nil
             switch messageBody?.type {
-            case ?EMMessageBodyTypeText:
+            case EMMessageBodyTypeText:
                 pushMessageStr = (messageBody as! EMTextMessageBody).text
-            case ?EMMessageBodyTypeImage:
+            case EMMessageBodyTypeImage:
                 pushMessageStr = "图片"
-            case ?EMMessageBodyTypeVideo:
+            case EMMessageBodyTypeVideo:
                 pushMessageStr = "视频"
-            case ?EMMessageBodyTypeLocation:
+            case EMMessageBodyTypeLocation:
                 pushMessageStr = "位置"
-            case ?EMMessageBodyTypeVoice:
+            case EMMessageBodyTypeVoice:
                 pushMessageStr = "语音"
             default:
                 pushMessageStr = ""

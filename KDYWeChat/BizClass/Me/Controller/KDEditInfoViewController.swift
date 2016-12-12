@@ -75,7 +75,7 @@ class KDEditInfoViewController: UIViewController {
             self.infoTextField.placeholder = self.titleStr
         }
         
-        self.infoTextField.snp_makeConstraints(closure: { (make) in
+        self.infoTextField.snp_makeConstraints({ (make) in
             make.edges.equalTo(containerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
         })
     }
