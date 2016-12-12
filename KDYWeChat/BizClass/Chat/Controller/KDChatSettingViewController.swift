@@ -78,9 +78,9 @@ class KDChatSettingViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
-        cameraAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        photoAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        cancelAction.setValue(UIColor(rgba: "#7d7d7d"), forKey: "_titleTextColor")
+        cameraAction.setValue(UIColor(colorHex: "#2a2a2a")!, forKey: "_titleTextColor")
+        photoAction.setValue(UIColor(colorHex: "#2a2a2a")!, forKey: "_titleTextColor")
+        cancelAction.setValue(UIColor(colorHex: "#7d7d7d")!, forKey: "_titleTextColor")
         
         alertController.addAction(cameraAction)
         alertController.addAction(photoAction)

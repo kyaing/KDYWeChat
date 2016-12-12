@@ -36,8 +36,8 @@ class ChatBottomBarView: UIView, NibReusable {
     @IBOutlet weak var recordButton: UIButton! {
         didSet {
             // recordButton是自定义按钮
-            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#F3F4F8")), for: .Normal)
-            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(rgba: "#C6C7CB")), for: .Highlighted)
+            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#F3F4F8")!), for: .normal)
+            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#C6C7CB")!), for: .highlighted)
             recordButton.layer.borderColor = UIColor.gray.cgColor
             recordButton.layer.cornerRadius  = 5.0
             recordButton.layer.borderWidth   = 0.5
@@ -49,8 +49,8 @@ class ChatBottomBarView: UIView, NibReusable {
     // 文本输入框
     @IBOutlet weak var inputTextView: UITextView! {
         didSet {
-            inputTextView.backgroundColor     = UIColor(rgba: "#f8fefb")
-            inputTextView.layer.borderColor   = UIColor(rgba: "#C2C3C7").CGColor
+            inputTextView.backgroundColor     = UIColor(colorHex: "#f8fefb")
+            inputTextView.layer.borderColor   = UIColor(colorHex: "#C2C3C7")?.cgColor
             inputTextView.layer.borderWidth   = 1.0
             inputTextView.layer.cornerRadius  = 5.0
             inputTextView.layer.masksToBounds = true
@@ -89,7 +89,7 @@ class ChatBottomBarView: UIView, NibReusable {
     }
 
     func addBarLayer() {
-        self.layer.borderColor = UIColor(rgba: "#C2C3C7").CGColor
+        self.layer.borderColor = UIColor(colorHex: "#C2C3C7")?.cgColor
         self.layer.borderWidth = 0.5
     }
 }
@@ -190,7 +190,7 @@ extension ChatBottomBarView {
         inputTextView.isHidden = false
         
         // 同时恢复表情按钮图标
-        emotionButton.emotionButtonChangeToKeyboardUI(showKeyboard: false)
+        emotionButton.emotionButtonChangeToKeyboardUI(false)
         
         recordButton.isHidden = true
         audioButton.showTypingKeyboard   = false

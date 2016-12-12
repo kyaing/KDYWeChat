@@ -52,7 +52,7 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
         self.contentLabel.backgroundColor = UIColor.clear
         self.contentBodyView.addSubview(self.contentLabel)
         
-        self.contentLabel.snp_makeConstraints { (make) in
+        self.contentLabel.snp.makeConstraints { (make) in
             make.edges.equalTo(self.contentBodyView)
         }
         

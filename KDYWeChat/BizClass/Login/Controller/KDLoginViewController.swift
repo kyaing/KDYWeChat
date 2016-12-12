@@ -130,9 +130,9 @@ final class KDLoginViewController: UIViewController {
          *  修改显示的字体颜色 
          *  (仍然没有找到如何改变字体大小的方法！)
          */
-        changeAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        registerAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        cancelAction.setValue(UIColor(rgba: "#7d7d7d"), forKey: "_titleTextColor")
+        changeAction.setValue(UIColor(colorHex: "#2a2a2a")!, forKey: "_titleTextColor")
+        registerAction.setValue(UIColor(colorHex: "#2a2a2a")!, forKey: "_titleTextColor")
+        cancelAction.setValue(UIColor(colorHex: "#7d7d7d")!, forKey: "_titleTextColor")
         
         alertController.addAction(changeAction)
         alertController.addAction(registerAction)

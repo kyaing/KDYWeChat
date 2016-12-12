@@ -98,12 +98,12 @@ class MessageTableCell: UITableViewCell, NibReusable {
     // 当Cell选中和高高时，重新设置label颜色
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        unReadMsgLabel.backgroundColor = .red()
+        unReadMsgLabel.backgroundColor = .red
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        unReadMsgLabel.backgroundColor = .red()
+        unReadMsgLabel.backgroundColor = .red
     }
 }
 
