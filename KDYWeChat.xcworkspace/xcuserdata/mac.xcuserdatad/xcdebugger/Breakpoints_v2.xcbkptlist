@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/Main/AppDelegate+EaseSDK.swift"
-            timestampString = "503316066.38148"
+            filePath = "KDYWeChat/BizClass/Login/Controller/KDLoginViewController.swift"
+            timestampString = "503316315.279475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "loginStateChanged(_:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "loginButtonAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
