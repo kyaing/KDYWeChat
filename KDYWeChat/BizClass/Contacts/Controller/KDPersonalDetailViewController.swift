@@ -19,9 +19,9 @@ class KDPersonalDetailViewController: UIViewController {
     // MARK: - Parameters
     lazy var detailTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: gaps, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(colorHex: .separatorColor)
+        tableView.separatorColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)
         tableView.tableFooterView = self.footerView
         tableView.dataSource = self
         tableView.delegate = self
@@ -37,15 +37,15 @@ class KDPersonalDetailViewController: UIViewController {
         let sendVideoButton = UIButton()
         
         sendMsgButton.layer.cornerRadius = 5.0
-        sendMsgButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
+        sendMsgButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
         sendMsgButton.layer.borderWidth = 0.5
         sendMsgButton.setTitle("发消息", for: UIControlState())
         sendMsgButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-        sendMsgButton.backgroundColor = UIColor(colorHex: .chatGreenColor)
+        sendMsgButton.backgroundColor = UIColor(colorHex: KDYColor.chatGreenColor.rawValue)
         sendMsgButton.addTarget(self, action: #selector(self.chatWithMessageAction), for: .touchUpInside)
         
         sendVideoButton.layer.cornerRadius = 5.0
-        sendVideoButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
+        sendVideoButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
         sendVideoButton.layer.borderWidth = 0.5
         sendVideoButton.setTitle("视频聊天", for: UIControlState())
         sendVideoButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
@@ -56,13 +56,13 @@ class KDPersonalDetailViewController: UIViewController {
         footerView.addSubview(sendMsgButton)
         footerView.addSubview(sendVideoButton)
         
-        sendMsgButton.snp_makeConstraints({ (make) in
+        sendMsgButton.snp.makeConstraints({ (make) in
             make.top.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(20, gaps, 0, gaps))
             make.height.equalTo(btnHeight)
         })
         
-        sendVideoButton.snp_makeConstraints({ (make) in
-            make.top.equalTo(sendMsgButton.snp_bottom).offset(gaps)
+        sendVideoButton.snp.makeConstraints({ (make) in
+            make.top.equalTo(sendMsgButton.snp.bottom).offset(gaps)
             make.left.right.equalTo(footerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
             make.height.equalTo(btnHeight)
         })

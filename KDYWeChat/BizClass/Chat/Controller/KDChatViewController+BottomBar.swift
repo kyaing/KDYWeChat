@@ -82,29 +82,28 @@ extension KDChatViewController {
         var finishRecording: Bool = true
         let longPressGesture = UILongPressGestureRecognizer()
         recordButton.addGestureRecognizer(longPressGesture)
-        longPressGesture.rx.event.subscribe { event in
-
+        longPressGesture.rx.event.subscribe(onNext: { (event) in
             let state = event.state
             switch state {
             case .began:  // 开始录音
                 finishRecording = true
-                
+
                 self.recordingView.recording()
                 RecordManager.shareInstance.startRecord()
                 recordButton.replaceRecordButtonUI(true)
-                
+
             case .changed:  // 录音移动中 (如上滑取消录音)
                 // 判断手势移动的Point，是否在视图中
-                let point = event.locationInView(self.recordingView)
-                if self.recordingView.pointInside(point, withEvent: nil) {
+                let point = event.location(in: self.recordingView)
+                if self.recordingView.point(inside: point, with: nil) {
                     self.recordingView.cancelRecordBySldeUp()
                     finishRecording = false
-                    
+
                 } else {
                     self.recordingView.recording()
                     finishRecording = true
                 }
-                
+
             case .ended:  // 录音结束
                 if finishRecording {
                     RecordManager.shareInstance.stopRecord()
@@ -116,7 +115,9 @@ extension KDChatViewController {
                 
             default: break
             }
-        }.addDisposableTo(disposeBag)
+            
+        }).addDisposableTo(disposeBag)
+        
         
         // 点击文本框 (添加点击手势)
         let tapGesture = UITapGestureRecognizer()

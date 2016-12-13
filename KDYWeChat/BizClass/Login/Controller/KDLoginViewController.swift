@@ -38,28 +38,28 @@ final class KDLoginViewController: UIViewController {
         // 初始化UI
         setupViewsUI()
         
-        viewModel = LoginViewModel(input:
-                (username: accountTextFiled.rx.text.asDriver(),
-                 password: passwordTextField.rx.text.asDriver()))
-        
-        viewModel.loginBtnEnabled
-            .drive { [weak self] (valid) in
-                self?.loginButton.backgroundColor
-                    = valid ? UIColor(colorHex: .chatGreenColor) : UIColor(colorHex: .chatLightGreenColor)
-                self?.loginButton.enabled = valid ? true : false
-            }
-            .addDisposableTo(disposeBag)
+//        viewModel = LoginViewModel(input:
+//                (username: accountTextFiled.rx.text.asDriver(),
+//                 password: passwordTextField.rx.text.asDriver()))
+//        
+//        viewModel.loginBtnEnabled
+//            .drive { [weak self] (valid) in
+//                self?.loginButton.backgroundColor
+//                    = valid ? UIColor(colorHex: KDYColor.chatGreenColor.rawValue) : UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
+//                self?.loginButton.enabled = valid ? true : false
+//            }
+//            .addDisposableTo(disposeBag)
     }
     
     func setupViewsUI() {
         loginButton.layer.cornerRadius = 5
-        loginButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
+        loginButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
         loginButton.layer.borderWidth = 0.5
-        loginButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
+        loginButton.backgroundColor = UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
         
         // 修改光标颜色
-        accountTextFiled.tintColor  = UIColor(colorHex: .tabbarSelectedTextColor)
-        passwordTextField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
+        accountTextFiled.tintColor  = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
+        passwordTextField.tintColor = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
     }
     
     // MARK: - Event Responses
@@ -84,7 +84,8 @@ final class KDLoginViewController: UIViewController {
                 
                     if (error != nil) {
                         var codeString = ""
-                        switch error?.code {
+                        let code = error!.code
+                        switch code {
                         case EMErrorNetworkUnavailable: codeString = "网络不可用"
                         case EMErrorServerNotReachable: codeString = "服务器未连接"
                         case EMErrorUserAuthenticationFailed: codeString = "密码验证错误"

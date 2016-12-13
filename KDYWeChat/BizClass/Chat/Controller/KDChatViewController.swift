@@ -101,7 +101,7 @@ final class KDChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         
         self.navigationItem.leftBarButtonItem  = self.leftBarItem
         self.navigationItem.rightBarButtonItem = self.rightBarItem
@@ -269,7 +269,7 @@ final class KDChatViewController: UIViewController {
     func downloadMessageAttachments(_ message: EMMessage) {
         let messageBody = message.body
         
-        switch messageBody?.type {
+        switch messageBody!.type {
         case EMMessageBodyTypeImage:
             let imageBody = messageBody as! EMImageMessageBody
             if imageBody.thumbnailDownloadStatus != EMDownloadStatusSuccessed {
@@ -301,7 +301,7 @@ final class KDChatViewController: UIViewController {
     
     func backBarItemAction() {
         // 直接返回到根控制器即可
-        self.navigationController?.popToRootViewController(animated: true)
+        _ = self.navigationController?.popToRootViewController(animated: true)
         
         //    let tabbar     = UIApplication.sharedApplication().keyWindow?.rootViewController as! KDTabBarController
         //    let navigation = tabbar.selectedViewController as! KDNavigationController
@@ -317,7 +317,7 @@ extension KDChatViewController: EMChatManagerDelegate {
     /**
      *  接收EMMessage 消息
      */
-    func messagesDidReceive(_ aMessages: [AnyObject]!) {
+    private func messagesDidReceive(_ aMessages: [AnyObject]!) {
         for message in aMessages as! [EMMessage] {
             if self.conversation.conversationId == message.conversationId {
                 addMessageToDataSource(message)
@@ -342,7 +342,7 @@ extension KDChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let chatModel = itemDataSource.object(at: (indexPath as NSIndexPath).row) as? ChatModel
-        guard let type: MessageContentType = chatModel!.messageContentType , chatModel != nil else {
+        guard let type: MessageContentType = chatModel?.messageContentType, chatModel != nil else {
             return ChatBaseTableCell()
         }
         
@@ -358,7 +358,7 @@ extension KDChatViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let chatModel = self.itemDataSource.object(at: (indexPath as NSIndexPath).row) as? ChatModel
-        guard let type: MessageContentType = chatModel!.messageContentType , chatModel != nil else { return 0 }
+        guard let type: MessageContentType = chatModel?.messageContentType , chatModel != nil else { return 0 }
      
         return type.chatCellHeight(chatModel!)
     }

@@ -80,15 +80,12 @@ extension KDChatViewController {
         .addDisposableTo(self.disposeBag)
         
         // 注册自定义的 Cell
-        chatTableView.register(cellType: ChatTextTableCell())
-//        chatTableView.register(cellType: ChatImageTableCell),
-        
-//        chatTableView.registerReusableCell(ChatTextTableCell)     // 文本 cell
-//        chatTableView.registerReusableCell(ChatImageTableCell)    // 图片 cell
-//        chatTableView.registerReusableCell(ChatAudioTableCell)    // 语音 cell
-//        chatTableView.registerReusableCell(ChatLocationTableCell) // 位置 cell
-//        chatTableView.registerReusableCell(ChatRedEnvelopeCell)   // 红包 cell
-//        chatTableView.registerReusableCell(ChatTimeTableCell)     // 时间 cell
+        chatTableView.register(cellType: ChatTextTableCell.self)     // 文本 cell
+        chatTableView.register(cellType: ChatImageTableCell.self)    // 图片 cell
+        chatTableView.register(cellType: ChatAudioTableCell.self)    // 语音 cell
+        chatTableView.register(cellType: ChatLocationTableCell.self) // 位置 cell
+        chatTableView.register(cellType: ChatRedEnvelopeCell.self)   // 红包 cell
+        chatTableView.register(cellType: ChatTimeTableCell.self)     // 时间 cell
     }
     
     /**
@@ -99,11 +96,11 @@ extension KDChatViewController {
         self.emotionView.delegate = self
         self.view.addSubview(self.emotionView)
         
-        self.emotionView.snp_makeConstraints { [weak self] (make) in
+        self.emotionView.snp.makeConstraints { [weak self] (make) in
             guard let strongSelf = self else { return }
-            make.left.equalTo(strongSelf.view.snp_left)
-            make.right.equalTo(strongSelf.view.snp_right)
-            make.top.equalTo(strongSelf.bottomBarView.snp_bottom)
+            make.left.equalTo(strongSelf.view.snp.left)
+            make.right.equalTo(strongSelf.view.snp.right)
+            make.top.equalTo(strongSelf.bottomBarView.snp.bottom)
             make.height.equalTo(kCustomKeyboardHeight)
         }
     }
@@ -116,9 +113,9 @@ extension KDChatViewController {
         self.shareView.delegate = self
         self.view.addSubview(self.shareView)
         
-        self.shareView.snp_makeConstraints { (make) in
+        self.shareView.snp.makeConstraints { (make) in
             make.left.right.equalTo(view)
-            make.top.equalTo(self.bottomBarView.snp_bottom)
+            make.top.equalTo(self.bottomBarView.snp.bottom)
             make.height.equalTo(kCustomKeyboardHeight)
         }
     }
@@ -131,7 +128,7 @@ extension KDChatViewController {
         self.recordingView.isHidden = true
         self.view.addSubview(self.recordingView)
         
-        self.recordingView.snp_makeConstraints { (make) in
+        self.recordingView.snp.makeConstraints { (make) in
             make.center.equalTo(self.view)
             make.size.equalTo(CGSize(width: 300, height: 300))
         }

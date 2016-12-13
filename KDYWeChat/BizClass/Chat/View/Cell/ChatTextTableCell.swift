@@ -126,7 +126,7 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
         
         // 解析富文本
         let bodyText = (model.message?.body as! EMTextMessageBody).text
-        let attributedString: NSMutableAttributedString = TSChatTextParser.parseText(bodyText, font: kChatTextFont)!
+        let attributedString: NSMutableAttributedString = TSChatTextParser.parseText(bodyText!, font: kChatTextFont)!
         model.textAttributedString = attributedString
         
         // 初始化排版布局对象

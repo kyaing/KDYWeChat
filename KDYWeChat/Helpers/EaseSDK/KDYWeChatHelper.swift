@@ -43,14 +43,14 @@ class KDYWeChatHelper: NSObject {
     
     // MARK: - Public Methods
     func asyncPushOptions() {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { 
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             var error: EMError?
             EMClient.shared().getPushOptionsFromServerWithError(&error)
         }
     }
     
     func asyncConversationFromDB() {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             let conversations: NSArray = EMClient.shared().chatManager.getAllConversations() as NSArray
             conversations.enumerateObjects({ (conversation, idx, stop) in
                 
@@ -115,7 +115,7 @@ extension KDYWeChatHelper: EMChatManagerDelegate {
     /**
      *  会话列表发生更新
      */
-    func conversationListDidUpdate(_ aConversationList: [AnyObject]!) {
+    private func conversationListDidUpdate(_ aConversationList: [AnyObject]!) {
         if (self.mainTabbarVC != nil) {
             self.mainTabbarVC!.setupUnReadMessageCount()
         }
@@ -128,7 +128,7 @@ extension KDYWeChatHelper: EMChatManagerDelegate {
     /**
      *  收到 EMMessage消息
      */
-    func messagesDidReceive(_ aMessages: [AnyObject]!) {
+    private func messagesDidReceive(_ aMessages: [AnyObject]!) {
         
         for message in aMessages as! [EMMessage] {    
             let needPushnotification = (message.chatType == EMChatTypeChat)

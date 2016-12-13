@@ -20,7 +20,7 @@ extension Date {
     }
     
     func week() -> String {
-        let myWeekday = (Calendar.current as NSCalendar).components([NSCalendar.Unit.weekday], from: self).weekday
+        let myWeekday: Int = (Calendar.current as NSCalendar).components([NSCalendar.Unit.weekday], from: self).weekday!
         switch myWeekday {
         case 0:
             return "周日"

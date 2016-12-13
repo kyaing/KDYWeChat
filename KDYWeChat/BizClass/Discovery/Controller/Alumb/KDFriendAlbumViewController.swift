@@ -13,9 +13,9 @@ class KDFriendAlbumViewController: UIViewController {
 
     lazy var albumTableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(colorHex: .separatorColor)
+        tableView.separatorColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)
         tableView.register(UINib(nibName: "AlumbTableViewCell", bundle: nil), forCellReuseIdentifier: "AlumbTableViewCell")
         tableView.showsVerticalScrollIndicator = false
         tableView.tableHeaderView = self.albumHeaderView

@@ -50,8 +50,9 @@ extension AppDelegate {
         var navigationController: KDNavigationController?
         
         // 根据登录状态的不同，设置不同的 rootController
-        let loginState = ((notification.object as AnyObject).boolValue)!
-        if loginState {   // 登录成功，切换到tabbar
+        let loginState = ((notification.object as AnyObject).boolValue)
+    
+        if loginState != nil {   // 登录成功，切换到tabbar
             if self.mainTabbarVC == nil {
                 self.mainTabbarVC = KDTabBarController()
             }
@@ -67,11 +68,11 @@ extension AppDelegate {
             self.window?.rootViewController = self.mainTabbarVC
             
         } else {   // 登录失败，切换到登录页面
-            if self.mainTabbarVC != nil {
-                self.mainTabbarVC?.navigationController?.popToRootViewController(animated: false)
+            if mainTabbarVC != nil {
+                _ = mainTabbarVC?.navigationController?.popToRootViewController(animated: false)
             }
             
-            self.mainTabbarVC = nil
+            mainTabbarVC = nil
             KDYWeChatHelper.shareInstance.mainTabbarVC = nil
             
             let loginController = KDLoginViewController.initFromNib()
@@ -84,7 +85,7 @@ extension AppDelegate {
     // MARK: - AppDelegate
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // 注册远程通知成功，交给SDK并绑定
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async { 
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
             EMClient.shared().bindDeviceToken(deviceToken)
         }
     }

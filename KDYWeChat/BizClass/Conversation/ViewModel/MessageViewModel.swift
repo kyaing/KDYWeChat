@@ -33,35 +33,33 @@ class MessageViewModel {
     func getChatConversations() -> Observable<[SectionModel<String, MessageModel>]> {
         
         return Observable.create { (observer) -> Disposable in
-            let conversations: NSArray = EMClient.shared().chatManager.getAllConversations() as NSArray 
+            let conversations = EMClient.shared().chatManager.getAllConversations() as NSArray
             
             // 删除最后一条为空的会话
-            conversations.enumerateObjects { (conversation, idx, stop) in
+            conversations.enumerateObjects({ (conversation, idx, stop) in
                 let conversation = conversation as! EMConversation
                 if conversation.latestMessage == nil {
-                    EMClient.sharedClient().chatManager.deleteConversation(conversation.conversationId,
-                        isDeleteMessages: false, completion: nil)
+                    EMClient.shared().chatManager.deleteConversation(conversation.conversationId,
+                                                                     isDeleteMessages: false, completion: nil)
                 }
-            }
+            })
             
             // 按时间的降序，排列会话列表
-            let sortedConversations: NSArray = conversations.sortedArray {
-                (Obj1, Obj2) -> ComparisonResult in
-                
-                let message1 = Obj1 as? EMConversation
-                let message2 = Obj2 as? EMConversation
+            let sortedConversations = conversations.sortedArray(comparator: { (obj1, obj2) -> ComparisonResult in
+                let message1 = obj1 as? EMConversation
+                let message2 = obj2 as? EMConversation
                 
                 if message1?.latestMessage != nil && message2?.latestMessage != nil {
                     if message1!.latestMessage.timestamp >
                         message2!.latestMessage.timestamp {
-                        return .OrderedAscending
+                        return .orderedAscending
                     } else {
-                        return .OrderedDescending
+                        return .orderedDescending
                     }
                 }
                 
-                return .OrderedSame
-            }
+                return .orderedSame
+            })
             
             var messageDataSource: [MessageModel] = []
             for conversation in sortedConversations as! [EMConversation] {
@@ -77,7 +75,7 @@ class MessageViewModel {
             observer.onNext(sections)
             observer.onCompleted()
         
-            return AnonymousDisposable{}
+            return self.disposeBag as! Disposable
         }
     }
 

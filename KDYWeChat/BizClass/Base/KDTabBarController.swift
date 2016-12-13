@@ -72,7 +72,7 @@ final class KDTabBarController: UITabBarController {
             controller.tabBarItem.selectedImage = UIImage(named: seletedImageArray[index])?.withRenderingMode(.alwaysOriginal)
             
             controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
-            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorHex: KDYColor.tabbarSelectedTextColor)], for: .selected)
+            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)], for: .selected)
             
             let navigation = KDNavigationController(rootViewController: controller)
             self.navigationControllers.add(navigation)
@@ -94,7 +94,7 @@ final class KDTabBarController: UITabBarController {
      *  进入到会话列表首页
      */
     func jumpToConversationListVC() {
-        self.navigationController?.popToViewController(self, animated: false)
+        _ = self.navigationController?.popToViewController(self, animated: false)
         self.selectedViewController = self.conversationVC
     }
     
@@ -163,7 +163,7 @@ final class KDTabBarController: UITabBarController {
             let messageBody = message.body
     
             var pushMessageStr: String? = nil
-            switch messageBody?.type {
+            switch messageBody!.type {
             case EMMessageBodyTypeText:
                 pushMessageStr = (messageBody as! EMTextMessageBody).text
             case EMMessageBodyTypeImage:

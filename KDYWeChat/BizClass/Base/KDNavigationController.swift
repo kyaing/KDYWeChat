@@ -41,7 +41,7 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
 
     func setupNavigationBar() {
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
-        UINavigationBar.appearance().barTintColor = UIColor(colorHex: .barTintColor)
+        UINavigationBar.appearance().barTintColor = UIColor(colorHex: KDYColor.barTintColor.rawValue)
         UINavigationBar.appearance().tintColor = UIColor.white
         
         UINavigationBar.appearance().isTranslucent = true

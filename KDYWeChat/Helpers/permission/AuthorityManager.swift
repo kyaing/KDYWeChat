@@ -33,7 +33,7 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
      *  选取照片
      */
     func choosePhotos(_ presentAction: @escaping presentControllerAction, alertAction: @escaping showAlertAction) {
-        let photos: PrivateResource = .Photos
+        let photos: PrivateResource = .photos
         
         proposeToAccess(photos, agreed: {
             print("成功选取 photos")
@@ -52,7 +52,7 @@ class AuthorityManager: NSObject, UINavigationControllerDelegate, UIImagePickerC
      *  拍摄照片
      */
     func takePhotos() {
-        let camera: PrivateResource = .Camera
+        let camera: PrivateResource = .camera
         
         proposeToAccess(camera, agreed: { 
             print("成功拍取 photos")

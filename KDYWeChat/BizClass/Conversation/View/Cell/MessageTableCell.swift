@@ -49,7 +49,7 @@ class MessageTableCell: UITableViewCell, NibReusable {
             lastMsgDateLabel.text  = newValue.lastTime
             unReadMsgLabel.text    = newValue.unReadCount
             
-            let unReadCount = newValue.unReadCount.toInt()
+            let unReadCount = Int(newValue.unReadCount)
             guard unReadCount > 0 else {  return unReadMsgLabel.isHidden = true }
             
             unReadMsgLabel.isHidden = false
@@ -73,7 +73,7 @@ class MessageTableCell: UITableViewCell, NibReusable {
             
             // 处理头像
             if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) , userInfo.imageUrl != nil {
-                    avatorImageView.kf_setImageWithURL(URL(string: userInfo.imageUrl!), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                avatorImageView.kf.setImage(with: URL(string: userInfo.imageUrl!), placeholder: UIImage(named: kUserAvatarDefault))
             } else {
                 avatorImageView.image = UIImage(named: kUserAvatarDefault)
             }

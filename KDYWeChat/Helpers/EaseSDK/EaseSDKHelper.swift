@@ -78,9 +78,9 @@ class EaseSDKHelper: NSObject, EMClientDelegate {
             let settting: UIUserNotificationSettings = UIUserNotificationSettings.init(types: notificationTypes, categories: nil)
             application.registerUserNotificationSettings(settting)
             
-            if application.responds(to: #selector(UIApplication.registerForRemoteNotifications)) {
-                application.registerForRemoteNotifications()
-            }
+//            if application.responds(to: #selector(UIApplication.shared.registerForRemoteNotifications)) {
+//                application.registerForRemoteNotifications()
+//            }
             
             //    #if !TARGET_IPHONE_SIMULATOR
             //        if application.respondsToSelector(#selector(UIApplication.registerForRemoteNotifications)) {

@@ -50,7 +50,7 @@ class TSChatTextParser: NSObject {
             
             let highlightBorder = TSChatTextParseHelper.highlightBorder
             if (attributedText.yy_attribute(YYTextHighlightAttributeName, at: UInt(phone.range.location)) == nil) {
-                attributedText.yy_setColor(UIColor(rgba: "#1F79FD"), range: phone.range)
+                attributedText.yy_setColor(UIColor(colorHex: "#1F79FD"), range: phone.range)
                 let highlight = YYTextHighlight()
                 highlight.setBackgroundBorder(highlightBorder)
                 
@@ -79,7 +79,7 @@ class TSChatTextParser: NSObject {
             
             let highlightBorder = TSChatTextParseHelper.highlightBorder
             if (attributedText.yy_attribute(YYTextHighlightAttributeName, at: UInt(URL.range.location)) == nil) {
-                attributedText.yy_setColor(UIColor(rgba: "#1F79FD"), range: URL.range)
+                attributedText.yy_setColor(UIColor(colorHex: "#1F79FD"), range: URL.range)
                 let highlight = YYTextHighlight()
                 highlight.setBackgroundBorder(highlightBorder)
 
@@ -135,7 +135,7 @@ class TSChatTextParseHelper {
         get {
             let highlightBorder = YYTextBorder()
             highlightBorder.insets = UIEdgeInsetsMake(-2, 0, -2, 0)
-            highlightBorder.fillColor = UIColor(rgba: "#D4D1D1")
+            highlightBorder.fillColor = UIColor(colorHex: "#D4D1D1")
             return highlightBorder
         }
     }
@@ -180,12 +180,12 @@ private extension String {
         let utf16view = self.utf16
         let from = String.UTF16View.Index(range.lowerBound, within: utf16view)
         let to = String.UTF16View.Index(range.upperBound, within: utf16view)
-        return NSMakeRange(utf16view.startIndex.distanceTo(from), from.distanceTo(to))
+        return NSMakeRange(utf16view.startIndex.distance(to: from), from.distance(to: to))
     }
     
     func RangeFromNSRange(_ nsRange : NSRange) -> Range<String.Index>? {
-        let from16 = utf16.startIndex.advancedBy(nsRange.location, limit: utf16.endIndex)
-        let to16 = from16.advancedBy(nsRange.length, limit: utf16.endIndex)
+        let from16 = utf16.startIndex.advanced(by: nsRange.location) //advancedBy(nsRange.location, limit: utf16.endIndex)
+        let to16 = from16.advanced(by: nsRange.length) //advancedBy(nsRange.length, limit: utf16.endIndex)
         if let from = String.Index(from16, within: self),
             let to = String.Index(to16, within: self) {
                 return from ..< to

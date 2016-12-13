@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A51DFE6E8E00F32861 /* Main.storyboard */; };
 		049F78A91DFE6E8E00F32861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A81DFE6E8E00F32861 /* Assets.xcassets */; };
-		049F78AC1DFE6E8E00F32861 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78AA1DFE6E8E00F32861 /* LaunchScreen.storyboard */; };
 		049F78C21DFE6E8E00F32861 /* KDYWeChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */; };
 		049F79D81DFE758300F32861 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D01DFE758300F32861 /* Launch Screen.storyboard */; };
 		049F79D91DFE758300F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D21DFE758300F32861 /* Main.storyboard */; };
@@ -182,7 +181,6 @@
 		049F789E1DFE6E8E00F32861 /* KDYWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDYWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049F78A61DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049F78A81DFE6E8E00F32861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		049F78AB1DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		049F78AD1DFE6E8E00F32861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049F78BD1DFE6E8E00F32861 /* KDYWeChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDYWeChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatUITests.swift; sourceTree = "<group>"; };
@@ -473,7 +471,6 @@
 				049F79D71DFE758300F32861 /* KDYWeChat-Bridging-Header.h */,
 				049F78A51DFE6E8E00F32861 /* Main.storyboard */,
 				049F78A81DFE6E8E00F32861 /* Assets.xcassets */,
-				049F78AA1DFE6E8E00F32861 /* LaunchScreen.storyboard */,
 				049F78AD1DFE6E8E00F32861 /* Info.plist */,
 				049F78CF1DFE758300F32861 /* Base.lproj */,
 			);
@@ -503,11 +500,11 @@
 			isa = PBXGroup;
 			children = (
 				049F78D71DFE758300F32861 /* Base */,
+				049F793A1DFE758300F32861 /* Login */,
 				049F78DB1DFE758300F32861 /* Chat */,
 				049F79051DFE758300F32861 /* Contacts */,
 				049F79141DFE758300F32861 /* Conversation */,
 				049F79211DFE758300F32861 /* Discovery */,
-				049F793A1DFE758300F32861 /* Login */,
 				049F79431DFE758300F32861 /* Me */,
 			);
 			path = BizClass;
@@ -813,8 +810,8 @@
 		049F793A1DFE758300F32861 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				049F793B1DFE758300F32861 /* Controller */,
 				049F79401DFE758300F32861 /* ViewModel */,
+				049F793B1DFE758300F32861 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1322,7 +1319,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049F78AC1DFE6E8E00F32861 /* LaunchScreen.storyboard in Resources */,
 				049F7A1B1DFE758300F32861 /* AlumbHeaderView.xib in Resources */,
 				049F79D91DFE758300F32861 /* Main.storyboard in Resources */,
 				049F79ED1DFE758300F32861 /* ChatEmotionView.xib in Resources */,
@@ -1604,14 +1600,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		049F78AA1DFE6E8E00F32861 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				049F78AB1DFE6E8E00F32861 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		049F78D01DFE758300F32861 /* Launch Screen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1735,6 +1723,8 @@
 			baseConfigurationReference = 389F543EC7973B82E5BA05AF /* Pods-KDYWeChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = KDYWeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1755,6 +1745,8 @@
 			baseConfigurationReference = 6AE91E0DDE3AD9152096DF86 /* Pods-KDYWeChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = KDYWeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

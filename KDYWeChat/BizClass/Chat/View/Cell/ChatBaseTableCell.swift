@@ -81,14 +81,16 @@ class ChatBaseTableCell: UITableViewCell {
         let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo()
         if model.fromMe! {   // 发送方
             if let imageURL = currentUser?.imageUrl {
-                self.avatarImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+               
+                avatarImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault))
             } else {
                 self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
             }
             
         } else {   // 接收方
             if let imageURL = model.avatarURL {
-                self.avatarImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                avatarImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault))
+                
             } else {
                 self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
             }

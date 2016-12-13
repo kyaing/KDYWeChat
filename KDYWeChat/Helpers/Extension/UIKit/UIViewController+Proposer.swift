@@ -27,6 +27,7 @@ extension PrivateResource {
             return NSLocalizedString("Proposer need to access your Calendar to create event.", comment: "")
         case .location:
             return NSLocalizedString("Proposer need to get your Location to share to your friends.", comment: "")
+        default: return ""
         }
     }
     
@@ -46,6 +47,7 @@ extension PrivateResource {
             return NSLocalizedString("Proposer can NOT access your Calendar, but you can change it in iOS Settings.", comment: "")
         case .location:
             return NSLocalizedString("Proposer can NOT get your Location, but you can change it in iOS Settings.", comment: "")
+        default: return ""
         }
     }
 }

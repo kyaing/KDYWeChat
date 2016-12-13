@@ -170,7 +170,7 @@ extension KDChatViewController: ChatBarViewDelegate {
      */
     func bottomBarViewShowShareKeyboard() {
         let shareHeight = self.shareView.height
-        barPaddingBottomConstranit?.updateOffset(amount: -shareHeight)
+        barPaddingBottomConstranit?.update(offset: -shareHeight)
         
         // 直接显示扩展键盘，覆盖在表情键盘之上
         UIView.beginAnimations(nil, context: nil)

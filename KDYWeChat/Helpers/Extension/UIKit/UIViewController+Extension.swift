@@ -49,7 +49,7 @@ extension UIViewController {
     
     // Pop 
     public func ky_popViewController() {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
 

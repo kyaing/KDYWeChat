@@ -27,7 +27,7 @@ extension KDChatViewController {
             self,
             name: NSNotification.Name.UIKeyboardWillShow.rawValue,
             object: nil) { (observer, notification) in
-                self.chatTableView.scrollToBottom(animated: false)
+                self.chatTableView.scrollToBottom(false)
                 self.keyboardControling(notification, isShowkeyboard: true)
             }
         
@@ -35,7 +35,7 @@ extension KDChatViewController {
             self,
             name: NSNotification.Name.UIKeyboardDidShow.rawValue,
             object: nil) { (observer, notification) in
-                if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue {
+                if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                     _ = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
                 }
             }
@@ -45,7 +45,7 @@ extension KDChatViewController {
             self,
             name: NSNotification.Name.UIKeyboardWillHide.rawValue,
             object: nil) { (observer, notification) in
-                self.chatTableView.scrollToBottom(animated: true)
+                self.chatTableView.scrollToBottom(true)
                 self.keyboardControling(notification, isShowkeyboard: false)
             }
         
@@ -82,7 +82,7 @@ extension KDChatViewController {
         // 处理系统键盘 .Default, .Text
         var userInfo       = (notification as NSNotification).userInfo!
         let keyboardRect   = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
-        let curve          = (userInfo[UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).intValue  // curve值：7
+        let curve          = ((userInfo[UIKeyboardAnimationCurveUserInfoKey]!) as AnyObject).int8Value  // curve值：7
         let duration       = (userInfo[UIKeyboardAnimationDurationUserInfoKey]! as AnyObject).doubleValue
 
         let convertedFrame = self.view.convert(keyboardRect!, from: nil)
@@ -90,15 +90,15 @@ extension KDChatViewController {
         // let options     = UIViewAnimationOptions(rawValue: UInt(curve) << 16 | UIViewAnimationOptions.BeginFromCurrentState.rawValue)
         
         self.chatTableView.stopScrolling()
-        self.barPaddingBottomConstranit?.updateOffset(-heightOffset)
+        self.barPaddingBottomConstranit?.update(offset: -heightOffset)
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(duration!)
-        UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: curve!)!)
+        UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: Int(curve!))!)
         self.view.layoutIfNeeded()
         if isShowkeyboard {
-            self.chatTableView.scrollToBottom(animated: false)
+            self.chatTableView.scrollToBottom(false)
         }
         UIView.commitAnimations()
     }
@@ -108,17 +108,17 @@ extension KDChatViewController {
      */
     func hideCustomKeyboard() {
         let heightOffset: CGFloat = 0
-        barPaddingBottomConstranit?.updateOffset(heightOffset)
+        barPaddingBottomConstranit?.update(offset: heightOffset)
         
         // 同时要恢复表情按钮图标
-        self.bottomBarView.emotionButton.emotionButtonChangeToKeyboardUI(showKeyboard: false)
+        self.bottomBarView.emotionButton.emotionButtonChangeToKeyboardUI(false)
         
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(0.25)
         UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
         self.view.layoutIfNeeded()
-        self.chatTableView.scrollToBottom(animated: false)
+        self.chatTableView.scrollToBottom(false)
         UIView.commitAnimations()
     }
     

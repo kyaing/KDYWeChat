@@ -30,7 +30,7 @@ class KDEditInfoViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.borderStyle = .none
         textField.autocorrectionType = .no
-        textField.tintColor = UIColor(colorHex: .tabbarSelectedTextColor)
+        textField.tintColor = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
         textField.becomeFirstResponder()
         
         return textField
@@ -53,7 +53,7 @@ class KDEditInfoViewController: UIViewController {
         
         self.edgesForExtendedLayout = UIRectEdge()
         self.navigationItem.rightBarButtonItem = self.rightBarItem
-        self.view.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
+        self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         
         self.title = self.titleStr
         
@@ -63,9 +63,9 @@ class KDEditInfoViewController: UIViewController {
         self.view.addSubview(containerView)
         self.view.addSubview(self.infoTextField)
         
-        containerView.snp_makeConstraints { (make) in
+        containerView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
-            make.top.equalTo(self.view.snp_top).offset(20)
+            make.top.equalTo(self.view.snp.top).offset(20)
             make.height.equalTo(btnHeight)
         }
         
@@ -75,7 +75,7 @@ class KDEditInfoViewController: UIViewController {
             self.infoTextField.placeholder = self.titleStr
         }
         
-        self.infoTextField.snp_makeConstraints({ (make) in
+        self.infoTextField.snp.makeConstraints({ (make) in
             make.edges.equalTo(containerView).inset(UIEdgeInsetsMake(0, gaps, 0, gaps))
         })
     }

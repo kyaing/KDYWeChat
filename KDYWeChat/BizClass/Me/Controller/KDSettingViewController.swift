@@ -15,7 +15,7 @@ class KDSettingViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "设置"
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         tableView.separatorColor  = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
     }
     
@@ -92,8 +92,8 @@ class KDSettingViewController: UITableViewController {
         }
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
-        logoutAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        cancelAction.setValue(UIColor(rgba: "#7d7d7d"), forKey: "_titleTextColor")
+        logoutAction.setValue(UIColor(colorHex: "#2a2a2a"), forKey: "_titleTextColor")
+        cancelAction.setValue(UIColor(colorHex: "#7d7d7d"), forKey: "_titleTextColor")
         
         alertController.addAction(logoutAction)
         alertController.addAction(cancelAction)

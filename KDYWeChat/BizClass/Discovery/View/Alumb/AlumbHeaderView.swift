@@ -25,7 +25,7 @@ class AlumbHeaderView: UIView, NibReusable {
         
         if let currentUser = UserInfoManager.shareInstance.getCurrentUserInfo() {
             if let imageURL = currentUser.imageUrl {
-                self.avatorImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                avatorImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault), options: nil)
             }
             
             self.usernameLabel.text = currentUser.username

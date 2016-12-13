@@ -50,7 +50,7 @@ final class KDContactsViewController: UIViewController {
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = UIColor(colorHex: .chatGreenColor)
+        searchController.searchBar.tintColor = UIColor(colorHex: KDYColor.chatGreenColor.rawValue)
         searchController.searchBar.sizeToFit()
         
         return searchController
@@ -58,10 +58,10 @@ final class KDContactsViewController: UIViewController {
     
     lazy var contactsTableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
-        tableView.registerReusableCell(ContactsTableCell)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
+        tableView.register(cellType: ContactsTableCell.self)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(colorHex: .separatorColor)
+        tableView.separatorColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.darkGray
         tableView.tableHeaderView = self.searchController.searchBar
@@ -176,7 +176,7 @@ final class KDContactsViewController: UIViewController {
             let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.username!)
             cell.usernameLabel.text = userInfo?.username
             if let imageURL = userInfo?.imageUrl {
-                cell.avatorImage.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: "user_avatar"), optionsInfo: nil)
+                cell.avatorImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "user_avatar"))
             }
         }
     }
@@ -357,7 +357,7 @@ extension KDContactsViewController: UITableViewDelegate {
         configurePushController(indexPath)
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    @objc(tableView:canFocusRowAtIndexPath:) func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     

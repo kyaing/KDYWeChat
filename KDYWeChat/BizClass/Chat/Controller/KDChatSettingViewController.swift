@@ -16,8 +16,8 @@ class KDChatSettingViewController: UIViewController {
         let tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.sectionIndexBackgroundColor = UIColor.clear
-        tableView.sectionIndexColor = UIColor.darkGray
+        tableView.sectionIndexBackgroundColor = .clear
+        tableView.sectionIndexColor = .darkGray
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
@@ -55,7 +55,7 @@ class KDChatSettingViewController: UIViewController {
             
             // 相册中选择图片，做为聊天背景
             self.ky_presentImagePickerController(
-                maxNumberOfSelections: 1,
+                1,
                 select: { (asset) in
                     
                 }, deselect: { (asset) in

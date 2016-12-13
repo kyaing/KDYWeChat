@@ -41,10 +41,10 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
         
         if !model.fromMe {   // 接收方
             if let thumbnailImage = model.thumbnailImage {
-                self.chatImageView.kf_setImageWithURL(URL(string: model.fileURLPath!), placeholderImage: thumbnailImage)
+                chatImageView.kf.setImage(with: URL(string: model.fileURLPath!), placeholder: thumbnailImage)
                 
             } else {
-                self.chatImageView.kf_setImageWithURL(URL(string: model.fileURLPath!), placeholderImage: UIImage(named: kUserAvatarDefault))
+                chatImageView.kf.setImage(with: URL(string: model.fileURLPath!), placeholder: UIImage(named: kUserAvatarDefault))
             }
             
         } else {   // 发送方

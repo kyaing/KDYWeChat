@@ -67,7 +67,7 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
      *  设置Cell内容
      */
     func setupCellContents(_ model: AlumbModel) {
-        self.avatarImage.kf_setImageWithURL(URL(string: model.avatarURL), placeholderImage: UIImage(named: kUserAvatarDefault))
+        avatarImage.kf.setImage(with: URL(string: model.avatarURL), placeholder: UIImage(named: kUserAvatarDefault))
     
         self.timeLabel.text     = model.time
         self.usernameLabel.text = model.nickname
@@ -140,8 +140,8 @@ class AlumbTableViewCell: UITableViewCell, NibReusable {
             imageView.clipsToBounds = true
             imageView.layer.cornerRadius = 2
             self.pictureBodyView.addSubview(imageView)
-            
-            imageView.kf_setImageWithURL(URL(string: pictures![index]), placeholderImage: UIImage(named: "place_holder_album"))
+        
+            imageView.kf.setImage(with: URL(string: pictures![index]), placeholder: UIImage(named: "place_holder_album"))
         }
     }
     

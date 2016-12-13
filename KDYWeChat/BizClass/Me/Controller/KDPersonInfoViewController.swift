@@ -14,7 +14,7 @@ class KDPersonInfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor)
+        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
         tableView.sectionIndexBackgroundColor = UIColor.clear
@@ -42,8 +42,8 @@ class KDPersonInfoViewController: UIViewController {
         cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 16)
         
-        cell.accessoryType   = .disclosureIndicator
-        cell.separatorInset  = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        cell.accessoryType  = .disclosureIndicator
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         
         let titleArray = [["头像", "昵称", "ID号"], ["性别", "地区"]]
         cell.textLabel?.text = titleArray[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
@@ -63,7 +63,7 @@ class KDPersonInfoViewController: UIViewController {
                 avatorImageView.layer.masksToBounds = true
                 
                 if let imageURL = currentUser?.imageUrl {
-                    avatorImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault), optionsInfo: nil)
+                    avatorImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault), options: nil)
                 } else {
                     avatorImageView.image = UIImage(named: kUserAvatarDefault)
                 }
@@ -141,7 +141,7 @@ class KDPersonInfoViewController: UIViewController {
         let photoAction = UIAlertAction(title: "从手机相册选择", style: .default) { (alertAction) in
             // 相册中选择图片
             self.ky_presentImagePickerController(
-                maxNumberOfSelections: 1,
+                1,
                 select: { (asset) in
                     
                 }, deselect: { (asset) in
@@ -172,9 +172,9 @@ class KDPersonInfoViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         
-        cameraAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        photoAction.setValue(UIColor(rgba: "#2a2a2a"), forKey: "_titleTextColor")
-        cancelAction.setValue(UIColor(rgba: "#7d7d7d"), forKey: "_titleTextColor")
+        cameraAction.setValue(UIColor(colorHex: "#2a2a2a"), forKey: "_titleTextColor")
+        photoAction.setValue(UIColor(colorHex: "#2a2a2a"), forKey: "_titleTextColor")
+        cancelAction.setValue(UIColor(colorHex: "#7d7d7d"), forKey: "_titleTextColor")
         
         alertController.addAction(cameraAction)
         alertController.addAction(photoAction)

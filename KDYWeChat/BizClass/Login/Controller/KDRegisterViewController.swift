@@ -32,17 +32,17 @@ final class KDRegisterViewController: UIViewController {
     }
     
     func setupViewsUI() {
-        self.registerButton.layer.cornerRadius = 5
-        self.registerButton.layer.borderColor = UIColor(colorHex: .separatorColor).cgColor
-        self.registerButton.layer.borderWidth = 0.5
-        self.registerButton.backgroundColor = UIColor(colorHex: .chatLightGreenColor)
+        registerButton.layer.cornerRadius = 5
+        registerButton.layer.borderWidth = 0.5
+        registerButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
+        registerButton.backgroundColor = UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
         
-        self.cancelButton.setTitleColor(UIColor(colorHex: .tabbarSelectedTextColor), for: UIControlState())
+        cancelButton.setTitleColor(UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue), for: UIControlState())
         
         // 修改光标颜色
-        self.mailTextField.tintColor    = UIColor(colorHex: KDYColor.tabbarSelectedTextColor)
-        self.accountTextField.tintColor = self.mailTextField.tintColor
-        self.passwordTextFiled.tintColor = self.mailTextField.tintColor
+        mailTextField.tintColor    = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
+        accountTextField.tintColor = self.mailTextField.tintColor
+        passwordTextFiled.tintColor = self.mailTextField.tintColor
     }
 
     // MARK: - Event Responses

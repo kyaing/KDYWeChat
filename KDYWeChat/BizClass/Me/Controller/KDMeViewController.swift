@@ -17,9 +17,9 @@ class KDMeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.meTableView.backgroundColor = UIColor(colorHex: .tableViewBackgroundColor)
-        self.meTableView.separatorColor  = UIColor(colorHex: .separatorColor)
-        self.meTableView.registerReusableCell(MeHeaderTableCell)
+        meTableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
+        meTableView.separatorColor  = UIColor(colorHex: KDYColor.separatorColor.rawValue)
+        meTableView.register(cellType: MeHeaderTableCell.self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +42,7 @@ class KDMeViewController: UITableViewController {
                 }
                 
                 if let imageURL = currentUser.imageUrl {
-                    headerCell.avatorImageView.kf_setImageWithURL(URL(string: imageURL), placeholderImage: UIImage(named: kUserAvatarDefault))
+                    headerCell.avatorImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault))
                 }
             }
             
