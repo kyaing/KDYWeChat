@@ -583,21 +583,21 @@
 		049F78F41DFE758300F32861 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				049F78F51DFE758300F32861 /* ChatAudioTableCell.swift */,
-				049F78F61DFE758300F32861 /* ChatAudioTableCell.xib */,
 				049F78F71DFE758300F32861 /* ChatBaseTableCell.swift */,
+				049F78F51DFE758300F32861 /* ChatAudioTableCell.swift */,
 				049F78F81DFE758300F32861 /* ChatCellDelegate.swift */,
 				049F78F91DFE758300F32861 /* ChatImageTableCell.swift */,
-				049F78FA1DFE758300F32861 /* ChatImageTableCell.xib */,
 				049F78FB1DFE758300F32861 /* ChatLocationTableCell.swift */,
-				049F78FC1DFE758300F32861 /* ChatLocationTableCell.xib */,
 				049F78FD1DFE758300F32861 /* ChatRedEnvelopeCell.swift */,
-				049F78FE1DFE758300F32861 /* ChatRedEnvelopeCell.xib */,
 				049F78FF1DFE758300F32861 /* ChatShareCollectionCell.swift */,
-				049F79001DFE758300F32861 /* ChatShareCollectionCell.xib */,
 				049F79011DFE758300F32861 /* ChatTextTableCell.swift */,
-				049F79021DFE758300F32861 /* ChatTextTableCell.xib */,
 				049F79031DFE758300F32861 /* ChatTimeTableCell.swift */,
+				049F78F61DFE758300F32861 /* ChatAudioTableCell.xib */,
+				049F78FA1DFE758300F32861 /* ChatImageTableCell.xib */,
+				049F78FC1DFE758300F32861 /* ChatLocationTableCell.xib */,
+				049F78FE1DFE758300F32861 /* ChatRedEnvelopeCell.xib */,
+				049F79001DFE758300F32861 /* ChatShareCollectionCell.xib */,
+				049F79021DFE758300F32861 /* ChatTextTableCell.xib */,
 				049F79041DFE758300F32861 /* ChatTimeTableCell.xib */,
 			);
 			path = Cell;

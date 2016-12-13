@@ -69,7 +69,7 @@ class ChatModel: NSObject {
     var firstMessageBody: EMMessageBody!
     
     /// 消息发送的状态
-    var messageStatus: EMMessageStatus! {
+    var messageStatus: EMMessageStatus {
         return self.message.status
     }
 
