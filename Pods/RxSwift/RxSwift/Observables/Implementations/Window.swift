@@ -1,6 +1,6 @@
 //
 //  Window.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Junior B. on 29/10/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -28,13 +28,13 @@ class WindowTimeCountSink<Element, O: ObserverType>
     private let _refCountDisposable: RefCountDisposable
     private let _groupDisposable = CompositeDisposable()
     
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
         
         let _ = _groupDisposable.insert(_timerD)
         
         _refCountDisposable = RefCountDisposable(disposable: _groupDisposable)
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     func run() -> Disposable {
@@ -108,7 +108,7 @@ class WindowTimeCountSink<Element, O: ObserverType>
 
         _timerD.disposable = nextTimer
 
-        let scheduledRelative = _parent._scheduler.scheduleRelative(windowId, dueTime: _parent._timeSpan) { previousWindowId in
+        nextTimer.disposable = _parent._scheduler.scheduleRelative(windowId, dueTime: _parent._timeSpan) { previousWindowId in
             
             var newId = 0
             
@@ -127,8 +127,6 @@ class WindowTimeCountSink<Element, O: ObserverType>
             
             return Disposables.create()
         }
-
-        nextTimer.setDisposable(scheduledRelative)
     }
 }
 
@@ -146,9 +144,9 @@ class WindowTimeCount<Element> : Producer<Observable<Element>> {
         _scheduler = scheduler
     }
     
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Observable<Element> {
-        let sink = WindowTimeCountSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = sink.run()
-        return (sink: sink, subscription: subscription)
+    override func run<O : ObserverType>(_ observer: O) -> Disposable where O.E == Observable<Element> {
+        let sink = WindowTimeCountSink(parent: self, observer: observer)
+        sink.disposable = sink.run()
+        return sink
     }
 }

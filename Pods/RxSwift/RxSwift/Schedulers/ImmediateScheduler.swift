@@ -1,6 +1,6 @@
 //
 //  ImmediateScheduler.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 10/17/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -8,7 +8,9 @@
 
 import Foundation
 
-/// Represents an object that schedules units of work to run immediately on the current thread.
+/**
+Represents an object that schedules units of work to run immediately on the current thread.
+*/
 private class ImmediateScheduler : ImmediateSchedulerType {
 
     private let _asyncLock = AsyncLock<AnonymousInvocable>()
@@ -29,7 +31,7 @@ private class ImmediateScheduler : ImmediateSchedulerType {
             if disposable.isDisposed {
                 return
             }
-            disposable.setDisposable(action(state))
+            disposable.disposable = action(state)
         })
 
         return disposable

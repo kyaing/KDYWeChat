@@ -29,70 +29,31 @@
 
 import Foundation
 
-/**
- 
- `ValidationRulePattern` validates a `String`' against a regular expression which
- may be provided in the form of a `String` or a type conforming to 
- `ValidationRulePattern`.
- 
- */
+public enum ValidationPattern: String {
+    case EmailAddress = "^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-+]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z‌​]{2,})$"
+    case ContainsNumber = ".*\\d.*"
+    case ContainsCapital = "^.*?[A-Z].*?$"
+    case ContainsLowercase = "^.*?[a-z].*?$"
+    case UKPostcode = "(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY]))))[ ]?[0-9][A-Z-[CIKMOV]]{2})"
+}
+
 public struct ValidationRulePattern: ValidationRule {
     
     public typealias InputType = String
-    public let error: Error
-
-    /**
-     
-     A regular expression to evaluate an input against.
-     
-     */
+    
     public let pattern: String
+    public let failureError: ValidationErrorType
     
-    /**
-     
-     Initializes a `ValidationRulePattern` with a regular expression in string 
-     format, and an error describing a failed
-     validation.
-     
-     - Parameters:
-        - pattern: A regular expression in string format to evaluate an input 
-        against.
-        - error: An error describing a failed validation.
-     
-     */
-    public init(pattern: String, error: Error) {
+    public init(pattern: String, failureError: ValidationErrorType) {
         self.pattern = pattern
-        self.error = error
+        self.failureError = failureError
     }
     
-    /**
-     
-     Initializes a `ValidationRulePattern` with a regular expression in 
-     ValidationPattern format, and an error describing a failed validation.
-     
-     - Parameters:
-        - pattern: A regular expression in `ValidationPattern` format to
-        evaluate an input against. The string value of the pattern is used for
-        evaluation.
-        - error: An error describing a failed validation.
-     
-     */
-    public init(pattern: ValidationPattern, error: Error) {
-        self.init(pattern: pattern.pattern, error: error)
+    public init(pattern: ValidationPattern, failureError: ValidationErrorType) {
+        self.init(pattern: pattern.rawValue, failureError: failureError)
     }
     
-    /**
-     
-     Validates the input.
-     
-     - Parameters:
-     - input: Input to validate.
-     
-     - Returns:
-     true if the input matched the regular expression.
-     
-     */
-    public func validate(input: String?) -> Bool {
+    public func validateInput(input: String?) -> Bool {
         return NSPredicate(format: "SELF MATCHES %@", pattern).evaluate(with: input)
     }
     

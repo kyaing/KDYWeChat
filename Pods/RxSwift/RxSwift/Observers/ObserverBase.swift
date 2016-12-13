@@ -1,6 +1,6 @@
 //
 //  ObserverBase.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 2/15/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -34,6 +34,6 @@ class ObserverBase<ElementType> : Disposable, ObserverType {
     }
 
     func dispose() {
-        _ = AtomicCompareAndSwap(0, 1, &_isStopped)
+        _isStopped = 1
     }
 }

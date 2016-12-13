@@ -1,6 +1,6 @@
 //
 //  CombineLatest.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 3/21/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -27,12 +27,12 @@ class CombineLatestSink<O: ObserverType>
     private var _hasValue: [Bool]
     private var _isDone: [Bool]
    
-    init(arity: Int, observer: O, cancel: Cancelable) {
+    init(arity: Int, observer: O) {
         _arity = arity
         _hasValue = [Bool](repeating: false, count: arity)
         _isDone = [Bool](repeating: false, count: arity)
         
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     func getResult() throws -> Element {

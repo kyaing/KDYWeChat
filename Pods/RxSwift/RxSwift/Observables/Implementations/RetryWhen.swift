@@ -1,6 +1,6 @@
 //
 //  RetryWhen.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Junior B. on 06/10/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -60,7 +60,7 @@ class RetryWhenSequenceSinkIter<S: Sequence, O: ObserverType, TriggerObservable:
                 super.dispose()
 
                 let errorHandlerSubscription = _parent._notifier.subscribe(RetryTriggerSink(parent: self))
-                _errorHandlerSubscription.setDisposable(errorHandlerSubscription)
+                _errorHandlerSubscription.disposable = errorHandlerSubscription
                 _parent._errorSubject.on(.next(failedWith))
             }
             else {
@@ -93,10 +93,10 @@ class RetryWhenSequenceSink<S: Sequence, O: ObserverType, TriggerObservable: Obs
     fileprivate let _handler: Observable<TriggerObservable.E>
     fileprivate let _notifier = PublishSubject<TriggerObservable.E>()
 
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
         _handler = parent._notificationHandler(_errorSubject).asObservable()
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     override func done() {
@@ -120,7 +120,7 @@ class RetryWhenSequenceSink<S: Sequence, O: ObserverType, TriggerObservable: Obs
 
     override func subscribeToNext(_ source: Observable<E>) -> Disposable {
         let iter = RetryWhenSequenceSinkIter(parent: self)
-        iter.setDisposable(source.subscribe(iter))
+        iter.disposable = source.subscribe(iter)
         return iter
     }
 
@@ -142,9 +142,9 @@ class RetryWhenSequence<S: Sequence, TriggerObservable: ObservableType, Error> :
         _notificationHandler = notificationHandler
     }
     
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
-        let sink = RetryWhenSequenceSink<S, O, TriggerObservable, Error>(parent: self, observer: observer, cancel: cancel)
-        let subscription = sink.run((self._sources.makeIterator(), nil))
-        return (sink: sink, subscription: subscription)
+    override func run<O : ObserverType>(_ observer: O) -> Disposable where O.E == Element {
+        let sink = RetryWhenSequenceSink<S, O, TriggerObservable, Error>(parent: self, observer: observer)
+        sink.disposable = sink.run((self._sources.makeIterator(), nil))
+        return sink
     }
 }

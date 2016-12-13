@@ -1,6 +1,6 @@
 //
 //  UIAlertAction+Rx.swift
-//  RxCocoa
+//  Rx
 //
 //  Created by Andrew Breckenridge on 5/7/16.
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
@@ -19,11 +19,13 @@ import RxSwift
 
 extension Reactive where Base: UIAlertAction {
 
-    /// Bindable sink for `enabled` property.
-    public var isEnabled: UIBindingObserver<Base, Bool> {
+    /**
+     Bindable sink for `enabled` property.
+     */
+    public var enabled: AnyObserver<Bool> {
         return UIBindingObserver(UIElement: self.base) { alertAction, value in
             alertAction.isEnabled = value
-        }
+        }.asObserver()
     }
     
 }

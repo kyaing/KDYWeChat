@@ -26,15 +26,15 @@ Writing table and collection view data sources is tedious. There is a large numb
 RxSwift helps alleviate some of the burden with a simple data binding mechanism:
 1) Turn your data into an Observable sequence
 2) Bind the data to the tableView/collectionView using one of:
-  - `rx.items(dataSource:protocol<RxTableViewDataSourceType, UITableViewDataSource>)`
-  - `rx.items(cellIdentifier:String)`
-  - `rx.items(cellIdentifier:String:Cell.Type:_:)`
-  - `rx.items(_:_:)`
+  - `rx_items(dataSource:protocol<RxTableViewDataSourceType, UITableViewDataSource>)`
+  - `rx_items(cellIdentifier:String)`
+  - `rx_items(cellIdentifier:String:Cell.Type:_:)`
+  - `rx_items(_:_:)`
 
 ```swift
-let data = Observable<[String]>.just(["first element", "second element", "third element"])
+let dataSource = Observable<[String]>.just(["first element", "second element", "third element"])
 
-data.bindTo(tableView.rx.items(cellIdentifier: "Cell")) { index, model, cell in
+dataSource.bindTo(tableView.rx.items(cellIdentifier: "Cell")) { index, model, cell in
   cell.textLabel?.text = model
 }
 .addDisposableTo(disposeBag)
@@ -47,8 +47,7 @@ These are precisely the use cases that RxDataSources helps solve.
 With RxDataSources, it is super easy to just write
 
 ```swift
-let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Int>>()
-Observable.just([SectionModel(model: "title", items: [1, 2, 3])])
+Observable.just([MySection(header: "title", items: [1, 2, 3])])
     .bindTo(tableView.rx.items(dataSource: dataSource))
     .addDisposableTo(disposeBag)
 ```
@@ -96,7 +95,7 @@ let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>()
 
 ```swift 
 dataSource.configureCell = { ds, tv, ip, item in
-  let cell = tv.dequeueReusableCell(withIdentifier: "Cell", for: ip)
+  let cell = tv.dequeueReusableCellWithIdentifier("Cell", forIndexPath: ip)
   cell.textLabel?.text = "Item \(item.anInt): \(item.aString) - \(item.aCGPoint.x):\(item.aCGPoint.y)"
   return cell
 }
@@ -126,7 +125,7 @@ To implement animations with RxDataSources, the same steps are required as with 
 
 ## Requirements
 
-Xcode 8.0 GM (8A218a)
+Xcode 8.0 beta 6 (8S201h)
 
 For Swift 2.3 version please use versions `0.1 ... 0.9`
 
@@ -138,12 +137,12 @@ For Swift 2.3 version please use versions `0.1 ... 0.9`
 
 Podfile
 ```
-pod 'RxDataSources', '~> 1.0'
+pod 'RxDataSources', '~> 1.0.0.beta.1'
 ```
 
 ### Carthage
 
 Cartfile
 ```
-github "RxSwiftCommunity/RxDataSources" ~> 1.0
+github "RxSwiftCommunity/RxDataSources"
 ```

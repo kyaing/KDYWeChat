@@ -26,7 +26,7 @@ class TakeUntilSinkOther<ElementType, Other, O: ObserverType>
     init(parent: Parent) {
         _parent = parent
 #if TRACE_RESOURCES
-        let _ = Resources.incrementTotal()
+        let _ = AtomicIncrement(&resourceCount)
 #endif
     }
     
@@ -50,7 +50,7 @@ class TakeUntilSinkOther<ElementType, Other, O: ObserverType>
     
 #if TRACE_RESOURCES
     deinit {
-        let _ = Resources.decrementTotal()
+        let _ = AtomicDecrement(&resourceCount)
     }
 #endif
 }
@@ -70,9 +70,9 @@ class TakeUntilSink<ElementType, Other, O: ObserverType>
     // state
     fileprivate var _open = false
     
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     func on(_ event: Event<E>) {
@@ -95,7 +95,7 @@ class TakeUntilSink<ElementType, Other, O: ObserverType>
     func run() -> Disposable {
         let otherObserver = TakeUntilSinkOther(parent: self)
         let otherSubscription = _parent._other.subscribe(otherObserver)
-        otherObserver._subscription.setDisposable(otherSubscription)
+        otherObserver._subscription.disposable = otherSubscription
         let sourceSubscription = _parent._source.subscribe(self)
         
         return Disposables.create(sourceSubscription, otherObserver._subscription)
@@ -112,9 +112,9 @@ class TakeUntil<Element, Other>: Producer<Element> {
         _other = other
     }
     
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
-        let sink = TakeUntilSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = sink.run()
-        return (sink: sink, subscription: subscription)
+    override func run<O : ObserverType>(_ observer: O) -> Disposable where O.E == Element {
+        let sink = TakeUntilSink(parent: self, observer: observer)
+        sink.disposable = sink.run()
+        return sink
     }
 }

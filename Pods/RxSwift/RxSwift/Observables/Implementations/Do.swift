@@ -1,6 +1,6 @@
 //
 //  Do.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 2/21/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -14,9 +14,9 @@ class DoSink<O: ObserverType> : Sink<O>, ObserverType {
     
     private let _parent: Parent
     
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     func on(_ event: Event<Element>) {
@@ -49,15 +49,15 @@ class Do<Element> : Producer<Element> {
         _onDispose = onDispose
     }
     
-    override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
+    override func run<O: ObserverType>(_ observer: O) -> Disposable where O.E == Element {
         _onSubscribe?()
-        let sink = DoSink(parent: self, observer: observer, cancel: cancel)
+        let sink = DoSink(parent: self, observer: observer)
         let subscription = _source.subscribe(sink)
         let onDispose = _onDispose
-        let allSubscriptions = Disposables.create {
+        sink.disposable = Disposables.create {
             subscription.dispose()
             onDispose?()
         }
-        return (sink: sink, subscription: allSubscriptions)
+        return sink
     }
 }

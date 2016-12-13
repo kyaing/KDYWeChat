@@ -1,6 +1,6 @@
 //
 //  Just.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 8/30/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -13,9 +13,9 @@ class JustScheduledSink<O: ObserverType> : Sink<O> {
 
     private let _parent: Parent
 
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
 
     func run() -> Disposable {
@@ -39,10 +39,10 @@ class JustScheduled<Element> : Producer<Element> {
         _element = element
     }
 
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == E {
-        let sink = JustScheduledSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = sink.run()
-        return (sink: sink, subscription: subscription)
+    override func subscribe<O : ObserverType>(_ observer: O) -> Disposable where O.E == E {
+        let sink = JustScheduledSink(parent: self, observer: observer)
+        sink.disposable = sink.run()
+        return sink
     }
 }
 

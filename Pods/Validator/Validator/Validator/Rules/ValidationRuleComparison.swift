@@ -29,61 +29,21 @@
 
 import Foundation
 
-/**
- 
- `ValidationRuleComparison` validates a `Comparable` type `T` is equal to or 
- between a minimum and maximum value.
- 
- */
 public struct ValidationRuleComparison<T: Comparable>: ValidationRule {
     
     public typealias InputType = T
     
-    public let error: Error
-    
-    /**
-     
-     A minimum value an input must equal to or be greater than to pass as valid.
-     
-     */
     let min: T
-    
-    /**
-     
-     A maximum value an input must equal to or be less than to pass as valid.
-     
-     */
     let max: T
+    public let failureError: ValidationErrorType
     
-    /**
-     
-     Initializes a `ValidationRuleComparison` with a min and max value for an 
-     input comparison, and an error describing a failed validation.
-     
-     - Parameters:
-        - min: A minimum value an input must equal to or be greater than.
-        - max: A maximum value an input must equal to or be less than.
-        - error: An error describing a failed validation.
-     
-     */
-    public init(min: T, max: T, error: Error) {
+    public init(min: T, max: T, failureError: ValidationErrorType) {
         self.min = min
         self.max = max
-        self.error = error
+        self.failureError = failureError
     }
     
-    /**
-     
-     Validates the input.
-     
-     - Parameters:
-        - input: Input to validate.
-     
-     - Returns:
-        true if the input is equal to or between the minimum and maximum.
-     
-     */
-    public func validate(input: T?) -> Bool {
+    public func validateInput(input: T?) -> Bool {
         guard let input = input else { return false }
         return input >= min && input <= max
     }

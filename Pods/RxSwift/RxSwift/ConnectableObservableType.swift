@@ -1,6 +1,6 @@
 //
 //  ConnectableObservableType.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 3/1/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.

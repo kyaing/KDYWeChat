@@ -1,6 +1,6 @@
 //
 //  AnonymousObserver.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 2/8/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -17,7 +17,7 @@ class AnonymousObserver<ElementType> : ObserverBase<ElementType> {
     
     init(_ eventHandler: @escaping EventHandler) {
 #if TRACE_RESOURCES
-        let _ = Resources.incrementTotal()
+        let _ = AtomicIncrement(&resourceCount)
 #endif
         _eventHandler = eventHandler
     }
@@ -28,7 +28,7 @@ class AnonymousObserver<ElementType> : ObserverBase<ElementType> {
     
 #if TRACE_RESOURCES
     deinit {
-        let _ = Resources.decrementTotal()
+        let _ = AtomicDecrement(&resourceCount)
     }
 #endif
 }

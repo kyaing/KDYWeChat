@@ -1,6 +1,6 @@
 //
 //  UITabBarItem+Rx.swift
-//  RxCocoa
+//  Rx
 //
 //  Created by Mateusz Derks on 04/03/16.
 //  Copyright © 2016 Krunoslav Zaher. All rights reserved.
@@ -16,11 +16,13 @@
     
 extension Reactive where Base: UITabBarItem {
     
-    /// Bindable sink for `badgeValue` property.
-    public var badgeValue: UIBindingObserver<Base, String?> {
+    /**
+     Bindable sink for `badgeValue` property.
+     */
+    public var badgeValue: AnyObserver<String?> {
         return UIBindingObserver(UIElement: self.base) { tabBarItem, badgeValue in
             tabBarItem.badgeValue = badgeValue
-        }
+        }.asObserver()
     }
     
 }

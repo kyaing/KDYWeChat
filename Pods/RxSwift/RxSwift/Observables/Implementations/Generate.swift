@@ -1,6 +1,6 @@
 //
 //  Generate.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 9/2/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -15,10 +15,10 @@ class GenerateSink<S, O: ObserverType> : Sink<O> {
     
     private var _state: S
     
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
         _state = parent._initialState
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     func run() -> Disposable {
@@ -63,9 +63,9 @@ class Generate<S, E> : Producer<E> {
         super.init()
     }
     
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == E {
-        let sink = GenerateSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = sink.run()
-        return (sink: sink, subscription: subscription)
+    override func run<O : ObserverType>(_ observer: O) -> Disposable where O.E == E {
+        let sink = GenerateSink(parent: self, observer: observer)
+        sink.disposable = sink.run()
+        return sink
     }
 }

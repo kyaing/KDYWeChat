@@ -1,6 +1,6 @@
 //
 //  Sequence.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 11/14/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -13,9 +13,9 @@ class ObservableSequenceSink<S: Sequence, O: ObserverType> : Sink<O> where S.Ite
 
     private let _parent: Parent
 
-    init(parent: Parent, observer: O, cancel: Cancelable) {
+    init(parent: Parent, observer: O) {
         _parent = parent
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
 
     func run() -> Disposable {
@@ -41,9 +41,9 @@ class ObservableSequence<S: Sequence> : Producer<S.Iterator.Element> {
         _scheduler = scheduler
     }
 
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == E {
-        let sink = ObservableSequenceSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = sink.run()
-        return (sink: sink, subscription: subscription)
+    override func subscribe<O : ObserverType>(_ observer: O) -> Disposable where O.E == E {
+        let sink = ObservableSequenceSink(parent: self, observer: observer)
+        sink.disposable = sink.run()
+        return sink
     }
 }

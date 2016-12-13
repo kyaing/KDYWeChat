@@ -13,18 +13,22 @@ import UIKit
 import RxSwift
 #endif
 
-fileprivate var rx_tap_key: UInt8 = 0
+var rx_tap_key: UInt8 = 0
 
 extension Reactive where Base: UIBarButtonItem {
     
-    /// Bindable sink for `enabled` property.
-    public var isEnabled: UIBindingObserver<Base, Bool> {
+    /**
+    Bindable sink for `enabled` property.
+    */
+    public var enabled: AnyObserver<Bool> {
         return UIBindingObserver(UIElement: self.base) { UIElement, value in
             UIElement.isEnabled = value
-        }
+        }.asObserver()
     }
 
-    /// Reactive wrapper for target action pattern on `self`.
+    /**
+    Reactive wrapper for target action pattern on `self`.
+    */
     public var tap: ControlEvent<Void> {
         let source = lazyInstanceObservable(&rx_tap_key) { () -> Observable<Void> in
             Observable.create { [weak control = self.base] observer in

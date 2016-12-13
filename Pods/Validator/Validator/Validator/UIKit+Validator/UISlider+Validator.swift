@@ -33,16 +33,16 @@ extension UISlider: ValidatableInterfaceElement {
     
     public typealias InputType = Float
     
-    open var inputValue: Float? { return value }
+    public var inputValue: Float? { return value }
     
-    open func validateOnInputChange(enabled: Bool) {
-        switch enabled {
-        case true: addTarget(self, action: #selector(UISlider.validate), for: .valueChanged)
-        case false: removeTarget(self, action: #selector(UISlider.validate), for: .valueChanged)
+    public func validateOnInputChange(validationEnabled: Bool) {
+        switch validationEnabled {
+        case true: addTarget(self, action: #selector(UISlider.validateInput), for: .valueChanged)
+        case false: removeTarget(self, action: #selector(UISlider.validateInput), for: .valueChanged)
         }
     }
     
-    @objc private func validate(sender: UISlider) {
+    @objc private func validateInput(sender: UISlider) {
         sender.validate()
     }
     

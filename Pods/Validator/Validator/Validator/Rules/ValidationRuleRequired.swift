@@ -29,45 +29,17 @@
 
 import Foundation
 
-/**
- 
- `ValidationRuleRequired` validates a type `T` is non-nil.
- 
- - Important:
- You can't use `ValidationRuleRequired` to validate an optional Validatable type.
- 
- */
 public struct ValidationRuleRequired<T>: ValidationRule {
 
     public typealias InputType = T
     
-    public let error: Error
+    public let failureError: ValidationErrorType
     
-    /** 
-     
-     Initializes a `ValidationRuleComparison` with an error describing a failed
-     validation.
-     
-     - Parameters:
-        - error: An error describing a failed validation.
-     
-     */
-    public init(error: Error) {
-        self.error = error
+    public init(failureError: ValidationErrorType) {
+        self.failureError = failureError
     }
     
-    /**
-     
-     Validates the input.
-     
-     - Parameters:
-        - input: Input to validate.
-     
-     - Returns:
-     true if non-nil.
-     
-     */
-    public func validate(input: T?) -> Bool {        
+    public func validateInput(input: T?) -> Bool {        
         return input != nil
     }
     

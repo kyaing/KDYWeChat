@@ -8,7 +8,9 @@
 
 import Foundation
 
-/// Represents an object that immediately schedules units of work.
+/**
+Represents an object that immediately schedules units of work.
+*/
 public protocol ImmediateSchedulerType {
     /**
     Schedules an action to be executed immediatelly.

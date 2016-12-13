@@ -16,9 +16,11 @@ import RxSwift
 
 extension Reactive where Base: UIStepper {
     
-    /// Reactive wrapper for `value` property.
+    /**
+    Reactive wrapper for `value` property.
+    */
     public var value: ControlProperty<Double> {
-        return UIControl.rx.value(
+        return Reactive<UIControl>.value(
             self.base,
             getter: { stepper in
                 stepper.value

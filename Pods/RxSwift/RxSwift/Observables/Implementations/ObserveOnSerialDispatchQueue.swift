@@ -9,31 +9,25 @@
 import Foundation
 
 #if TRACE_RESOURCES
-    fileprivate var _numberOfSerialDispatchQueueObservables: AtomicInt = 0
-    extension Resources {
-        /**
-        Counts number of `SerialDispatchQueueObservables`.
+/**
+Counts number of `SerialDispatchQueueObservables`.
 
-        Purposed for unit tests.
-        */
-        public static var numberOfSerialDispatchQueueObservables: Int32 {
-            return _numberOfSerialDispatchQueueObservables.valueSnapshot()
-        }
-    }
+Purposed for unit tests.
+*/
+public var numberOfSerialDispatchQueueObservables: AtomicInt = 0
 #endif
 
 class ObserveOnSerialDispatchQueueSink<O: ObserverType> : ObserverBase<O.E> {
     let scheduler: SerialDispatchQueueScheduler
     let observer: O
     
-    let cancel: Cancelable
+    let subscription = SingleAssignmentDisposable()
 
     var cachedScheduleLambda: ((ObserveOnSerialDispatchQueueSink<O>, Event<E>) -> Disposable)!
 
-    init(scheduler: SerialDispatchQueueScheduler, observer: O, cancel: Cancelable) {
+    init(scheduler: SerialDispatchQueueScheduler, observer: O) {
         self.scheduler = scheduler
         self.observer = observer
-        self.cancel = cancel
         super.init()
 
         cachedScheduleLambda = { sink, event in
@@ -54,7 +48,7 @@ class ObserveOnSerialDispatchQueueSink<O: ObserverType> : ObserverBase<O.E> {
     override func dispose() {
         super.dispose()
 
-        cancel.dispose()
+        subscription.dispose()
     }
 }
     
@@ -67,21 +61,21 @@ class ObserveOnSerialDispatchQueue<E> : Producer<E> {
         self.source = source
         
 #if TRACE_RESOURCES
-        let _ = Resources.incrementTotal()
-        let _ = AtomicIncrement(&_numberOfSerialDispatchQueueObservables)
+        let _ = AtomicIncrement(&resourceCount)
+        let _ = AtomicIncrement(&numberOfSerialDispatchQueueObservables)
 #endif
     }
     
-    override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == E {
-        let sink = ObserveOnSerialDispatchQueueSink(scheduler: scheduler, observer: observer, cancel: cancel)
-        let subscription = source.subscribe(sink)
-        return (sink: sink, subscription: subscription)
+    override func run<O : ObserverType>(_ observer: O) -> Disposable where O.E == E {
+        let sink = ObserveOnSerialDispatchQueueSink(scheduler: scheduler, observer: observer)
+        sink.subscription.disposable = source.subscribe(sink)
+        return sink
     }
     
 #if TRACE_RESOURCES
     deinit {
-        let _ = Resources.decrementTotal()
-        let _ = AtomicDecrement(&_numberOfSerialDispatchQueueObservables)
+        let _ = AtomicDecrement(&resourceCount)
+        let _ = AtomicDecrement(&numberOfSerialDispatchQueueObservables)
     }
 #endif
 }

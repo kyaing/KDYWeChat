@@ -36,6 +36,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         tb.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         tb.separatorColor  = UIColor(colorHex: KDYColor.separatorColor.rawValue)
         tb.separatorInset  = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        tb.register(cellType: MessageTableCell.self)
         tb.tableHeaderView = self.searchController.searchBar
         tb.tableFooterView = UIView()
         tb.rowHeight = 60
@@ -82,7 +83,6 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         searchController.searchResultsUpdater = self
         searchController.delegate = self
         tableView.delegate = self
-        
         self.view.addSubview(tableView)
         
         // 配置 ViewModel

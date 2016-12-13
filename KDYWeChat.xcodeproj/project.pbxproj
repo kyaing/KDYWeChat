@@ -501,9 +501,9 @@
 			children = (
 				049F78D71DFE758300F32861 /* Base */,
 				049F793A1DFE758300F32861 /* Login */,
+				049F79141DFE758300F32861 /* Conversation */,
 				049F78DB1DFE758300F32861 /* Chat */,
 				049F79051DFE758300F32861 /* Contacts */,
-				049F79141DFE758300F32861 /* Conversation */,
 				049F79211DFE758300F32861 /* Discovery */,
 				049F79431DFE758300F32861 /* Me */,
 			);
@@ -673,8 +673,8 @@
 		049F79151DFE758300F32861 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				049F79161DFE758300F32861 /* KDConversationViewController+Delegate.swift */,
 				049F79171DFE758300F32861 /* KDConversationViewController.swift */,
+				049F79161DFE758300F32861 /* KDConversationViewController+Delegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -810,8 +810,8 @@
 		049F793A1DFE758300F32861 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				049F79401DFE758300F32861 /* ViewModel */,
 				049F793B1DFE758300F32861 /* Controller */,
+				049F79401DFE758300F32861 /* ViewModel */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -820,8 +820,8 @@
 			isa = PBXGroup;
 			children = (
 				049F793C1DFE758300F32861 /* KDLoginViewController.swift */,
-				049F793D1DFE758300F32861 /* KDLoginViewController.xib */,
 				049F793E1DFE758300F32861 /* KDRegisterViewController.swift */,
+				049F793D1DFE758300F32861 /* KDLoginViewController.xib */,
 				049F793F1DFE758300F32861 /* KDRegisterViewController.xib */,
 			);
 			path = Controller;
@@ -1648,6 +1648,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1697,6 +1698,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1724,6 +1726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = KDYWeChat/Info.plist;
@@ -1746,6 +1749,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
 				INFOPLIST_FILE = KDYWeChat/Info.plist;

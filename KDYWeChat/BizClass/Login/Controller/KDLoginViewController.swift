@@ -38,17 +38,17 @@ final class KDLoginViewController: UIViewController {
         // 初始化UI
         setupViewsUI()
         
-//        viewModel = LoginViewModel(input:
-//                (username: accountTextFiled.rx.text.asDriver(),
-//                 password: passwordTextField.rx.text.asDriver()))
-//        
-//        viewModel.loginBtnEnabled
-//            .drive { [weak self] (valid) in
-//                self?.loginButton.backgroundColor
-//                    = valid ? UIColor(colorHex: KDYColor.chatGreenColor.rawValue) : UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
-//                self?.loginButton.enabled = valid ? true : false
-//            }
-//            .addDisposableTo(disposeBag)
+        viewModel = LoginViewModel(input:
+                (username: accountTextFiled.rx.text.asDriver(),
+                 password: passwordTextField.rx.text.asDriver()))
+        
+        viewModel.loginBtnEnabled
+            .drive(onNext: { [weak self] valid in
+                self?.loginButton.backgroundColor
+                    = valid ? UIColor(colorHex: KDYColor.chatGreenColor.rawValue) : UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
+                self?.loginButton.isEnabled = valid ? true : false
+                })
+            .addDisposableTo(disposeBag)
     }
     
     func setupViewsUI() {

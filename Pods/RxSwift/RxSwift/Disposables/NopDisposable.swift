@@ -1,6 +1,6 @@
 //
 //  NopDisposable.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 2/15/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -8,27 +8,26 @@
 
 import Foundation
 
-/// Represents a disposable that does nothing on disposal.
-///
-/// Nop = No Operation
-fileprivate struct NopDisposable : Disposable {
+/**
+Represents a disposable that does nothing on disposal.
+
+Nop = No Operation
+*/
+public struct NopDisposable : Disposable {
  
-    fileprivate static let noOp: Disposable = NopDisposable()
+    /**
+    Singleton instance of `NopDisposable`.
+    */
+    @available(*, deprecated, renamed: "Disposables.create()")
+    public static let instance: Disposable = NopDisposable()
     
-    fileprivate init() {
+    init() {
         
     }
     
-    /// Does nothing.
-    public func dispose() {
-    }
-}
-
-extension Disposables {
     /**
-     Creates a disposable that does nothing on disposal.
-     */
-    static public func create() -> Disposable {
-        return NopDisposable.noOp
+    Does nothing.
+    */
+    public func dispose() {
     }
 }

@@ -1,6 +1,6 @@
 //
 //  SubscriptionDisposable.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 10/25/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.

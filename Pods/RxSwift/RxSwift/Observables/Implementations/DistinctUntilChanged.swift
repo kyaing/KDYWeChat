@@ -1,6 +1,6 @@
 //
 //  DistinctUntilChanged.swift
-//  RxSwift
+//  Rx
 //
 //  Created by Krunoslav Zaher on 3/15/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
@@ -14,9 +14,9 @@ class DistinctUntilChangedSink<O: ObserverType, Key>: Sink<O>, ObserverType {
     private let _parent: DistinctUntilChanged<E, Key>
     private var _currentKey: Key? = nil
     
-    init(parent: DistinctUntilChanged<E, Key>, observer: O, cancel: Cancelable) {
+    init(parent: DistinctUntilChanged<E, Key>, observer: O) {
         _parent = parent
-        super.init(observer: observer, cancel: cancel)
+        super.init(observer: observer)
     }
     
     func on(_ event: Event<E>) {
@@ -62,9 +62,9 @@ class DistinctUntilChanged<Element, Key>: Producer<Element> {
         _comparer = comparer
     }
     
-    override func run<O: ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == Element {
-        let sink = DistinctUntilChangedSink(parent: self, observer: observer, cancel: cancel)
-        let subscription = _source.subscribe(sink)
-        return (sink: sink, subscription: subscription)
+    override func run<O: ObserverType>(_ observer: O) -> Disposable where O.E == Element {
+        let sink = DistinctUntilChangedSink(parent: self, observer: observer)
+        sink.disposable = _source.subscribe(sink)
+        return sink
     }
 }
