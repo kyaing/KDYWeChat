@@ -75,7 +75,7 @@ class MessageViewModel {
             observer.onNext(sections)
             observer.onCompleted()
         
-            return self.disposeBag as! Disposable
+            return Disposables.create{}
         }
     }
 

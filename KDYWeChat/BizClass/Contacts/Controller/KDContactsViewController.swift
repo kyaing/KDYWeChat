@@ -220,6 +220,7 @@ final class KDContactsViewController: UIViewController {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         userQuery?.findObjectsInBackground { (objects, error) in
             
+            if objects == nil { return }
             for object in objects as! [AVUser] {
                 let dic = object.dictionaryForObject()
                 let username = dic?.object(forKey: "username") as! String

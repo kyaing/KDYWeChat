@@ -109,7 +109,7 @@ class KDSettingViewController: UITableViewController {
                 
             } else {
                 AVUser.logOut()  // 退出LeanCloud
-                NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: 0))
+                NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: false as Bool))
             }
         }
     }

@@ -104,7 +104,7 @@ final class KDLoginViewController: UIViewController {
                             KDYWeChatHelper.shareInstance.asyncConversationFromDB()
                             
                             // 发送自动登录的通知
-                            self.postNotificationName(kLoginStateChangedNoti, object: NSNumber(value: 1))
+                            self.postNotificationName(kLoginStateChangedNoti, object: NSNumber(value: true as Bool))
                             
                             MBProgressHUD.hide(for: self.view, animated: true)
                         }

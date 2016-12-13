@@ -37,10 +37,10 @@ extension AppDelegate {
         // 根据用户是否自动登录，来发送登录状态的通知
         let isAutoLogin = EMClient.shared().isAutoLogin
         if isAutoLogin {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: 1))
+            NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: true as Bool))
             
         } else {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: 0))
+            NotificationCenter.default.post(name: Notification.Name(rawValue: kLoginStateChangedNoti), object: NSNumber(value: false as Bool))
         }
     }
     
@@ -51,9 +51,9 @@ extension AppDelegate {
         var navigationController: KDNavigationController?
         
         // 根据登录状态的不同，设置不同的根控制器
-        let loginState: Bool = (notification.object as AnyObject).boolValue
+        let loginState = (notification.object as AnyObject).boolValue
 
-        if loginState != nil {   // 登录成功，切换到tabbar
+        if loginState! {   // 登录成功，切换到tabbar
             if self.mainTabbarVC == nil {
                 self.mainTabbarVC = KDTabBarController()
             }

@@ -99,24 +99,24 @@ class ChatBaseTableCell: UITableViewCell {
         // 判断消息发送的状态 (发送中/成功/失败)
         if model.fromMe! {
             switch model.messageStatus {
-            case EMMessageStatusPending, EMMessageStatusDelivering:
-                print("消息正在发送中...")
-                self.failSendMsgButton.isHidden = true
-                
-                self.activityView.isHidden = false
-                self.activityView.startAnimating()
-                
-            case EMMessageStatusSuccessed:
-                print("消息发送成功")
-                self.failSendMsgButton.isHidden = true
-                
-                self.activityView.stopAnimating()
-                self.activityView.isHidden = true
-                
-            case EMMessageStatusFailed:
-                print("消失发送失败")
-                self.failSendMsgButton.isHidden = false
-                self.activityView.isHidden = true
+//            case EMMessageStatusPending, EMMessageStatusDelivering:
+//                print("消息正在发送中...")
+//                self.failSendMsgButton.isHidden = true
+//                
+//                self.activityView.isHidden = false
+//                self.activityView.startAnimating()
+//                
+//            case EMMessageStatusSuccessed:
+//                print("消息发送成功")
+//                self.failSendMsgButton.isHidden = true
+//                
+//                self.activityView.stopAnimating()
+//                self.activityView.isHidden = true
+//                
+//            case EMMessageStatusFailed:
+//                print("消失发送失败")
+//                self.failSendMsgButton.isHidden = false
+//                self.activityView.isHidden = true
                 
             default:
                 break
