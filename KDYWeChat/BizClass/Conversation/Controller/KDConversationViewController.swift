@@ -24,7 +24,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     lazy var searchController: UISearchController = {
         let search: UISearchController = UISearchController(searchResultsController: nil)
         search.dimsBackgroundDuringPresentation = false
-        search.searchBar.tintColor = UIColor(colorHex: KDYColor.chatGreenColor.rawValue)
+        search.searchBar.tintColor = KDYColor.ChatGreen.color
         search.searchBar.sizeToFit()
         
         return search
@@ -33,9 +33,9 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     lazy var tableView: UITableView = {
         let tb: UITableView = UITableView(frame: self.view.bounds, style: .plain)
-        tb.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
-        tb.separatorColor  = UIColor(colorHex: KDYColor.separatorColor.rawValue)
-        tb.separatorInset  = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        tb.backgroundColor = KDYColor.TableBackground.color
+        tb.separatorColor  = KDYColor.Separator.color
+        tb.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         tb.register(cellType: MessageTableCell.self)
         tb.tableHeaderView = self.searchController.searchBar
         tb.tableFooterView = UIView()
@@ -49,7 +49,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         // $0 确实更简洁，但却没自动提示
         let headerView = UIView().then {
             $0.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.tableView.width, height: 40))
-            $0.backgroundColor = UIColor(colorHex: KDYColor.networkFailedColor.rawValue)
+            $0.backgroundColor = KDYColor.NetworkFailed.color
         }
         
         let tipLabel = UILabel().then {

@@ -10,19 +10,26 @@ import Foundation
 
 typealias KDYColor = UIColor.AppColorName
 
-extension UIColor {    
+extension UIColor {
+    
     enum AppColorName: String {
-        case chatGreenColor           = "#09BB07"
-        case chatLightGreenColor      = "#A8E980"
-        case barTintColor             = "#1A1A1A"
-        case tabbarSelectedTextColor  = "#68BB1E"
-        case navigationItemTextColor  = ""
-        case tableViewBackgroundColor = "#f5f5f5"
-        case separatorColor           = "#C8C8C8"
-        case networkFailedColor       = "#FFC8C8"
+        case ChatGreen           = "#09BB07"
+        case ChatLightGreen      = "#A8E980"
+        case BarTint             = "#1A1A1A"
+        case TabbarSelectedText  = "#68BB1E"
+        case TableBackground     = "#f5f5f5"
+        case Separator           = "#C8C8C8"
+        case NetworkFailed       = "#FFC8C8"
+        
+        case RecordBgNormal      = "#F3F4F8"
+        case RecordBgSelect      = "#C6C7CB"
+        
+        var color: UIColor {
+            return UIColor(colorHex: self.rawValue)!
+        }
     }
     
-    public convenience init?(colorHex: String, alpha: CGFloat = 1.0) {
+    convenience init?(colorHex: String, alpha: CGFloat = 1.0) {
         var formatted = colorHex.replacingOccurrences(of: "0x", with: "")
         formatted = formatted.replacingOccurrences(of: "#", with: "")
         

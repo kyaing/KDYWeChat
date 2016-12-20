@@ -36,8 +36,8 @@ class ChatBottomBarView: UIView, NibReusable {
     @IBOutlet weak var recordButton: UIButton! {
         didSet {
             // recordButton是自定义按钮
-            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#F3F4F8")!), for: .normal)
-            recordButton.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#C6C7CB")!), for: .highlighted)
+            recordButton.setBackgroundImage(UIImage.imageWithColor(KDYColor.RecordBgNormal.color), for: .normal)
+            recordButton.setBackgroundImage(UIImage.imageWithColor(KDYColor.RecordBgSelect.color), for: .highlighted)
             recordButton.layer.borderColor = UIColor.gray.cgColor
             recordButton.layer.cornerRadius  = 5.0
             recordButton.layer.borderWidth   = 0.5

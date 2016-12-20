@@ -37,12 +37,12 @@ extension UIButton {
     // 控制录音按钮的UI
     func replaceRecordButtonUI(_ isRecording: Bool) {
         if isRecording {
-            self.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#C6C7CB")!), for: .normal)
-            self.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#F3F4F8")!), for: .highlighted)
+            self.setBackgroundImage(UIImage.imageWithColor(KDYColor.RecordBgNormal.color), for: .normal)
+            self.setBackgroundImage(UIImage.imageWithColor(KDYColor.RecordBgSelect.color), for: .highlighted)
             
         } else {
-            self.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#F3F4F8")!), for: .normal)
-            self.setBackgroundImage(UIImage.imageWithColor(UIColor(colorHex: "#C6C7CB")!), for: .highlighted)
+            self.setBackgroundImage(UIImage.imageWithColor(KDYColor.RecordBgSelect.color), for: .normal)
+            self.setBackgroundImage(UIImage.imageWithColor(KDYColor.RecordBgNormal.color), for: .highlighted)
         }
     }
 }

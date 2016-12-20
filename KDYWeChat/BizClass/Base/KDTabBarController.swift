@@ -41,22 +41,26 @@ final class KDTabBarController: UITabBarController {
         setupUnReadMessageCount()
         setupUntreatedApplyCount()
         
-        KDYWeChatHelper.shareInstance.conversationVC = self.conversationVC
-        KDYWeChatHelper.shareInstance.contactVC = self.contactVC
+        KDYChatHelper.share.conversationVC = self.conversationVC
+        KDYChatHelper.share.contactVC = self.contactVC
     }
 
     fileprivate func setupViewControllers() {
         let titleArray = ["微信", "通讯录", "发现", "我"]
-        
-        let normalImageArray = ["tabbar_mainframe",
-                                "tabbar_contacts",
-                                "tabbar_discover",
-                                "tabbar_me"]
     
-        let seletedImageArray = ["tabbar_mainframeHL",
-                                 "tabbar_contactsHL",
-                                 "tabbar_discoverHL",
-                                 "tabbar_meHL"]
+        let normalImageArray = [
+            KDYAsset.Tabbar_Chat_Normal.image,
+            KDYAsset.Tabbar_Contacts_Normal.image,
+            KDYAsset.Tabbar_Discover_Normal.image,
+            KDYAsset.Tabbar_Me_Normal.image
+        ]
+    
+        let seletedImageArray = [
+            KDYAsset.Tabbar_Chat_Select.image,
+            KDYAsset.Tabbar_Contacts_Select.image,
+            KDYAsset.Tabbar_Discover_Select.image,
+            KDYAsset.Tabbar_Me_Select.image
+        ]
 
         let controllerArray = [conversationVC, contactVC, discoveryVC, meVC]
         
@@ -68,11 +72,11 @@ final class KDTabBarController: UITabBarController {
             // 设置标题和图片，改变图片的渲染模式
             controller.title            = titleArray[index]
             controller.tabBarItem.title = titleArray[index]
-            controller.tabBarItem.image = UIImage(named: normalImageArray[index])?.withRenderingMode(.alwaysOriginal)
-            controller.tabBarItem.selectedImage = UIImage(named: seletedImageArray[index])?.withRenderingMode(.alwaysOriginal)
+            controller.tabBarItem.image = normalImageArray[index].withRenderingMode(.alwaysOriginal)
+            controller.tabBarItem.selectedImage = seletedImageArray[index].withRenderingMode(.alwaysOriginal)
             
             controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
-            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)], for: .selected)
+            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: KDYColor.TabbarSelectedText.color ?? UIColor.white], for: .selected)
             
             let navigation = KDNavigationController(rootViewController: controller)
             self.navigationControllers.add(navigation)

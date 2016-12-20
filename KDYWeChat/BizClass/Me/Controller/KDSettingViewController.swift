@@ -15,8 +15,8 @@ class KDSettingViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "设置"
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
-        tableView.separatorColor  = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
+        tableView.backgroundColor = KDYColor.TableBackground.color
+        tableView.separatorColor  = KDYColor.Separator.color
     }
     
     // MARK: - UITableViewDataSoure

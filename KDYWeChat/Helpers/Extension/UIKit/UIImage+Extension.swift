@@ -57,7 +57,6 @@ public extension UIImage {
         // Set the quality level to use when rescaling
         context!.interpolationQuality = quality
         
-        
         //CGContextSetInterpolationQuality(context, CGInterpolationQuality(kCGInterpolationHigh.value))
         
         // Draw into the context; this scales the image
@@ -75,11 +74,12 @@ public extension UIImage {
         let context: CGContext = UIGraphicsGetCurrentContext()!
         context.translateBy(x: -rect.origin.x, y: -rect.origin.y)
         //        let layer: CALayer = view.layer
-//        if view.responds(to: #selector(UIView.drawHierarchy(:afterScreenUpdates:)(_:afterScreenUpdates,,:))) {
-//            view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
-//        } else {
-//            view.layer.render(in: UIGraphicsGetCurrentContext()!)
-//        }
+        
+        //  if view.responds(to: #selector(UIView.drawHierarchy(:afterScreenUpdates:)(_:afterScreenUpdates,,:))) {
+        //            view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+        //        } else {
+        //            view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        //        }
         capture = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return capture

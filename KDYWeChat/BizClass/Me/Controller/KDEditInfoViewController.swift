@@ -30,7 +30,7 @@ class KDEditInfoViewController: UIViewController {
         textField.clearButtonMode = .whileEditing
         textField.borderStyle = .none
         textField.autocorrectionType = .no
-        textField.tintColor = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
+        textField.tintColor = KDYColor.TabbarSelectedText.color
         textField.becomeFirstResponder()
         
         return textField
@@ -53,7 +53,7 @@ class KDEditInfoViewController: UIViewController {
         
         self.edgesForExtendedLayout = UIRectEdge()
         self.navigationItem.rightBarButtonItem = self.rightBarItem
-        self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
+        self.view.backgroundColor = KDYColor.TableBackground.color
         
         self.title = self.titleStr
         

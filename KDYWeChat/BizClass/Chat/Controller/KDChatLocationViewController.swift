@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -28,7 +29,6 @@ fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return !(lhs < rhs)
   }
 }
-
 
 /// 地理位置页面
 class KDChatLocationViewController: UIViewController {
@@ -57,18 +57,18 @@ class KDChatLocationViewController: UIViewController {
         // 导航栏按钮
         seupBarButtonItems()
         
-        self.mapView = MKMapView(frame: self.view.bounds)
-        self.mapView.mapType = .standard
-        self.mapView.isZoomEnabled = true
-        self.mapView.showsUserLocation = true
-        self.mapView.userTrackingMode = .follow
+        mapView = MKMapView(frame: self.view.bounds)
+        mapView.mapType = .standard
+        mapView.isZoomEnabled = true
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
         self.view.addSubview(mapView)
         
-        self.mapView.delegate = self
-        self.locationManager.delegate = self
+        mapView.delegate = self
+        locationManager.delegate = self
         
         if Float(UIDevice.current.systemVersion) >= 8.0 {
-            self.locationManager.requestWhenInUseAuthorization()
+            locationManager.requestWhenInUseAuthorization()
         }
     }
     

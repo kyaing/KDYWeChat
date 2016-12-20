@@ -15,16 +15,25 @@ class MeCenterTableCell: UITableViewCell {
     // MARK: - Parameters
     
     /// 标题
-    var _textLabel: UILabel?
+    lazy var meTextLabel: UILabel = {
+        let textlabel = UILabel()
+        return textlabel
+    }()
     
     /// 标题左侧图片
-    var _iamgeView: UIImageView?
+    lazy var meIamgeView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     /// 右侧箭头
-    var _indictor:  UIImageView?
+    lazy var meIndictor: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     /// 开关按钮
-    lazy var _aswitch: UISwitch = {
+    lazy var meSwitch: UISwitch = {
         let aswitch = UISwitch()
         aswitch.addTarget(self, action: #selector(switchTouched(sw:)), for: .valueChanged)
         
@@ -32,10 +41,16 @@ class MeCenterTableCell: UITableViewCell {
     }()
     
     /// 详情标题
-    var _detailLabel: UILabel?
+    lazy var meDetailLabel: UILabel = {
+        let textlabel = UILabel()
+        return textlabel
+    }()
     
     /// 右侧图片
-    var _detailImageView: UIImageView?
+    lazy var meDetailImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     /// 数据源
     var viewModel: MeCenterViewModel! {
@@ -45,13 +60,15 @@ class MeCenterTableCell: UITableViewCell {
     }
     
     // MARK: - Public Methods
-    
     func setupChildViews() {
         
     }
     
     func setupSwitch() {
-        
+        self.contentView.addSubview(meSwitch)
+        meSwitch.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self)
+        }
     }
     
     func switchTouched(sw: UISwitch) {

@@ -50,7 +50,8 @@ final class KDContactsViewController: UIViewController {
         searchController.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = UIColor(colorHex: KDYColor.chatGreenColor.rawValue)
+        searchController.searchBar.tintColor = KDYColor.ChatGreen.color
+        
         searchController.searchBar.sizeToFit()
         
         return searchController
@@ -58,10 +59,10 @@ final class KDContactsViewController: UIViewController {
     
     lazy var contactsTableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
+        tableView.backgroundColor = KDYColor.TableBackground.color
         tableView.register(cellType: ContactsTableCell.self)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)
+        tableView.separatorColor = KDYColor.Separator.color
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.darkGray
         tableView.tableHeaderView = self.searchController.searchBar

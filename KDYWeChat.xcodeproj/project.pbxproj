@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0419AFFC1E090E9600B583C5 /* UIImage+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */; };
 		043538321E07DECA0076F7AE /* MeCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538311E07DECA0076F7AE /* MeCenterViewModel.swift */; };
 		043538341E07DEDB0076F7AE /* MeSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */; };
 		0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */; };
@@ -111,7 +112,7 @@
 		049F7A371DFE758300F32861 /* FMSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F795C1DFE758300F32861 /* FMSQLite.swift */; };
 		049F7A381DFE758300F32861 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F795D1DFE758300F32861 /* RealmHelper.swift */; };
 		049F7A391DFE758300F32861 /* EaseSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F795F1DFE758300F32861 /* EaseSDKHelper.swift */; };
-		049F7A3A1DFE758300F32861 /* KDYWeChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79601DFE758300F32861 /* KDYWeChatHelper.swift */; };
+		049F7A3A1DFE758300F32861 /* KDYChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79601DFE758300F32861 /* KDYChatHelper.swift */; };
 		049F7A3B1DFE758300F32861 /* NSDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79631DFE758300F32861 /* NSDate+Extension.swift */; };
 		049F7A3C1DFE758300F32861 /* NSNotificationCenter+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79641DFE758300F32861 /* NSNotificationCenter+Block.swift */; };
 		049F7A3D1DFE758300F32861 /* NSString+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79651DFE758300F32861 /* NSString+Validate.swift */; };
@@ -181,6 +182,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Asset.swift"; sourceTree = "<group>"; };
 		043538311E07DECA0076F7AE /* MeCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterViewModel.swift; sourceTree = "<group>"; };
 		043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeSectionViewModel.swift; sourceTree = "<group>"; };
 		043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
@@ -289,7 +291,7 @@
 		049F795C1DFE758300F32861 /* FMSQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMSQLite.swift; sourceTree = "<group>"; };
 		049F795D1DFE758300F32861 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		049F795F1DFE758300F32861 /* EaseSDKHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EaseSDKHelper.swift; sourceTree = "<group>"; };
-		049F79601DFE758300F32861 /* KDYWeChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYWeChatHelper.swift; sourceTree = "<group>"; };
+		049F79601DFE758300F32861 /* KDYChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYChatHelper.swift; sourceTree = "<group>"; };
 		049F79631DFE758300F32861 /* NSDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extension.swift"; sourceTree = "<group>"; };
 		049F79641DFE758300F32861 /* NSNotificationCenter+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Block.swift"; sourceTree = "<group>"; };
 		049F79651DFE758300F32861 /* NSString+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Validate.swift"; sourceTree = "<group>"; };
@@ -447,6 +449,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0419AFFA1E08D82E00B583C5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0435382C1E07C48E0076F7AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +557,7 @@
 				049F78DC1DFE758300F32861 /* Controller */,
 				049F78E61DFE758300F32861 /* Model */,
 				049F78E81DFE758300F32861 /* View */,
+				0419AFFA1E08D82E00B583C5 /* ViewModel */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -555,6 +565,7 @@
 		049F78DC1DFE758300F32861 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				049F78E51DFE758300F32861 /* KDChatViewController.swift */,
 				049F78DD1DFE758300F32861 /* KDChatLocationViewController.swift */,
 				049F78DE1DFE758300F32861 /* KDChatSettingViewController.swift */,
 				049F78DF1DFE758300F32861 /* KDChatViewController+BottomBar.swift */,
@@ -563,7 +574,6 @@
 				049F78E21DFE758300F32861 /* KDChatViewController+Keyboard.swift */,
 				049F78E31DFE758300F32861 /* KDChatViewController+SendMessage.swift */,
 				049F78E41DFE758300F32861 /* KDChatViewController+SubViews.swift */,
-				049F78E51DFE758300F32861 /* KDChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -952,7 +962,7 @@
 			isa = PBXGroup;
 			children = (
 				049F795F1DFE758300F32861 /* EaseSDKHelper.swift */,
-				049F79601DFE758300F32861 /* KDYWeChatHelper.swift */,
+				049F79601DFE758300F32861 /* KDYChatHelper.swift */,
 			);
 			path = EaseSDK;
 			sourceTree = "<group>";
@@ -979,6 +989,7 @@
 		049F79661DFE758300F32861 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */,
 				049F79671DFE758300F32861 /* UIColor+Extension.swift */,
 				049F79681DFE758300F32861 /* UIImage+Extension.swift */,
 				049F79691DFE758300F32861 /* UIScreen+Frame.swift */,
@@ -1493,6 +1504,7 @@
 				049F79E41DFE758300F32861 /* KDChatViewController+SendMessage.swift in Sources */,
 				049F79E51DFE758300F32861 /* KDChatViewController+SubViews.swift in Sources */,
 				049F7A271DFE758300F32861 /* KDEditInfoViewController.swift in Sources */,
+				0419AFFC1E090E9600B583C5 /* UIImage+Asset.swift in Sources */,
 				049F7A4D1DFE758300F32861 /* AppDelegate+EaseSDK.swift in Sources */,
 				049F7A3E1DFE758300F32861 /* UIColor+Extension.swift in Sources */,
 				049F7A531DFE758400F32861 /* MJRefreshComponent.m in Sources */,
@@ -1547,7 +1559,7 @@
 				0435383C1E07E17D0076F7AE /* MeHeaderTableCell.swift in Sources */,
 				049F7A2E1DFE758300F32861 /* MediaFileManager.swift in Sources */,
 				049F7A2F1DFE758300F32861 /* MediaManagerDelegate.swift in Sources */,
-				049F7A3A1DFE758300F32861 /* KDYWeChatHelper.swift in Sources */,
+				049F7A3A1DFE758300F32861 /* KDYChatHelper.swift in Sources */,
 				049F7A131DFE758300F32861 /* KDFriendAlbumViewController.swift in Sources */,
 				049F7A191DFE758300F32861 /* AlumbCellDelegate.swift in Sources */,
 				049F7A281DFE758300F32861 /* KDMeViewController.swift in Sources */,

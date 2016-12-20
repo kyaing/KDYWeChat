@@ -13,12 +13,30 @@ class KDMeViewController: UITableViewController {
     
     @IBOutlet var meTableView: UITableView!
     
+    let itemDataSouce: [[(name: String, iconImage: String?)]] = [
+        [
+            ("", nil)
+            ],
+        [
+            ("相册", "MoreMyAlbum"),
+            ("收藏", "MoreMyFavorites"),
+            ("钱包", "MoreMyBankCard"),
+            ("卡包", "MyCardPackageIcon")
+            ],
+        [
+            ("表情", "MoreExpressionShops")
+            ],
+        [
+            ("设置", "MoreSetting")
+            ],
+    ]
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        meTableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
-        meTableView.separatorColor  = UIColor(colorHex: KDYColor.separatorColor.rawValue)
+        meTableView.backgroundColor = KDYColor.TableBackground.color
+        meTableView.separatorColor  = KDYColor.Separator.color
         meTableView.register(cellType: MeHeaderTableCell.self)
     }
     
@@ -54,8 +72,7 @@ class KDMeViewController: UITableViewController {
                 baseCell = UITableViewCell(style: .default, reuseIdentifier: "baseCell")
             }
             
-            // 为什么在storyboard设置的没有显示出来？
-            self.configureCells(baseCell!, indexPath: indexPath)
+            configureCells(baseCell!, indexPath: indexPath)
             
             return baseCell!
         }
@@ -67,29 +84,9 @@ class KDMeViewController: UITableViewController {
         baseCell.accessoryType = .disclosureIndicator
         baseCell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         
-        if (indexPath as NSIndexPath).section == 1 {
-            if (indexPath as NSIndexPath).row == 0 {
-                baseCell.textLabel?.text = "相册"
-                baseCell.imageView?.image = UIImage(named: "MoreMyAlbum")
-            } else if (indexPath as NSIndexPath).row == 1 {
-                baseCell.textLabel?.text = "收藏"
-                baseCell.imageView?.image = UIImage(named: "MoreMyFavorites")
-            } else if (indexPath as NSIndexPath).row == 2 {
-                baseCell.textLabel?.text = "钱包"
-                baseCell.imageView?.image = UIImage(named: "MoreMyBankCard")
-            } else {
-                baseCell.textLabel?.text = "卡包"
-                baseCell.imageView?.image = UIImage(named: "MyCardPackageIcon")
-            }
-            
-        } else if (indexPath as NSIndexPath).section == 2 {
-            baseCell.textLabel?.text = "表情"
-            baseCell.imageView?.image = UIImage(named: "MoreExpressionShops")
-            
-        } else if (indexPath as NSIndexPath).section == 3 {
-            baseCell.textLabel?.text = "设置"
-            baseCell.imageView?.image = UIImage(named: "MoreSetting")
-        }
+        let item = itemDataSouce[indexPath.section][indexPath.row]
+        baseCell.textLabel?.text = item.name
+        baseCell.imageView?.image = UIImage(named: item.iconImage!)
     }
     
     // MARK: - UITableViewDelegate

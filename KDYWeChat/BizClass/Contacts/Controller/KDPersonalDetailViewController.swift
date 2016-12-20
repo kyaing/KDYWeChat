@@ -19,9 +19,9 @@ class KDPersonalDetailViewController: UIViewController {
     // MARK: - Parameters
     lazy var detailTableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
+        tableView.backgroundColor = KDYColor.TableBackground.color
         tableView.separatorInset = UIEdgeInsets(top: 0, left: gaps, bottom: 0, right: 0)
-        tableView.separatorColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)
+        tableView.separatorColor = KDYColor.Separator.color
         tableView.tableFooterView = self.footerView
         tableView.dataSource = self
         tableView.delegate = self
@@ -37,15 +37,15 @@ class KDPersonalDetailViewController: UIViewController {
         let sendVideoButton = UIButton()
         
         sendMsgButton.layer.cornerRadius = 5.0
-        sendMsgButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
+        sendMsgButton.layer.borderColor = KDYColor.Separator.color.cgColor
         sendMsgButton.layer.borderWidth = 0.5
         sendMsgButton.setTitle("发消息", for: UIControlState())
         sendMsgButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-        sendMsgButton.backgroundColor = UIColor(colorHex: KDYColor.chatGreenColor.rawValue)
+        sendMsgButton.backgroundColor = KDYColor.ChatGreen.color
         sendMsgButton.addTarget(self, action: #selector(self.chatWithMessageAction), for: .touchUpInside)
         
         sendVideoButton.layer.cornerRadius = 5.0
-        sendVideoButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
+        sendVideoButton.layer.borderColor = KDYColor.Separator.color.cgColor
         sendVideoButton.layer.borderWidth = 0.5
         sendVideoButton.setTitle("视频聊天", for: UIControlState())
         sendVideoButton.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)

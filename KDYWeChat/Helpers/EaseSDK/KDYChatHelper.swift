@@ -1,5 +1,5 @@
 //
-//  KDYWeChatHelper.swift
+//  KDYChatHelper.swift
 //  KDYWeChat
 //
 //  Created by mac on 16/10/9.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KDYWeChatHelper: NSObject {
+class KDYChatHelper: NSObject {
     
     // MARK: - Parameters
     var mainTabbarVC: KDTabBarController?
@@ -17,7 +17,7 @@ class KDYWeChatHelper: NSObject {
     var chatVC: KDChatViewController?
     
     // MARK: - Life Cycle
-    static let shareInstance = KDYWeChatHelper()
+    static let share = KDYChatHelper()
     fileprivate override init() {
         super.init()
         self.initHeapler()
@@ -78,7 +78,7 @@ class KDYWeChatHelper: NSObject {
 }
 
 // MARK: - EMClientDelegate
-extension KDYWeChatHelper: EMClientDelegate {
+extension KDYChatHelper: EMClientDelegate {
     /**
      *  监测sdk的网络状态
      */
@@ -111,7 +111,7 @@ extension KDYWeChatHelper: EMClientDelegate {
 }
 
 // MARK: - EMChatManagerDelegate
-extension KDYWeChatHelper: EMChatManagerDelegate {
+extension KDYChatHelper: EMChatManagerDelegate {
     /**
      *  会话列表发生更新
      */
@@ -161,7 +161,7 @@ extension KDYWeChatHelper: EMChatManagerDelegate {
 }
 
 // MARK: - EMContactManagerDelegate
-extension KDYWeChatHelper: EMContactManagerDelegate {
+extension KDYChatHelper: EMContactManagerDelegate {
     
     /**
      *  对方同意加好友
@@ -204,7 +204,7 @@ extension KDYWeChatHelper: EMContactManagerDelegate {
 }
 
 // MARK: - EMGroupManagerDelegate
-extension KDYWeChatHelper: EMGroupManagerDelegate {
+extension KDYChatHelper: EMGroupManagerDelegate {
     
 }
 

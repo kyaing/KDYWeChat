@@ -45,7 +45,7 @@ final class KDLoginViewController: UIViewController {
         viewModel.loginBtnEnabled
             .drive(onNext: { [weak self] valid in
                 self?.loginButton.backgroundColor
-                    = valid ? UIColor(colorHex: KDYColor.chatGreenColor.rawValue) : UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
+                    = valid ? KDYColor.ChatGreen.color : KDYColor.ChatLightGreen.color
                 self?.loginButton.isEnabled = valid ? true : false
                 })
             .addDisposableTo(disposeBag)
@@ -53,13 +53,13 @@ final class KDLoginViewController: UIViewController {
     
     func setupViewsUI() {
         loginButton.layer.cornerRadius = 5
-        loginButton.layer.borderColor = UIColor(colorHex: KDYColor.separatorColor.rawValue)?.cgColor
+        loginButton.layer.borderColor =  KDYColor.Separator.color.cgColor
         loginButton.layer.borderWidth = 0.5
-        loginButton.backgroundColor = UIColor(colorHex: KDYColor.chatLightGreenColor.rawValue)
+        loginButton.backgroundColor = KDYColor.ChatLightGreen.color
         
         // 修改光标颜色
-        accountTextFiled.tintColor  = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
-        passwordTextField.tintColor = UIColor(colorHex: KDYColor.tabbarSelectedTextColor.rawValue)
+        accountTextFiled.tintColor  = KDYColor.TabbarSelectedText.color
+        passwordTextField.tintColor = KDYColor.TabbarSelectedText.color
     }
     
     // MARK: - Event Responses
@@ -100,8 +100,8 @@ final class KDLoginViewController: UIViewController {
                         EMClient.shared().options.isAutoLogin = true
                         
                         DispatchQueue.main.async {
-                            KDYWeChatHelper.shareInstance.asyncPushOptions()
-                            KDYWeChatHelper.shareInstance.asyncConversationFromDB()
+                            KDYChatHelper.share.asyncPushOptions()
+                            KDYChatHelper.share.asyncConversationFromDB()
                             
                             // 发送自动登录的通知
                             self.postNotificationName(kLoginStateChangedNoti, object: NSNumber(value: true as Bool))

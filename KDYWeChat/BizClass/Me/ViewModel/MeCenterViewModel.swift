@@ -13,6 +13,7 @@ enum MeAccessoryType {
     case None
     case Image
     case Switch
+    case View
     case Indicator
 }
 

@@ -16,8 +16,8 @@ target 'KDYWeChat' do
   pod 'Then', '2.1.0'
   pod 'APIKit', '3.1.1'
   pod 'BSImagePicker', '2.5.1'
+  # pod 'SwiftGen'
   
-  #pod 'Moya'
   pod 'RxSwift', '3.0.0-beta.1'
   pod 'RxCocoa', '3.0.0-beta.1'
   pod 'RxDataSources', '1.0.0.beta.1'

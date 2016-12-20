@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -19,7 +20,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return false
   }
 }
-
 
 let kBarViewHeight: CGFloat        = 50
 let kCustomKeyboardHeight: CGFloat = 216
@@ -101,7 +101,7 @@ final class KDChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
+        self.view.backgroundColor = KDYColor.TableBackground.color
         
         self.navigationItem.leftBarButtonItem  = self.leftBarItem
         self.navigationItem.rightBarButtonItem = self.rightBarItem

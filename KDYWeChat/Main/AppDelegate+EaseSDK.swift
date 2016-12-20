@@ -31,8 +31,8 @@ extension AppDelegate {
                                                          apnsCerName: apnsCerName,
                                                          otherConfig: nil)
         
-        // 初始化 KDYWeChatHelper 单例类
-        KDYWeChatHelper.shareInstance.initHeapler()
+        // 初始化 KDYChatHelper 单例类
+        KDYChatHelper.share.initHeapler()
         
         // 根据用户是否自动登录，来发送登录状态的通知
         let isAutoLogin = EMClient.shared().isAutoLogin
@@ -61,10 +61,10 @@ extension AppDelegate {
             // 用户体系
             initLeanCloud()
             
-            KDYWeChatHelper.shareInstance.mainTabbarVC = self.mainTabbarVC
+            KDYChatHelper.share.mainTabbarVC = self.mainTabbarVC
             
-            KDYWeChatHelper.shareInstance.asyncPushOptions()
-            KDYWeChatHelper.shareInstance.asyncConversationFromDB()
+            KDYChatHelper.share.asyncPushOptions()
+            KDYChatHelper.share.asyncConversationFromDB()
             
             self.window?.rootViewController = self.mainTabbarVC
             
@@ -74,7 +74,7 @@ extension AppDelegate {
             }
             
             mainTabbarVC = nil
-            KDYWeChatHelper.shareInstance.mainTabbarVC = nil
+            KDYChatHelper.share.mainTabbarVC = nil
             
             let loginController = KDLoginViewController.initFromNib()
             navigationController = KDNavigationController(rootViewController: loginController)
