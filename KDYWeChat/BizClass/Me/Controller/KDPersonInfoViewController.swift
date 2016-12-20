@@ -17,8 +17,8 @@ class KDPersonInfoViewController: UIViewController {
         tableView.backgroundColor = UIColor(colorHex: KDYColor.tableViewBackgroundColor.rawValue)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         tableView.separatorColor = UIColor(red: 220/255.0, green: 220/255.0, blue: 220/255.0, alpha: 1.0)
-        tableView.sectionIndexBackgroundColor = UIColor.clear
-        tableView.sectionIndexColor = UIColor.darkGray
+        tableView.sectionIndexBackgroundColor = .clear
+        tableView.sectionIndexColor = .darkGray
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 50
         tableView.dataSource = self

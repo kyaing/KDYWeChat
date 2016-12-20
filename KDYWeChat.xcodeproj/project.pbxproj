@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043538321E07DECA0076F7AE /* MeCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538311E07DECA0076F7AE /* MeCenterViewModel.swift */; };
+		043538341E07DEDB0076F7AE /* MeSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */; };
+		0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */; };
+		0435383B1E07E17D0076F7AE /* MeCenterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538381E07E17D0076F7AE /* MeCenterTableCell.swift */; };
+		0435383C1E07E17D0076F7AE /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */; };
 		049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A51DFE6E8E00F32861 /* Main.storyboard */; };
 		049F78A91DFE6E8E00F32861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A81DFE6E8E00F32861 /* Assets.xcassets */; };
 		049F78C21DFE6E8E00F32861 /* KDYWeChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */; };
@@ -94,8 +99,6 @@
 		049F7A291DFE758300F32861 /* KDPersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79471DFE758300F32861 /* KDPersonInfoViewController.swift */; };
 		049F7A2A1DFE758300F32861 /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79481DFE758300F32861 /* KDSettingViewController.swift */; };
 		049F7A2B1DFE758300F32861 /* KDSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049F79491DFE758300F32861 /* KDSettingViewController.xib */; };
-		049F7A2C1DFE758300F32861 /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F794C1DFE758300F32861 /* MeHeaderTableCell.swift */; };
-		049F7A2D1DFE758300F32861 /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049F794D1DFE758300F32861 /* MeHeaderTableCell.xib */; };
 		049F7A2E1DFE758300F32861 /* MediaFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79511DFE758300F32861 /* MediaFileManager.swift */; };
 		049F7A2F1DFE758300F32861 /* MediaManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79521DFE758300F32861 /* MediaManagerDelegate.swift */; };
 		049F7A301DFE758300F32861 /* PlayMediaManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79531DFE758300F32861 /* PlayMediaManger.swift */; };
@@ -178,6 +181,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043538311E07DECA0076F7AE /* MeCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterViewModel.swift; sourceTree = "<group>"; };
+		043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeSectionViewModel.swift; sourceTree = "<group>"; };
+		043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
+		043538381E07E17D0076F7AE /* MeCenterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterTableCell.swift; sourceTree = "<group>"; };
+		043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHeaderTableCell.swift; sourceTree = "<group>"; };
 		049F789E1DFE6E8E00F32861 /* KDYWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDYWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049F78A61DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049F78A81DFE6E8E00F32861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,8 +277,6 @@
 		049F79471DFE758300F32861 /* KDPersonInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonInfoViewController.swift; sourceTree = "<group>"; };
 		049F79481DFE758300F32861 /* KDSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
 		049F79491DFE758300F32861 /* KDSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KDSettingViewController.xib; sourceTree = "<group>"; };
-		049F794C1DFE758300F32861 /* MeHeaderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHeaderTableCell.swift; sourceTree = "<group>"; };
-		049F794D1DFE758300F32861 /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
 		049F79511DFE758300F32861 /* MediaFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaFileManager.swift; sourceTree = "<group>"; };
 		049F79521DFE758300F32861 /* MediaManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaManagerDelegate.swift; sourceTree = "<group>"; };
 		049F79531DFE758300F32861 /* PlayMediaManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayMediaManger.swift; sourceTree = "<group>"; };
@@ -441,6 +447,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0435382C1E07C48E0076F7AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0435382D1E07C48E0076F7AE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				043538311E07DECA0076F7AE /* MeCenterViewModel.swift */,
+				043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		049F78951DFE6E8E00F32861 = {
 			isa = PBXGroup;
 			children = (
@@ -775,8 +797,8 @@
 			children = (
 				049F792F1DFE758300F32861 /* AlumbCellDelegate.swift */,
 				049F79301DFE758300F32861 /* AlumbHeaderView.swift */,
-				049F79311DFE758300F32861 /* AlumbHeaderView.xib */,
 				049F79321DFE758300F32861 /* AlumbTableViewCell.swift */,
+				049F79311DFE758300F32861 /* AlumbHeaderView.xib */,
 				049F79331DFE758300F32861 /* AlumbTableViewCell.xib */,
 				049F79341DFE758300F32861 /* Custom */,
 			);
@@ -840,7 +862,9 @@
 			isa = PBXGroup;
 			children = (
 				049F79441DFE758300F32861 /* Controller */,
+				0435382C1E07C48E0076F7AE /* Model */,
 				049F794A1DFE758300F32861 /* View */,
+				0435382D1E07C48E0076F7AE /* ViewModel */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -848,8 +872,8 @@
 		049F79441DFE758300F32861 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				049F79451DFE758300F32861 /* KDEditInfoViewController.swift */,
 				049F79461DFE758300F32861 /* KDMeViewController.swift */,
+				049F79451DFE758300F32861 /* KDEditInfoViewController.swift */,
 				049F79471DFE758300F32861 /* KDPersonInfoViewController.swift */,
 				049F79481DFE758300F32861 /* KDSettingViewController.swift */,
 				049F79491DFE758300F32861 /* KDSettingViewController.xib */,
@@ -860,18 +884,11 @@
 		049F794A1DFE758300F32861 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				049F794B1DFE758300F32861 /* Cell */,
+				043538381E07E17D0076F7AE /* MeCenterTableCell.swift */,
+				043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */,
+				043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		049F794B1DFE758300F32861 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				049F794C1DFE758300F32861 /* MeHeaderTableCell.swift */,
-				049F794D1DFE758300F32861 /* MeHeaderTableCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		049F794E1DFE758300F32861 /* Helpers */ = {
@@ -1328,7 +1345,6 @@
 				049F78A91DFE6E8E00F32861 /* Assets.xcassets in Resources */,
 				049F7A5F1DFE758400F32861 /* MJRefresh.bundle in Resources */,
 				049F7A101DFE758300F32861 /* MessageTableCell.xib in Resources */,
-				049F7A2D1DFE758300F32861 /* MeHeaderTableCell.xib in Resources */,
 				049F79D81DFE758300F32861 /* Launch Screen.storyboard in Resources */,
 				049F7A2B1DFE758300F32861 /* KDSettingViewController.xib in Resources */,
 				049F7A1D1DFE758300F32861 /* AlumbTableViewCell.xib in Resources */,
@@ -1346,6 +1362,7 @@
 				049F7A011DFE758300F32861 /* ChatTimeTableCell.xib in Resources */,
 				049F79F91DFE758300F32861 /* ChatLocationTableCell.xib in Resources */,
 				049F79F71DFE758300F32861 /* ChatImageTableCell.xib in Resources */,
+				0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */,
 				049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */,
 				049F7A031DFE758300F32861 /* KDAddFriendViewController.xib in Resources */,
 			);
@@ -1464,7 +1481,7 @@
 				049F7A3D1DFE758300F32861 /* NSString+Validate.swift in Sources */,
 				049F79FA1DFE758300F32861 /* ChatRedEnvelopeCell.swift in Sources */,
 				049F7A481DFE758300F32861 /* UserInfoManager.swift in Sources */,
-				049F7A2C1DFE758300F32861 /* MeHeaderTableCell.swift in Sources */,
+				043538321E07DECA0076F7AE /* MeCenterViewModel.swift in Sources */,
 				049F7A561DFE758400F32861 /* MJRefreshAutoGifFooter.m in Sources */,
 				049F79E01DFE758300F32861 /* KDChatViewController+BottomBar.swift in Sources */,
 				049F7A5D1DFE758400F32861 /* MJRefreshNormalHeader.m in Sources */,
@@ -1490,6 +1507,7 @@
 				049F79DE1DFE758300F32861 /* KDChatLocationViewController.swift in Sources */,
 				049F7A0D1DFE758300F32861 /* MessageDBModel.swift in Sources */,
 				049F7A571DFE758400F32861 /* MJRefreshAutoNormalFooter.m in Sources */,
+				0435383B1E07E17D0076F7AE /* MeCenterTableCell.swift in Sources */,
 				049F79F21DFE758300F32861 /* ChatAudioTableCell.swift in Sources */,
 				049F7A141DFE758300F32861 /* KDPublishViewController.swift in Sources */,
 				049F7A461DFE758300F32861 /* BSImagePicker.swift in Sources */,
@@ -1526,6 +1544,7 @@
 				049F7A211DFE758300F32861 /* KDLoginViewController.swift in Sources */,
 				049F79F61DFE758300F32861 /* ChatImageTableCell.swift in Sources */,
 				049F7A401DFE758300F32861 /* UIScreen+Frame.swift in Sources */,
+				0435383C1E07E17D0076F7AE /* MeHeaderTableCell.swift in Sources */,
 				049F7A2E1DFE758300F32861 /* MediaFileManager.swift in Sources */,
 				049F7A2F1DFE758300F32861 /* MediaManagerDelegate.swift in Sources */,
 				049F7A3A1DFE758300F32861 /* KDYWeChatHelper.swift in Sources */,
@@ -1559,6 +1578,7 @@
 				049F7A151DFE758300F32861 /* KDDiscoveryViewController.swift in Sources */,
 				049F7A0E1DFE758300F32861 /* MessageModel.swift in Sources */,
 				049F7A5C1DFE758400F32861 /* MJRefreshGifHeader.m in Sources */,
+				043538341E07DEDB0076F7AE /* MeSectionViewModel.swift in Sources */,
 				049F7A1A1DFE758300F32861 /* AlumbHeaderView.swift in Sources */,
 				049F79E21DFE758300F32861 /* KDChatViewController+Delegates.swift in Sources */,
 				049F79DB1DFE758300F32861 /* BaseViewModel.swift in Sources */,
