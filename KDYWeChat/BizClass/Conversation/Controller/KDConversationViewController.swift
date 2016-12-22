@@ -46,7 +46,6 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     // 断网状态的视图
     lazy var networkFailHeaderView: UIView = {
-        // $0 确实更简洁，但却没自动提示
         let headerView = UIView().then {
             $0.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: self.tableView.width, height: 40))
             $0.backgroundColor = KDYColor.NetworkFailed.color

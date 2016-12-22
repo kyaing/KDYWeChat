@@ -12,7 +12,7 @@ import RxCocoa
 
 // MARK: - ChatBarView
 extension KDChatViewController {
-    
+
     /**
      *  处理各个按钮即语音，表情，扩展及录音按钮的点击交互
      */
@@ -22,62 +22,62 @@ extension KDChatViewController {
         let shareButton: ChatBarButton   = bottomBarView.shareButton    // 扩展按钮
         let recordButton: UIButton       = bottomBarView.recordButton   // 录音按钮
         let inputTextView: UITextView    = bottomBarView.inputTextView  // 文本输入框
-        
+
         // 点击语音按钮
         voiceButton.rx.tap.subscribe { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
-            
+
             // 根据录音按钮是否显示判断键盘的不同状态
             let showRecording = strongSelf.bottomBarView.recordButton.isHidden
             if showRecording {  // 当录音按钮隐藏
                 strongSelf.bottomBarView.showAudioRecording()
                 voiceButton.voiceButtonChangeToKeyboardUI(true)
                 strongSelf.controlExpandableInputView(false)
-                
+
             } else {
                 strongSelf.bottomBarView.showTypingKeyboard()
                 voiceButton.voiceButtonChangeToKeyboardUI(false)
                 strongSelf.controlExpandableInputView(true)
             }
-            
+
         }.addDisposableTo(disposeBag)
-        
+
         // 点击表情按钮
         emotionButton.rx.tap.subscribe { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
-            
+
             // 改变表情按钮UI
             emotionButton.emotionButtonChangeToKeyboardUI(emotionButton.showTypingKeyboard)
-            
+
             if !emotionButton.showTypingKeyboard {
                 strongSelf.bottomBarView.showTypingKeyboard()
-                
+
             } else {
                 strongSelf.bottomBarView.showEmotionKeyboard()
             }
-            
+
             strongSelf.controlExpandableInputView(true)
-            
+
         }.addDisposableTo(disposeBag)
-        
+
         // 点击扩展按钮
         shareButton.rx.tap.subscribe { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.bottomBarView.setupBtnUIStatus()
-            
+
             if !shareButton.showTypingKeyboard {
                 strongSelf.bottomBarView.showTypingKeyboard()
-                
+
             } else {
                 strongSelf.bottomBarView.showShardKeyboard()
             }
-            
+
             strongSelf.controlExpandableInputView(true)
-            
+
         }.addDisposableTo(disposeBag)
-        
+
         // 录音按钮 (添加长按手势)
         var finishRecording: Bool = true
         let longPressGesture = UILongPressGestureRecognizer()
@@ -112,23 +112,21 @@ extension KDChatViewController {
                 }
                 self.recordingView.stopRecording()
                 recordButton.replaceRecordButtonUI(false)
-                
+
             default: break
             }
-            
+
         }).addDisposableTo(disposeBag)
-        
-        
+
         // 点击文本框 (添加点击手势)
         let tapGesture = UITapGestureRecognizer()
         inputTextView.addGestureRecognizer(tapGesture)
-        tapGesture.rx.event.subscribe { (event) in
-            
+        tapGesture.rx.event.subscribe { (_) in
+
             inputTextView.becomeFirstResponder()
             inputTextView.inputView = nil
             inputTextView.reloadInputViews()
-            
+
         }.addDisposableTo(disposeBag)
     }
 }
-
