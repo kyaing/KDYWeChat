@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0419AFFC1E090E9600B583C5 /* UIImage+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */; };
+		042376F61E0BDAF200E84202 /* KDYNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042376F51E0BDAF200E84202 /* KDYNetWorking.swift */; };
 		043538321E07DECA0076F7AE /* MeCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538311E07DECA0076F7AE /* MeCenterViewModel.swift */; };
 		043538341E07DEDB0076F7AE /* MeSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */; };
 		0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */; };
@@ -183,6 +184,7 @@
 
 /* Begin PBXFileReference section */
 		0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Asset.swift"; sourceTree = "<group>"; };
+		042376F51E0BDAF200E84202 /* KDYNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYNetWorking.swift; sourceTree = "<group>"; };
 		043538311E07DECA0076F7AE /* MeCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterViewModel.swift; sourceTree = "<group>"; };
 		043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeSectionViewModel.swift; sourceTree = "<group>"; };
 		043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
@@ -454,6 +456,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		042376F41E0BDAF200E84202 /* KDYNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				042376F51E0BDAF200E84202 /* KDYNetWorking.swift */,
+			);
+			path = KDYNetworking;
 			sourceTree = "<group>";
 		};
 		0435382C1E07C48E0076F7AE /* Model */ = {
@@ -1058,6 +1068,7 @@
 			isa = PBXGroup;
 			children = (
 				049F79801DFE758300F32861 /* HyphenateFullSDK */,
+				042376F41E0BDAF200E84202 /* KDYNetworking */,
 				049F79AA1DFE758300F32861 /* MJRefresh */,
 			);
 			path = Vendor;
@@ -1499,6 +1510,7 @@
 				049F7A111DFE758300F32861 /* MessageViewModel.swift in Sources */,
 				049F7A0C1DFE758300F32861 /* KDConversationViewController.swift in Sources */,
 				049F7A171DFE758300F32861 /* KDMyLiveViewController.swift in Sources */,
+				042376F61E0BDAF200E84202 /* KDYNetWorking.swift in Sources */,
 				049F7A1E1DFE758300F32861 /* AlumbCommentView.swift in Sources */,
 				049F7A4F1DFE758300F32861 /* AppDelegate.swift in Sources */,
 				049F79E41DFE758300F32861 /* KDChatViewController+SendMessage.swift in Sources */,
@@ -1681,7 +1693,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yucheng Zheng (Z22LRE8GN2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1731,7 +1743,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yucheng Zheng (Z22LRE8GN2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1770,6 +1782,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1793,6 +1807,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
