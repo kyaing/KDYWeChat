@@ -76,7 +76,7 @@ final class KDTabBarController: UITabBarController {
             controller.tabBarItem.selectedImage = seletedImageArray[index].withRenderingMode(.alwaysOriginal)
             
             controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightGray], for: UIControlState())
-            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: KDYColor.TabbarSelectedText.color ?? UIColor.white], for: .selected)
+            controller.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: KDYColor.TabbarSelectedText.color], for: .selected)
             
             let navigation = KDNavigationController(rootViewController: controller)
             self.navigationControllers.add(navigation)

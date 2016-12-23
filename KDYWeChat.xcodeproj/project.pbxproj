@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0419AFFC1E090E9600B583C5 /* UIImage+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */; };
-		042376F61E0BDAF200E84202 /* KDYNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042376F51E0BDAF200E84202 /* KDYNetWorking.swift */; };
+		042376F61E0BDAF200E84202 /* KDNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042376F51E0BDAF200E84202 /* KDNetWorking.swift */; };
+		042376FE1E0D27D900E84202 /* KDYWeChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042376FD1E0D27D900E84202 /* KDYWeChatTests.swift */; };
+		0423770C1E0D31CD00E84202 /* KDYWeChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423770B1E0D31CD00E84202 /* KDYWeChatUITests.swift */; };
 		043538321E07DECA0076F7AE /* MeCenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538311E07DECA0076F7AE /* MeCenterViewModel.swift */; };
 		043538341E07DEDB0076F7AE /* MeSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */; };
 		0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */; };
@@ -16,7 +18,6 @@
 		0435383C1E07E17D0076F7AE /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */; };
 		049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A51DFE6E8E00F32861 /* Main.storyboard */; };
 		049F78A91DFE6E8E00F32861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A81DFE6E8E00F32861 /* Assets.xcassets */; };
-		049F78C21DFE6E8E00F32861 /* KDYWeChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */; };
 		049F79D81DFE758300F32861 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D01DFE758300F32861 /* Launch Screen.storyboard */; };
 		049F79D91DFE758300F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D21DFE758300F32861 /* Main.storyboard */; };
 		049F79DA1DFE758300F32861 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D41DFE758300F32861 /* Me.storyboard */; };
@@ -169,11 +170,17 @@
 		049F7A7B1DFE79C200F32861 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */; };
 		049F7A7D1DFE79C900F32861 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A7C1DFE79C900F32861 /* AVFoundation.framework */; };
 		4D0A3428C12E28E1824A26F6 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B138A7FBE87D17ED7E67F29 /* Pods_KDYWeChat.framework */; };
-		74DC5B863B411777E146B68B /* Pods_KDYWeChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3372137218EBADBB982C4553 /* Pods_KDYWeChatUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		049F78BE1DFE6E8E00F32861 /* PBXContainerItemProxy */ = {
+		042377001E0D27D900E84202 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049F78961DFE6E8E00F32861 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 049F789D1DFE6E8E00F32861;
+			remoteInfo = KDYWeChat;
+		};
+		0423770E1E0D31CD00E84202 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 049F78961DFE6E8E00F32861 /* Project object */;
 			proxyType = 1;
@@ -184,7 +191,13 @@
 
 /* Begin PBXFileReference section */
 		0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Asset.swift"; sourceTree = "<group>"; };
-		042376F51E0BDAF200E84202 /* KDYNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDYNetWorking.swift; sourceTree = "<group>"; };
+		042376F51E0BDAF200E84202 /* KDNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetWorking.swift; sourceTree = "<group>"; };
+		042376FB1E0D27D900E84202 /* KDYWeChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDYWeChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		042376FD1E0D27D900E84202 /* KDYWeChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatTests.swift; sourceTree = "<group>"; };
+		042376FF1E0D27D900E84202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042377091E0D31CC00E84202 /* KDYWeChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDYWeChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0423770B1E0D31CD00E84202 /* KDYWeChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatUITests.swift; sourceTree = "<group>"; };
+		0423770D1E0D31CD00E84202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043538311E07DECA0076F7AE /* MeCenterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterViewModel.swift; sourceTree = "<group>"; };
 		043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeSectionViewModel.swift; sourceTree = "<group>"; };
 		043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
@@ -194,7 +207,6 @@
 		049F78A61DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049F78A81DFE6E8E00F32861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049F78AD1DFE6E8E00F32861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		049F78BD1DFE6E8E00F32861 /* KDYWeChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KDYWeChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatUITests.swift; sourceTree = "<group>"; };
 		049F78C31DFE6E8F00F32861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049F78D11DFE758300F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -418,6 +430,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		042376F81E0D27D900E84202 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		042377061E0D31CC00E84202 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		049F789B1DFE6E8E00F32861 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,14 +466,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		049F78BA1DFE6E8E00F32861 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74DC5B863B411777E146B68B /* Pods_KDYWeChatUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -461,9 +479,27 @@
 		042376F41E0BDAF200E84202 /* KDYNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				042376F51E0BDAF200E84202 /* KDYNetWorking.swift */,
+				042376F51E0BDAF200E84202 /* KDNetWorking.swift */,
 			);
 			path = KDYNetworking;
+			sourceTree = "<group>";
+		};
+		042376FC1E0D27D900E84202 /* KDYWeChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				042376FD1E0D27D900E84202 /* KDYWeChatTests.swift */,
+				042376FF1E0D27D900E84202 /* Info.plist */,
+			);
+			path = KDYWeChatTests;
+			sourceTree = "<group>";
+		};
+		0423770A1E0D31CC00E84202 /* KDYWeChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0423770B1E0D31CD00E84202 /* KDYWeChatUITests.swift */,
+				0423770D1E0D31CD00E84202 /* Info.plist */,
+			);
+			path = KDYWeChatUITests;
 			sourceTree = "<group>";
 		};
 		0435382C1E07C48E0076F7AE /* Model */ = {
@@ -486,7 +522,9 @@
 			isa = PBXGroup;
 			children = (
 				049F78A01DFE6E8E00F32861 /* KDYWeChat */,
+				042376FC1E0D27D900E84202 /* KDYWeChatTests */,
 				049F78C01DFE6E8E00F32861 /* KDYWeChatUITests */,
+				0423770A1E0D31CC00E84202 /* KDYWeChatUITests */,
 				049F789F1DFE6E8E00F32861 /* Products */,
 				F263CDCF35E43E7C33D9D437 /* Pods */,
 				084416259D4DDF38DA0816EA /* Frameworks */,
@@ -497,7 +535,8 @@
 			isa = PBXGroup;
 			children = (
 				049F789E1DFE6E8E00F32861 /* KDYWeChat.app */,
-				049F78BD1DFE6E8E00F32861 /* KDYWeChatUITests.xctest */,
+				042376FB1E0D27D900E84202 /* KDYWeChatTests.xctest */,
+				042377091E0D31CC00E84202 /* KDYWeChatUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1268,6 +1307,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		042376FA1E0D27D900E84202 /* KDYWeChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 042377041E0D27D900E84202 /* Build configuration list for PBXNativeTarget "KDYWeChatTests" */;
+			buildPhases = (
+				042376F71E0D27D900E84202 /* Sources */,
+				042376F81E0D27D900E84202 /* Frameworks */,
+				042376F91E0D27D900E84202 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				042377011E0D27D900E84202 /* PBXTargetDependency */,
+			);
+			name = KDYWeChatTests;
+			productName = KDYWeChatTests;
+			productReference = 042376FB1E0D27D900E84202 /* KDYWeChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		042377081E0D31CC00E84202 /* KDYWeChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 042377101E0D31CD00E84202 /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */;
+			buildPhases = (
+				042377051E0D31CC00E84202 /* Sources */,
+				042377061E0D31CC00E84202 /* Frameworks */,
+				042377071E0D31CC00E84202 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0423770F1E0D31CD00E84202 /* PBXTargetDependency */,
+			);
+			name = KDYWeChatUITests;
+			productName = KDYWeChatUITests;
+			productReference = 042377091E0D31CC00E84202 /* KDYWeChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		049F789D1DFE6E8E00F32861 /* KDYWeChat */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 049F78C61DFE6E8F00F32861 /* Build configuration list for PBXNativeTarget "KDYWeChat" */;
@@ -1288,49 +1363,33 @@
 			productReference = 049F789E1DFE6E8E00F32861 /* KDYWeChat.app */;
 			productType = "com.apple.product-type.application";
 		};
-		049F78BC1DFE6E8E00F32861 /* KDYWeChatUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 049F78CC1DFE6E8F00F32861 /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */;
-			buildPhases = (
-				12CA7E61B98561BE04334112 /* [CP] Check Pods Manifest.lock */,
-				049F78B91DFE6E8E00F32861 /* Sources */,
-				049F78BA1DFE6E8E00F32861 /* Frameworks */,
-				049F78BB1DFE6E8E00F32861 /* Resources */,
-				B37655EBB45A27A044973CF2 /* [CP] Embed Pods Frameworks */,
-				F1A91C444045D356A5F00C68 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				049F78BF1DFE6E8E00F32861 /* PBXTargetDependency */,
-			);
-			name = KDYWeChatUITests;
-			productName = KDYWeChatUITests;
-			productReference = 049F78BD1DFE6E8E00F32861 /* KDYWeChatUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		049F78961DFE6E8E00F32861 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = mac;
 				TargetAttributes = {
+					042376FA1E0D27D900E84202 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 36D935N6NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 049F789D1DFE6E8E00F32861;
+					};
+					042377081E0D31CC00E84202 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 36D935N6NX;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 049F789D1DFE6E8E00F32861;
+					};
 					049F789D1DFE6E8E00F32861 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 36D935N6NX;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
-					};
-					049F78BC1DFE6E8E00F32861 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 36D935N6NX;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 049F789D1DFE6E8E00F32861;
 					};
 				};
 			};
@@ -1348,12 +1407,27 @@
 			projectRoot = "";
 			targets = (
 				049F789D1DFE6E8E00F32861 /* KDYWeChat */,
-				049F78BC1DFE6E8E00F32861 /* KDYWeChatUITests */,
+				042376FA1E0D27D900E84202 /* KDYWeChatTests */,
+				042377081E0D31CC00E84202 /* KDYWeChatUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		042376F91E0D27D900E84202 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		042377071E0D31CC00E84202 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		049F789C1DFE6E8E00F32861 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1390,31 +1464,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		049F78BB1DFE6E8E00F32861 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12CA7E61B98561BE04334112 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		1DC5A3003BCF30344D7DF956 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1445,21 +1497,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B37655EBB45A27A044973CF2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChatUITests/Pods-KDYWeChatUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DA41BD9CBC3FE18854CA384D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1475,24 +1512,25 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F1A91C444045D356A5F00C68 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChatUITests/Pods-KDYWeChatUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		042376F71E0D27D900E84202 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				042376FE1E0D27D900E84202 /* KDYWeChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		042377051E0D31CC00E84202 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0423770C1E0D31CD00E84202 /* KDYWeChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		049F789A1DFE6E8E00F32861 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1510,7 +1548,7 @@
 				049F7A111DFE758300F32861 /* MessageViewModel.swift in Sources */,
 				049F7A0C1DFE758300F32861 /* KDConversationViewController.swift in Sources */,
 				049F7A171DFE758300F32861 /* KDMyLiveViewController.swift in Sources */,
-				042376F61E0BDAF200E84202 /* KDYNetWorking.swift in Sources */,
+				042376F61E0BDAF200E84202 /* KDNetWorking.swift in Sources */,
 				049F7A1E1DFE758300F32861 /* AlumbCommentView.swift in Sources */,
 				049F7A4F1DFE758300F32861 /* AppDelegate.swift in Sources */,
 				049F79E41DFE758300F32861 /* KDChatViewController+SendMessage.swift in Sources */,
@@ -1617,21 +1655,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		049F78B91DFE6E8E00F32861 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				049F78C21DFE6E8E00F32861 /* KDYWeChatUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		049F78BF1DFE6E8E00F32861 /* PBXTargetDependency */ = {
+		042377011E0D27D900E84202 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 049F789D1DFE6E8E00F32861 /* KDYWeChat */;
-			targetProxy = 049F78BE1DFE6E8E00F32861 /* PBXContainerItemProxy */;
+			targetProxy = 042377001E0D27D900E84202 /* PBXContainerItemProxy */;
+		};
+		0423770F1E0D31CD00E84202 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 049F789D1DFE6E8E00F32861 /* KDYWeChat */;
+			targetProxy = 0423770E1E0D31CD00E84202 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1671,6 +1706,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		042377021E0D27D900E84202 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 36D935N6NX;
+				INFOPLIST_FILE = KDYWeChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
+			};
+			name = Debug;
+		};
+		042377031E0D27D900E84202 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 36D935N6NX;
+				INFOPLIST_FILE = KDYWeChatTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KDYWeChat.app/KDYWeChat";
+			};
+			name = Release;
+		};
+		042377111E0D31CD00E84202 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 36D935N6NX;
+				INFOPLIST_FILE = KDYWeChatUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KDYWeChat;
+			};
+			name = Debug;
+		};
+		042377121E0D31CD00E84202 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 36D935N6NX;
+				INFOPLIST_FILE = KDYWeChatUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = KDYWeChat;
+			};
+			name = Release;
+		};
 		049F78C41DFE6E8F00F32861 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1814,39 +1911,25 @@
 			};
 			name = Release;
 		};
-		049F78CD1DFE6E8F00F32861 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE2CC486B464D0AECE363702 /* Pods-KDYWeChatUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 36D935N6NX;
-				INFOPLIST_FILE = KDYWeChatUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = KDYWeChat;
-			};
-			name = Debug;
-		};
-		049F78CE1DFE6E8F00F32861 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF4F1DA73D6578B2F3B2EA53 /* Pods-KDYWeChatUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 36D935N6NX;
-				INFOPLIST_FILE = KDYWeChatUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = KDYWeChat;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		042377041E0D27D900E84202 /* Build configuration list for PBXNativeTarget "KDYWeChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				042377021E0D27D900E84202 /* Debug */,
+				042377031E0D27D900E84202 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		042377101E0D31CD00E84202 /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				042377111E0D31CD00E84202 /* Debug */,
+				042377121E0D31CD00E84202 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		049F78991DFE6E8E00F32861 /* Build configuration list for PBXProject "KDYWeChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1861,15 +1944,6 @@
 			buildConfigurations = (
 				049F78C71DFE6E8F00F32861 /* Debug */,
 				049F78C81DFE6E8F00F32861 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		049F78CC1DFE6E8F00F32861 /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				049F78CD1DFE6E8F00F32861 /* Debug */,
-				049F78CE1DFE6E8F00F32861 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

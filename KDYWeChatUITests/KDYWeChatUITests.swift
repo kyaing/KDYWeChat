@@ -2,7 +2,7 @@
 //  KDYWeChatUITests.swift
 //  KDYWeChatUITests
 //
-//  Created by mac on 16/12/12.
+//  Created by mac on 16/12/23.
 //  Copyright © 2016年 mac. All rights reserved.
 //
 

@@ -201,7 +201,7 @@ extension KDChatViewController: ChatBarViewDelegate {
         let currentTextHeight = self.bottomBarView.inputTextViewCurrentHeight
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let textHeight = showExpandable ? currentTextHeight : kBarViewHeight
-            self.bottomBarView.snp_updateConstraints { (make) -> Void in
+            self.bottomBarView.snp.updateConstraints { (make) -> Void in
                 make.height.equalTo(textHeight)
             }
             
