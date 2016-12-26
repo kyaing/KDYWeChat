@@ -16,6 +16,8 @@
 		0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */; };
 		0435383B1E07E17D0076F7AE /* MeCenterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538381E07E17D0076F7AE /* MeCenterTableCell.swift */; };
 		0435383C1E07E17D0076F7AE /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */; };
+		04681EC81E1111190085136F /* MoyaNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681EC71E1111190085136F /* MoyaNetwork.swift */; };
+		04681ECA1E1124DE0085136F /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681EC91E1124DE0085136F /* FilmModel.swift */; };
 		049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A51DFE6E8E00F32861 /* Main.storyboard */; };
 		049F78A91DFE6E8E00F32861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A81DFE6E8E00F32861 /* Assets.xcassets */; };
 		049F79D81DFE758300F32861 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D01DFE758300F32861 /* Launch Screen.storyboard */; };
@@ -205,6 +207,8 @@
 		043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
 		043538381E07E17D0076F7AE /* MeCenterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterTableCell.swift; sourceTree = "<group>"; };
 		043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHeaderTableCell.swift; sourceTree = "<group>"; };
+		04681EC71E1111190085136F /* MoyaNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaNetwork.swift; sourceTree = "<group>"; };
+		04681EC91E1124DE0085136F /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		049F789E1DFE6E8E00F32861 /* KDYWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDYWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049F78A61DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049F78A81DFE6E8E00F32861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -524,6 +528,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		04681EC61E1111190085136F /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				04681EC71E1111190085136F /* MoyaNetwork.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
 		049F78951DFE6E8E00F32861 = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +783,7 @@
 			children = (
 				049F79191DFE758300F32861 /* MessageDBModel.swift */,
 				049F791A1DFE758300F32861 /* MessageModel.swift */,
+				04681EC91E1124DE0085136F /* FilmModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1112,6 +1125,7 @@
 		049F797F1DFE758300F32861 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				04681EC61E1111190085136F /* APIService */,
 				049F79801DFE758300F32861 /* HyphenateFullSDK */,
 				042376F41E0BDAF200E84202 /* KDYNetworking */,
 				049F79AA1DFE758300F32861 /* MJRefresh */,
@@ -1546,6 +1560,7 @@
 				049F7A161DFE758300F32861 /* KDQRCodeViewController.swift in Sources */,
 				049F7A3C1DFE758300F32861 /* NSNotificationCenter+Block.swift in Sources */,
 				049F7A3D1DFE758300F32861 /* NSString+Validate.swift in Sources */,
+				04681EC81E1111190085136F /* MoyaNetwork.swift in Sources */,
 				049F79FA1DFE758300F32861 /* ChatRedEnvelopeCell.swift in Sources */,
 				049F7A481DFE758300F32861 /* UserInfoManager.swift in Sources */,
 				043538321E07DECA0076F7AE /* MeCenterViewModel.swift in Sources */,
@@ -1587,6 +1602,7 @@
 				049F7A441DFE758300F32861 /* UIViewController+Extension.swift in Sources */,
 				049F7A341DFE758300F32861 /* TSChatEmojiDictionary.swift in Sources */,
 				049F7A4B1DFE758300F32861 /* Macro.swift in Sources */,
+				04681ECA1E1124DE0085136F /* FilmModel.swift in Sources */,
 				049F7A5B1DFE758400F32861 /* MJRefreshBackStateFooter.m in Sources */,
 				049F7A0B1DFE758300F32861 /* KDConversationViewController+Delegate.swift in Sources */,
 				049F7A091DFE758300F32861 /* ContactsTableCell.swift in Sources */,
