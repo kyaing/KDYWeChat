@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import RxSwift
 import RxDataSources
+import SwiftyJSON
+import ObjectMapper
 import Then
 
 /// 会话界面
@@ -93,10 +95,16 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         networkIsConnected()
         registerChatDelegate()
 
-        let url = "http://v.juhe.cn/weixin/query?key=2a76a7edea9c5e3e525a9be59d412ea9"
-        KDNetWorking.share.request(type: .Get, urlString: url, parameter: nil) { response, _ in
+        // Moya请求网络
+        MoyaNetwork.share.reqeustWithTarget(target: .GetRank(area: "CN"), success: { response in
             print("response = \(response)")
-        }
+
+            let list = Mapper<FilmModel>().mapArray(JSONArray: response?["result"] as! [[String : Any]])
+            print("Moya = \(list?[0].name, list?[0].wboxoffice, list?[0].tboxoffice)")
+
+        }, failure: { error in
+            print("error = \(error?.description)")
+        })
     }
 
     override func viewDidDisappear(_ animated: Bool) {
