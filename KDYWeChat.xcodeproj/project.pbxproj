@@ -169,6 +169,8 @@
 		049F7A791DFE79B400F32861 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A781DFE79B400F32861 /* ImageIO.framework */; };
 		049F7A7B1DFE79C200F32861 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */; };
 		049F7A7D1DFE79C900F32861 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A7C1DFE79C900F32861 /* AVFoundation.framework */; };
+		18244CCA1E0D5582001C8E02 /* KDNetworkingConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */; };
+		18244CCC1E0D6114001C8E02 /* KDNetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */; };
 		4D0A3428C12E28E1824A26F6 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B138A7FBE87D17ED7E67F29 /* Pods_KDYWeChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -419,6 +421,8 @@
 		049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		049F7A7C1DFE79C900F32861 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		14E22E969DA03B1107337C5A /* Pods-KDYWeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChatTests/Pods-KDYWeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetworkingConfig.swift; sourceTree = "<group>"; };
+		18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetworkingRequest.swift; sourceTree = "<group>"; };
 		3372137218EBADBB982C4553 /* Pods_KDYWeChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KDYWeChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		389F543EC7973B82E5BA05AF /* Pods-KDYWeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat.debug.xcconfig"; sourceTree = "<group>"; };
 		3C6AC29F4BD3600775600650 /* Pods_KDYWeChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KDYWeChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -480,6 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				042376F51E0BDAF200E84202 /* KDNetWorking.swift */,
+				18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */,
+				18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */,
 			);
 			path = KDYNetworking;
 			sourceTree = "<group>";
@@ -1389,7 +1395,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 36D935N6NX;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -1535,6 +1541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18244CCA1E0D5582001C8E02 /* KDNetworkingConfig.swift in Sources */,
 				049F7A301DFE758300F32861 /* PlayMediaManger.swift in Sources */,
 				049F7A161DFE758300F32861 /* KDQRCodeViewController.swift in Sources */,
 				049F7A3C1DFE758300F32861 /* NSNotificationCenter+Block.swift in Sources */,
@@ -1635,6 +1642,7 @@
 				049F7A621DFE758400F32861 /* UIScrollView+MJRefresh.m in Sources */,
 				049F7A581DFE758400F32861 /* MJRefreshAutoStateFooter.m in Sources */,
 				049F7A381DFE758300F32861 /* RealmHelper.swift in Sources */,
+				18244CCC1E0D6114001C8E02 /* KDNetworkingRequest.swift in Sources */,
 				049F7A4A1DFE758300F32861 /* MBProgressHUD+Loading.swift in Sources */,
 				049F79F41DFE758300F32861 /* ChatBaseTableCell.swift in Sources */,
 				049F7A151DFE758300F32861 /* KDDiscoveryViewController.swift in Sources */,
@@ -1879,8 +1887,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "918c87bf-64b6-439d-ad84-32e6a6ac2bdd";
+				PROVISIONING_PROFILE_SPECIFIER = chat_develop;
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1904,8 +1912,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "918c87bf-64b6-439d-ad84-32e6a6ac2bdd";
+				PROVISIONING_PROFILE_SPECIFIER = chat_develop;
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1921,6 +1929,7 @@
 				042377031E0D27D900E84202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		042377101E0D31CD00E84202 /* Build configuration list for PBXNativeTarget "KDYWeChatUITests" */ = {
 			isa = XCConfigurationList;
@@ -1929,6 +1938,7 @@
 				042377121E0D31CD00E84202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		049F78991DFE6E8E00F32861 /* Build configuration list for PBXProject "KDYWeChat" */ = {
 			isa = XCConfigurationList;

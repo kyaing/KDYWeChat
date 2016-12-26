@@ -11,6 +11,7 @@ import RealmSwift
 import RxSwift
 import RxDataSources
 import Then
+import Moya
 
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
@@ -93,9 +94,11 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         networkIsConnected()
         registerChatDelegate()
 
-        let url = "http://v.juhe.cn/weixin/query?key=2a76a7edea9c5e3e525a9be59d412ea9"
-        KDNetWorking.share.request(type: .Get, urlString: url, parameter: nil) { response, _ in
-            print("response = \(response)")
+        // let url = "http://v.juhe.cn/weixin/query?key=2a76a7edea9c5e3e525a9be59d412ea9"
+        KDNetWorking.share.sendRequest({ request in
+            
+        }) { responseObject in
+            
         }
     }
 
