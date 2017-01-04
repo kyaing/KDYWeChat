@@ -9,8 +9,10 @@
 import Foundation
 import Photos
 import BSImagePicker
+import Proposer
 
 extension UIViewController {
+    
     /**
      *  封装BSImagePicker 图片选择器
      */
@@ -20,15 +22,17 @@ extension UIViewController {
                                          cancel: (([PHAsset]) -> Void)?,
                                          finish: (([PHAsset]) -> Void)?,
                                          completion: (() -> Void)?) {
-        
+
         let imagePicker = BSImagePickerViewController()
         imagePicker.maxNumberOfSelections = maxNumberOfSelections
         
-        self.bs_presentImagePickerController(imagePicker, animated: true, select: select, deselect: deselect, cancel: cancel, finish: finish, completion: {
-            if let newCompletion = completion {
-                newCompletion()
-            }
-        })
+        proposerChoosePhotos() {
+            self.bs_presentImagePickerController(imagePicker, animated: true, select: select, deselect: deselect, cancel: cancel, finish: finish, completion: {
+                if let newCompletion = completion {
+                    newCompletion()
+                }
+            })
+        }
     }
 }
 

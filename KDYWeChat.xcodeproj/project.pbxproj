@@ -134,7 +134,6 @@
 		049F7A491DFE758300F32861 /* LoadingHUDShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79751DFE758300F32861 /* LoadingHUDShow.swift */; };
 		049F7A4A1DFE758300F32861 /* MBProgressHUD+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79761DFE758300F32861 /* MBProgressHUD+Loading.swift */; };
 		049F7A4B1DFE758300F32861 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79781DFE758300F32861 /* Macro.swift */; };
-		049F7A4C1DFE758300F32861 /* AuthorityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F797A1DFE758300F32861 /* AuthorityManager.swift */; };
 		049F7A4D1DFE758300F32861 /* AppDelegate+EaseSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F797C1DFE758300F32861 /* AppDelegate+EaseSDK.swift */; };
 		049F7A4E1DFE758300F32861 /* AppDelegate+LeanCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F797D1DFE758300F32861 /* AppDelegate+LeanCloud.swift */; };
 		049F7A4F1DFE758300F32861 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F797E1DFE758300F32861 /* AppDelegate.swift */; };
@@ -329,7 +328,6 @@
 		049F79751DFE758300F32861 /* LoadingHUDShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingHUDShow.swift; sourceTree = "<group>"; };
 		049F79761DFE758300F32861 /* MBProgressHUD+Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Loading.swift"; sourceTree = "<group>"; };
 		049F79781DFE758300F32861 /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
-		049F797A1DFE758300F32861 /* AuthorityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorityManager.swift; sourceTree = "<group>"; };
 		049F797C1DFE758300F32861 /* AppDelegate+EaseSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+EaseSDK.swift"; sourceTree = "<group>"; };
 		049F797D1DFE758300F32861 /* AppDelegate+LeanCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeanCloud.swift"; sourceTree = "<group>"; };
 		049F797E1DFE758300F32861 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -980,7 +978,6 @@
 				049F79721DFE758300F32861 /* LeanClound */,
 				049F79741DFE758300F32861 /* Loading */,
 				049F79771DFE758300F32861 /* Macro */,
-				049F79791DFE758300F32861 /* permission */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1057,13 +1054,13 @@
 		049F79661DFE758300F32861 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				049F796C1DFE758300F32861 /* UIView+Frame.swift */,
 				0419AFFB1E090E9600B583C5 /* UIImage+Asset.swift */,
 				049F79671DFE758300F32861 /* UIColor+Extension.swift */,
 				049F79681DFE758300F32861 /* UIImage+Extension.swift */,
 				049F79691DFE758300F32861 /* UIScreen+Frame.swift */,
 				049F796A1DFE758300F32861 /* UIScrollView+ChatAdditions.swift */,
 				049F796B1DFE758300F32861 /* UITableView+ChatAdditions.swift */,
-				049F796C1DFE758300F32861 /* UIView+Frame.swift */,
 				049F796D1DFE758300F32861 /* UIViewController+Extension.swift */,
 				049F796E1DFE758300F32861 /* UIViewController+Proposer.swift */,
 			);
@@ -1102,14 +1099,6 @@
 				049F79781DFE758300F32861 /* Macro.swift */,
 			);
 			path = Macro;
-			sourceTree = "<group>";
-		};
-		049F79791DFE758300F32861 /* permission */ = {
-			isa = PBXGroup;
-			children = (
-				049F797A1DFE758300F32861 /* AuthorityManager.swift */,
-			);
-			path = permission;
 			sourceTree = "<group>";
 		};
 		049F797B1DFE758300F32861 /* Main */ = {
@@ -1409,7 +1398,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 36D935N6NX;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1616,7 +1605,6 @@
 				049F7A421DFE758300F32861 /* UITableView+ChatAdditions.swift in Sources */,
 				049F7A371DFE758300F32861 /* FMSQLite.swift in Sources */,
 				049F7A601DFE758400F32861 /* MJRefreshConst.m in Sources */,
-				049F7A4C1DFE758300F32861 /* AuthorityManager.swift in Sources */,
 				049F7A3F1DFE758300F32861 /* UIImage+Extension.swift in Sources */,
 				049F79F01DFE758300F32861 /* ChatShareMoreView.swift in Sources */,
 				049F7A1C1DFE758300F32861 /* AlumbTableViewCell.swift in Sources */,
@@ -1893,7 +1881,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 36D935N6NX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KDYWeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1903,8 +1891,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "918c87bf-64b6-439d-ad84-32e6a6ac2bdd";
-				PROVISIONING_PROFILE_SPECIFIER = chat_develop;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1918,7 +1906,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 36D935N6NX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = KDYWeChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1928,8 +1916,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kaideyi.wechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "918c87bf-64b6-439d-ad84-32e6a6ac2bdd";
-				PROVISIONING_PROFILE_SPECIFIER = chat_develop;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KDYWeChat/KDYWeChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

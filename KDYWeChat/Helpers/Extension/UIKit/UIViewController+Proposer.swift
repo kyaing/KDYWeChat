@@ -10,7 +10,7 @@ import Foundation
 import Proposer
 
 extension PrivateResource {
-    
+
     var proposeMessage: String {
         switch self {
         case .photos:
@@ -30,7 +30,7 @@ extension PrivateResource {
         default: return ""
         }
     }
-    
+
     var noPermissionMessage: String {
         switch self {
         case .photos:
@@ -53,42 +53,61 @@ extension PrivateResource {
 }
 
 extension UIViewController {
-    
+
     fileprivate func showDialogWithTitle(_ title: String, message: String, cancelTitle: String, confirmTitle: String, withCancelAction cancelAction : (() -> Void)?, confirmAction: (() -> Void)?) {
-        
+
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
+
             let cancelAction: UIAlertAction = UIAlertAction(title: cancelTitle, style: .cancel) { _ in
                 cancelAction?()
             }
             alertController.addAction(cancelAction)
-            
+
             let confirmAction: UIAlertAction = UIAlertAction(title: confirmTitle, style: .default) { _ in
                 confirmAction?()
             }
             alertController.addAction(confirmAction)
-            
+
             self.present(alertController, animated: true, completion: nil)
         }
-    
+
     func showProposeMessageIfNeedFor(_ resource: PrivateResource, andTryPropose propose: @escaping Propose) {
-        
+
         if resource.isNotDeterminedAuthorization {
             showDialogWithTitle(NSLocalizedString("Notice", comment: ""), message: resource.proposeMessage, cancelTitle: NSLocalizedString("Not now", comment: ""), confirmTitle: NSLocalizedString("OK", comment: ""), withCancelAction: nil, confirmAction: {
                 propose()
             })
-            
+
         } else {
             propose()
         }
     }
-    
+
     func alertNoPermissionToAccess(_ resource: PrivateResource) {
-        
-        showDialogWithTitle(NSLocalizedString("Sorry", comment: ""), message: resource.noPermissionMessage, cancelTitle: NSLocalizedString("Dismiss", comment: ""), confirmTitle: NSLocalizedString("Change it now", comment: ""), withCancelAction: nil, confirmAction: {
+
+        showDialogWithTitle(NSLocalizedString("Sorry", comment: ""), message: resource.noPermissionMessage, cancelTitle: NSLocalizedString("忽略", comment: ""), confirmTitle: NSLocalizedString("去设置", comment: ""), withCancelAction: nil, confirmAction: {
             UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
         })
     }
 }
 
+extension UIViewController {
+    
+    typealias sucessClouse = () -> Void
+    
+    func proposerChoosePhotos(_ sucess: @escaping sucessClouse) {
+        let photos: PrivateResource = .photos
+        
+        let propose: Propose = {
+            proposeToAccess(photos, agreed: {
+                print("I can access Photos. \n")
+                sucess()
+                
+            }, rejected: {
+                self.alertNoPermissionToAccess(photos)
+            })
+        }
+        showProposeMessageIfNeedFor(photos, andTryPropose: propose)
+    }
+}
 

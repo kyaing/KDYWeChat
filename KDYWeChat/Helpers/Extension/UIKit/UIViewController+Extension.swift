@@ -54,7 +54,7 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    // Noti
+    // Notification
     public func postNotificationName(_ name: String) {
         postNotificationName(name, object: nil)
     }

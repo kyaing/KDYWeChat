@@ -83,10 +83,9 @@ class MoyaNetwork {
                         success(json as AnyObject?)
                     }
                 }
-        
+
             case let .failure(error): failure(error as NSError?)
             }
         }
     }
 }
-
