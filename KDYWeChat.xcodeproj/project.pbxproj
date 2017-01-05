@@ -16,6 +16,7 @@
 		0435383A1E07E17D0076F7AE /* MeHeaderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */; };
 		0435383B1E07E17D0076F7AE /* MeCenterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538381E07E17D0076F7AE /* MeCenterTableCell.swift */; };
 		0435383C1E07E17D0076F7AE /* MeHeaderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */; };
+		043B9DC91E1E173500AE95D0 /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9DC81E1E173500AE95D0 /* UIViewController+Proposer.swift */; };
 		04681EC81E1111190085136F /* MoyaNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681EC71E1111190085136F /* MoyaNetwork.swift */; };
 		04681ECA1E1124DE0085136F /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681EC91E1124DE0085136F /* FilmModel.swift */; };
 		049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A51DFE6E8E00F32861 /* Main.storyboard */; };
@@ -127,7 +128,6 @@
 		049F7A421DFE758300F32861 /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F796B1DFE758300F32861 /* UITableView+ChatAdditions.swift */; };
 		049F7A431DFE758300F32861 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F796C1DFE758300F32861 /* UIView+Frame.swift */; };
 		049F7A441DFE758300F32861 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F796D1DFE758300F32861 /* UIViewController+Extension.swift */; };
-		049F7A451DFE758300F32861 /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F796E1DFE758300F32861 /* UIViewController+Proposer.swift */; };
 		049F7A461DFE758300F32861 /* BSImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79701DFE758300F32861 /* BSImagePicker.swift */; };
 		049F7A471DFE758300F32861 /* PHAssets+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79711DFE758300F32861 /* PHAssets+UIImage.swift */; };
 		049F7A481DFE758300F32861 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049F79731DFE758300F32861 /* UserInfoManager.swift */; };
@@ -206,6 +206,35 @@
 		043538371E07E17D0076F7AE /* MeHeaderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeHeaderTableCell.xib; sourceTree = "<group>"; };
 		043538381E07E17D0076F7AE /* MeCenterTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeCenterTableCell.swift; sourceTree = "<group>"; };
 		043538391E07E17D0076F7AE /* MeHeaderTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHeaderTableCell.swift; sourceTree = "<group>"; };
+		043B9DC81E1E173500AE95D0 /* UIViewController+Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Proposer.swift"; sourceTree = "<group>"; };
+		043B9DCA1E1E418200AE95D0 /* Proposer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Proposer.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Proposer/Proposer.framework"; sourceTree = "<group>"; };
+		043B9DCC1E1E41FD00AE95D0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		043B9DCD1E1E41FD00AE95D0 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/APIKit/APIKit.framework"; sourceTree = "<group>"; };
+		043B9DCE1E1E41FD00AE95D0 /* BSGridCollectionViewLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSGridCollectionViewLayout.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework"; sourceTree = "<group>"; };
+		043B9DCF1E1E41FD00AE95D0 /* BSImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BSImagePicker.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/BSImagePicker/BSImagePicker.framework"; sourceTree = "<group>"; };
+		043B9DD01E1E41FD00AE95D0 /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/EZSwiftExtensions/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
+		043B9DD11E1E41FD00AE95D0 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/FMDB/FMDB.framework"; sourceTree = "<group>"; };
+		043B9DD21E1E41FD00AE95D0 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
+		043B9DD31E1E41FD00AE95D0 /* KVOController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOController.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/KVOController/KVOController.framework"; sourceTree = "<group>"; };
+		043B9DD41E1E41FD00AE95D0 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/MBProgressHUD/MBProgressHUD.framework"; sourceTree = "<group>"; };
+		043B9DD51E1E41FD00AE95D0 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Moya/Moya.framework"; sourceTree = "<group>"; };
+		043B9DD61E1E41FD00AE95D0 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework"; sourceTree = "<group>"; };
+		043B9DD71E1E41FD00AE95D0 /* PermissionScope.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PermissionScope.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/PermissionScope/PermissionScope.framework"; sourceTree = "<group>"; };
+		043B9DD81E1E41FD00AE95D0 /* Pods_KDYWeChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KDYWeChat.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Pods_KDYWeChat.framework"; sourceTree = "<group>"; };
+		043B9DD91E1E41FD00AE95D0 /* Pods_KDYWeChatUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KDYWeChatUITests.framework; path = "Pods/../build/Debug-iphoneos/Pods_KDYWeChatUITests.framework"; sourceTree = "<group>"; };
+		043B9DDA1E1E41FD00AE95D0 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Realm/Realm.framework"; sourceTree = "<group>"; };
+		043B9DDB1E1E41FD00AE95D0 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
+		043B9DDC1E1E41FD00AE95D0 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Result/Result.framework"; sourceTree = "<group>"; };
+		043B9DDD1E1E41FD00AE95D0 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Reusable/Reusable.framework"; sourceTree = "<group>"; };
+		043B9DDE1E1E41FD00AE95D0 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/RxCocoa/RxCocoa.framework"; sourceTree = "<group>"; };
+		043B9DDF1E1E41FD00AE95D0 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/RxDataSources/RxDataSources.framework"; sourceTree = "<group>"; };
+		043B9DE01E1E41FD00AE95D0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/RxSwift/RxSwift.framework"; sourceTree = "<group>"; };
+		043B9DE11E1E41FD00AE95D0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		043B9DE21E1E41FD00AE95D0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		043B9DE31E1E41FD00AE95D0 /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Then/Then.framework"; sourceTree = "<group>"; };
+		043B9DE41E1E41FD00AE95D0 /* UIImageViewModeScaleAspect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIImageViewModeScaleAspect.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework"; sourceTree = "<group>"; };
+		043B9DE51E1E41FD00AE95D0 /* Validator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Validator.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/Validator/Validator.framework"; sourceTree = "<group>"; };
+		043B9DE61E1E41FD00AE95D0 /* YYText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYText.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/YYText/YYText.framework"; sourceTree = "<group>"; };
 		04681EC71E1111190085136F /* MoyaNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaNetwork.swift; sourceTree = "<group>"; };
 		04681EC91E1124DE0085136F /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		049F789E1DFE6E8E00F32861 /* KDYWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDYWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,7 +350,6 @@
 		049F796B1DFE758300F32861 /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		049F796C1DFE758300F32861 /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		049F796D1DFE758300F32861 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		049F796E1DFE758300F32861 /* UIViewController+Proposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Proposer.swift"; sourceTree = "<group>"; };
 		049F79701DFE758300F32861 /* BSImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSImagePicker.swift; sourceTree = "<group>"; };
 		049F79711DFE758300F32861 /* PHAssets+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAssets+UIImage.swift"; sourceTree = "<group>"; };
 		049F79731DFE758300F32861 /* UserInfoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
@@ -524,6 +552,14 @@
 				043538331E07DEDB0076F7AE /* MeSectionViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		043B9DC71E1E173500AE95D0 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				043B9DC81E1E173500AE95D0 /* UIViewController+Proposer.swift */,
+			);
+			path = Permission;
 			sourceTree = "<group>";
 		};
 		04681EC61E1111190085136F /* APIService */ = {
@@ -1062,7 +1098,6 @@
 				049F796A1DFE758300F32861 /* UIScrollView+ChatAdditions.swift */,
 				049F796B1DFE758300F32861 /* UITableView+ChatAdditions.swift */,
 				049F796D1DFE758300F32861 /* UIViewController+Extension.swift */,
-				049F796E1DFE758300F32861 /* UIViewController+Proposer.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1118,6 +1153,7 @@
 				049F79801DFE758300F32861 /* HyphenateFullSDK */,
 				042376F41E0BDAF200E84202 /* KDYNetworking */,
 				049F79AA1DFE758300F32861 /* MJRefresh */,
+				043B9DC71E1E173500AE95D0 /* Permission */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1280,6 +1316,34 @@
 		084416259D4DDF38DA0816EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				043B9DCC1E1E41FD00AE95D0 /* Alamofire.framework */,
+				043B9DCD1E1E41FD00AE95D0 /* APIKit.framework */,
+				043B9DCE1E1E41FD00AE95D0 /* BSGridCollectionViewLayout.framework */,
+				043B9DCF1E1E41FD00AE95D0 /* BSImagePicker.framework */,
+				043B9DD01E1E41FD00AE95D0 /* EZSwiftExtensions.framework */,
+				043B9DD11E1E41FD00AE95D0 /* FMDB.framework */,
+				043B9DD21E1E41FD00AE95D0 /* Kingfisher.framework */,
+				043B9DD31E1E41FD00AE95D0 /* KVOController.framework */,
+				043B9DD41E1E41FD00AE95D0 /* MBProgressHUD.framework */,
+				043B9DD51E1E41FD00AE95D0 /* Moya.framework */,
+				043B9DD61E1E41FD00AE95D0 /* ObjectMapper.framework */,
+				043B9DD71E1E41FD00AE95D0 /* PermissionScope.framework */,
+				043B9DD81E1E41FD00AE95D0 /* Pods_KDYWeChat.framework */,
+				043B9DD91E1E41FD00AE95D0 /* Pods_KDYWeChatUITests.framework */,
+				043B9DDA1E1E41FD00AE95D0 /* Realm.framework */,
+				043B9DDB1E1E41FD00AE95D0 /* RealmSwift.framework */,
+				043B9DDC1E1E41FD00AE95D0 /* Result.framework */,
+				043B9DDD1E1E41FD00AE95D0 /* Reusable.framework */,
+				043B9DDE1E1E41FD00AE95D0 /* RxCocoa.framework */,
+				043B9DDF1E1E41FD00AE95D0 /* RxDataSources.framework */,
+				043B9DE01E1E41FD00AE95D0 /* RxSwift.framework */,
+				043B9DE11E1E41FD00AE95D0 /* SnapKit.framework */,
+				043B9DE21E1E41FD00AE95D0 /* SwiftyJSON.framework */,
+				043B9DE31E1E41FD00AE95D0 /* Then.framework */,
+				043B9DE41E1E41FD00AE95D0 /* UIImageViewModeScaleAspect.framework */,
+				043B9DE51E1E41FD00AE95D0 /* Validator.framework */,
+				043B9DE61E1E41FD00AE95D0 /* YYText.framework */,
+				043B9DCA1E1E418200AE95D0 /* Proposer.framework */,
 				049F7A7C1DFE79C900F32861 /* AVFoundation.framework */,
 				049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */,
 				049F7A781DFE79B400F32861 /* ImageIO.framework */,
@@ -1564,6 +1628,7 @@
 				049F7A4F1DFE758300F32861 /* AppDelegate.swift in Sources */,
 				049F79E41DFE758300F32861 /* KDChatViewController+SendMessage.swift in Sources */,
 				049F79E51DFE758300F32861 /* KDChatViewController+SubViews.swift in Sources */,
+				043B9DC91E1E173500AE95D0 /* UIViewController+Proposer.swift in Sources */,
 				049F7A271DFE758300F32861 /* KDEditInfoViewController.swift in Sources */,
 				0419AFFC1E090E9600B583C5 /* UIImage+Asset.swift in Sources */,
 				049F7A4D1DFE758300F32861 /* AppDelegate+EaseSDK.swift in Sources */,
@@ -1574,7 +1639,6 @@
 				049F7A391DFE758300F32861 /* EaseSDKHelper.swift in Sources */,
 				049F7A351DFE758300F32861 /* TSChatTextParser.swift in Sources */,
 				049F79E81DFE758300F32861 /* ChatBarButton+UI.swift in Sources */,
-				049F7A451DFE758300F32861 /* UIViewController+Proposer.swift in Sources */,
 				049F7A231DFE758300F32861 /* KDRegisterViewController.swift in Sources */,
 				049F7A251DFE758300F32861 /* LoginViewModel.swift in Sources */,
 				049F79DE1DFE758300F32861 /* KDChatLocationViewController.swift in Sources */,
@@ -1724,9 +1788,19 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AVOSCloudDynamic\"",
+				);
 				INFOPLIST_FILE = KDYWeChatTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -1740,9 +1814,19 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 36D935N6NX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AVOSCloudDynamic\"",
+				);
 				INFOPLIST_FILE = KDYWeChatTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = kaideyi.com.KDYWeChatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

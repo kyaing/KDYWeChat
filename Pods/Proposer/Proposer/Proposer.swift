@@ -135,7 +135,7 @@ private func proposeToAccessContacts(agreed successAction: @escaping ProposerAct
         case .authorized:
             successAction()
         case .notDetermined:
-            CNContactStore().requestAccess(for: .contacts) { granted, error in
+            CNContactStore().requestAccess(for: .contacts) { granted, _ in
                 DispatchQueue.main.async {
                     if granted {
                         successAction()
@@ -153,7 +153,7 @@ private func proposeToAccessContacts(agreed successAction: @escaping ProposerAct
             successAction()
         case .notDetermined:
             if let addressBook: ABAddressBook = ABAddressBookCreateWithOptions(nil, nil)?.takeRetainedValue() {
-                ABAddressBookRequestAccessWithCompletion(addressBook) { granted, error in
+                ABAddressBookRequestAccessWithCompletion(addressBook) { granted, _ in
                     DispatchQueue.main.async {
                         if granted {
                             successAction()
@@ -174,7 +174,7 @@ private func proposeToAccessEventForEntityType(_ entityYype: EKEntityType, agree
     case .authorized:
         successAction()
     case .notDetermined:
-        EKEventStore().requestAccess(to: entityYype) { granted, error in
+        EKEventStore().requestAccess(to: entityYype) { granted, _ in
             DispatchQueue.main.async {
                 if granted {
                     successAction()
@@ -328,4 +328,3 @@ private class NotificationMan: NSObject {
         }
     }
 }
-

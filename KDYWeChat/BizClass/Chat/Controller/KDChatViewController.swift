@@ -130,6 +130,7 @@ final class KDChatViewController: UIViewController {
 
         // 加载下拉刷新
         setupRefreshControl()
+        tableViewHeaderRefreshDatas()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -160,8 +161,6 @@ final class KDChatViewController: UIViewController {
         self.chatTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.tableViewHeaderRefreshDatas()
         })
-
-        self.chatTableView.mj_header.beginRefreshing()
     }
 
     func tableViewHeaderRefreshDatas() {
@@ -185,7 +184,10 @@ final class KDChatViewController: UIViewController {
             [weak self] (aMessages, error) in
 
             guard let strongSelf = self else { return }
-            strongSelf.chatTableView.mj_header.endRefreshing()
+            
+            if strongSelf.chatTableView.mj_header.isRefreshing() {
+                strongSelf.chatTableView.mj_header.endRefreshing()
+            }
 
             guard error == nil && (aMessages?.count)! > 0 else { return }
 

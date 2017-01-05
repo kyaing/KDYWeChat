@@ -25,14 +25,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/BSImagePicker/Pod/Classes/Controller/BSImagePickerViewController.swift"
-            timestampString = "505215100.925147"
+            filePath = "Pods/Proposer/Proposer/Proposer.swift"
+            timestampString = "505294500.476492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "authorize(_:fromViewController:completion:)"
-            landmarkType = "7">
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "proposeToAccessLocation(_:agreed:rejected:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "KDYWeChat/Helpers/Extension/UIKit/UIViewController+Proposer.swift"
-            timestampString = "505219089.163399"
+            filePath = "KDYWeChat/BizClass/Chat/Controller/KDChatViewController.swift"
+            timestampString = "505304189.126987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "proposerChoosePhotos(_:)"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "tableViewHeaderRefreshDatas()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,7 +12,6 @@ class KDYWeChatTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-
     }
 
     override func tearDown() {
@@ -32,3 +31,4 @@ class KDYWeChatTests: XCTestCase {
         }
     }
 }
+

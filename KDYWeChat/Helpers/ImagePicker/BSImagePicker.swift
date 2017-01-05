@@ -26,7 +26,9 @@ extension UIViewController {
         let imagePicker = BSImagePickerViewController()
         imagePicker.maxNumberOfSelections = maxNumberOfSelections
         
-        proposerChoosePhotos() {
+        // 图片权限
+        proposerChoosePhotos {
+            // 选择图片
             self.bs_presentImagePickerController(imagePicker, animated: true, select: select, deselect: deselect, cancel: cancel, finish: finish, completion: {
                 if let newCompletion = completion {
                     newCompletion()

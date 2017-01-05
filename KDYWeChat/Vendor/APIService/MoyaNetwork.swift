@@ -43,7 +43,7 @@ extension ApiService: TargetType {
         case .GetRank(let area):
             return [
                 "area": nil == area ? "" : area!,
-                // 接口详情地址: https://www.juhe.cn/docs/api/id/44
+                //接口详情地址: https://www.juhe.cn/docs/api/id/44
                 "key": "c4356125b8472bd265a0691789d114b3"
             ]
         }

@@ -36,10 +36,10 @@ target 'KDYWeChat' do
   # 选择后端服务，由于Parse即将关闭，则转向LeanCloud
   pod 'AVOSCloudDynamic', '~> 3.3.5'
 
-  target 'KDYWeChatUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
+
+target 'KDYWeChatTests' do
+    pod 'SnapKit', '3.0.2'
+end
+
 

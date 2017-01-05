@@ -13,9 +13,11 @@ import RxDataSources
 import SwiftyJSON
 import ObjectMapper
 import Then
+import Proposer
+import CoreLocation
 
 /// 会话界面
-final class KDConversationViewController: UIViewController, EMChatManagerDelegate {
+final class KDConversationViewController: UIViewController, EMChatManagerDelegate, CLLocationManagerDelegate {
 
     // MARK: - Parameters
 
