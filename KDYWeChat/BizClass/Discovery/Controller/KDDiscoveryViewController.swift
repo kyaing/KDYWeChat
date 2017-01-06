@@ -47,13 +47,13 @@ final class KDDiscoveryViewController: UITableViewController {
         
         if (indexPath as NSIndexPath).section == 0 {
             cell.textLabel?.text = "朋友圈"
-            cell.imageView?.image = UIImage(named: "ff_IconShowAlbum")
+            cell.imageView?.image = KDYAsset.Discover_Alubm.image
         } else if (indexPath as NSIndexPath).section == 1 {
             cell.textLabel?.text = "扫一扫"
-            cell.imageView?.image = UIImage(named: "ff_IconQRCode")
+            cell.imageView?.image = KDYAsset.Discover_QRCode.image
         } else {
             cell.textLabel?.text = "我直播"
-            cell.imageView?.image = UIImage(named: "ff_IconLocationService")
+            cell.imageView?.image = KDYAsset.Discover_Live.image
         }
     }
     

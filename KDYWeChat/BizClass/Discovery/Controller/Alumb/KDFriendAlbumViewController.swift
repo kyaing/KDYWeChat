@@ -45,7 +45,7 @@ class KDFriendAlbumViewController: UIViewController {
         super.viewDidLoad()
         self.title = "朋友圈"
          
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_Camera"), style: .plain, target: self, action: #selector(self.publishAlumbAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: KDYAsset.Discover_AlubmCamera.image, style: .plain, target: self, action: #selector(self.publishAlumbAction))
         
         // 测试数据模拟
         testDataModels()

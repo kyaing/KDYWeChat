@@ -44,7 +44,7 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
                 chatImageView.kf.setImage(with: URL(string: model.fileURLPath!), placeholder: thumbnailImage)
                 
             } else {
-                chatImageView.kf.setImage(with: URL(string: model.fileURLPath!), placeholder: UIImage(named: kUserAvatarDefault))
+                chatImageView.kf.setImage(with: URL(string: model.fileURLPath!), placeholder: KDYAsset.AvatarDefault.image)
             }
             
         } else {   // 发送方
@@ -131,8 +131,8 @@ class ChatImageTableCell: ChatBaseTableCell, NibReusable {
         self.chatImageView.top = self.avatarImageView.top
         
         // 拉伸图片
-        let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
-        let bubbleMaskImage = stretchImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 10, 23, 28), resizingMode: .stretch)
+        let stretchImage = (model.fromMe!) ? KDYAsset.Chat_SenderBg_Normal.image : KDYAsset.Chat_ReceiverBg_Normal.image
+        let bubbleMaskImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 10, 23, 28), resizingMode: .stretch)
         
         // 设置image的 mask图层
         let maskLayer = CALayer()

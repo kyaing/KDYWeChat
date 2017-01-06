@@ -29,7 +29,7 @@ class KDNavigationController: UINavigationController, UINavigationControllerDele
 
             // 自定义返回按钮
             let button = UIButton()
-            button.setBackgroundImage(UIImage(named: "main_back"), for: UIControlState())
+            button.setBackgroundImage(KDYAsset.MainBack.image, for: UIControlState())
             button.addTarget(self, action: #selector(self.backItemAction), for: .touchUpInside)
             button.frame.size = (button.currentBackgroundImage?.size)!
 

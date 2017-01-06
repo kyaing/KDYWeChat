@@ -36,18 +36,18 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
         super.setupCellContent(model)
     
         // 拉伸气泡图片，设置语音按钮背景图片
-        let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
-        let bubbleImage = stretchImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        let stretchImage = (model.fromMe!) ? KDYAsset.Chat_SenderBg_Normal.image : KDYAsset.Chat_ReceiverBg_Normal.image
+        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         
         // 设置语音按钮高亮时的背景图片
-        let stretchHLImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkgHL") : UIImage(named: "ReceiverTextNodeBkgHL")
-        let bubbleHLImage  = stretchHLImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        let stretchHLImage = (model.fromMe!) ? KDYAsset.Chat_SenderBg_Select.image: KDYAsset.Chat_ReceiverBg_Select.image
+        let bubbleHLImage  = stretchHLImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         
         self.voiceButton.setBackgroundImage(bubbleImage, for: UIControlState())
         self.voiceButton.setBackgroundImage(bubbleHLImage, for: .highlighted)
         
         // 设置语音按钮播放图片
-        let voiceImage = (model.fromMe!) ? UIImage(named: "SenderVoiceNodePlaying") : UIImage(named: "ReceiverVoiceNodePlaying")
+        let voiceImage = (model.fromMe!) ? KDYAsset.Chat_Sender_Playing.image : KDYAsset.Chat_Receiver_Playing.image
         self.voiceButton.setImage(voiceImage, for: UIControlState())
         
         // 设置语音按钮，图片的内边距与对齐方式
@@ -104,16 +104,16 @@ class ChatAudioTableCell: ChatBaseTableCell, NibReusable {
         if model.fromMe! {
             // 设置 animationImages
             self.voiceButton.imageView?.animationImages = [
-                UIImage(named: "SenderVoiceNodePlaying001")!,
-                UIImage(named: "SenderVoiceNodePlaying002")!,
-                UIImage(named: "SenderVoiceNodePlaying003")!
+                KDYAsset.Chat_Sender_Playing001.image,
+                KDYAsset.Chat_Sender_Playing002.image,
+                KDYAsset.Chat_Sender_Playing003.image
             ]
             
         } else {
             self.voiceButton.imageView?.animationImages = [
-                UIImage(named: "ReceiverVoiceNodePlaying001")!,
-                UIImage(named: "ReceiverVoiceNodePlaying002")!,
-                UIImage(named: "ReceiverVoiceNodePlaying003")!
+                KDYAsset.Chat_Receiver_Playing001.image,
+                KDYAsset.Chat_Receiver_Playing002.image,
+                KDYAsset.Chat_Receiver_Playing003.image
             ]
         }
     }

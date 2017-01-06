@@ -72,9 +72,9 @@ class MessageTableCell: UITableViewCell, NibReusable {
             
             // 处理头像
             if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) , userInfo.imageUrl != nil {
-                avatorImageView.kf.setImage(with: URL(string: userInfo.imageUrl!), placeholder: UIImage(named: kUserAvatarDefault))
+                avatorImageView.kf.setImage(with: URL(string: userInfo.imageUrl!), placeholder: KDYAsset.AvatarDefault.image)
             } else {
-                avatorImageView.image = UIImage(named: kUserAvatarDefault)
+                avatorImageView.image = KDYAsset.AvatarDefault.image
             }
         }
     }

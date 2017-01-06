@@ -99,14 +99,14 @@ extension ChatBottomBarView {
      *  改变按钮状态
      */
     func setupBtnUIStatus() {
-        audioButton.setImage(UIImage(named: "tool_voice_1"), for: UIControlState())
-        audioButton.setImage(UIImage(named: "tool_voice_2"), for: .highlighted)
+        audioButton.setImage(KDYAsset.Chat_Voice_Normal.image, for: UIControlState())
+        audioButton.setImage(KDYAsset.Chat_Voice_Select.image, for: .highlighted)
         
-        emotionButton.setImage(UIImage(named: "tool_emotion_1"), for: UIControlState())
-        emotionButton.setImage(UIImage(named: "tool_emotion_2"), for: .highlighted)
+        emotionButton.setImage(KDYAsset.Chat_Emotion_Normal.image, for: UIControlState())
+        emotionButton.setImage(KDYAsset.Chat_Emotion_Select.image, for: .highlighted)
         
-        shareButton.setImage(UIImage(named: "tool_share_1"), for: UIControlState())
-        shareButton.setImage(UIImage(named: "tool_share_2"), for: .highlighted)
+        shareButton.setImage(KDYAsset.Chat_Share_Normal.image, for: UIControlState())
+        shareButton.setImage(KDYAsset.Chat_Share_Select.image, for: .highlighted)
     }
     
     /**

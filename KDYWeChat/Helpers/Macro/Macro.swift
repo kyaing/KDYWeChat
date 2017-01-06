@@ -25,5 +25,3 @@ let unReadMessageCountNoti = "unReadMessageCountNoti"
 let unTreatApplyCountNoti  = "unTreatApplyCountNoti"
 let kLoginStateChangedNoti = "loginStateChangedNoti"
 
-let kUserAvatarDefault     = "user_avatar"
-

@@ -50,7 +50,7 @@ class ChatBaseTableCell: UITableViewCell {
     lazy var failSendMsgButton: UIButton = {
         let failButton = UIButton()
         failButton.size = CGSize(width: 20, height: 20)
-        failButton.setImage(UIImage(named: "messageSendFail"), for: UIControlState())
+        failButton.setImage(KDYAsset.Chat_MessageSendFail.image, for: UIControlState())
         failButton.addTarget(self, action: #selector(self.reSendMessageAction), for: .touchUpInside)
         
         self.contentView.addSubview(failButton)
@@ -82,17 +82,17 @@ class ChatBaseTableCell: UITableViewCell {
         if model.fromMe! {   // 发送方
             if let imageURL = currentUser?.imageUrl {
                
-                avatarImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault))
+                avatarImageView.kf.setImage(with: URL(string: imageURL), placeholder: KDYAsset.AvatarDefault.image)
             } else {
-                self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
+                self.avatarImageView.image = KDYAsset.AvatarDefault.image
             }
             
         } else {   // 接收方
             if let imageURL = model.avatarURL {
-                avatarImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault))
+                avatarImageView.kf.setImage(with: URL(string: imageURL), placeholder: KDYAsset.AvatarDefault.image)
                 
             } else {
-                self.avatarImageView.image = UIImage(named: kUserAvatarDefault)
+                self.avatarImageView.image = KDYAsset.AvatarDefault.image
             }
         }
         

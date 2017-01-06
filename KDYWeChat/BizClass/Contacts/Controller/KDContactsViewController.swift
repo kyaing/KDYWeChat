@@ -77,7 +77,7 @@ final class KDContactsViewController: UIViewController {
     }()
     
     lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_addfriends"), style: .plain, target: self, action: #selector(self.addFrinedAction))
+        let rightBarItem = UIBarButtonItem(image: KDYAsset.Contacts_Addfreind.image, style: .plain, target: self, action: #selector(self.addFrinedAction))
         
         return rightBarItem
     }()
@@ -159,15 +159,15 @@ final class KDContactsViewController: UIViewController {
         if (indexPath as NSIndexPath).section == 0 {
             if (indexPath as NSIndexPath).row == 0 {
                 cell.usernameLabel.text = "新的朋友"
-                cell.avatorImage.image = UIImage(named: "plugins_FriendNotify")
+                cell.avatorImage.image = KDYAsset.Contacts_Friend.image
                 
             } else if (indexPath as NSIndexPath).row == 1 {
                 cell.usernameLabel.text = "群聊"
-                cell.avatorImage.image = UIImage(named: "add_friend_icon_addgroup")
+                cell.avatorImage.image = KDYAsset.Contacts_AddGround.image
                 
             } else {
                 cell.usernameLabel.text = "公众号"
-                cell.avatorImage.image = UIImage(named: "add_friend_icon_offical")
+                cell.avatorImage.image = KDYAsset.Contacts_Offical.image
             }
             
         } else {
@@ -176,8 +176,9 @@ final class KDContactsViewController: UIViewController {
             
             let userInfo = UserInfoManager.shareInstance.getUserInfoByName(model.username!)
             cell.usernameLabel.text = userInfo?.username
+            
             if let imageURL = userInfo?.imageUrl {
-                cell.avatorImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "user_avatar"))
+                cell.avatorImage.kf.setImage(with: URL(string: imageURL), placeholder: KDYAsset.AvatarDefault.image)
             }
         }
     }

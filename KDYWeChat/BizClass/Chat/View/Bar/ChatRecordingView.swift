@@ -100,14 +100,14 @@ extension ChatRecordingView {
         index = index < 0 ? 0 : index
         
         let imageArray = [
-            UIImage(named: "RecordingSignal001"),
-            UIImage(named: "RecordingSignal002"),
-            UIImage(named: "RecordingSignal003"),
-            UIImage(named: "RecordingSignal004"),
-            UIImage(named: "RecordingSignal005"),
-            UIImage(named: "RecordingSignal006"),
-            UIImage(named: "RecordingSignal007"),
-            UIImage(named: "RecordingSignal008")
+            KDYAsset.Chat_Recording001.image,
+            KDYAsset.Chat_Recording002.image,
+            KDYAsset.Chat_Recording003.image,
+            KDYAsset.Chat_Recording004.image,
+            KDYAsset.Chat_Recording005.image,
+            KDYAsset.Chat_Recording006.image,
+            KDYAsset.Chat_Recording007.image,
+            KDYAsset.Chat_Recording008.image
             ]
         self.recordingVolumeImage.image = imageArray[index]
     }

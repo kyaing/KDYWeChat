@@ -13,21 +13,21 @@ class KDMeViewController: UITableViewController {
 
     @IBOutlet var meTableView: UITableView!
 
-    let itemDataSouce: [[(name: String, iconImage: String?)]] = [
+    let itemDataSouce: [[(name: String, image: UIImage?)]] = [
         [
             ("", nil)
             ],
         [
-            ("相册", "MoreMyAlbum"),
-            ("收藏", "MoreMyFavorites"),
-            ("钱包", "MoreMyBankCard"),
-            ("卡包", "MyCardPackageIcon")
+            ("相册", KDYAsset.Me_MyAlbum.image),
+            ("收藏", KDYAsset.Me_MyFavorites.image),
+            ("钱包", KDYAsset.Me_MyBankCard.image),
+            ("卡包", KDYAsset.Me_CardPackageIcon.image)
             ],
         [
-            ("表情", "MoreExpressionShops")
+            ("表情", KDYAsset.Me_ExpressionShops.image)
             ],
         [
-            ("设置", "MoreSetting")
+            ("设置", KDYAsset.Me_Setting.image)
             ],
     ]
 
@@ -60,7 +60,7 @@ class KDMeViewController: UITableViewController {
                 }
 
                 if let imageURL = currentUser.imageUrl {
-                    headerCell.avatorImageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: kUserAvatarDefault))
+                    headerCell.avatorImageView.kf.setImage(with: URL(string: imageURL), placeholder: KDYAsset.AvatarDefault.image)
                 }
             }
 
@@ -86,7 +86,7 @@ class KDMeViewController: UITableViewController {
 
         let item = itemDataSouce[indexPath.section][indexPath.row]
         baseCell.textLabel?.text = item.name
-        baseCell.imageView?.image = UIImage(named: item.iconImage!)
+        baseCell.imageView?.image = item.image
     }
 
     // MARK: - UITableViewDelegate

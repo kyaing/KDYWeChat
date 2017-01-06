@@ -13,16 +13,22 @@ class MessageModel: NSObject {
     
     /// 会话
     var conversation: EMConversation!
+    
     /// 标题
     var title: String = ""
+    
     /// 头像地址
     var avatarURLPath: String = ""
+    
     /// 头像图片
     var avatarImage: UIImage!
+    
     /// 最新消息内容
     var lastContent: String = ""
+    
     /// 消息时间
     var lastTime: String = ""
+    
     /// 消息未读数
     var unReadCount: String = ""
     
@@ -31,7 +37,7 @@ class MessageModel: NSObject {
         self.title = conversation.conversationId
         
         if conversation.type == EMConversationTypeChat {  // 普通聊天
-            self.avatarImage = UIImage(named: "user_avatar")
+            self.avatarImage = KDYAsset.AvatarDefault.image
             
         } else {   // 群组聊天
             self.avatarImage = UIImage(named: "group_avatar")

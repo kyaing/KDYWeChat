@@ -13,24 +13,24 @@ extension UIButton {
     // 控制语音按钮切换成键盘图标
     func voiceButtonChangeToKeyboardUI(_ showKeyboard: Bool) {
         if showKeyboard {
-            self.setImage(UIImage(named: "tool_keyboard_1"), for: UIControlState())
-            self.setImage(UIImage(named: "tool_keyboard_2"), for: .highlighted)
+            self.setImage(KDYAsset.Chat_Keyboard_Normal.image, for: UIControlState())
+            self.setImage(KDYAsset.Chat_Keyboard_Select.image, for: .highlighted)
             
         } else {
-            self.setImage(UIImage(named: "tool_voice_1"), for: UIControlState())
-            self.setImage(UIImage(named: "tool_voice_2"), for: .highlighted)
+            self.setImage(KDYAsset.Chat_Voice_Normal.image, for: UIControlState())
+            self.setImage(KDYAsset.Chat_Voice_Select.image, for: .highlighted)
         }
     }
     
     // 控制表情按钮切换成键盘图标
     func emotionButtonChangeToKeyboardUI(_ showKeyboard: Bool) {
         if showKeyboard {
-            self.setImage(UIImage(named: "tool_keyboard_1"), for: UIControlState())
-            self.setImage(UIImage(named: "tool_keyboard_2"), for: .highlighted)
+            self.setImage(KDYAsset.Chat_Keyboard_Normal.image, for: UIControlState())
+            self.setImage(KDYAsset.Chat_Keyboard_Select.image, for: .highlighted)
             
         } else {
-            self.setImage(UIImage(named: "tool_emotion_1"), for: UIControlState())
-            self.setImage(UIImage(named: "tool_emotion_2"), for: .highlighted)
+            self.setImage(KDYAsset.Chat_Emotion_Normal.image, for: UIControlState())
+            self.setImage(KDYAsset.Chat_Emotion_Select.image, for: .highlighted)
         }
     }
     

@@ -73,7 +73,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
 
     let disposeBag = DisposeBag()
 
-    let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_add"), style: .plain,
+    let rightBarItem = UIBarButtonItem(image: KDYAsset.AddFriends.image, style: .plain,
                                        target: nil, action: #selector(addAction))
 
     // MARK: - Life Cycle

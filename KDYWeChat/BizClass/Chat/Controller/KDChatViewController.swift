@@ -46,13 +46,13 @@ final class KDChatViewController: UIViewController {
     }()
 
     lazy var leftBarItem: UIBarButtonItem = {
-        let leftBarItem = UIBarButtonItem(image: UIImage(named: "main_back"), style: .plain, target: self, action: #selector(self.backBarItemAction))
+        let leftBarItem = UIBarButtonItem(image: KDYAsset.MainBack.image, style: .plain, target: self, action: #selector(self.backBarItemAction))
 
         return leftBarItem
     }()
 
     lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(image: UIImage(named: "barbuttonicon_InfoSingle"), style: .plain, target: self, action: #selector(self.handlePersonAction))
+        let rightBarItem = UIBarButtonItem(image: KDYAsset.Chat_FreindInfo.image, style: .plain, target: self, action: #selector(self.handlePersonAction))
 
         return rightBarItem
     }()

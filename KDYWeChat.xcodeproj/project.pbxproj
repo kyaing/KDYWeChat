@@ -750,9 +750,9 @@
 		049F79061DFE758300F32861 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				049F79091DFE758300F32861 /* KDContactsViewController.swift */,
 				049F79071DFE758300F32861 /* KDAddFriendViewController.swift */,
 				049F79081DFE758300F32861 /* KDAddFriendViewController.xib */,
-				049F79091DFE758300F32861 /* KDContactsViewController.swift */,
 				049F790A1DFE758300F32861 /* KDNewFriendsViewController.swift */,
 				049F790B1DFE758300F32861 /* KDNewFriendsViewController.xib */,
 				049F790C1DFE758300F32861 /* KDPersonalDetailViewController.swift */,

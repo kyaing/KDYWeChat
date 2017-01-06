@@ -66,8 +66,8 @@ class ChatTextTableCell: ChatBaseTableCell, NibReusable {
         }
         
         // 拉伸气泡图片
-        let stretchImage = (model.fromMe!) ? UIImage(named: "SenderTextNodeBkg") : UIImage(named: "ReceiverTextNodeBkg")
-        let bubbleImage = stretchImage!.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
+        let stretchImage = (model.fromMe!) ? KDYAsset.Chat_SenderBg_Normal.image : KDYAsset.Chat_ReceiverBg_Normal.image
+        let bubbleImage = stretchImage.resizableImage(withCapInsets: UIEdgeInsetsMake(30, 28, 85, 28), resizingMode: .stretch)
         self.bubbleImageView.image = bubbleImage
     
         self.setNeedsLayout()
