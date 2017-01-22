@@ -173,6 +173,7 @@
 		18244CCA1E0D5582001C8E02 /* KDNetworkingConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */; };
 		18244CCC1E0D6114001C8E02 /* KDNetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */; };
 		4D0A3428C12E28E1824A26F6 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B138A7FBE87D17ED7E67F29 /* Pods_KDYWeChat.framework */; };
+		5A9737138223CC2EF507AD95 /* Pods_KDYWeChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6AC29F4BD3600775600650 /* Pods_KDYWeChatTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,8 +242,6 @@
 		049F78A61DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049F78A81DFE6E8E00F32861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049F78AD1DFE6E8E00F32861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDYWeChatUITests.swift; sourceTree = "<group>"; };
-		049F78C31DFE6E8F00F32861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049F78D11DFE758300F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		049F78D31DFE758300F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		049F78D51DFE758300F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Me.storyboard; sourceTree = "<group>"; };
@@ -468,6 +467,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9737138223CC2EF507AD95 /* Pods_KDYWeChatTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,7 +575,6 @@
 			children = (
 				049F78A01DFE6E8E00F32861 /* KDYWeChat */,
 				042376FC1E0D27D900E84202 /* KDYWeChatTests */,
-				049F78C01DFE6E8E00F32861 /* KDYWeChatUITests */,
 				0423770A1E0D31CC00E84202 /* KDYWeChatUITests */,
 				049F789F1DFE6E8E00F32861 /* Products */,
 				F263CDCF35E43E7C33D9D437 /* Pods */,
@@ -607,15 +606,6 @@
 				049F78CF1DFE758300F32861 /* Base.lproj */,
 			);
 			path = KDYWeChat;
-			sourceTree = "<group>";
-		};
-		049F78C01DFE6E8E00F32861 /* KDYWeChatUITests */ = {
-			isa = PBXGroup;
-			children = (
-				049F78C11DFE6E8E00F32861 /* KDYWeChatUITests.swift */,
-				049F78C31DFE6E8F00F32861 /* Info.plist */,
-			);
-			path = KDYWeChatUITests;
 			sourceTree = "<group>";
 		};
 		049F78CF1DFE758300F32861 /* Base.lproj */ = {
@@ -1384,9 +1374,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 042377041E0D27D900E84202 /* Build configuration list for PBXNativeTarget "KDYWeChatTests" */;
 			buildPhases = (
+				C1A47FCF30D9CE836119EA89 /* [CP] Check Pods Manifest.lock */,
 				042376F71E0D27D900E84202 /* Sources */,
 				042376F81E0D27D900E84202 /* Frameworks */,
 				042376F91E0D27D900E84202 /* Resources */,
+				2474424CE08C50E3D81072DA /* [CP] Embed Pods Frameworks */,
+				B486323998A6A91626367E1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1555,7 +1548,52 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChat/Pods-KDYWeChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2474424CE08C50E3D81072DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChatTests/Pods-KDYWeChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D279A0277EF4A2A3B95BF52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B486323998A6A91626367E1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KDYWeChatTests/Pods-KDYWeChatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1A47FCF30D9CE836119EA89 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1784,6 +1822,7 @@
 /* Begin XCBuildConfiguration section */
 		042377021E0D27D900E84202 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14E22E969DA03B1107337C5A /* Pods-KDYWeChatTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1810,6 +1849,7 @@
 		};
 		042377031E0D27D900E84202 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3C0469F6B068DA99F190CF /* Pods-KDYWeChatTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

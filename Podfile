@@ -21,6 +21,7 @@ target 'KDYWeChat' do
   pod 'RxSwift', '3.0.0-beta.1'
   pod 'RxCocoa', '3.0.0-beta.1'
   pod 'RxDataSources', '1.0.0.beta.1'
+  
   pod 'Reusable', '3.0.1'
   pod 'RealmSwift', '2.1.1'
   pod 'Moya/RxSwift', git: 'https://github.com/Moya/Moya.git', tag: '8.0.0-beta.1'
@@ -39,6 +40,7 @@ target 'KDYWeChat' do
 end
 
 target 'KDYWeChatTests' do
+    use_frameworks!
     pod 'SnapKit', '3.0.2'
 end
 

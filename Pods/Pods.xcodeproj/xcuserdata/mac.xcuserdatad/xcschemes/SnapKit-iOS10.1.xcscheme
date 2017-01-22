@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8746B3BB48EE3A40CCC78AA5DE4A0DE"
-               BuildableName = "Pods_KDYWeChatUITests.framework"
-               BlueprintName = "Pods-KDYWeChatUITests"
+               BlueprintIdentifier = "A628C51523B3B57426212C5115FF3386"
+               BuildableName = "SnapKit.framework"
+               BlueprintName = "SnapKit-iOS10.1"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B8746B3BB48EE3A40CCC78AA5DE4A0DE"
-            BuildableName = "Pods_KDYWeChatUITests.framework"
-            BlueprintName = "Pods-KDYWeChatUITests"
+            BlueprintIdentifier = "A628C51523B3B57426212C5115FF3386"
+            BuildableName = "SnapKit.framework"
+            BlueprintName = "SnapKit-iOS10.1"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -66,7 +66,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
 
         return headerView
     }()
-
+    
     let viewModel = MessageViewModel()
 
     let dataSorce = RxTableViewSectionedReloadDataSource<SectionModel<String, MessageModel>>()
@@ -74,8 +74,8 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     let disposeBag = DisposeBag()
 
     let rightBarItem = UIBarButtonItem(image: KDYAsset.AddFriends.image, style: .plain,
-                                       target: nil, action: #selector(addAction))
-
+                                       target: nil, action: nil)
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +84,8 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
 
         searchController.searchResultsUpdater = self
         searchController.delegate = self
-        tableView.delegate = self
+        
+        tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
         self.view.addSubview(tableView)
 
         // 配置 ViewModel
@@ -130,10 +131,6 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         }
     }
 
-    func addAction() {
-
-    }
-
     /**
      *  获取用户会话列表
      */
@@ -148,10 +145,10 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         rightBarItem.rx.tap
             .bindTo(viewModel.addBarDidTap)
             .addDisposableTo(disposeBag)
-
+        
         rightBarItem.rx.tap
-            .subscribe {
-
+            .subscribeNext {
+                print("click + ...")
             }
             .addDisposableTo(disposeBag)
 
@@ -159,7 +156,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         tableView.rx.itemSelected
             .bindTo(viewModel.itemSelected)
             .addDisposableTo(disposeBag)
-
+        
         tableView.rx.modelSelected(MessageModel.self)
             .subscribe(onNext: { model in
 

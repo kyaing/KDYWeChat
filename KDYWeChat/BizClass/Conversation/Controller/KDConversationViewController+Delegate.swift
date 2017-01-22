@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - UITableViewDelegate
 extension KDConversationViewController: UITableViewDelegate {
-    // 是否必要仍然要 delegate 方法？
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
