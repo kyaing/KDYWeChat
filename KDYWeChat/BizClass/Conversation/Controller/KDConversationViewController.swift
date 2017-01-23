@@ -69,7 +69,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
     
     let viewModel = MessageViewModel()
 
-    let dataSorce = RxTableViewSectionedReloadDataSource<SectionModel<String, MessageModel>>()
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, MessageModel>>()
 
     let disposeBag = DisposeBag()
 
@@ -178,7 +178,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             .addDisposableTo(disposeBag)
 
         // 配置cell
-        dataSorce.configureCell = { _, tableView, indexPath, model in
+        dataSource.configureCell = { _, tableView, indexPath, model in
             let cell: MessageTableCell = tableView.dequeueReusableCell(for: indexPath)
             cell.model = model
             return cell
@@ -186,7 +186,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
 
         // 绑定数据源
         viewModel.getChatConversations()
-            .bindTo(tableView.rx.items(dataSource: dataSorce))
+            .bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
     }
 

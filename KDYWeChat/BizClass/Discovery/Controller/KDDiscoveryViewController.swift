@@ -8,9 +8,17 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
+import RxDataSources
 
 /// 发现界面
 final class KDDiscoveryViewController: UITableViewController {
+    
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, DiscoveryModel>>()
+    
+    let viewModel = DiscoveryViewModel()
+
+    let disposeBag = DisposeBag()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -19,60 +27,44 @@ final class KDDiscoveryViewController: UITableViewController {
         tableView.backgroundColor = KDYColor.TableBackground.color
         tableView.separatorColor  = KDYColor.Separator.color
         tableView.tableFooterView = UIView()
-    }
-    
-    // MARK: - UITableViewDataSoure
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "discoveryCell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "discoveryCell")
-            cell?.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
-            cell?.accessoryType = .disclosureIndicator
+        tableView.dataSource = nil
+        
+        dataSource.configureCell = { _, tableView, indexPath, model in
+            
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "discoveryCell")
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+            
+            cell.textLabel?.text = model.title
+            cell.imageView?.image = model.titleImage
+            
+            return cell
         }
         
-        configCell(cell!, indexPath: indexPath)
+        tableView.rx.modelSelected(DiscoveryModel.self)
+            .subscribe(onNext: { model in
+                
+                if model.index.section == 0 {
+                    self.kyPushViewController(KDFriendAlbumViewController(), animated: true)
+                    
+                } else if model.index.section == 1 {
+                    self.kyPushViewController(KDQRCodeViewController(), animated: true)
+                    
+                } else {
+                    self.kyPushViewController(KDMyLiveViewController(), animated: true)
+                }
+            }) { 
+                
+            }
+            .addDisposableTo(disposeBag)
         
-        return cell!
-    }
-    
-    func configCell(_ cell: UITableViewCell, indexPath: IndexPath) {
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
-        
-        if (indexPath as NSIndexPath).section == 0 {
-            cell.textLabel?.text = "朋友圈"
-            cell.imageView?.image = KDYAsset.Discover_Alubm.image
-        } else if (indexPath as NSIndexPath).section == 1 {
-            cell.textLabel?.text = "扫一扫"
-            cell.imageView?.image = KDYAsset.Discover_QRCode.image
-        } else {
-            cell.textLabel?.text = "我直播"
-            cell.imageView?.image = KDYAsset.Discover_Live.image
-        }
+        viewModel.getDataSource()
+            .bindTo(tableView.rx.items(dataSource: dataSource))
+            .addDisposableTo(disposeBag)
     }
     
     // MARK: - UITableViewDelegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        if (indexPath as NSIndexPath).section == 0 {
-            kyPushViewController(KDFriendAlbumViewController(), animated: true)
-            
-        } else if (indexPath as NSIndexPath).section == 1 {
-            kyPushViewController(KDQRCodeViewController(), animated: true)
-            
-        } else {
-            kyPushViewController(KDMyLiveViewController(), animated: true)
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }

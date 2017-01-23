@@ -37,6 +37,7 @@ class KDMeViewController: UITableViewController {
 
         meTableView.backgroundColor = KDYColor.TableBackground.color
         meTableView.separatorColor  = KDYColor.Separator.color
+        
         meTableView.register(cellType: MeHeaderTableCell.self)
     }
 

@@ -19,6 +19,7 @@
 		043B9DC91E1E173500AE95D0 /* UIViewController+Proposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B9DC81E1E173500AE95D0 /* UIViewController+Proposer.swift */; };
 		04681EC81E1111190085136F /* MoyaNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681EC71E1111190085136F /* MoyaNetwork.swift */; };
 		04681ECA1E1124DE0085136F /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04681EC91E1124DE0085136F /* FilmModel.swift */; };
+		049A53C41E35EA9700937C46 /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A53C31E35EA9700937C46 /* DiscoveryViewModel.swift */; };
 		049F78A71DFE6E8E00F32861 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A51DFE6E8E00F32861 /* Main.storyboard */; };
 		049F78A91DFE6E8E00F32861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049F78A81DFE6E8E00F32861 /* Assets.xcassets */; };
 		049F79D81DFE758300F32861 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049F78D01DFE758300F32861 /* Launch Screen.storyboard */; };
@@ -170,6 +171,7 @@
 		049F7A791DFE79B400F32861 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A781DFE79B400F32861 /* ImageIO.framework */; };
 		049F7A7B1DFE79C200F32861 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */; };
 		049F7A7D1DFE79C900F32861 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049F7A7C1DFE79C900F32861 /* AVFoundation.framework */; };
+		04CC53B71E35DB350062605C /* DiscoveryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC53B61E35DB350062605C /* DiscoveryModel.swift */; };
 		18244CCA1E0D5582001C8E02 /* KDNetworkingConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */; };
 		18244CCC1E0D6114001C8E02 /* KDNetworkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */; };
 		4D0A3428C12E28E1824A26F6 /* Pods_KDYWeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B138A7FBE87D17ED7E67F29 /* Pods_KDYWeChat.framework */; };
@@ -238,6 +240,7 @@
 		043B9DE61E1E41FD00AE95D0 /* YYText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYText.framework; path = "../Library/Developer/Xcode/DerivedData/KDYWeChat-aialpcexkjtrkuaeukfywgbfeate/Build/Products/Debug-iphonesimulator/YYText/YYText.framework"; sourceTree = "<group>"; };
 		04681EC71E1111190085136F /* MoyaNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaNetwork.swift; sourceTree = "<group>"; };
 		04681EC91E1124DE0085136F /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		049A53C31E35EA9700937C46 /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
 		049F789E1DFE6E8E00F32861 /* KDYWeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDYWeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049F78A61DFE6E8E00F32861 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049F78A81DFE6E8E00F32861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -450,6 +453,7 @@
 		049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		049F7A7C1DFE79C900F32861 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		04B45FB21E35AD8E00D3D632 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		04CC53B61E35DB350062605C /* DiscoveryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryModel.swift; sourceTree = "<group>"; };
 		14E22E969DA03B1107337C5A /* Pods-KDYWeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChatTests/Pods-KDYWeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetworkingConfig.swift; sourceTree = "<group>"; };
 		18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetworkingRequest.swift; sourceTree = "<group>"; };
@@ -883,6 +887,7 @@
 			isa = PBXGroup;
 			children = (
 				049F792C1DFE758300F32861 /* AlumbModel.swift */,
+				04CC53B61E35DB350062605C /* DiscoveryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -929,6 +934,7 @@
 		049F79391DFE758300F32861 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				049A53C31E35EA9700937C46 /* DiscoveryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1687,6 +1693,7 @@
 				0435383B1E07E17D0076F7AE /* MeCenterTableCell.swift in Sources */,
 				049F79F21DFE758300F32861 /* ChatAudioTableCell.swift in Sources */,
 				049F7A141DFE758300F32861 /* KDPublishViewController.swift in Sources */,
+				049A53C41E35EA9700937C46 /* DiscoveryViewModel.swift in Sources */,
 				049F7A461DFE758300F32861 /* BSImagePicker.swift in Sources */,
 				049F79F51DFE758300F32861 /* ChatCellDelegate.swift in Sources */,
 				049F79DF1DFE758300F32861 /* KDChatSettingViewController.swift in Sources */,
@@ -1716,6 +1723,7 @@
 				049F7A411DFE758300F32861 /* UIScrollView+ChatAdditions.swift in Sources */,
 				049F7A041DFE758300F32861 /* KDContactsViewController.swift in Sources */,
 				049F7A521DFE758400F32861 /* MJRefreshBackFooter.m in Sources */,
+				04CC53B71E35DB350062605C /* DiscoveryModel.swift in Sources */,
 				049F79DC1DFE758300F32861 /* KDNavigationController.swift in Sources */,
 				049F79EE1DFE758300F32861 /* ChatRecordingView.swift in Sources */,
 				049F7A211DFE758300F32861 /* KDLoginViewController.swift in Sources */,
