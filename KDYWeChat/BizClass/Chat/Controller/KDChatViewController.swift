@@ -123,10 +123,10 @@ final class KDChatViewController: UIViewController {
         // 聊天的回调
         EMClient.shared().chatManager.add(self, delegateQueue: nil)
 
-        self.conversation = EMClient.shared().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
+        conversation = EMClient.shared().chatManager.getConversation(conversationId, type: EMConversationTypeChat, createIfNotExist: true)
 
         // 未读消息标记为已读
-        self.conversation.markAllMessages(asRead: nil)
+        conversation.markAllMessages(asRead: nil)
 
         // 加载下拉刷新
         setupRefreshControl()
@@ -147,7 +147,7 @@ final class KDChatViewController: UIViewController {
              *  上面的方式不问题，现在修改为在view与tableView间添加张图片，
              *  来做为聊天的背景图片.
              */
-            self.bgImageView.image = image
+            bgImageView.image = image
         }
     }
 
@@ -304,12 +304,6 @@ final class KDChatViewController: UIViewController {
     func backBarItemAction() {
         // 直接返回到根控制器即可
         _ = self.navigationController?.popToRootViewController(animated: true)
-
-        //    let tabbar     = UIApplication.sharedApplication().keyWindow?.rootViewController as! KDTabBarController
-        //    let navigation = tabbar.selectedViewController as! KDNavigationController
-        //
-        //    navigation.tabBarController?.selectedViewController = tabbar.viewControllers![0]
-        //    navigation.popToRootViewControllerAnimated(true)
     }
 }
 

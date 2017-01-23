@@ -177,17 +177,18 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             .bindTo(viewModel.itemDeleted)
             .addDisposableTo(disposeBag)
 
-        // 配置cell
-        dataSource.configureCell = { _, tableView, indexPath, model in
-            let cell: MessageTableCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.model = model
-            return cell
-        }
-
         // 绑定数据源
         viewModel.getChatConversations()
             .bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(disposeBag)
+        
+        // 配置cell
+        dataSource.configureCell = { _, tableView, indexPath, model in
+            let cell: MessageTableCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.model = model
+            
+            return cell
+        }
     }
 
     /**
@@ -219,7 +220,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         })
 
         // 按时间的降序，排列会话列表
-        let sortedConversations: NSArray = conversations.sortedArray (comparator: {
+        let sortedConversations = conversations.sortedArray (comparator: {
             (Obj1, Obj2) -> ComparisonResult in
 
             let message1 = Obj1 as? EMConversation

@@ -48,6 +48,13 @@ class MessageTableCell: UITableViewCell, NibReusable {
             lastMsgDateLabel.text  = newValue.lastTime
             unReadMsgLabel.text    = newValue.unReadCount
             
+            // 处理头像
+            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) , userInfo.imageUrl != nil {
+                avatorImageView.kf.setImage(with: URL(string: userInfo.imageUrl!), placeholder: KDYAsset.AvatarDefault.image)
+            } else {
+                avatorImageView.image = KDYAsset.AvatarDefault.image
+            }
+            
             let unReadCount = Int(newValue.unReadCount)
             guard unReadCount > 0 else {  return unReadMsgLabel.isHidden = true }
             
@@ -69,13 +76,6 @@ class MessageTableCell: UITableViewCell, NibReusable {
                 unReadMsgHeightContriant.constant = 19
                 unReadMsgLabel.layer.cornerRadius = 9.5
             }
-            
-            // 处理头像
-            if let userInfo = UserInfoManager.shareInstance.getUserInfoByName(newValue.conversation.conversationId) , userInfo.imageUrl != nil {
-                avatorImageView.kf.setImage(with: URL(string: userInfo.imageUrl!), placeholder: KDYAsset.AvatarDefault.image)
-            } else {
-                avatorImageView.image = KDYAsset.AvatarDefault.image
-            }
         }
     }
     
@@ -90,11 +90,11 @@ class MessageTableCell: UITableViewCell, NibReusable {
         unReadMsgLabel.layer.cornerRadius   = 9.5
         unReadMsgLabel.layer.masksToBounds  = true
         
-        lastMessageLabel.textColor = UIColor.gray
-        lastMsgDateLabel.textColor = UIColor.gray
+        lastMessageLabel.textColor = .gray
+        lastMsgDateLabel.textColor = .gray
     }
     
-    // 当Cell选中和高高时，重新设置label颜色
+    // 当Cell选中和高亮时，重新设置label颜色
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         unReadMsgLabel.backgroundColor = .red
