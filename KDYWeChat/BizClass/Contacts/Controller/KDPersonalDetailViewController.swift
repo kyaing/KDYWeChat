@@ -117,7 +117,7 @@ class KDPersonalDetailViewController: UIViewController {
     func configurePushController(_ indexPath: IndexPath) {
         if (indexPath as NSIndexPath).section == 1 {
             if (indexPath as NSIndexPath).row == 0 {
-                ky_pushViewController(KDEditInfoViewController(title: "备注信息"), animated: true)
+                kyPushViewController(KDEditInfoViewController(title: "备注信息"), animated: true)
             }
         }
     }
@@ -134,7 +134,7 @@ class KDPersonalDetailViewController: UIViewController {
         chatController.conversationId = model.username
         chatController.title = model.username
         
-        ky_pushViewController(chatController, animated: true)
+        kyPushViewController(chatController, animated: true)
     }
     
     /**

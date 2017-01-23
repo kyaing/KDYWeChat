@@ -88,7 +88,7 @@ class KDEditInfoViewController: UIViewController {
     func editInfoDoneAction() {
         if let editClosure = self.editDoneClosure {
             editClosure(self.infoTextField.text!)
-            ky_popViewController()
+            kyPopViewController()
         }
     }
 }

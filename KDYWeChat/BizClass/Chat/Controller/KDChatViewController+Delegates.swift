@@ -89,7 +89,7 @@ extension KDChatViewController: ChatCellActionDelegate {
      */
     func didClickCellAavator(_ cell: ChatBaseTableCell) {
         guard let model = cell.model else { return }
-        ky_pushViewController(KDPersonalDetailViewController(model: model), animated: true)
+        kyPushViewController(KDPersonalDetailViewController(model: model), animated: true)
     }
     
     /**
@@ -275,7 +275,7 @@ extension KDChatViewController: ChatShareMoreViewDelegate {
     func didClickLocationItemAction() {
         print("did Click LocationItem")
 
-        ky_presentViewController(KDChatLocationViewController(), animated: true) {
+        kyPresentViewController(KDChatLocationViewController(), animated: true) {
             print("模态弹出位置页面")
         }
     }

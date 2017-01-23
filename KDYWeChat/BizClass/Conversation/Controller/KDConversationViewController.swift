@@ -147,9 +147,10 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
             .addDisposableTo(disposeBag)
         
         rightBarItem.rx.tap
-            .subscribeNext {
+            .subscribe(onNext: { _ in
                 print("click + ...")
-            }
+                
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
 
         // 选中cell (写法更简洁)
@@ -163,7 +164,7 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
                 let chatController = KDChatViewController()
                 chatController.conversationId = model.conversation.conversationId
                 chatController.title = model.title
-                self.ky_pushAndHideTabbar(chatController)
+                self.kyPushAndHideTabbar(chatController)
 
                 // 发送未读消息的通知
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: unReadMessageCountNoti), object: self)

@@ -29,26 +29,26 @@ extension UIViewController {
     }
 
     // Push
-    public func ky_pushAndHideTabbar(_ viewController: UIViewController) {
-        ky_pushViewController(viewController, animated: true, hideTabbar: true)
+    public func kyPushAndHideTabbar(_ viewController: UIViewController) {
+        kyPushViewController(viewController, animated: true, hideTabbar: true)
     }
     
-    fileprivate func ky_pushViewController(_ viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
+    fileprivate func kyPushViewController(_ viewController: UIViewController, animated: Bool, hideTabbar: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
-    public func ky_pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public func kyPushViewController(_ viewController: UIViewController, animated: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
     // Present
-    public func ky_presentViewController(_ viewController: UIViewController, animated: Bool, completion: (()->Void)?) {
+    public func kyPresentViewController(_ viewController: UIViewController, animated: Bool, completion: (()->Void)?) {
         let navigation = UINavigationController(rootViewController: viewController)
         self.present(navigation, animated: animated, completion: completion)
     }
     
     // Pop 
-    public func ky_popViewController() {
+    public func kyPopViewController() {
         _ = self.navigationController?.popViewController(animated: true)
     }
 }

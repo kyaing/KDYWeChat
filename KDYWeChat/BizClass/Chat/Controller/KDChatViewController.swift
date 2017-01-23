@@ -298,7 +298,7 @@ final class KDChatViewController: UIViewController {
         let settingController = KDChatSettingViewController()
         settingController.conversationId = self.conversationId
 
-        ky_pushViewController(settingController, animated: true)
+        kyPushViewController(settingController, animated: true)
     }
 
     func backBarItemAction() {

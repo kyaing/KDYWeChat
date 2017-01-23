@@ -114,7 +114,7 @@ class KDPersonInfoViewController: UIViewController {
                         })
                 }
                 
-                ky_pushViewController(editController, animated: true)
+                kyPushViewController(editController, animated: true)
             } else {   // ID号
                 // 用户的唯一ID，用于查询用户，加好友等等
                 // 可以复制，UIMenuItemController
@@ -122,9 +122,9 @@ class KDPersonInfoViewController: UIViewController {
             
         } else {
             if row == 0 {   // 性别
-                ky_pushViewController(KDEditInfoViewController(title: "性别"), animated: true)
+                kyPushViewController(KDEditInfoViewController(title: "性别"), animated: true)
             } else {    // 地区
-                ky_pushViewController(KDEditInfoViewController(title: "地区"), animated: true)
+                kyPushViewController(KDEditInfoViewController(title: "地区"), animated: true)
             }
         }
     }

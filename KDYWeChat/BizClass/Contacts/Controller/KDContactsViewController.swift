@@ -9,6 +9,7 @@
 import UIKit
 import AVOSCloud
 import SnapKit
+import RxSwift
 import MBProgressHUD
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -76,27 +77,34 @@ final class KDContactsViewController: UIViewController {
         return tableView
     }()
     
-    lazy var rightBarItem: UIBarButtonItem = {
-        let rightBarItem = UIBarButtonItem(image: KDYAsset.Contacts_Addfreind.image, style: .plain, target: self, action: #selector(self.addFrinedAction))
-        
-        return rightBarItem
-    }()
-    
     lazy var tableFooterLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
         label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = UIColor.gray
+        label.textColor = .gray
         label.textAlignment = .center
         
         return label
     }()
     
+    let disposeBag = DisposeBag()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let rightBarItem = UIBarButtonItem(image: KDYAsset.Contacts_Addfreind.image,
+                                           style: .plain, target: nil, action: nil)
+        
         self.edgesForExtendedLayout = UIRectEdge()
-        self.navigationItem.rightBarButtonItem = self.rightBarItem
+        self.navigationItem.rightBarButtonItem = rightBarItem
+        
+        rightBarItem.rx.tap
+            .subscribe(onNext: { _ in
+                let controller = KDAddFriendViewController.initFromNib()
+                self.kyPushViewController(controller, animated: true)
+                
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
         
         reloadFriendsDataArray()
     }
@@ -190,7 +198,7 @@ final class KDContactsViewController: UIViewController {
         if (indexPath as NSIndexPath).section == 0 {
             if (indexPath as NSIndexPath).row == 0 {
                 let newfriendController = KDNewFriendsViewController.initFromNib()
-                ky_pushViewController(newfriendController, animated: true)
+                kyPushViewController(newfriendController, animated: true)
                 
             } else if (indexPath as NSIndexPath).row == 1 {
                 
@@ -206,7 +214,7 @@ final class KDContactsViewController: UIViewController {
             let detailController = KDPersonalDetailViewController(model: nil)
             detailController.contactModel = contactModel
             
-            ky_pushViewController(detailController, animated: true)
+            kyPushViewController(detailController, animated: true)
         }
     }
     
@@ -266,12 +274,7 @@ final class KDContactsViewController: UIViewController {
     }
     
     
-    // MARK: - Event Response 
-    func addFrinedAction() {
-        let controller = KDAddFriendViewController.initFromNib()
-        ky_pushViewController(controller, animated: true)
-    }
-    
+    // MARK: - Event Response
     /**
      *  处理好友申请操作
      */

@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RxSwift
 
 /// 朋友圈页面
 class KDFriendAlbumViewController: UIViewController {
 
+    
     lazy var albumTableView: UITableView = {
         let tableView: UITableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.backgroundColor = KDYColor.TableBackground.color
@@ -30,7 +32,6 @@ class KDFriendAlbumViewController: UIViewController {
     
     lazy var albumHeaderView: UIView = {
         let headerView: AlumbHeaderView = AlumbHeaderView.loadFromNib()
-        
         return headerView
     }()
     
@@ -40,12 +41,27 @@ class KDFriendAlbumViewController: UIViewController {
     /// 用以获得高度的 Cell
     var tempAlumbCell: AlumbTableViewCell?
     
+    let disposeBag = DisposeBag()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "朋友圈"
-         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: KDYAsset.Discover_AlubmCamera.image, style: .plain, target: self, action: #selector(self.publishAlumbAction))
+        
+        let rightBarItem = UIBarButtonItem(image: KDYAsset.Discover_AlubmCamera.image,
+                                           style: .plain, target: nil, action: nil)
+        
+        self.navigationItem.rightBarButtonItem = rightBarItem
+        
+        rightBarItem.rx.tap
+            .subscribe(onNext: { _ in
+                self.kyPresentViewController(KDPublishViewController(), animated: true) {
+                    // 刷新tableView
+                    
+                }
+                
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
         
         // 测试数据模拟
         testDataModels()
@@ -94,14 +110,6 @@ class KDFriendAlbumViewController: UIViewController {
         self.albumDataSoruce.add(model4)
         self.albumDataSoruce.add(model5)
         self.albumDataSoruce.add(model6)
-    }
-    
-    // MARK: - Event Response 
-    func publishAlumbAction() {
-        ky_presentViewController(KDPublishViewController(), animated: true) { 
-            // 刷新tableView 
-            
-        }
     }
 }
 

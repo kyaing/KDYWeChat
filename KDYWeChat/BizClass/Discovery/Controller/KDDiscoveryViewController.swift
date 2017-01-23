@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 /// 发现界面
 final class KDDiscoveryViewController: UITableViewController {
@@ -62,13 +63,13 @@ final class KDDiscoveryViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if (indexPath as NSIndexPath).section == 0 {
-            ky_pushViewController(KDFriendAlbumViewController(), animated: true)
+            kyPushViewController(KDFriendAlbumViewController(), animated: true)
             
         } else if (indexPath as NSIndexPath).section == 1 {
-            ky_pushViewController(KDQRCodeViewController(), animated: true)
+            kyPushViewController(KDQRCodeViewController(), animated: true)
             
         } else {
-            ky_pushViewController(KDMyLiveViewController(), animated: true)
+            kyPushViewController(KDMyLiveViewController(), animated: true)
         }
     }
     

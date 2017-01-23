@@ -449,6 +449,7 @@
 		049F7A781DFE79B400F32861 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		049F7A7A1DFE79C200F32861 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		049F7A7C1DFE79C900F32861 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		04B45FB21E35AD8E00D3D632 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		14E22E969DA03B1107337C5A /* Pods-KDYWeChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KDYWeChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KDYWeChatTests/Pods-KDYWeChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18244CC91E0D5582001C8E02 /* KDNetworkingConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetworkingConfig.swift; sourceTree = "<group>"; };
 		18244CCB1E0D6114001C8E02 /* KDNetworkingRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNetworkingRequest.swift; sourceTree = "<group>"; };
@@ -523,6 +524,7 @@
 		042376FC1E0D27D900E84202 /* KDYWeChatTests */ = {
 			isa = PBXGroup;
 			children = (
+				04B45FB21E35AD8E00D3D632 /* MyPlayground.playground */,
 				042376FD1E0D27D900E84202 /* KDYWeChatTests.swift */,
 				042376FF1E0D27D900E84202 /* Info.plist */,
 			);
@@ -851,9 +853,9 @@
 		049F79221DFE758300F32861 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				049F79231DFE758300F32861 /* Alumb */,
 				049F79271DFE758300F32861 /* KDDiscoveryViewController.swift */,
 				049F79281DFE758300F32861 /* KDQRCodeViewController.swift */,
+				049F79231DFE758300F32861 /* Alumb */,
 				049F79291DFE758300F32861 /* Live */,
 			);
 			path = Controller;
@@ -862,8 +864,8 @@
 		049F79231DFE758300F32861 /* Alumb */ = {
 			isa = PBXGroup;
 			children = (
-				049F79241DFE758300F32861 /* KDFriendAlbumViewControlle+Delegate.swift */,
 				049F79251DFE758300F32861 /* KDFriendAlbumViewController.swift */,
+				049F79241DFE758300F32861 /* KDFriendAlbumViewControlle+Delegate.swift */,
 				049F79261DFE758300F32861 /* KDPublishViewController.swift */,
 			);
 			path = Alumb;

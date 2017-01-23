@@ -94,10 +94,10 @@ class KDMeViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if (indexPath as NSIndexPath).section == 0 {
-            ky_pushViewController(KDPersonInfoViewController(), animated: true)
+            kyPushViewController(KDPersonInfoViewController(), animated: true)
 
         } else if (indexPath as NSIndexPath).section == 3 {
-            ky_pushViewController(KDSettingViewController(), animated: true)
+            kyPushViewController(KDSettingViewController(), animated: true)
         }
     }
 
