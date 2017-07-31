@@ -15,6 +15,7 @@ import ObjectMapper
 import Then
 import Proposer
 import CoreLocation
+import Alamofire
 
 /// 会话界面
 final class KDConversationViewController: UIViewController, EMChatManagerDelegate, CLLocationManagerDelegate {
@@ -99,15 +100,19 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         registerChatDelegate()
 
         // Moya请求网络
-        MoyaNetwork.share.reqeustWithTarget(target: .GetRank(area: "CN"), success: { response in
-            print("response = \(response)")
-
-            let list = Mapper<FilmModel>().mapArray(JSONArray: response?["result"] as! [[String : Any]])
-            print("Moya = \(list?[0].name, list?[0].wboxoffice, list?[0].tboxoffice)")
-
-        }, failure: { error in
-            print("error = \(error?.description)")
-        })
+//        MoyaNetwork.share.reqeustWithTarget(target: .GetRank(area: "CN"), success: { response in
+//            print("response = \(response)")
+//
+//            let list = Mapper<FilmModel>().mapArray(JSONArray: response?["result"] as! [[String : Any]])
+//            print("Moya = \(list?[0].name, list?[0].wboxoffice, list?[0].tboxoffice)")
+//
+//        }, failure: { error in
+//            print("error = \(error?.description)")
+//        })
+        
+        Alamofire.request("https://api.500px.com/v1/photos").responseJSON() {_ in
+            
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -258,3 +263,4 @@ final class KDConversationViewController: UIViewController, EMChatManagerDelegat
         EMClient.shared().chatManager.remove(self)
     }
 }
+
